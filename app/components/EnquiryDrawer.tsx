@@ -560,16 +560,41 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                     </Field>
 
                     <Field>
-                      <label className="flex items-start gap-3 cursor-pointer group">
+                      <label className="flex items-start gap-3 cursor-pointer group select-none">
                         <input
                           type="checkbox"
                           checked={form.newsletter}
                           onChange={(e) => update("newsletter", e.target.checked)}
-                          className="
-                            mt-0.5 w-4 h-4 shrink-0 accent-black cursor-pointer
-                            border border-black/25
-                          "
+                          className="peer sr-only"
                         />
+                        <span
+                          aria-hidden="true"
+                          className={`
+                            mt-[3px] shrink-0 w-4 h-4
+                            border flex items-center justify-center
+                            transition-[background-color,border-color] duration-150
+                            peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-black
+                            ${form.newsletter
+                              ? "bg-black border-black"
+                              : "bg-white border-black/30 group-hover:border-black/60"}
+                          `}
+                        >
+                          <svg
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={`
+                              w-[10px] h-[10px]
+                              transition-[opacity,transform] duration-150
+                              ${form.newsletter ? "opacity-100 scale-100" : "opacity-0 scale-75"}
+                            `}
+                          >
+                            <polyline points="2 6 5 9 10 3" />
+                          </svg>
+                        </span>
                         <span className="text-[13px] leading-[1.55] text-black/70 group-hover:text-black/90 transition-colors">
                           Keep me in mind for occasional studio news. Rare, considered.
                         </span>

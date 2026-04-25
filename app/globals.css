@@ -57,6 +57,13 @@ input, textarea, select {
   border-radius: 0;
   font-family: inherit;
 }
+/* Re-enable native rendering for checkboxes and radios */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+}
 input::placeholder,
 textarea::placeholder {
   color: rgba(0, 0, 0, 0.35);
