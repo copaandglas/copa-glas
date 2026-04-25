@@ -31,7 +31,7 @@ const mirrors: Mirror[] = [
     image: "/rotation-mirror.png",
     hoverImage: "/rotation-mirror-close.png",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
   },
   {
     slug: "mondrian-mirror",
@@ -43,7 +43,7 @@ const mirrors: Mirror[] = [
     hoverImage: "/mondrian-mirror-close.png",
     tagline:
       "A composition of rectilinear panes, held in a grid of hand-formed copper.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
   },
   {
     slug: "fibonacci-mirror",
@@ -55,7 +55,7 @@ const mirrors: Mirror[] = [
     hoverImage: "/fibonacci-mirror-close.png",
     tagline:
       "A spiralling study in proportion, drawn from nature's own geometry.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
   },
 ];
 

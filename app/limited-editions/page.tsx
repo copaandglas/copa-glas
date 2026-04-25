@@ -31,7 +31,7 @@ const editions: Edition[] = [
     image: "/frank-lloyd-wright-mirror.png",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
     edition: "1 of 10",
   },
   {
@@ -43,7 +43,7 @@ const editions: Edition[] = [
     image: "/mirror-thumbnail.png",
     tagline:
       "A celebratory reimagining of the Rotation, scattered, refracted colour.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
     edition: "1 of 10",
   },
 ];

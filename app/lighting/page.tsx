@@ -30,7 +30,7 @@ const lights: Light[] = [
     image: "/aura-wall-light.png",
     tagline:
       "Copper and glass, shaped to the room it lives in.",
-    leadTime: "Built to order",
+    leadTime: "Made to order",
   },
 ];
 
