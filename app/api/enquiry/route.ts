@@ -1,5 +1,17 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { addToAudience } from "@/app/lib/audience";
+
+function splitName(fullName: string): { firstName?: string; lastName?: string } {
+  const trimmed = fullName.trim();
+  if (!trimmed) return {};
+  const parts = trimmed.split(/\s+/);
+  if (parts.length === 1) return { firstName: parts[0] };
+  return {
+    firstName: parts[0],
+    lastName: parts.slice(1).join(" "),
+  };
+}
 
 interface EnquiryPayload {
   name?: string;
@@ -288,6 +300,11 @@ export async function POST(request: Request) {
     }
   } else {
     console.log("[enquiry] (email provider not configured) logged only:", enquiry);
+  }
+
+  if (enquiry.newsletter) {
+    const { firstName, lastName } = splitName(enquiry.name);
+    await addToAudience({ email: enquiry.email, firstName, lastName });
   }
 
   return NextResponse.json({ ok: true });
