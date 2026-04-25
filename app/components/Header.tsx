@@ -151,7 +151,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="
                 flex-1 flex flex-col justify-center items-center
-                gap-6 md:gap-8 font-[family-name:var(--font-playfair),Georgia,serif]
+                gap-3 md:gap-5 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[clamp(1.25rem,5vw,1.5rem)] md:text-[1.75rem] lg:text-4xl
                 px-[max(1rem,env(safe-area-inset-left))] overflow-y-auto
               "
@@ -162,7 +162,11 @@ export default function Header({ variant = "light" }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-white no-underline"
+                  className="
+                    text-white no-underline
+                    inline-flex items-center justify-center
+                    min-h-12 px-8 py-3 leading-[1.15]
+                  "
                 >
                   {item.label}
                 </Link>
