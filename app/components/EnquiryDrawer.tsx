@@ -71,10 +71,18 @@ const LABEL_OPTIONAL_CLASS = "text-black/30 normal-case tracking-normal ml-2 tex
 const INPUT_CLASS =
   "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border";
 const HELP_CLASS = "text-[11px] leading-[1.5] text-black/45 mt-2";
+const ERROR_INPUT_CLASS = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
+
+type FieldKey = "name" | "email" | "message";
+type FieldErrors = Partial<Record<FieldKey, string>>;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function EnquiryDrawer({ open, onClose, product, title }: EnquiryDrawerProps) {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -110,6 +118,8 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
       if (submitState === "sent") {
         setForm(initialState);
         setSubmitState("idle");
+        setFieldErrors({});
+        setSubmitError(null);
       }
     }, 400);
     return () => clearTimeout(t);
@@ -123,6 +133,30 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
+    if (key === "name" || key === "email" || key === "message") {
+      const errKey = key as FieldKey;
+      setFieldErrors((prev) => {
+        if (!prev[errKey]) return prev;
+        const next = { ...prev };
+        delete next[errKey];
+        return next;
+      });
+    }
+    if (submitError) setSubmitError(null);
+  };
+
+  const validate = (): FieldErrors => {
+    const errs: FieldErrors = {};
+    if (!form.name.trim()) errs.name = "Please share your name.";
+    if (!form.email.trim()) {
+      errs.email = "An email so we can reply.";
+    } else if (!EMAIL_RE.test(form.email.trim())) {
+      errs.email = "Please check the email address.";
+    }
+    if (!form.message.trim()) {
+      errs.message = "A short note — whatever's on your mind.";
+    }
+    return errs;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -134,6 +168,15 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
       return;
     }
 
+    const errs = validate();
+    setFieldErrors(errs);
+    if (Object.keys(errs).length > 0) {
+      setSubmitError(null);
+      setSubmitState("idle");
+      return;
+    }
+
+    setSubmitError(null);
     setSubmitState("sending");
     try {
       const res = await fetch("/api/enquiry", {
@@ -159,10 +202,16 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
           submittedAt: new Date().toISOString(),
         }),
       });
-      if (!res.ok) throw new Error("Request failed");
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error || "Something didn't send.");
+      }
       setSubmitState("sent");
-    } catch {
+    } catch (err) {
       setSubmitState("error");
+      setSubmitError(
+        err instanceof Error && err.message ? err.message : "Something didn't send.",
+      );
     }
   };
 
@@ -287,7 +336,7 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                       Thank you, {firstName}.
                     </h3>
                     <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.7] text-black/70 max-w-[38ch] mb-8">
-                      Your note has reached the studio. We'll be in touch
+                      Your note has reached the studio. We&rsquo;ll be in touch
                       within two working days.
                     </p>
                     <button
@@ -335,8 +384,11 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                         value={form.name}
                         onChange={(e) => update("name", e.target.value)}
                         placeholder="Your full name"
-                        className={INPUT_CLASS}
+                        aria-invalid={Boolean(fieldErrors.name)}
+                        aria-describedby={fieldErrors.name ? "enq-name-err" : undefined}
+                        className={`${INPUT_CLASS} ${fieldErrors.name ? ERROR_INPUT_CLASS : ""}`}
                       />
+                      {fieldErrors.name && <FieldErrorText id="enq-name-err">{fieldErrors.name}</FieldErrorText>}
                     </Field>
 
                     <Field>
@@ -350,8 +402,11 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                         value={form.email}
                         onChange={(e) => update("email", e.target.value)}
                         placeholder="you@example.com"
-                        className={INPUT_CLASS}
+                        aria-invalid={Boolean(fieldErrors.email)}
+                        aria-describedby={fieldErrors.email ? "enq-email-err" : undefined}
+                        className={`${INPUT_CLASS} ${fieldErrors.email ? ERROR_INPUT_CLASS : ""}`}
                       />
+                      {fieldErrors.email && <FieldErrorText id="enq-email-err">{fieldErrors.email}</FieldErrorText>}
                     </Field>
 
                     <Field>
@@ -436,16 +491,16 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                             <button
                               key={opt.id}
                               type="button"
-                              onClick={() => update("timeline", opt.id)}
+                              onClick={() => update("timeline", active ? "" : opt.id)}
                               aria-pressed={active}
                               className={`
-                                text-[12px] md:text-[12.5px] tracking-[0.04em]
-                                py-3 px-3 text-left
-                                border transition-colors duration-200
-                                cursor-pointer bg-white
+                                relative text-[12px] md:text-[12.5px] tracking-[0.04em]
+                                py-3 pl-3 pr-3 text-left
+                                border transition-[border-color,background-color,color] duration-200
+                                cursor-pointer
                                 ${active
-                                  ? "border-black bg-black text-white"
-                                  : "border-black/[0.16] text-black/75 hover:border-black/50"}
+                                  ? "border-black bg-offwhite text-black font-medium"
+                                  : "border-black/[0.14] bg-white text-black/60 hover:border-black/45 hover:text-black/85"}
                               `}
                             >
                               {opt.label}
@@ -468,10 +523,12 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                               aria-pressed={active}
                               className={`
                                 text-[11px] md:text-[12px] tracking-[0.08em]
-                                py-2.5 px-5 cursor-pointer bg-transparent
-                                transition-colors duration-200
+                                py-2.5 px-5 cursor-pointer
+                                transition-[background-color,color] duration-200
                                 ${i > 0 ? "border-l border-black/[0.12]" : ""}
-                                ${active ? "bg-black text-white" : "text-black/75 hover:text-black"}
+                                ${active
+                                  ? "bg-offwhite text-black font-medium"
+                                  : "bg-transparent text-black/55 hover:text-black"}
                               `}
                             >
                               {opt.label}
@@ -495,8 +552,11 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                             ? `Anything you'd like us to know about ${product.name} or the space it's for.`
                             : "Tell us a little about what you have in mind."
                         }
-                        className={`${INPUT_CLASS} resize-y min-h-32 leading-[1.6]`}
+                        aria-invalid={Boolean(fieldErrors.message)}
+                        aria-describedby={fieldErrors.message ? "enq-message-err" : undefined}
+                        className={`${INPUT_CLASS} resize-y min-h-32 leading-[1.6] ${fieldErrors.message ? ERROR_INPUT_CLASS : ""}`}
                       />
+                      {fieldErrors.message && <FieldErrorText id="enq-message-err">{fieldErrors.message}</FieldErrorText>}
                     </Field>
 
                     <Field>
@@ -528,13 +588,20 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                     />
 
                     {submitState === "error" && (
-                      <p className="mb-4 text-[13px] text-red-700">
-                        Something didn't send. Please try again, or email{" "}
-                        <a href="mailto:info@copaandglas.com" className="underline">
-                          info@copaandglas.com
-                        </a>
-                        .
-                      </p>
+                      <div
+                        role="alert"
+                        className="mb-5 px-4 py-3 border border-[#8a1f1f]/25 bg-[#8a1f1f]/[0.035] text-[13px] leading-[1.55] text-[#6e1818]"
+                      >
+                        {submitError || "Something didn't send. Please try again."}
+                        {" "}
+                        <span className="text-[#6e1818]/70">
+                          Or write to{" "}
+                          <a href="mailto:info@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
+                            info@copaandglas.com
+                          </a>
+                          .
+                        </span>
+                      </div>
                     )}
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 pt-3 pb-4">
@@ -588,4 +655,15 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 function Field({ children }: { children: React.ReactNode }) {
   return <div className="mb-5 md:mb-6">{children}</div>;
+}
+
+function FieldErrorText({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <p
+      id={id}
+      className="mt-2 text-[11.5px] leading-[1.5] text-[#8a1f1f] tracking-[0.005em]"
+    >
+      {children}
+    </p>
+  );
 }

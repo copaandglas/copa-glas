@@ -5,24 +5,30 @@ import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
     setStatus("sending");
+    setErrorMessage(null);
     try {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error || "Please try again.");
+      }
       setEmail("");
       setStatus("sent");
-      setTimeout(() => setStatus("idle"), 3000);
-    } catch {
-      setStatus("idle");
-      alert("Something went wrong. Please try again.");
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err instanceof Error && err.message ? err.message : "Please try again.");
     }
   };
 
@@ -43,21 +49,30 @@ export default function Footer() {
             <form
               onSubmit={handleSubscribe}
               className="flex flex-col md:flex-row gap-2.5 md:gap-0 w-full md:w-[360px] max-w-full"
+              aria-describedby={status === "error" || status === "sent" ? "footer-newsletter-msg" : undefined}
             >
               <input
                 type="email"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status === "error") {
+                    setStatus("idle");
+                    setErrorMessage(null);
+                  }
+                }}
                 placeholder="Your email address"
-                className="
+                aria-invalid={status === "error"}
+                className={`
                   dark-input flex-1 min-w-0 w-full md:w-auto
                   py-3.5 px-4 bg-transparent
-                  border border-white/20 md:border-r-0
+                  border md:border-r-0
                   text-white text-[13px] font-inherit
                   box-border transition-[border-color] duration-200
                   focus:border-white/50
-                "
+                  ${status === "error" ? "border-[#e09d9d]/60" : "border-white/20"}
+                `}
               />
               <button
                 type="submit"
@@ -67,12 +82,30 @@ export default function Footer() {
                   text-[10px] tracking-[0.15em] uppercase font-medium
                   cursor-pointer font-inherit transition-colors duration-200
                   shrink-0 w-full md:w-auto min-h-12
-                  hover:bg-white/85 disabled:opacity-60
+                  hover:bg-white/85 disabled:opacity-60 disabled:cursor-wait
                 "
               >
-                {status === "sent" ? "Subscribed!" : status === "sending" ? "..." : "Subscribe"}
+                {status === "sent"
+                  ? "Subscribed"
+                  : status === "sending"
+                    ? "Subscribing…"
+                    : "Subscribe"}
               </button>
             </form>
+            {(status === "sent" || status === "error") && (
+              <p
+                id="footer-newsletter-msg"
+                role={status === "error" ? "alert" : undefined}
+                className={`
+                  mt-3 text-[11.5px] leading-[1.55]
+                  ${status === "error" ? "text-[#e09d9d]" : "text-white/55 italic"}
+                `}
+              >
+                {status === "sent"
+                  ? "Thank you. You'll hear from us occasionally."
+                  : errorMessage}
+              </p>
+            )}
           </div>
         </div>
 
