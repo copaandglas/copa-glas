@@ -15,8 +15,6 @@ interface ProductImage {
   src: string;
   /** Use object-contain instead of object-cover */
   contain?: boolean;
-  /** Override the container aspect ratio, e.g. "16/9" */
-  aspect?: string;
 }
 
 interface ProductData {
@@ -98,7 +96,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true, aspect: "16/9" }],
+  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -227,14 +225,11 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div
-              className="
-                relative mb-3 md:mb-4 overflow-hidden
-                cursor-grab md:cursor-default touch-pan-y
-                bg-muted
-              "
-              style={{ aspectRatio: product.images[selectedImage].aspect ?? "4/5" }}
-            >
+            <motion.div className="
+              relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
+              bg-muted mb-3 md:mb-4 overflow-hidden
+              cursor-grab md:cursor-default touch-pan-y
+            ">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
