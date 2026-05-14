@@ -19,7 +19,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Copa + Glas Studio",
-  description: "Design studio based in Brooklyn focused on lighting and sculptural objects",
+  description: "East London design studio specialising in handcrafted mirrors and lighting in copper and glass. Each piece made to order.",
 };
 
 export const viewport: Viewport = {

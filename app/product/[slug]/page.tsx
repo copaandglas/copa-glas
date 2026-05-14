@@ -90,7 +90,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: ["/frank-lloyd-wright-mirror.png"],
+  images: ["/frank-lloyd-wright-mirror.png", "/frank-lloyd-wright-plate.png"],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
