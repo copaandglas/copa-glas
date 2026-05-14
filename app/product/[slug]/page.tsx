@@ -224,11 +224,13 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div className="
+            <motion.div className={`
               relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
-              bg-muted mb-3 md:mb-4 overflow-hidden
+              mb-3 md:mb-4 overflow-hidden
               cursor-grab md:cursor-default touch-pan-y
-            ">
+              transition-colors duration-500
+              ${product.images[selectedImage].contain ? "bg-black" : "bg-muted"}
+            `}>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
@@ -247,7 +249,7 @@ export default function ProductPage() {
                     alt={`${product.name}, image ${selectedImage + 1} of ${product.images.length}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className={product.images[selectedImage].contain ? "object-contain p-8 md:p-12" : "object-cover"}
+                    className={product.images[selectedImage].contain ? "object-contain" : "object-cover"}
                     priority={selectedImage === 0}
                   />
                 </motion.div>
