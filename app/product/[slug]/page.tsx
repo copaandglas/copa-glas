@@ -13,8 +13,6 @@ const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 interface ProductImage {
   src: string;
-  /** Use object-contain instead of object-cover */
-  contain?: boolean;
 }
 
 interface ProductData {
@@ -96,7 +94,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true }],
+  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -225,12 +223,11 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div className={`
-              relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
-              mb-3 md:mb-4 overflow-hidden
-              cursor-grab md:cursor-default touch-pan-y
-              ${product.images[selectedImage].contain ? "bg-black" : "bg-muted"}
-            `}>
+            <motion.div               className="
+                relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
+                bg-muted mb-3 md:mb-4 overflow-hidden
+                cursor-grab md:cursor-default touch-pan-y
+              ">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
@@ -249,7 +246,7 @@ export default function ProductPage() {
                     alt={`${product.name}, image ${selectedImage + 1} of ${product.images.length}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className={product.images[selectedImage].contain ? "object-contain" : "object-cover"}
+                    className="object-cover"
                     priority={selectedImage === 0}
                   />
                 </motion.div>
@@ -332,7 +329,7 @@ export default function ProductPage() {
                   whileHover={{ opacity: 1 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <Image src={img.src} alt={`View ${index + 1}`} width={80} height={80} className={`w-full h-full ${img.contain ? "object-contain p-1" : "object-cover"}`} />
+                  <Image src={img.src} alt={`View ${index + 1}`} width={80} height={80} className="w-full h-full object-cover" />
                 </motion.button>
               ))}
             </div>
