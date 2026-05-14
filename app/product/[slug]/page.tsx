@@ -11,6 +11,11 @@ import EnquiryDrawer from "@/app/components/EnquiryDrawer";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+interface ProductImage {
+  src: string;
+  contain?: boolean;
+}
+
 interface ProductData {
   designer: string;
   name: string;
@@ -22,7 +27,7 @@ interface ProductData {
   finish: string;
   leadTime: string;
   price: string;
-  images: string[];
+  images: ProductImage[];
   collectionCategory: { href: string; label: string };
 }
 
@@ -39,7 +44,7 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
   finish: "Copper hand-finished in the studio",
   leadTime: "Master-led and made to order",
   price: "£6,000.00",
-  images: ["/rotation-mirror.png"],
+  images: [{ src: "/rotation-mirror.png" }],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
@@ -56,7 +61,7 @@ Each pane sits within its own frame; the interplay of line and reflection reads 
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "£8,500.00",
-  images: ["/mondrian-mirror.png"],
+  images: [{ src: "/mondrian-mirror.png" }],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
@@ -73,7 +78,7 @@ Each panel catches light differently, so the composition shifts subtly as you mo
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "£5,500.00",
-  images: ["/fibonacci-mirror-mantel.png"],
+  images: [{ src: "/fibonacci-mirror-mantel.png" }],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
@@ -90,7 +95,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: ["/frank-lloyd-wright-mirror.png", "/frank-lloyd-wright-plate.png"],
+  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -107,7 +112,7 @@ The piece shown was made for a private commission: a solid copper frame with tin
   finish: "Copper hand-finished in the studio. Glass specified to commission.",
   leadTime: "Made to order",
   price: "Price on application",
-  images: ["/aura-wall-light.png"],
+  images: [{ src: "/aura-wall-light.png" }],
   collectionCategory: { href: "/lighting", label: "Lighting" },
 };
 
@@ -124,7 +129,7 @@ Assembled and finished to order in our East London workshop.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: ["/mirror-thumbnail.png"],
+  images: [{ src: "/mirror-thumbnail.png" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -238,11 +243,11 @@ export default function ProductPage() {
                   className="absolute inset-0 md:pointer-events-auto"
                 >
                   <Image
-                    src={product.images[selectedImage]}
+                    src={product.images[selectedImage].src}
                     alt={`${product.name}, image ${selectedImage + 1} of ${product.images.length}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
+                    className={product.images[selectedImage].contain ? "object-contain p-8 md:p-12" : "object-cover"}
                     priority={selectedImage === 0}
                   />
                 </motion.div>
@@ -325,7 +330,7 @@ export default function ProductPage() {
                   whileHover={{ opacity: 1 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <Image src={img} alt={`View ${index + 1}`} width={80} height={80} className="w-full h-full object-cover" />
+                  <Image src={img.src} alt={`View ${index + 1}`} width={80} height={80} className={`w-full h-full ${img.contain ? "object-contain p-1" : "object-cover"}`} />
                 </motion.button>
               ))}
             </div>
@@ -492,7 +497,7 @@ export default function ProductPage() {
         product={{
           name: product.name,
           slug,
-          image: product.images[0],
+          image: product.images[0].src,
           price: product.price,
         }}
       />
