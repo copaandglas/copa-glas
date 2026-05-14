@@ -13,7 +13,10 @@ const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 interface ProductImage {
   src: string;
+  /** Use object-contain instead of object-cover */
   contain?: boolean;
+  /** Override the container aspect ratio, e.g. "16/9" */
+  aspect?: string;
 }
 
 interface ProductData {
@@ -95,7 +98,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true }],
+  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png", contain: true, aspect: "16/9" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -224,13 +227,15 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div className={`
-              relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
-              mb-3 md:mb-4 overflow-hidden
-              cursor-grab md:cursor-default touch-pan-y
-              transition-colors duration-500
-              ${product.images[selectedImage].contain ? "bg-black" : "bg-muted"}
-            `}>
+            <motion.div
+              className={`
+                relative mb-3 md:mb-4 overflow-hidden
+                cursor-grab md:cursor-default touch-pan-y
+                transition-colors duration-500
+                ${product.images[selectedImage].contain ? "bg-black" : "bg-muted"}
+              `}
+              style={{ aspectRatio: product.images[selectedImage].aspect ?? "4/5" }}
+            >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
