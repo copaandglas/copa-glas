@@ -225,11 +225,12 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div className="
+            <motion.div className={`
               relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
-              bg-muted mb-3 md:mb-4 overflow-hidden
+              mb-3 md:mb-4 overflow-hidden
               cursor-grab md:cursor-default touch-pan-y
-            ">
+              ${product.images[selectedImage].contain ? "bg-black" : "bg-muted"}
+            `}>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
