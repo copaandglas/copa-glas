@@ -5,11 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import EnquiryDrawer from "@/app/components/EnquiryDrawer";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const [showEnquiryForm, setShowEnquiryForm] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -80,24 +78,17 @@ export default function Home() {
           <Link href="/origins" className="text-white no-underline">Origins</Link>
           <Link href="/archive" className="text-white no-underline">Archive</Link>
           <Link href="/about" className="text-white no-underline">About</Link>
-          <button
-            onClick={() => setShowEnquiryForm(true)}
+          <Link
+            href="/contact"
             className="
-              text-white bg-transparent border-none p-0 cursor-pointer text-left
-              font-[family-name:var(--font-playfair),Georgia,serif] text-inherit
+              text-white no-underline
               mt-6 sm:mt-7 lg:mt-8 xl:mt-9
             "
           >
             Enquire
-          </button>
+          </Link>
         </nav>
       </div>
-
-      <EnquiryDrawer
-        open={showEnquiryForm}
-        onClose={() => setShowEnquiryForm(false)}
-        title="Studio Enquiry"
-      />
 
       <div className="relative z-20">
         <Footer />
