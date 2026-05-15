@@ -9,42 +9,6 @@ import Footer from "@/app/components/Footer";
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 /* -------------------------------------------------------------------------- */
-/*  Data                                                                      */
-/* -------------------------------------------------------------------------- */
-
-interface CollectionPiece {
-  slug: string;
-  name: string;
-  dimension: string;
-  image: string;
-  hoverImage?: string;
-}
-
-const firstCollection: CollectionPiece[] = [
-  {
-    slug: "mondrian-mirror",
-    name: "The Mondrian",
-    dimension: "69.5 × 100.5cm",
-    image: "/mondrian-mirror.png",
-    hoverImage: "/mondrian-mirror-close.png",
-  },
-  {
-    slug: "rotation-mirror",
-    name: "The Rotation",
-    dimension: "97cm Ø",
-    image: "/rotation-mirror.png",
-    hoverImage: "/rotation-mirror-close.png",
-  },
-  {
-    slug: "fibonacci-mirror",
-    name: "The Fibonacci",
-    dimension: "65 × 90cm",
-    image: "/fibonacci-mirror-mantel.png",
-    hoverImage: "/fibonacci-mirror-close.png",
-  },
-];
-
-/* -------------------------------------------------------------------------- */
 /*  Page                                                                      */
 /* -------------------------------------------------------------------------- */
 
@@ -253,144 +217,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========== 1898 COLLECTION ========== */}
-      <section
-        className="
-          relative bg-white border-t border-accent/20
-          py-20 md:py-28 lg:py-36 3xl:py-44
-          px-[max(1.25rem,env(safe-area-inset-left))]
-          md:px-[max(2.25rem,env(safe-area-inset-left))]
-          lg:px-[max(3.5rem,env(safe-area-inset-left))]
-          3xl:px-[max(5rem,env(safe-area-inset-left))]
-        "
-      >
-        <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
-          <motion.div
-            initial={initialY(20)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-            transition={{ duration: 1.3, ease: luxuryEase }}
-            className="max-w-3xl mb-14 md:mb-20 lg:mb-24"
-          >
-            <div className="flex items-center gap-4 mb-5 md:mb-7">
-              <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
-              <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase opacity-55">
-                1898 · The First Collection
-              </span>
-            </div>
-
-            <h2
-              className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(2rem,5vw,3.25rem)]
-                leading-[1.1] -tracking-[0.005em] font-normal
-                mb-7 md:mb-9
-              "
-            >
-              A progression of copper-light glazing.
-            </h2>
-
-            <div
-              className="
-                space-y-5 md:space-y-6
-                font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-base lg:text-[17px] 3xl:text-[18px]
-                leading-[1.8] opacity-[0.75] max-w-[58ch]
-              "
-            >
-              <p>
-                Our first collection, <em className="italic">1898</em>,
-                gathers a series of bespoke industrial copper mirrors: The
-                Mondrian, The Luxfer, The Rotation, and the most recent
-                addition, The Fibonacci. Each is a progression of the
-                copper-light glazing technique whose roots reach back more
-                than a century.
-              </p>
-              <p>
-                Every mirror is composed of hand-cut panes set within a
-                framework of pure, solid copper. The result is multifaceted,
-                deliberate, made one pane at a time.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Mirror grid */}
-          <div
-            className="
-              grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-              gap-x-5 sm:gap-x-5 md:gap-x-6 lg:gap-x-8 3xl:gap-x-10
-              gap-y-10 sm:gap-y-10 md:gap-y-12 lg:gap-y-14
-            "
-          >
-            {firstCollection.map((piece, i) => (
-              <motion.div
-                key={piece.slug}
-                initial={initialY(24)}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-5% 0px -5% 0px" }}
-                transition={{
-                  duration: 1.1,
-                  delay: Math.min(i * 0.08, 0.24),
-                  ease: luxuryEase,
-                }}
-              >
-                <Link
-                  href={`/product/${piece.slug}`}
-                  className="group block text-inherit no-underline"
-                  aria-label={`View ${piece.name}`}
-                >
-                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
-                    <Image
-                      src={piece.image}
-                      alt={piece.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className={`
-                        object-cover will-change-[transform,opacity]
-                        transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-                        group-hover:scale-[1.03] group-hover:duration-[1500ms]
-                        ${piece.hoverImage ? "sm:group-hover:opacity-0" : ""}
-                      `}
-                    />
-                    {piece.hoverImage && (
-                      <Image
-                        src={piece.hoverImage}
-                        alt=""
-                        aria-hidden
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="
-                          hidden sm:block object-cover will-change-[transform,opacity]
-                          opacity-0
-                          transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-                          group-hover:opacity-100 group-hover:scale-[1.03] group-hover:duration-[1500ms]
-                          pointer-events-none
-                        "
-                      />
-                    )}
-                  </div>
-
-                  <div className="pt-4 sm:pt-4 md:pt-5 lg:pt-6 flex items-baseline justify-between gap-3">
-                    <h3
-                      className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
-                        text-[1.25rem] md:text-[1.25rem] lg:text-[1.375rem] 3xl:text-[1.5rem]
-                        font-normal leading-[1.2] tracking-[0.01em]
-                      "
-                    >
-                      {piece.name}
-                    </h3>
-                    <span className="text-[11px] md:text-[12px] tracking-[0.08em] uppercase opacity-55 shrink-0">
-                      {piece.dimension}
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ========== THE TECHNIQUE ========== */}
       <EditorialSection
         eyebrow="The Technique"
@@ -398,14 +224,16 @@ export default function AboutPage() {
         prefersReducedMotion={!!prefersReducedMotion}
       >
         <p>
-          The technique is precise but flexible. Scale, shape, and composition
-          can be adapted to suit a particular space, an architect&apos;s brief,
-          or a private commission.
+          Every piece is composed of hand-cut panes set within a framework of
+          pure, solid copper. Multifaceted, deliberate, made one pane at a
+          time.
         </p>
         <p>
-          Mirrors can be made to order, in small batches, or as singular
-          pieces. Each one carries the same hand, the same materials, and the
-          same intention.
+          The technique is precise but flexible. Scale, shape, and composition
+          can be adapted to suit a particular space, an architect&apos;s brief,
+          or a private commission. Pieces can be made to order, in small
+          batches, or as singular works, each carrying the same hand, the same
+          materials, and the same intention.
         </p>
       </EditorialSection>
 
