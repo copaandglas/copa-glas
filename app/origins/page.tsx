@@ -31,7 +31,7 @@ const chapters: TimelineChapter[] = [
     body:
       "In 1897, the Luxfer Prism Company introduced a new approach to architectural glazing. Decorative, multi-paned fireproof windows held together using slim copper sections: a technique as precise as it was beautiful. For the first time, buildings could be designed around the controlled movement of light through structured glass.",
     plateLetter: "A",
-    plateCaption: "Double doors — image to follow",
+    plateCaption: "DOUBLE DOORS · IMAGE TO FOLLOW",
     align: "right",
   },
   {
@@ -43,7 +43,7 @@ const chapters: TimelineChapter[] = [
     body:
       "Luxfer's manufacturing process was protected by patent in the same year as the company's founding. The method, copper sections holding individual glass panes in precise geometric formations, was both technically innovative and visually refined. It became the foundation upon which an entire tradition of architectural glazing would be built.",
     plateLetter: "B",
-    plateCaption: "Technical process — image to follow",
+    plateCaption: "TECHNICAL PROCESS · IMAGE TO FOLLOW",
     align: "left",
   },
   {
@@ -55,7 +55,7 @@ const chapters: TimelineChapter[] = [
     body:
       "The Luxfer technique spread with remarkable speed. From Shanghai to ocean liners crossing the Atlantic, architects and designers specified this glazing method for its structural elegance and its capacity to transform how light moved through built space. A technique born in one workshop became the language of a global architectural movement.",
     plateLetter: "C",
-    plateCaption: "Shanghai and ship — image to follow",
+    plateCaption: "SHANGHAI AND SHIP · IMAGE TO FOLLOW",
     align: "right",
   },
   {
@@ -67,7 +67,7 @@ const chapters: TimelineChapter[] = [
     body:
       "Frank Lloyd Wright saw something in the Luxfer technique that others had not. He understood the copper-section glazing method as an architectural language in its own right, developing entirely new geometric compositions and introducing art glass as a chromatic element. His Prairie Style windows, most notably at the Cheney House, Oak Park, 1903, remain among the most significant examples of the technique ever realised. What had been structural became sublime.",
     plateLetter: "D",
-    plateCaption: "Art glass composition — image to follow",
+    plateCaption: "ART GLASS COMPOSITION · IMAGE TO FOLLOW",
     align: "left",
   },
 ];
@@ -195,22 +195,17 @@ export default function OriginsPage() {
             </motion.p>
           </div>
 
-          {/* Scroll cue */}
+          {/* Scroll cue (no text, decorative only) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6, ease: luxuryEase }}
             className="
               relative z-10 max-w-[1400px] 3xl:max-w-[1680px] w-full mx-auto
-              flex items-end justify-between gap-6 mt-16 md:mt-20
+              flex items-end justify-end mt-16 md:mt-20
             "
+            aria-hidden
           >
-            <div className="flex items-center gap-3 md:gap-4">
-              <span className="block h-px w-8 md:w-12 bg-white/30" />
-              <span className="text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-white/45">
-                Scroll · Five Chapters
-              </span>
-            </div>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{
@@ -219,7 +214,6 @@ export default function OriginsPage() {
                 repeat: Infinity,
               }}
               className="hidden md:block w-px h-12 bg-gradient-to-b from-white/40 to-transparent"
-              aria-hidden
             />
           </motion.div>
         </div>
@@ -227,7 +221,7 @@ export default function OriginsPage() {
 
       {/* ========== TIMELINE TRACK ========== */}
       <section ref={trackRef} className="relative bg-white">
-        {/* Sticky rail — desktop only */}
+        {/* Sticky rail, desktop only */}
         <div
           aria-hidden
           className="
@@ -262,7 +256,6 @@ export default function OriginsPage() {
             <ChapterBlock
               key={chapter.id}
               chapter={chapter}
-              index={index}
               isLast={index === chapters.length - 1}
             />
           ))}
@@ -294,7 +287,7 @@ export default function OriginsPage() {
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
                 src="/mondrian-mirror.png"
-                alt="The Mondrian Mirror — a contemporary expression of the Luxfer copper-section technique"
+                alt="Studio piece, Mondrian Mirror"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -303,13 +296,13 @@ export default function OriginsPage() {
               <div
                 className="
                   absolute bottom-4 left-4 md:bottom-6 md:left-6
-                  text-[10px] tracking-[0.18em] uppercase
+                  text-[10px] tracking-[0.22em] uppercase
                   text-white/95 px-2.5 py-1
                   bg-white/[0.12] backdrop-blur-xl
                   border border-white/25
                 "
               >
-                Studio piece — Mondrian Mirror
+                STUDIO PIECE · MONDRIAN MIRROR
               </div>
             </div>
           </motion.div>
@@ -325,7 +318,7 @@ export default function OriginsPage() {
             <div className="flex items-center gap-4 mb-5 md:mb-6">
               <span className="block h-px w-10 md:w-14 bg-black/35" />
               <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase opacity-60">
-                2024 · The Lineage Continues
+                2024 The Lineage Continues
               </p>
             </div>
 
@@ -421,11 +414,9 @@ export default function OriginsPage() {
 
 function ChapterBlock({
   chapter,
-  index,
   isLast,
 }: {
   chapter: TimelineChapter;
-  index: number;
   isLast: boolean;
 }) {
   const blockRef = useRef<HTMLElement>(null);
@@ -466,7 +457,6 @@ function ChapterBlock({
           <ImagePlate
             letter={chapter.plateLetter}
             caption={chapter.plateCaption}
-            index={index}
           />
         </motion.div>
       </motion.div>
@@ -536,11 +526,9 @@ function ChapterBlock({
 function ImagePlate({
   letter,
   caption,
-  index,
 }: {
   letter: string;
   caption: string;
-  index: number;
 }) {
   return (
     <figure
@@ -550,7 +538,7 @@ function ImagePlate({
         overflow-hidden select-none
       "
     >
-      {/* Subtle copper grid pattern — echoes Luxfer copper sections */}
+      {/* Subtle copper grid pattern, echoes Luxfer copper sections */}
       <div
         aria-hidden
         className="
@@ -570,23 +558,19 @@ function ImagePlate({
         "
       />
 
-      {/* Plate label — top-left */}
-      <div
+      {/* Letter identifier (top-left) */}
+      <span
         className="
           absolute top-5 left-5 md:top-7 md:left-7
-          flex items-center gap-3
-          text-[10px] md:text-[11px] tracking-[0.22em] uppercase
-          opacity-60
+          font-[family-name:var(--font-playfair),Georgia,serif]
+          text-[14px] md:text-[15px] tracking-[0.04em] opacity-70
         "
+        aria-hidden
       >
-        <span>Plate</span>
-        <span className="block h-px w-6 bg-black/35" />
-        <span className="tabular-nums">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
+        {letter}
+      </span>
 
-      {/* Large letter — editorial monogram */}
+      {/* Large letter watermark (centre) */}
       <span
         className="
           absolute inset-0 flex items-center justify-center
@@ -599,19 +583,14 @@ function ImagePlate({
         {letter}
       </span>
 
-      {/* Caption — bottom-left */}
+      {/* PDF-style caption (bottom-left) */}
       <figcaption
         className="
           absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7
-          flex items-center gap-3
-          text-[10px] md:text-[11px] tracking-[0.18em] uppercase
-          opacity-60
+          text-[10px] md:text-[11px] tracking-[0.22em] opacity-60
         "
       >
-        <span className="block h-px w-6 bg-black/35" />
-        <span className="italic normal-case tracking-[0.04em] opacity-90">
-          {caption}
-        </span>
+        {caption}
       </figcaption>
     </figure>
   );
