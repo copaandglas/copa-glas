@@ -123,9 +123,33 @@ export default function OriginsPage() {
           aria-hidden
           className="
             absolute inset-0
-            bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.04),transparent_70%)]
+            bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,255,255,0.05),transparent_60%)]
             pointer-events-none
           "
+        />
+
+        {/* Distant copper warmth, top-right */}
+        <div
+          aria-hidden
+          className="
+            absolute inset-0
+            bg-[radial-gradient(circle_at_85%_-10%,rgba(139,69,19,0.10),transparent_45%)]
+            pointer-events-none
+          "
+        />
+
+        {/* Film grain (SVG noise, blended over the hero) */}
+        <div
+          aria-hidden
+          className="
+            absolute inset-0 pointer-events-none
+            opacity-[0.10] mix-blend-overlay
+          "
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+            backgroundSize: "240px 240px",
+          }}
         />
 
         {/* Hero content */}
@@ -204,40 +228,21 @@ export default function OriginsPage() {
               visionaries.
             </motion.p>
 
-            {/* Quiet scroll line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.7, ease: luxuryEase }}
-              className="mt-auto pt-16 md:pt-20 lg:pt-24"
-              aria-hidden
-            >
-              <motion.span
-                animate={
-                  prefersReducedMotion
-                    ? undefined
-                    : { scaleY: [0.4, 1, 0.4], opacity: [0.35, 0.85, 0.35] }
-                }
-                transition={
-                  prefersReducedMotion
-                    ? undefined
-                    : { duration: 3.2, ease: "easeInOut", repeat: Infinity }
-                }
-                style={{ transformOrigin: "top" }}
-                className="block w-px h-14 bg-white/40"
-              />
-            </motion.div>
           </div>
         </div>
 
-        {/* Soft gradient fade into the timeline */}
+        {/* Long, soft fade into the timeline (multi-stop, no banding) */}
         <div
           aria-hidden
           className="
-            absolute inset-x-0 bottom-0 h-32 md:h-40
-            bg-gradient-to-b from-transparent to-white
+            absolute inset-x-0 bottom-0
+            h-64 md:h-80 lg:h-96
             pointer-events-none
           "
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.32) 80%, rgba(255,255,255,0.7) 92%, rgba(255,255,255,1) 100%)",
+          }}
         />
       </section>
 
