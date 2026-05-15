@@ -77,11 +77,25 @@ export default function AboutPage() {
               font-[family-name:var(--font-playfair),Georgia,serif]
               text-[clamp(2.5rem,8vw,5.75rem)]
               leading-[1.02] -tracking-[0.012em] font-normal
-              max-w-[18ch] mb-10 md:mb-12 lg:mb-16
+              max-w-[18ch] mb-8 md:mb-10
             "
           >
             Inspired by <em className="italic">craftsmanship.</em>
           </motion.h1>
+
+          {/* One-line anchor */}
+          <motion.p
+            initial={initialY(12)}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.28, ease: luxuryEase }}
+            className="
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[15px] md:text-[17px] lg:text-[19px]
+              leading-[1.6] opacity-[0.6] italic
+            "
+          >
+            An East London studio. Copper, glass, made by hand.
+          </motion.p>
 
         </div>
       </section>
