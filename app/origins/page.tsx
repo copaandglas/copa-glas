@@ -348,13 +348,13 @@ export default function OriginsPage() {
                 className="
                   font-[family-name:var(--font-playfair),Georgia,serif]
                   text-[clamp(3.5rem,8vw,6rem)]
-                  leading-none tracking-[-0.01em] font-normal opacity-95
+                  leading-none tracking-[-0.01em] font-normal text-accent
                 "
               >
                 2024
               </span>
               <span aria-hidden className="block h-px flex-1 max-w-14 bg-black/25" />
-              <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase opacity-55">
+              <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-accent">
                 The Lineage Continues
               </span>
             </div>
@@ -492,7 +492,7 @@ function ChapterBlock({
         {/* Eyebrow */}
         <div className="flex items-center gap-4 mb-5 md:mb-7">
           <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
-          <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase opacity-55">
+          <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-accent">
             {chapter.eyebrow}
           </span>
         </div>
@@ -504,7 +504,7 @@ function ChapterBlock({
             text-[clamp(3.5rem,9vw,7rem)]
             leading-[0.92] -tracking-[0.015em] font-normal
             mb-6 md:mb-8 lg:mb-10
-            opacity-95
+            text-accent
           "
         >
           {chapter.yearDisplay}
