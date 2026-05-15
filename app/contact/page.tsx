@@ -3,14 +3,14 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 /* -------------------------------------------------------------------------- */
-/*  Form types                                                                 */
+/*  Types & data                                                              */
 /* -------------------------------------------------------------------------- */
 
 type Timeline = "within-month" | "1-3-months" | "later-year" | "exploring";
@@ -48,20 +48,29 @@ const TIMELINE_OPTIONS: { id: Timeline; label: string }[] = [
 ];
 
 const ENQUIRY_TYPES: { id: EnquiryType; label: string; hint: string }[] = [
-  { id: "general", label: "General", hint: "A question about the studio or a piece" },
+  { id: "general",    label: "General",    hint: "A question about the studio or a piece" },
   { id: "commission", label: "Commission", hint: "A bespoke or made-to-order piece" },
-  { id: "trade", label: "Trade", hint: "Architects, designers, specifiers" },
-  { id: "pr", label: "Press & PR", hint: "Editorial, features, press requests" },
+  { id: "trade",      label: "Trade",      hint: "Architects, designers, specifiers" },
+  { id: "pr",         label: "Press & PR", hint: "Editorial, features, press requests" },
 ];
+
+const MESSAGE_PLACEHOLDER: Record<EnquiryType, string> = {
+  general:    "Tell us a little about what you have in mind.",
+  commission: "Tell us about the piece, the space, and anything you have in mind.",
+  trade:      "Tell us about your practice and the project.",
+  pr:         "Tell us about the publication, feature, or request.",
+};
 
 type FieldKey = "name" | "email" | "message";
 type FieldErrors = Partial<Record<FieldKey, string>>;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const LABEL = "block text-[10px] tracking-[0.18em] uppercase font-medium mb-2.5 text-black/70";
+const GRAIN_SVG = "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")";
+
+/* Field style constants */
+const LABEL    = "block text-[10px] tracking-[0.18em] uppercase font-medium mb-2.5 text-black/70";
 const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
-const INPUT =
-  "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
+const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
 /* -------------------------------------------------------------------------- */
@@ -76,17 +85,13 @@ export default function ContactPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
-  const initial = (y: number) =>
+  const anim = (y: number) =>
     prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y };
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
     if (key === "name" || key === "email" || key === "message") {
-      setFieldErrors((prev) => {
-        const next = { ...prev };
-        delete next[key as FieldKey];
-        return next;
-      });
+      setFieldErrors((prev) => { const n = { ...prev }; delete n[key as FieldKey]; return n; });
     }
     if (submitError) setSubmitError(null);
   };
@@ -94,11 +99,8 @@ export default function ContactPage() {
   const validate = (): FieldErrors => {
     const errs: FieldErrors = {};
     if (!form.name.trim()) errs.name = "Please share your name.";
-    if (!form.email.trim()) {
-      errs.email = "An email so we can reply.";
-    } else if (!EMAIL_RE.test(form.email.trim())) {
-      errs.email = "Please check the email address.";
-    }
+    if (!form.email.trim()) errs.email = "An email so we can reply.";
+    else if (!EMAIL_RE.test(form.email.trim())) errs.email = "Please check the email address.";
     if (!form.message.trim()) errs.message = "A short note — whatever's on your mind.";
     return errs;
   };
@@ -117,18 +119,15 @@ export default function ContactPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
+          name: form.name.trim(), email: form.email.trim(),
           telephone: form.telephone.trim() || null,
           location: form.location.trim() || null,
           timeline: form.timeline || null,
           enquiryType: form.enquiryType,
           message: form.message.trim(),
-          newsletter: form.newsletter,
-          product: null,
+          newsletter: form.newsletter, product: null,
           source: typeof window !== "undefined"
-            ? { url: window.location.href, path: window.location.pathname }
-            : null,
+            ? { url: window.location.href, path: window.location.pathname } : null,
           submittedAt: new Date().toISOString(),
         }),
       });
@@ -149,12 +148,11 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white text-dark">
       <Header variant="dark" />
 
-      {/* ========== HERO ========== */}
       <section
         className="
           bg-white
           pt-28 md:pt-36 lg:pt-44 3xl:pt-48
-          pb-14 md:pb-20 lg:pb-28
+          pb-20 md:pb-28 lg:pb-36
           px-[max(1.25rem,env(safe-area-inset-left))]
           md:px-[max(2.25rem,env(safe-area-inset-left))]
           lg:px-[max(3.5rem,env(safe-area-inset-left))]
@@ -162,9 +160,10 @@ export default function ContactPage() {
         "
       >
         <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
+
+          {/* Breadcrumb */}
           <motion.nav
-            initial={initial(8)}
-            animate={{ opacity: 1, y: 0 }}
+            initial={anim(8)} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: luxuryEase }}
             aria-label="Breadcrumb"
             className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-12 md:mb-16 lg:mb-24"
@@ -174,39 +173,40 @@ export default function ContactPage() {
             <span className="opacity-90">Contact</span>
           </motion.nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
-            {/* Left: heading + studio details */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+
+            {/* ===== LEFT ===== */}
             <motion.div
-              initial={initial(18)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.1, ease: luxuryEase }}
-              className="lg:col-span-5"
+              initial={anim(16)} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.3, delay: 0.08, ease: luxuryEase }}
+              className="lg:col-span-5 flex flex-col gap-10 md:gap-12"
             >
-              <div className="flex items-center gap-4 mb-6 md:mb-8">
-                <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
-                <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase opacity-60">The Studio</p>
+              {/* Heading */}
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
+                  <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase opacity-55">The Studio</p>
+                </div>
+                <h1
+                  className="
+                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    text-[clamp(2.5rem,6vw,4.5rem)]
+                    leading-[1.02] -tracking-[0.012em] font-normal
+                  "
+                >
+                  Get in <em className="italic">touch.</em>
+                </h1>
               </div>
 
-              <h1
-                className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
-                  text-[clamp(2.5rem,6vw,4.5rem)]
-                  leading-[1.02] -tracking-[0.012em] font-normal
-                  mb-10 md:mb-12 lg:mb-14
-                "
-              >
-                Get in <em className="italic">touch.</em>
-              </h1>
-
-              {/* Contact details */}
-              <div className="space-y-8 md:space-y-10">
+              {/* Email + Studio (horizontal on sm+) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8">
                 <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-45 mb-3">Email</p>
+                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-40 mb-3">Email</p>
                   <a
                     href="mailto:info@copaandglas.com"
                     className="
                       font-[family-name:var(--font-playfair),Georgia,serif]
-                      text-[17px] md:text-[19px] text-inherit no-underline
+                      text-[16px] md:text-[17px] text-inherit no-underline
                       border-b border-black/20 pb-0.5
                       hover:border-black/70 transition-colors duration-500
                     "
@@ -214,352 +214,293 @@ export default function ContactPage() {
                     info@copaandglas.com
                   </a>
                 </div>
-
                 <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-45 mb-3">Studio</p>
-                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[17px] md:text-[19px] opacity-80 leading-[1.6]">
+                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-40 mb-3">Studio</p>
+                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[16px] md:text-[17px] opacity-80 leading-[1.6]">
                     East London<br />England
                   </p>
                 </div>
+              </div>
 
-                <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-45 mb-3">Response</p>
-                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base opacity-60 leading-[1.7] max-w-[32ch]">
-                    We reply to every enquiry personally, typically within two working days.
-                  </p>
-                </div>
+              {/* Response note */}
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14px] md:text-[15px] opacity-50 leading-[1.7] italic max-w-[36ch]">
+                We reply to every enquiry personally, typically within two working days.
+              </p>
 
-                {/* Founders image */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
-                  <Image
-                    src="/founders.png"
-                    alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover object-top"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none"
-                    style={{
-                      backgroundImage:
-                        "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
-                      backgroundSize: "240px 240px",
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-45 mb-4">Follow</p>
-                  <div className="flex gap-5">
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                      className="text-black/50 hover:text-black transition-colors duration-300"
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                      </svg>
-                    </a>
-                    <a
-                      href="https://pinterest.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Pinterest"
-                      className="text-black/50 hover:text-black transition-colors duration-300"
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.52.76 1.52 1.68 0 1.02-.66 2.56-.98 3.98-.28 1.18.58 2.14 1.74 2.14 2.1 0 3.7-2.2 3.7-5.38 0-2.82-2.02-4.78-4.92-4.78-3.36 0-5.32 2.5-5.32 5.1 0 1.02.38 2.1.88 2.7.1.12.1.22.08.32l-.34 1.36c-.04.18-.16.22-.36.14-1.36-.64-2.2-2.62-2.2-4.22 0-3.44 2.5-6.6 7.2-6.6 3.78 0 6.72 2.7 6.72 6.28 0 3.76-2.36 6.78-5.66 6.78-1.1 0-2.14-.58-2.5-1.26l-.68 2.58c-.24.94-.9 2.12-1.34 2.84A12 12 0 1 0 12 0z" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+              {/* Founders image */}
+              <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+                <Image
+                  src="/founders.png"
+                  alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover object-top"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none"
+                  style={{ backgroundImage: GRAIN_SVG, backgroundSize: "240px 240px" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
 
-            {/* Right: form */}
+            {/* ===== RIGHT — FORM ===== */}
             <motion.div
-              initial={initial(20)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.2, ease: luxuryEase }}
+              initial={anim(20)} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.3, delay: 0.18, ease: luxuryEase }}
               className="lg:col-span-6 lg:col-start-7"
             >
-              {submitState === "sent" ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.9, ease: luxuryEase }}
-                  className="pt-4 md:pt-8"
-                >
-                  <p className="text-[10px] tracking-[0.28em] uppercase text-accent mb-4">Received</p>
-                  <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6">
-                    Thank you, {firstName}.
-                  </h2>
-                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-70 max-w-[42ch] mb-10">
-                    Your note has reached the studio. We&rsquo;ll be in touch personally within two working days.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => { setForm(initialState); setSubmitState("idle"); setFieldErrors({}); }}
-                    className="
-                      text-[10px] tracking-[0.22em] uppercase
-                      bg-transparent border-none cursor-pointer
-                      border-b border-black/40 pb-0.5 text-black
-                      hover:border-black transition-colors duration-300
-                    "
+              <AnimatePresence mode="wait">
+                {submitState === "sent" ? (
+                  <motion.div
+                    key="sent"
+                    initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                    transition={{ duration: 0.9, ease: luxuryEase }}
+                    className="pt-2"
                   >
-                    Send another
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="pt-4 md:pt-8">
-
-                  {/* Enquiry type */}
-                  <FormField>
-                    <span className={LABEL}>Type of enquiry</span>
-                    <div className="grid grid-cols-2 gap-2.5">
-                      {ENQUIRY_TYPES.map((type) => {
-                        const active = form.enquiryType === type.id;
-                        return (
-                          <button
-                            key={type.id}
-                            type="button"
-                            onClick={() => update("enquiryType", type.id)}
-                            aria-pressed={active}
-                            className={`
-                              text-left px-3.5 py-3.5 border
-                              transition-[border-color,background-color] duration-300
-                              cursor-pointer
-                              ${active
-                                ? "border-black bg-offwhite"
-                                : "border-black/[0.14] bg-white hover:border-black/40"}
-                            `}
-                          >
-                            <span className={`block text-[12px] tracking-[0.04em] mb-1 ${active ? "text-black" : "text-black/70"}`}>
-                              {type.label}
-                            </span>
-                            <span className="block text-[10px] leading-[1.4] text-black/40">
-                              {type.hint}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </FormField>
-
-                  {/* Name */}
-                  <FormField>
-                    <label htmlFor="c-name" className={LABEL}>Name</label>
-                    <input
-                      ref={firstFieldRef}
-                      id="c-name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      value={form.name}
-                      onChange={(e) => update("name", e.target.value)}
-                      placeholder="Your full name"
-                      aria-invalid={Boolean(fieldErrors.name)}
-                      className={`${INPUT} ${fieldErrors.name ? INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.name && <FieldErr>{fieldErrors.name}</FieldErr>}
-                  </FormField>
-
-                  {/* Email */}
-                  <FormField>
-                    <label htmlFor="c-email" className={LABEL}>Email</label>
-                    <input
-                      id="c-email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      value={form.email}
-                      onChange={(e) => update("email", e.target.value)}
-                      placeholder="you@example.com"
-                      aria-invalid={Boolean(fieldErrors.email)}
-                      className={`${INPUT} ${fieldErrors.email ? INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.email && <FieldErr>{fieldErrors.email}</FieldErr>}
-                  </FormField>
-
-                  {/* Telephone + Location — side by side on md+ */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-4 mb-5 md:mb-6">
-                    <div>
-                      <label htmlFor="c-tel" className={LABEL}>
-                        Telephone <span className={OPTIONAL}>optional</span>
-                      </label>
-                      <input
-                        id="c-tel"
-                        type="tel"
-                        autoComplete="tel"
-                        value={form.telephone}
-                        onChange={(e) => update("telephone", e.target.value)}
-                        placeholder="Including country code"
-                        className={INPUT}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="c-location" className={LABEL}>
-                        Location <span className={OPTIONAL}>optional</span>
-                      </label>
-                      <input
-                        id="c-location"
-                        type="text"
-                        autoComplete="address-level2"
-                        value={form.location}
-                        onChange={(e) => update("location", e.target.value)}
-                        placeholder="City, Country"
-                        className={INPUT}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Timeline (only for commission) */}
-                  {form.enquiryType === "commission" && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.5, ease: luxuryEase }}
-                    >
-                      <FormField>
-                        <span className={LABEL}>Timeline <span className={OPTIONAL}>optional</span></span>
-                        <div className="grid grid-cols-2 gap-2.5">
-                          {TIMELINE_OPTIONS.map((opt) => {
-                            const active = form.timeline === opt.id;
-                            return (
-                              <button
-                                key={opt.id}
-                                type="button"
-                                onClick={() => update("timeline", active ? "" : opt.id)}
-                                aria-pressed={active}
-                                className={`
-                                  text-[12px] tracking-[0.04em]
-                                  py-3 px-3.5 text-left border
-                                  transition-[border-color,background-color] duration-200
-                                  cursor-pointer
-                                  ${active
-                                    ? "border-black bg-offwhite text-black"
-                                    : "border-black/[0.14] bg-white text-black/60 hover:border-black/40"}
-                                `}
-                              >
-                                {opt.label}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </FormField>
-                    </motion.div>
-                  )}
-
-                  {/* Message */}
-                  <FormField>
-                    <label htmlFor="c-message" className={LABEL}>Message</label>
-                    <textarea
-                      id="c-message"
-                      required
-                      rows={6}
-                      value={form.message}
-                      onChange={(e) => update("message", e.target.value)}
-                      placeholder={
-                        form.enquiryType === "commission"
-                          ? "Tell us about the piece, the space, and anything you have in mind."
-                          : form.enquiryType === "trade"
-                          ? "Tell us about your practice and the project."
-                          : form.enquiryType === "pr"
-                          ? "Tell us about the publication, feature, or request."
-                          : "Tell us a little about what you have in mind."
-                      }
-                      aria-invalid={Boolean(fieldErrors.message)}
-                      className={`${INPUT} resize-y min-h-36 leading-[1.6] ${fieldErrors.message ? INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.message && <FieldErr>{fieldErrors.message}</FieldErr>}
-                  </FormField>
-
-                  {/* Newsletter */}
-                  <FormField>
-                    <label className="flex items-start gap-3 cursor-pointer group select-none">
-                      <input
-                        type="checkbox"
-                        checked={form.newsletter}
-                        onChange={(e) => update("newsletter", e.target.checked)}
-                        className="peer sr-only"
-                      />
-                      <span
-                        aria-hidden
-                        className={`
-                          mt-[3px] shrink-0 w-4 h-4 border
-                          flex items-center justify-center
-                          transition-[background-color,border-color] duration-150
-                          peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-black
-                          ${form.newsletter ? "bg-black border-black" : "bg-white border-black/30 group-hover:border-black/60"}
-                        `}
-                      >
-                        <svg viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                          className={`w-[10px] h-[10px] transition-[opacity,transform] duration-150 ${form.newsletter ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
-                        >
-                          <polyline points="2 6 5 9 10 3" />
-                        </svg>
-                      </span>
-                      <span className="text-[13px] leading-[1.55] text-black/65 group-hover:text-black/85 transition-colors">
-                        Keep me in mind for occasional studio news. Rare, considered.
-                      </span>
-                    </label>
-                  </FormField>
-
-                  {/* Honeypot */}
-                  <input
-                    type="text"
-                    name="website"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={form.website}
-                    onChange={(e) => update("website", e.target.value)}
-                    className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
-                    aria-hidden
-                  />
-
-                  {submitState === "error" && (
-                    <div role="alert" className="mb-5 px-4 py-3 border border-[#8a1f1f]/25 bg-[#8a1f1f]/[0.035] text-[13px] leading-[1.55] text-[#6e1818]">
-                      {submitError || "Something didn't send. Please try again."}
-                      {" "}
-                      <a href="mailto:info@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
-                        Write to us directly.
-                      </a>
-                    </div>
-                  )}
-
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 pt-2">
-                    <button
-                      type="submit"
-                      disabled={submitState === "sending"}
-                      className="
-                        inline-flex items-center justify-center gap-2.5
-                        py-4 px-8 bg-dark text-white border-none
-                        text-[11px] tracking-[0.22em] uppercase
-                        cursor-pointer disabled:opacity-65 disabled:cursor-wait
-                        transition-colors duration-500 hover:bg-black
-                        self-start
-                      "
-                    >
-                      {submitState === "sending" ? "Sending…" : "Send to the studio"}
-                      {submitState !== "sending" && (
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                          <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                      )}
-                    </button>
-                    <p className="text-[11px] leading-[1.5] text-black/40">
-                      Two working days, typically.
+                    <p className="text-[10px] tracking-[0.28em] uppercase text-accent mb-5">Received</p>
+                    <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6">
+                      Thank you, {firstName}.
+                    </h2>
+                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-65 max-w-[42ch] mb-10">
+                      Your note has reached the studio. We&rsquo;ll be in touch personally within two working days.
                     </p>
-                  </div>
-                </form>
-              )}
+                    <button
+                      type="button"
+                      onClick={() => { setForm(initialState); setSubmitState("idle"); setFieldErrors({}); setSubmitError(null); }}
+                      className="text-[10px] tracking-[0.22em] uppercase bg-transparent border-none cursor-pointer border-b border-black/40 pb-0.5 text-black hover:border-black transition-colors duration-300"
+                    >
+                      Send another
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit} noValidate
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: luxuryEase }}
+                    className="pt-2"
+                  >
+                    {/* Enquiry type — larger tiles, clear visual weight */}
+                    <FormField>
+                      <span className={LABEL}>Type of enquiry</span>
+                      <div className="grid grid-cols-2 gap-2.5">
+                        {ENQUIRY_TYPES.map((type) => {
+                          const active = form.enquiryType === type.id;
+                          return (
+                            <button
+                              key={type.id}
+                              type="button"
+                              onClick={() => update("enquiryType", type.id)}
+                              aria-pressed={active}
+                              className={`
+                                text-left px-4 py-4 border
+                                transition-[border-color,background-color] duration-300
+                                cursor-pointer
+                                ${active
+                                  ? "border-black bg-offwhite"
+                                  : "border-black/[0.14] bg-white hover:border-black/35 hover:bg-faint"}
+                              `}
+                            >
+                              <span className={`block text-[13px] md:text-[14px] tracking-[0.02em] mb-1.5 ${active ? "text-black" : "text-black/75"}`}>
+                                {type.label}
+                              </span>
+                              <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/40">
+                                {type.hint}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </FormField>
+
+                    {/* Divider */}
+                    <div className="border-t border-black/[0.06] my-6 md:my-8" />
+
+                    {/* Name */}
+                    <FormField>
+                      <label htmlFor="c-name" className={LABEL}>Name</label>
+                      <input
+                        ref={firstFieldRef}
+                        id="c-name" type="text" required autoComplete="name"
+                        value={form.name} onChange={(e) => update("name", e.target.value)}
+                        placeholder="Your full name"
+                        aria-invalid={Boolean(fieldErrors.name)}
+                        className={`${INPUT} ${fieldErrors.name ? INPUT_ERR : ""}`}
+                      />
+                      {fieldErrors.name && <FieldErr>{fieldErrors.name}</FieldErr>}
+                    </FormField>
+
+                    {/* Email */}
+                    <FormField>
+                      <label htmlFor="c-email" className={LABEL}>Email</label>
+                      <input
+                        id="c-email" type="email" required autoComplete="email"
+                        value={form.email} onChange={(e) => update("email", e.target.value)}
+                        placeholder="you@example.com"
+                        aria-invalid={Boolean(fieldErrors.email)}
+                        className={`${INPUT} ${fieldErrors.email ? INPUT_ERR : ""}`}
+                      />
+                      {fieldErrors.email && <FieldErr>{fieldErrors.email}</FieldErr>}
+                    </FormField>
+
+                    {/* Telephone + Location */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4 mb-5 md:mb-6">
+                      <div>
+                        <label htmlFor="c-tel" className={LABEL}>
+                          Telephone <span className={OPTIONAL}>optional</span>
+                        </label>
+                        <input
+                          id="c-tel" type="tel" autoComplete="tel"
+                          value={form.telephone} onChange={(e) => update("telephone", e.target.value)}
+                          placeholder="Including country code"
+                          className={INPUT}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="c-location" className={LABEL}>
+                          Location <span className={OPTIONAL}>optional</span>
+                        </label>
+                        <input
+                          id="c-location" type="text" autoComplete="address-level2"
+                          value={form.location} onChange={(e) => update("location", e.target.value)}
+                          placeholder="City, Country"
+                          className={INPUT}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Timeline — commission only, guarded for reduced-motion */}
+                    <AnimatePresence>
+                      {form.enquiryType === "commission" && (
+                        <motion.div
+                          initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
+                          transition={{ duration: 0.45, ease: luxuryEase }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <FormField>
+                            <span className={LABEL}>Timeline <span className={OPTIONAL}>optional</span></span>
+                            <div className="grid grid-cols-2 gap-2.5">
+                              {TIMELINE_OPTIONS.map((opt) => {
+                                const active = form.timeline === opt.id;
+                                return (
+                                  <button
+                                    key={opt.id}
+                                    type="button"
+                                    onClick={() => update("timeline", active ? "" : opt.id)}
+                                    aria-pressed={active}
+                                    className={`
+                                      text-[13px] md:text-[14px] tracking-[0.02em]
+                                      py-3.5 px-4 text-left border
+                                      transition-[border-color,background-color] duration-200 cursor-pointer
+                                      ${active
+                                        ? "border-black bg-offwhite text-black"
+                                        : "border-black/[0.14] bg-white text-black/60 hover:border-black/35 hover:bg-faint"}
+                                    `}
+                                  >
+                                    {opt.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </FormField>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Message */}
+                    <FormField>
+                      <label htmlFor="c-message" className={LABEL}>Message</label>
+                      <textarea
+                        id="c-message" required rows={6}
+                        value={form.message} onChange={(e) => update("message", e.target.value)}
+                        placeholder={MESSAGE_PLACEHOLDER[form.enquiryType]}
+                        aria-invalid={Boolean(fieldErrors.message)}
+                        className={`${INPUT} resize-y min-h-[10rem] leading-[1.65] ${fieldErrors.message ? INPUT_ERR : ""}`}
+                      />
+                      {fieldErrors.message && <FieldErr>{fieldErrors.message}</FieldErr>}
+                    </FormField>
+
+                    {/* Newsletter */}
+                    <FormField>
+                      <label className="flex items-start gap-3 cursor-pointer group select-none">
+                        <input
+                          type="checkbox" checked={form.newsletter}
+                          onChange={(e) => update("newsletter", e.target.checked)}
+                          className="peer sr-only"
+                        />
+                        <span
+                          aria-hidden
+                          className={`
+                            mt-[3px] shrink-0 w-4 h-4 border flex items-center justify-center
+                            transition-[background-color,border-color] duration-150
+                            peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-black
+                            ${form.newsletter ? "bg-black border-black" : "bg-white border-black/30 group-hover:border-black/60"}
+                          `}
+                        >
+                          <svg viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                            className={`w-[10px] h-[10px] transition-[opacity,transform] duration-150 ${form.newsletter ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
+                          >
+                            <polyline points="2 6 5 9 10 3" />
+                          </svg>
+                        </span>
+                        <span className="text-[13px] leading-[1.55] text-black/60 group-hover:text-black/85 transition-colors">
+                          Keep me in mind for occasional studio news. Rare, considered.
+                        </span>
+                      </label>
+                    </FormField>
+
+                    {/* Honeypot */}
+                    <input
+                      type="text" name="website" tabIndex={-1} autoComplete="off"
+                      value={form.website} onChange={(e) => update("website", e.target.value)}
+                      className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
+                      aria-hidden
+                    />
+
+                    {/* Error */}
+                    {submitState === "error" && (
+                      <div role="alert" className="mb-6 px-4 py-3.5 border border-[#8a1f1f]/25 bg-[#8a1f1f]/[0.035] text-[13px] leading-[1.55] text-[#6e1818]">
+                        {submitError || "Something didn't send. Please try again."}
+                        {" "}
+                        <a href="mailto:info@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
+                          Write to us directly.
+                        </a>
+                      </div>
+                    )}
+
+                    {/* CTA */}
+                    <div className="pt-6 border-t border-black/[0.06] flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                      <button
+                        type="submit"
+                        disabled={submitState === "sending"}
+                        className="
+                          inline-flex items-center justify-center gap-2.5
+                          py-4 px-8 bg-dark text-white border-none
+                          text-[11px] tracking-[0.22em] uppercase
+                          cursor-pointer disabled:opacity-65 disabled:cursor-wait
+                          transition-colors duration-500 hover:bg-black
+                          self-start
+                        "
+                      >
+                        {submitState === "sending" ? "Sending…" : "Send to the studio"}
+                        {submitState !== "sending" && (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        )}
+                      </button>
+                      <p className="text-[11px] leading-[1.5] text-black/40 italic">
+                        Two working days, typically.
+                      </p>
+                    </div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>
