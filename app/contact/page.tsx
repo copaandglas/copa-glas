@@ -13,7 +13,7 @@ const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 /* -------------------------------------------------------------------------- */
 
 type Timeline = "within-month" | "1-3-months" | "later-year" | "exploring";
-type EnquiryType = "general" | "commission" | "trade";
+type EnquiryType = "general" | "commission" | "trade" | "pr";
 
 interface FormState {
   enquiryType: EnquiryType;
@@ -50,6 +50,7 @@ const ENQUIRY_TYPES: { id: EnquiryType; label: string; hint: string }[] = [
   { id: "general", label: "General", hint: "A question about the studio or a piece" },
   { id: "commission", label: "Commission", hint: "A bespoke or made-to-order piece" },
   { id: "trade", label: "Trade", hint: "Architects, designers, specifiers" },
+  { id: "pr", label: "Press & PR", hint: "Editorial, features, press requests" },
 ];
 
 type FieldKey = "name" | "email" | "message";
@@ -299,7 +300,7 @@ export default function ContactPage() {
                   {/* Enquiry type */}
                   <FormField>
                     <span className={LABEL}>Type of enquiry</span>
-                    <div className="grid grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-2 gap-2.5">
                       {ENQUIRY_TYPES.map((type) => {
                         const active = form.enquiryType === type.id;
                         return (
@@ -448,6 +449,8 @@ export default function ContactPage() {
                           ? "Tell us about the piece, the space, and anything you have in mind."
                           : form.enquiryType === "trade"
                           ? "Tell us about your practice and the project."
+                          : form.enquiryType === "pr"
+                          ? "Tell us about the publication, feature, or request."
                           : "Tell us a little about what you have in mind."
                       }
                       aria-invalid={Boolean(fieldErrors.message)}
