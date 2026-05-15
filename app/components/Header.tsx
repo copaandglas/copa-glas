@@ -28,7 +28,7 @@ const BAR_CLASS = `
 `;
 
 const LOGO_IMG_CLASS = `
-  h-10 md:h-11 lg:h-13 3xl:h-14 w-auto
+  h-12 md:h-14 lg:h-16 3xl:h-18 w-auto
   max-w-full object-contain select-none
 `;
 
