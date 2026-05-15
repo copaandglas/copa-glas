@@ -21,6 +21,7 @@ interface EnquiryPayload {
   location?: string | null;
   intendedSpace?: string | null;
   timeline?: string | null;
+  enquiryType?: string | null;
   contactMethod?: "email" | "phone" | "either";
   newsletter?: boolean;
   product?: { name?: string; slug?: string | null } | string | null;
@@ -74,6 +75,13 @@ const ENQUIRY_TO = process.env.ENQUIRY_TO_EMAIL ?? "info@copaandglas.com";
 const ENQUIRY_FROM =
   process.env.ENQUIRY_FROM_EMAIL ?? "Copa + Glas <enquiries@copaandglas.com>";
 
+const ENQUIRY_TYPE_LABELS: Record<string, string> = {
+  general:    "General",
+  commission: "Commission",
+  trade:      "Trade",
+  pr:         "Press & PR",
+};
+
 interface NormalisedEnquiry {
   name: string;
   email: string;
@@ -82,6 +90,7 @@ interface NormalisedEnquiry {
   location: string | null;
   intendedSpace: string | null;
   timeline: string | null;
+  enquiryType: string | null;
   contactMethod: "email" | "phone" | "either";
   newsletter: boolean;
   product: { name: string; slug: string | null } | null;
@@ -93,6 +102,7 @@ interface NormalisedEnquiry {
 
 function renderPlainText(e: NormalisedEnquiry): string {
   const rows: [string, string | null][] = [
+    ["Enquiry type", e.enquiryType ? ENQUIRY_TYPE_LABELS[e.enquiryType] ?? e.enquiryType : null],
     ["Name", e.name],
     ["Email", e.email],
     ["Telephone", e.telephone],
@@ -142,6 +152,7 @@ function renderHtml(e: NormalisedEnquiry): string {
       : "";
 
   const rowsHtml = [
+    row("Enquiry type", e.enquiryType ? ENQUIRY_TYPE_LABELS[e.enquiryType] ?? e.enquiryType : null),
     row("Name", e.name),
     row("Email", e.email),
     row("Telephone", e.telephone),
@@ -255,6 +266,7 @@ export async function POST(request: Request) {
     location: body.location?.toString().trim() || null,
     intendedSpace: body.intendedSpace?.toString().trim() || null,
     timeline: body.timeline || null,
+    enquiryType: body.enquiryType?.toString().trim() || null,
     contactMethod: body.contactMethod ?? "either",
     newsletter: Boolean(body.newsletter),
     product: productName
