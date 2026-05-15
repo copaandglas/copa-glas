@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
-  variant?: "light" | "dark" | "transparent-dark";
+  variant?: "light" | "dark";
 }
 
 const BAR_CLASS = `
@@ -63,7 +63,6 @@ export default function Header({ variant = "light" }: HeaderProps) {
   }, [menuOpen]);
 
   const isLight = variant === "light";
-  const isTransparentDark = variant === "transparent-dark";
 
   return (
     <>
@@ -71,7 +70,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
         className={`
           fixed top-0 inset-x-0 z-[9999] ${BAR_CLASS}
           transition-colors duration-500
-          ${isLight || isTransparentDark
+          ${isLight
             ? "bg-transparent"
             : "bg-white/95 backdrop-blur-sm border-b border-black/[0.06]"}
         `}
