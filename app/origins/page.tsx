@@ -287,7 +287,7 @@ export default function OriginsPage() {
       {/* ========== PRESENT DAY (2024) ========== */}
       <section
         id="present"
-        className="relative bg-offwhite border-t border-black/[0.06]"
+        className="relative bg-white border-t border-accent/25"
       >
         <div
           className="
