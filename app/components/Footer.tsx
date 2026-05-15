@@ -156,8 +156,7 @@ export default function Footer() {
             <p className="footer-heading">Visit &amp; Contact</p>
             <p className="text-white/55 text-[13px] md:text-sm leading-[1.8] mb-4">
               Copa + Glas Studio<br />
-              East London<br />
-              United Kingdom
+              East London
             </p>
             <a
               href="mailto:info@copaandglas.com"
