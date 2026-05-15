@@ -147,13 +147,23 @@ export default function AboutPage() {
           >
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
-                src="/heroimage.png"
+                src="/founders.png"
                 alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
+              {/* Film grain overlay */}
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+                  backgroundSize: "240px 240px",
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               <div
                 className="
                   absolute bottom-4 left-4 md:bottom-6 md:left-6
