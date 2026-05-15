@@ -83,21 +83,6 @@ export default function AboutPage() {
             Inspired by <em className="italic">craftsmanship.</em>
           </motion.h1>
 
-          {/* Lead paragraph */}
-          <motion.p
-            initial={initialY(14)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.3, delay: 0.28, ease: luxuryEase }}
-            className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[15px] md:text-[17px] lg:text-[19px] 3xl:text-xl
-              leading-[1.7] opacity-[0.75] max-w-[58ch]
-            "
-          >
-            Copa + Glas is an East London design studio working in copper and
-            glass. Every piece is designed and made by hand, drawn from a
-            tradition of architectural glazing more than a century old.
-          </motion.p>
         </div>
       </section>
 
