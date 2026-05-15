@@ -148,7 +148,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
                 src="/heroimage.png"
-                alt="Anthony McCarty at work in the East London studio"
+                alt="Anthony McCarty and Bradley Lloyd, Copa + Glas founders"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   border border-white/25
                 "
               >
-                IN THE STUDIO · EAST LONDON
+                ANTHONY MCCARTY & BRADLEY LLOYD · EAST LONDON
               </div>
             </div>
           </motion.div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
             <div className="flex items-center gap-4 mb-5 md:mb-7">
               <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
               <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase opacity-55">
-                Anthony McCarty
+                The Founders
               </span>
             </div>
 
