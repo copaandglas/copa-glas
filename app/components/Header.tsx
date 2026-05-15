@@ -28,13 +28,13 @@ const BAR_CLASS = `
 `;
 
 const LOGO_IMG_CLASS = `
-  h-6 md:h-7 lg:h-9 3xl:h-10 w-auto
+  h-8 md:h-9 lg:h-11 3xl:h-12 w-auto
   max-w-full object-contain select-none
 `;
 
 const LOGO_LINK_CLASS = `
   inline-flex items-center min-h-11 -my-2.5 py-2.5
-  shrink min-w-0 max-w-[min(60vw,320px)]
+  shrink-0
 `;
 
 const NAV_TEXT_CLASS = `
@@ -75,10 +75,10 @@ export default function Header({ variant = "light" }: HeaderProps) {
       >
         <Link href="/" aria-label="Copa + Glas home" className={LOGO_LINK_CLASS}>
           <Image
-            src="/copaglaslogo-tight.png"
+            src="/copa-monogram-white.png"
             alt="Copa + Glas"
-            width={382}
-            height={62}
+            width={120}
+            height={120}
             priority
             className={`${LOGO_IMG_CLASS} ${isLight ? "" : "invert"}`}
           />
@@ -124,10 +124,10 @@ export default function Header({ variant = "light" }: HeaderProps) {
                 className={LOGO_LINK_CLASS}
               >
                 <Image
-                  src="/copaglaslogo-tight.png"
+                  src="/copa-monogram-white.png"
                   alt="Copa + Glas"
-                  width={382}
-                  height={62}
+                  width={120}
+                  height={120}
                   className={LOGO_IMG_CLASS}
                 />
               </Link>
