@@ -29,7 +29,7 @@ const chapters: TimelineChapter[] = [
     eyebrow: "The Beginning",
     title: "Luxfer Prism Company formed",
     body:
-      "In 1897, the Luxfer Prism Company introduced a new approach to architectural glazing. Decorative, multi-paned fireproof windows held together using slim copper sections — a technique as precise as it was beautiful. For the first time, buildings could be designed around the controlled movement of light through structured glass.",
+      "In 1897, the Luxfer Prism Company introduced a new approach to architectural glazing. Decorative, multi-paned fireproof windows held together using slim copper sections: a technique as precise as it was beautiful. For the first time, buildings could be designed around the controlled movement of light through structured glass.",
     plateLetter: "A",
     plateCaption: "Double doors — image to follow",
     align: "right",
@@ -41,7 +41,7 @@ const chapters: TimelineChapter[] = [
     eyebrow: "The Process",
     title: "A patented manufacturing process",
     body:
-      "Luxfer's manufacturing process was protected by patent in the same year as the company's founding. The method — copper sections holding individual glass panes in precise geometric formations — was both technically innovative and visually refined. It became the foundation upon which an entire tradition of architectural glazing would be built.",
+      "Luxfer's manufacturing process was protected by patent in the same year as the company's founding. The method, copper sections holding individual glass panes in precise geometric formations, was both technically innovative and visually refined. It became the foundation upon which an entire tradition of architectural glazing would be built.",
     plateLetter: "B",
     plateCaption: "Technical process — image to follow",
     align: "left",
@@ -189,7 +189,7 @@ export default function OriginsPage() {
             >
               The glazing tradition behind Copa + Glas did not begin in our
               East London studio. It began in 1897, in the workshops of a
-              company that changed how buildings related to light — a
+              company that changed how buildings related to light, a
               technique later transformed by one of architecture&apos;s great
               visionaries.
             </motion.p>
