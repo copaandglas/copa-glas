@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
@@ -226,6 +227,26 @@ export default function ContactPage() {
                   <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base opacity-60 leading-[1.7] max-w-[32ch]">
                     We reply to every enquiry personally, typically within two working days.
                   </p>
+                </div>
+
+                {/* Founders image */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
+                  <Image
+                    src="/founders.png"
+                    alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover object-top"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+                      backgroundSize: "240px 240px",
+                    }}
+                  />
                 </div>
 
                 <div>
