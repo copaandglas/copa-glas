@@ -253,7 +253,7 @@ export default function OriginsPage() {
             <div className="relative h-[60vh] w-px bg-black/10 overflow-hidden">
               <motion.div
                 style={{ scaleY: railScaleY, originY: 0 }}
-                className="absolute inset-0 bg-black/60"
+                className="absolute inset-0 bg-accent"
               />
             </div>
           </div>

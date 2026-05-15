@@ -78,12 +78,12 @@ export default function Header({ variant = "light" }: HeaderProps) {
       >
         <Link href="/" aria-label="Copa + Glas home" className={LOGO_LINK_CLASS}>
           <Image
-            src={isLight ? "/copa-monogram-white.png" : "/copa-monogram-black.png"}
+            src="/copa-monogram-white.png"
             alt="Copa + Glas"
             width={120}
             height={120}
             priority
-            className={LOGO_IMG_CLASS}
+            className={`${LOGO_IMG_CLASS} transition-[filter] duration-500 ${isLight ? "" : "invert"}`}
           />
         </Link>
 
