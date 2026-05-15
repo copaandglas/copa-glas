@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "transparent-dark";
 }
 
 const BAR_CLASS = `
@@ -63,25 +63,27 @@ export default function Header({ variant = "light" }: HeaderProps) {
   }, [menuOpen]);
 
   const isLight = variant === "light";
+  const isTransparentDark = variant === "transparent-dark";
 
   return (
     <>
       <header
         className={`
           fixed top-0 inset-x-0 z-[9999] ${BAR_CLASS}
-          ${isLight
+          transition-colors duration-500
+          ${isLight || isTransparentDark
             ? "bg-transparent"
             : "bg-white/95 backdrop-blur-sm border-b border-black/[0.06]"}
         `}
       >
         <Link href="/" aria-label="Copa + Glas home" className={LOGO_LINK_CLASS}>
           <Image
-            src="/copa-monogram-white.png"
+            src={isLight ? "/copa-monogram-white.png" : "/copa-monogram-black.png"}
             alt="Copa + Glas"
             width={120}
             height={120}
             priority
-            className={`${LOGO_IMG_CLASS} ${isLight ? "" : "invert"}`}
+            className={LOGO_IMG_CLASS}
           />
         </Link>
 

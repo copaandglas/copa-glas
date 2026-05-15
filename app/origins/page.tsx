@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -74,18 +74,35 @@ const chapters: TimelineChapter[] = [
 
 export default function OriginsPage() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const [headerVariant, setHeaderVariant] = useState<"light" | "transparent-dark">("light");
+
   const { scrollYProgress } = useScroll({
     target: trackRef,
     offset: ["start start", "end end"],
   });
   const railScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHeaderVariant(entry.isIntersecting ? "light" : "transparent-dark");
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-dark">
-      <Header variant="light" />
+      <Header variant={headerVariant} />
 
       {/* ========== HERO ========== */}
       <section
+        ref={heroRef}
         className="
           relative w-full bg-dark text-white overflow-hidden
           min-h-[100svh] flex flex-col
