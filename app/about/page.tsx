@@ -163,18 +163,7 @@ export default function AboutPage() {
                   backgroundSize: "240px 240px",
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-              <div
-                className="
-                  absolute bottom-4 left-4 md:bottom-6 md:left-6
-                  text-[10px] tracking-[0.22em]
-                  text-white/95 px-2.5 py-1
-                  bg-white/[0.12] backdrop-blur-xl
-                  border border-white/25
-                "
-              >
-                ANTHONY MCCARTY & BRADLEY MCWHINNEY · EAST LONDON
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
 
