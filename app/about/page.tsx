@@ -108,8 +108,8 @@ export default function AboutPage() {
         prefersReducedMotion={!!prefersReducedMotion}
       >
         <p>
-          Copa + Glas was founded in 2021 by craftsman Anthony McCarty and
-          designer Bradley Lloyd. What began as a workshop conversation has
+          Copa + Glas was founded in 2021 by Master Craftsman Anthony McCarty and
+          designer Bradley Mcwhinney. What began as a workshop conversation has
           grown into a small studio of skilled craftspeople, comfortable
           across materials, processes, and brief.
         </p>
@@ -148,7 +148,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
                 src="/heroimage.png"
-                alt="Anthony McCarty and Bradley Lloyd, Copa + Glas founders"
+                alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   border border-white/25
                 "
               >
-                ANTHONY MCCARTY & BRADLEY LLOYD · EAST LONDON
+                ANTHONY MCCARTY & BRADLEY MCWHINNEY · EAST LONDON
               </div>
             </div>
           </motion.div>
