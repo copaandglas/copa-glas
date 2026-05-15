@@ -65,7 +65,7 @@ export default function Home() {
           mb-5 sm:mb-6 lg:mb-8
         ">
           <em>Copa + Glas</em> is an East London design studio specialising
-          with handcrafted mirrors and lighting. Rooted with the traditions of
+          in handcrafted mirrors and lighting. Rooted in the traditions of
           British craft, we work with copper and glass to create pieces of
           lasting beauty and significance. Each piece is made to order.
         </p>
