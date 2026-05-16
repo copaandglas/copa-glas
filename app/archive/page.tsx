@@ -144,6 +144,7 @@ function ImageCard({
   className = "",
   sizes = "(max-width: 768px) 50vw, 33vw",
   delay = 0,
+  priority = false,
   onOpen,
 }: {
   item: ArchiveItem;
@@ -151,6 +152,7 @@ function ImageCard({
   className?: string;
   sizes?: string;
   delay?: number;
+  priority?: boolean;
   onOpen: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -165,12 +167,13 @@ function ImageCard({
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay }}
       onClick={onOpen}
     >
-      <div className={`relative overflow-hidden bg-[#d9d4cd] ${imageClassName}`}>
+      <div className={`relative overflow-hidden bg-[#d9d4cd] shimmer ${imageClassName}`}>
         <Image
           src={item.src}
           alt={item.alt}
           fill
           sizes={sizes}
+          priority={priority}
           className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
         />
 
@@ -446,6 +449,7 @@ export default function ArchivePage() {
               imageClassName="h-[38vw] max-h-[545px]"
               sizes="(max-width: 1440px) 66vw, 960px"
               delay={0}
+              priority
               onOpen={() => openLightbox(0)}
             />
             <ImageCard
@@ -454,6 +458,7 @@ export default function ArchivePage() {
               imageClassName="h-[38vw] max-h-[545px]"
               sizes="(max-width: 1440px) 33vw, 480px"
               delay={0.07}
+              priority
               onOpen={() => openLightbox(1)}
             />
           </div>
