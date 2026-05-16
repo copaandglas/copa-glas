@@ -156,24 +156,22 @@ export default function OriginsPage() {
           }}
         />
 
-        {/* Hero content */}
-        <div
-          className="
-            relative z-10 flex-1 flex flex-col
-            pt-[max(7rem,calc(6.5rem+env(safe-area-inset-top)))]
-            md:pt-[max(9rem,calc(7.5rem+env(safe-area-inset-top)))]
-            lg:pt-[max(10.5rem,calc(8.5rem+env(safe-area-inset-top)))]
-            pb-14 md:pb-18 lg:pb-24
-            px-[max(1.25rem,env(safe-area-inset-left))]
-            md:px-[max(2.25rem,env(safe-area-inset-left))]
-            lg:px-[max(3.5rem,env(safe-area-inset-left))]
-            3xl:px-[max(5rem,env(safe-area-inset-left))]
-          "
-        >
+        {/* Hero content — two columns on desktop */}
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row">
+
+          {/* Left: text */}
           <div
             className="
-              max-w-[1400px] 3xl:max-w-[1680px] w-full mx-auto
-              flex flex-col flex-1
+              flex flex-col justify-center
+              pt-[max(7rem,calc(6.5rem+env(safe-area-inset-top)))]
+              md:pt-[max(9rem,calc(7.5rem+env(safe-area-inset-top)))]
+              lg:pt-[max(10.5rem,calc(8.5rem+env(safe-area-inset-top)))]
+              pb-20 md:pb-24 lg:pb-32
+              px-[max(1.25rem,env(safe-area-inset-left))]
+              md:px-[max(2.25rem,env(safe-area-inset-left))]
+              lg:px-[max(3.5rem,env(safe-area-inset-left))]
+              3xl:px-[max(5rem,env(safe-area-inset-left))]
+              lg:w-[58%] xl:w-[55%] flex-shrink-0
             "
           >
             {/* Breadcrumb */}
@@ -185,7 +183,7 @@ export default function OriginsPage() {
               className="
                 flex flex-wrap items-center gap-y-1.5
                 text-[10px] md:text-[11px] tracking-[0.18em] uppercase
-                text-white/55 mb-14 md:mb-20 lg:mb-28
+                text-white/55 mb-14 md:mb-20 lg:mb-24
               "
             >
               <Link
@@ -198,56 +196,84 @@ export default function OriginsPage() {
               <span className="text-white/90">Origins</span>
             </motion.nav>
 
+            {/* Eyebrow */}
+            <motion.p
+              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
+              className="text-[9px] tracking-[0.24em] uppercase text-accent/70 font-medium mb-5 md:mb-6"
+            >
+              1897 — Present
+            </motion.p>
+
             {/* Headline */}
             <motion.h1
               initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.15, ease: luxuryEase }}
+              transition={{ duration: 1.3, delay: 0.2, ease: luxuryEase }}
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(2.5rem,8vw,5.75rem)]
+                text-[clamp(2.6rem,6.5vw,5.5rem)]
                 leading-[1.02] -tracking-[0.012em] font-normal
-                max-w-[18ch] mb-10 md:mb-12 lg:mb-16
+                mb-8 md:mb-10 lg:mb-12
               "
             >
-              A lineage over <em className="italic">a century</em> in the
-              making.
+              A lineage over{" "}
+              <em className="italic">a century</em>
+              <br />in the making.
             </motion.h1>
+
+            {/* Thin copper rule */}
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 1.1, delay: 0.38, ease: luxuryEase }}
+              style={{ originX: 0 }}
+              className="w-10 h-px bg-accent/50 mb-8 md:mb-10"
+            />
 
             {/* Intro paragraph */}
             <motion.p
               initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.32, ease: luxuryEase }}
+              transition={{ duration: 1.3, delay: 0.42, ease: luxuryEase }}
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-[17px] lg:text-[19px] 3xl:text-xl
-                leading-[1.7] text-white/75 max-w-[58ch]
+                text-[15px] md:text-[16px] lg:text-[17px]
+                leading-[1.75] text-white/65 max-w-[48ch]
               "
             >
               The glazing tradition behind Copa + Glas did not begin in our
               East London studio. It began in 1897, in the workshops of a
-              company that changed how buildings related to light, a
+              company that changed how buildings related to light — a
               technique later transformed by one of architecture&apos;s great
               visionaries.
             </motion.p>
-
           </div>
-        </div>
 
-        {/* Long, soft fade into the timeline (multi-stop, no banding) */}
-        <div
-          aria-hidden
-          className="
-            absolute inset-x-0 bottom-0
-            h-64 md:h-80 lg:h-96
-            pointer-events-none
-          "
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.32) 80%, rgba(255,255,255,0.7) 92%, rgba(255,255,255,1) 100%)",
-          }}
-        />
+          {/* Right: archival image — desktop only */}
+          <motion.div
+            className="hidden lg:block flex-1 relative overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
+          >
+            <Image
+              src="/frank-lloyd-wright-plate.png"
+              alt="Frank Lloyd Wright archival reference plate"
+              fill
+              priority
+              sizes="45vw"
+              className="object-cover object-center opacity-60"
+            />
+            {/* Left edge: blend into dark bg */}
+            <div className="absolute inset-y-0 left-0 w-40 xl:w-56 bg-gradient-to-r from-dark to-transparent" />
+            {/* Top edge */}
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-dark to-transparent" />
+            {/* Bottom edge */}
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark to-transparent" />
+          </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
