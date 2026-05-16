@@ -450,9 +450,9 @@ export default function OriginsPage() {
               </p>
               <p>
                 Every piece is made by hand in our East London studio using
-                the same copper-section technique first developed by Luxfer
-                in 1897. The tradition is unchanged. The materials are the
-                same. The intention to create something of lasting beauty and
+                slim solid copper-sections first used by Luxfer in 1897.
+                The tradition is unchanged. The materials are the same.
+                The intention to create something of lasting beauty and
                 significance has never wavered.
               </p>
             </div>
