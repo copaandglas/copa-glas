@@ -41,10 +41,10 @@ export default function AboutPage() {
           <span className="opacity-85">About</span>
         </motion.nav>
 
-        {/* Two-column: headline left, body right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-28 items-start">
+        {/* Two-column: text left, founders image right */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_45%] gap-12 lg:gap-16 xl:gap-20 items-start">
 
-          {/* Left: headline */}
+          {/* Left: headline + copy */}
           <div>
             <motion.p
               initial={from(8)}
@@ -63,6 +63,7 @@ export default function AboutPage() {
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[clamp(2.6rem,6vw,5rem)]
                 leading-[1.03] -tracking-[0.01em] font-normal
+                mb-8
               "
             >
               Inspired by
@@ -70,80 +71,53 @@ export default function AboutPage() {
               <em>craftsmanship.</em>
             </motion.h1>
 
-            {/* Copper rule */}
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.36, ease }}
               style={{ originX: 0 }}
-              className="w-10 h-px bg-accent/40 mt-8 mb-8"
+              className="w-10 h-px bg-black/15 mb-8"
             />
 
-            <motion.p
-              initial={from(10)}
+            <motion.div
+              initial={from(14)}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.44, ease }}
+              transition={{ duration: 1.3, delay: 0.28, ease }}
               className="
+                space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] leading-[1.7] text-black/45 italic
+                text-[15px] md:text-base lg:text-[17px]
+                leading-[1.85] text-black/60
               "
             >
-              An East London studio.<br />Copper, glass, made by hand.
-            </motion.p>
+              <p>
+                Copa + Glas was founded in 2021 by Master Craftsman Anthony McCarty
+                and designer Bradley Mcwhinney. What began as a workshop conversation
+                has grown into a small studio of skilled craftspeople, comfortable
+                across materials, processes, and brief.
+              </p>
+              <p>
+                The studio was born of a directional, sustainable, and deeply personal
+                approach to making — working with two materials above all others:
+                copper and glass.
+              </p>
+            </motion.div>
           </div>
 
-          {/* Right: studio copy */}
+          {/* Right: founders image */}
           <motion.div
-            initial={from(16)}
+            initial={from(20)}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.3, delay: 0.22, ease }}
-            className="
-              lg:pt-[4.5rem]
-              space-y-5
-              font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[15px] md:text-base lg:text-[17px]
-              leading-[1.85] text-black/65
-            "
-          >
-            <p>
-              Copa + Glas was founded in 2021 by Master Craftsman Anthony McCarty
-              and designer Bradley Mcwhinney. What began as a workshop conversation
-              has grown into a small studio of skilled craftspeople, comfortable
-              across materials, processes, and brief.
-            </p>
-            <p>
-              The studio was born of a directional, sustainable, and deeply personal
-              approach to making — working with two materials above all others:
-              copper and glass.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Founders ─────────────────────────────────── */}
-      <section
-        className="
-          border-t border-black/[0.06]
-          py-20 md:py-28 lg:py-36
-          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
-          max-w-[1440px] mx-auto
-        "
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-10 md:gap-14 lg:gap-16">
-
-          {/* Image */}
-          <motion.div
-            initial={from(24)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-8% 0px" }}
-            transition={{ duration: 1.3, ease }}
+            transition={{ duration: 1.4, delay: 0.18, ease }}
+            className="lg:sticky lg:top-28"
           >
             <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
               <Image
                 src="/founders.png"
                 alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
                 fill
-                sizes="(max-width: 1024px) 100vw, 55vw"
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
               />
               <div
@@ -157,48 +131,108 @@ export default function AboutPage() {
               />
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Text */}
+      {/* ── The People ───────────────────────────────── */}
+      <section
+        className="
+          border-t border-black/[0.06]
+          py-20 md:py-28 lg:py-36
+          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+          max-w-[1440px] mx-auto
+        "
+      >
+        <motion.p
+          initial={from(8)}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-8% 0px" }}
+          transition={{ duration: 1.1, ease }}
+          className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-12 md:mb-16"
+        >
+          The People
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
+
+          {/* Anthony */}
           <motion.div
             initial={from(18)}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
-            transition={{ duration: 1.3, delay: 0.12, ease }}
-            className="flex flex-col justify-center lg:py-8"
+            transition={{ duration: 1.3, ease }}
           >
-            <p className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-6">
-              The Founders
-            </p>
-
             <h2
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(1.9rem,3.5vw,2.75rem)]
-                leading-[1.1] -tracking-[0.005em] font-normal
-                mb-8 md:mb-10
+                text-[clamp(1.5rem,2.5vw,2rem)]
+                leading-[1.15] font-normal mb-1
               "
             >
-              A craftsman&apos;s lineage.
+              Anthony McCarty
             </h2>
-
+            <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
+              Master Craftsman
+            </p>
+            <div className="w-8 h-px bg-black/12 mb-6" />
             <div
               className="
-                space-y-5
+                space-y-4
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-base lg:text-[16px]
-                leading-[1.85] text-black/60
+                text-[15px] md:text-base leading-[1.85] text-black/58
               "
             >
               <p>
                 Anthony brings decades of practice and an extensive knowledge
                 of historical glazing techniques. His past commissions include
-                conservation work on the Elizabeth Tower at Westminster, the
+                conservation work on the Elizabeth Tower at Westminster — the
                 clock tower better known as Big Ben.
               </p>
               <p>
                 He specialises in reviving methods that have been overlooked
                 or forgotten, and in adapting them for contemporary interiors.
-                The studio&apos;s vocabulary is built on that craft.
+                The studio&apos;s craft vocabulary is built entirely on that lineage.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Bradley */}
+          <motion.div
+            initial={from(18)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-8% 0px" }}
+            transition={{ duration: 1.3, delay: 0.1, ease }}
+          >
+            <h2
+              className="
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[clamp(1.5rem,2.5vw,2rem)]
+                leading-[1.15] font-normal mb-1
+              "
+            >
+              Bradley Mcwhinney
+            </h2>
+            <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
+              Designer
+            </p>
+            <div className="w-8 h-px bg-black/12 mb-6" />
+            <div
+              className="
+                space-y-4
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[15px] md:text-base leading-[1.85] text-black/58
+              "
+            >
+              <p>
+                Bradley brings a considered design sensibility and a commitment
+                to the integrity of materials. His approach is rooted in the
+                belief that objects should have a reason to exist — and that
+                reason should be felt as well as seen.
+              </p>
+              <p>
+                Together, the two founders share a clarity of purpose: to make
+                things that are genuinely beautiful, genuinely lasting, and
+                genuinely made.
               </p>
             </div>
           </motion.div>
