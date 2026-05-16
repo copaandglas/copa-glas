@@ -219,8 +219,7 @@ export default function ArchivePage() {
             >
               A visual record of the studio. Workshop processes,
               historical commissions, and the craft language that has
-              shaped our practice since the beginning. Each image is a
-              document of making.
+              shaped our practice since the beginning.
             </p>
           </FadeIn>
         </div>
