@@ -258,13 +258,11 @@ export default function OriginsPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
           >
-            <Image
-              src="/workshop-hands.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/copa.gif"
               alt="Hands working in the Copa + Glas workshop"
-              fill
-              priority
-              sizes="45vw"
-              className="object-cover object-center opacity-60"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
             />
             {/* Left edge: blend into dark bg */}
             <div className="absolute inset-y-0 left-0 w-40 xl:w-56 bg-gradient-to-r from-dark to-transparent" />
