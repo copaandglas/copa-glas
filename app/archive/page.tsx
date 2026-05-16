@@ -85,32 +85,9 @@ const videoSide: ArchiveItem = {
   year: "2020",
 };
 
-const mobileItems: ArchiveItem[] = [
-  row1Left,
-  row1Right,
-  row2Left,
-  row2Right,
-  ...row3Items,
-  videoSide,
-  {
-    id: "flw-plate",
-    src: "/frank-lloyd-wright-plate.png",
-    alt: "Frank Lloyd Wright archive reference plate",
-    caption: "Archive Reference",
-    category: "Research / Workshop",
-    year: "2018",
-  },
-  {
-    id: "fibonacci-close",
-    src: "/fibonacci-mirror-close.png",
-    alt: "Fibonacci Mirror, copper detail",
-    caption: "Detail, Fibonacci",
-    category: "Process / Workshop",
-    year: "2023",
-  },
-];
+/* Mobile uses the same set as desktop — defined after lightboxItems below */
 
-/* Ordered list for lightbox navigation — all clickable image items */
+/* All clickable image items — used for lightbox navigation and mobile grid */
 const lightboxItems: ArchiveItem[] = [
   row1Left,
   row1Right,
@@ -119,6 +96,8 @@ const lightboxItems: ArchiveItem[] = [
   ...row3Items,
   videoSide,
 ];
+
+const mobileItems = lightboxItems;
 
 /* ─── Category label with copper slashes ─── */
 function CategoryLabel({ category, lightMode = false }: { category: string; lightMode?: boolean }) {
