@@ -258,10 +258,13 @@ export default function OriginsPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/copa.gif"
-              alt="Hands working in the Copa + Glas workshop"
+            <video
+              src="/copa.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
             />
             {/* Left edge: blend into dark bg */}
