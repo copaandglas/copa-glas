@@ -217,7 +217,7 @@ export default function ArchivePage() {
                 max-w-[310px] md:text-right md:pb-0.5
               "
             >
-              A visual record of the studio — workshop processes,
+              A visual record of the studio. Workshop processes,
               historical commissions, and the craft language that has
               shaped our practice since the beginning. Each image is a
               document of making.
@@ -325,7 +325,7 @@ export default function ArchivePage() {
                       Behind the hand
                     </p>
                     <p className="text-white/36 text-[8px] tracking-[0.1em] uppercase mt-2">
-                      A short film — workshop, 2024
+                      A short film. Workshop, 2024
                     </p>
                   </div>
                 </div>
@@ -402,7 +402,7 @@ export default function ArchivePage() {
               significance has never wavered."
             </blockquote>
             <p className="text-[8px] tracking-[0.18em] uppercase text-black/28 mt-5 font-medium">
-              — Copa + Glas
+              Copa + Glas
             </p>
           </div>
 
