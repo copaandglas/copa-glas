@@ -160,7 +160,14 @@ function ImageCard({
       </div>
       <div className="pt-[9px] pb-4">
         <p className="text-[8px] tracking-[0.18em] uppercase text-black/30 font-medium leading-[2.2]">
-          {item.category}
+          {item.category.split(" / ").map((part, i, arr) => (
+            <span key={i}>
+              {part}
+              {i < arr.length - 1 && (
+                <span className="text-accent/50"> / </span>
+              )}
+            </span>
+          ))}
         </p>
         <div className="flex items-baseline justify-between gap-2 mt-[2px]">
           <p className="text-[11px] tracking-[0.025em] text-black/55 font-[family-name:var(--font-playfair),Georgia,serif]">
@@ -191,7 +198,7 @@ export default function ArchivePage() {
         "
       >
         <p className="text-[9px] tracking-[0.22em] uppercase text-black/28 font-medium mb-9 sm:mb-11">
-          Copa + Glas / Archive
+          Copa + Glas <span className="text-accent/60">/</span> Archive
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20 lg:gap-36">
@@ -331,7 +338,7 @@ export default function ArchivePage() {
                 {/* Caption strip */}
                 <div className="pt-[9px] pb-4">
                   <p className="text-[8px] tracking-[0.18em] uppercase text-black/30 font-medium leading-[2.2]">
-                    Studio / Film
+                    Studio <span className="text-accent/50">/</span> Film
                   </p>
                 </div>
               </div>
@@ -373,7 +380,7 @@ export default function ArchivePage() {
           mx-5 sm:mx-8 md:mx-10 lg:mx-16 xl:mx-20
           max-w-[1440px] md:mx-auto
           mt-20 sm:mt-24 md:mt-32 lg:mt-40
-          border-t border-black/8
+          border-t border-accent/20
         "
       />
 
@@ -406,7 +413,7 @@ export default function ArchivePage() {
           </div>
 
           <div className="md:text-right shrink-0">
-            <p className="text-[8px] tracking-[0.2em] uppercase text-black/22 font-medium mb-3.5">
+            <p className="text-[8px] tracking-[0.2em] uppercase text-accent/50 font-medium mb-3.5">
               Related items
             </p>
             <Link
