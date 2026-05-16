@@ -9,6 +9,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
+
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -91,6 +92,9 @@ export default function OriginsPage() {
     offset: ["start start", "end end"],
   });
   const railScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  const { scrollY } = useScroll();
+  const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
 
   /* Header swap based on hero visibility */
   useEffect(() => {
@@ -244,6 +248,37 @@ export default function OriginsPage() {
               "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.32) 80%, rgba(255,255,255,0.7) 92%, rgba(255,255,255,1) 100%)",
           }}
         />
+
+        {/* Scroll indicator */}
+        <motion.div
+          aria-hidden
+          className="absolute bottom-10 md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 1.2, ease: luxuryEase }}
+          style={{ opacity: scrollIndicatorOpacity }}
+        >
+          <span className="text-[8px] tracking-[0.22em] uppercase text-white/38 font-medium">
+            Scroll
+          </span>
+          <motion.div
+            animate={prefersReducedMotion ? {} : { y: [0, 5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              className="text-white/38"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ========== TIMELINE ========== */}
