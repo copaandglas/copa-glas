@@ -201,7 +201,7 @@ export default function OriginsPage() {
               initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
-              className="text-[9px] tracking-[0.24em] uppercase text-accent/70 font-medium mb-5 md:mb-6"
+              className="text-[9px] tracking-[0.24em] uppercase text-white/40 font-medium mb-5 md:mb-6"
             >
               1897 — Present
             </motion.p>
@@ -229,7 +229,7 @@ export default function OriginsPage() {
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 1.1, delay: 0.38, ease: luxuryEase }}
               style={{ originX: 0 }}
-              className="w-10 h-px bg-accent/50 mb-8 md:mb-10"
+              className="w-10 h-px bg-white/25 mb-8 md:mb-10"
             />
 
             {/* Intro paragraph */}
