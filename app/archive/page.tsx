@@ -397,11 +397,12 @@ export default function ArchivePage() {
                 leading-[1.7] text-black/60 italic
               "
             >
-              "The material insists on patience. Copper doesn't hurry,
-              and neither should we. That discipline is the whole thing."
+              "The tradition is unchanged. The materials are the same.
+              The intention to create something of lasting beauty and
+              significance has never wavered."
             </blockquote>
             <p className="text-[8px] tracking-[0.18em] uppercase text-black/28 mt-5 font-medium">
-              — Co-founder, Copa + Glas
+              — Copa + Glas
             </p>
           </div>
 
