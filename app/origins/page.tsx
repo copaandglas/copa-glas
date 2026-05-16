@@ -259,8 +259,8 @@ export default function OriginsPage() {
             transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
           >
             <Image
-              src="/frank-lloyd-wright-plate.png"
-              alt="Frank Lloyd Wright archival reference plate"
+              src="/workshop-hands.png"
+              alt="Hands working in the Copa + Glas workshop"
               fill
               priority
               sizes="45vw"
