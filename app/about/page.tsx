@@ -214,54 +214,70 @@ export default function AboutPage() {
           max-w-[1440px] mx-auto
         "
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-10 md:gap-14 lg:gap-16">
 
-          {/* Pull quote left */}
+          {/* Video left */}
           <motion.div
-            initial={from(20)}
+            initial={from(24)}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 1.3, ease }}
           >
+            <div className="relative w-full aspect-[4/5] overflow-hidden bg-dark">
+              <video
+                src="/copa.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
+              />
+            </div>
+          </motion.div>
+
+          {/* Quote + body right */}
+          <motion.div
+            initial={from(18)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-8% 0px" }}
+            transition={{ duration: 1.3, delay: 0.12, ease }}
+            className="flex flex-col justify-center lg:py-8"
+          >
             <p className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-8">
               The Technique
             </p>
+
             <blockquote
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(1.4rem,3vw,2.1rem)]
-                leading-[1.35] font-normal italic text-black/75
+                text-[clamp(1.5rem,2.8vw,2.1rem)]
+                leading-[1.3] font-normal italic text-black/75
+                mb-8 md:mb-10
               "
             >
               Precise, but never rigid.
             </blockquote>
-          </motion.div>
 
-          {/* Body right */}
-          <motion.div
-            initial={from(16)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-8% 0px" }}
-            transition={{ duration: 1.3, delay: 0.12, ease }}
-            className="
-              lg:pt-[3.5rem]
-              space-y-5
-              font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[15px] md:text-base lg:text-[17px]
-              leading-[1.85] text-black/60
-            "
-          >
-            <p>
-              Every piece is composed of hand-cut panes set within a framework of
-              pure, solid copper. Multifaceted, deliberate, made one pane at a time.
-            </p>
-            <p>
-              The technique is precise but flexible. Scale, shape, and composition
-              can be adapted to suit a particular space, an architect&apos;s brief,
-              or a private commission. Pieces can be made to order, in small
-              batches, or as singular works, each carrying the same hand, the same
-              materials, and the same intention.
-            </p>
+            <div
+              className="
+                space-y-5
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[15px] md:text-base lg:text-[16px]
+                leading-[1.85] text-black/55
+              "
+            >
+              <p>
+                Every piece is composed of hand-cut panes set within a framework of
+                pure, solid copper. Multifaceted, deliberate, made one pane at a time.
+              </p>
+              <p>
+                The technique is precise but flexible. Scale, shape, and composition
+                can be adapted to suit a particular space, an architect&apos;s brief,
+                or a private commission — each piece carrying the same hand, the same
+                materials, and the same intention.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
