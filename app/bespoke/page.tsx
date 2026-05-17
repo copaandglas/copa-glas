@@ -476,10 +476,10 @@ export default function BespokePage() {
                 the Natural History Museum, and a glass dome in Saudi Arabia.
               </p>
               <p>
-                When you commission Copa + Glas, Anthony leads every stage of
-                the conversation, from the first sketch to the moment the work
-                leaves the studio. His knowledge is not transferable in words.
-                It is visible in the work.
+                He leads every Copa + Glas commission from the first sketch
+                through to final installation, working alongside our studio
+                team of skilled craftspeople. His knowledge is not transferable
+                in words. It is visible in the work.
               </p>
             </div>
           </motion.div>
@@ -606,7 +606,7 @@ export default function BespokePage() {
             {
               num: "03",
               title: "We make it",
-              body: "Once the brief is agreed, Anthony begins making. We share progress at the midpoint, and the work is delivered or installed on completion. Terms are confirmed in writing before any work begins.",
+              body: "Once the brief is agreed, the studio begins making under Anthony's direction. We share progress at the midpoint, and the work is delivered or installed on completion. Terms are confirmed in writing before any work begins.",
             },
           ].map((step, i) => (
             <motion.div
