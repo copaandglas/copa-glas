@@ -375,7 +375,7 @@ export default function ArchivePage() {
       >
         <nav aria-label="Breadcrumb" className="flex items-center text-[9px] tracking-[0.22em] uppercase font-medium mb-9 sm:mb-11">
           <Link href="/" className="text-black/28 hover:text-black/70 transition-opacity duration-400 no-underline">
-            Copa + Glas
+            Home
           </Link>
           <span className="text-accent/60 mx-2">/</span>
           <span className="text-black/28">Archive</span>
