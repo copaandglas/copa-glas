@@ -153,7 +153,7 @@ export default function AboutPage() {
           transition={{ duration: 1.1, ease }}
           className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-12 md:mb-16"
         >
-          The People
+          The Makers
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
