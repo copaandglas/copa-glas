@@ -113,7 +113,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
               <Image
                 src="/founders.png"
-                alt="Anthony Mccarty and Bradley Mcwhinney, Copa + Glas founders"
+                alt="Bradley Mcwhinney and Anthony Mccarty, Copa + Glas founders"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -129,6 +129,10 @@ export default function AboutPage() {
                 }}
               />
             </div>
+            <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/25 font-medium flex justify-between">
+              <span>Bradley Mcwhinney</span>
+              <span>Anthony Mccarty</span>
+            </p>
           </motion.div>
         </div>
       </section>
