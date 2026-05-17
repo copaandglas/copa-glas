@@ -175,22 +175,6 @@ export default function Header({ variant = "light" }: HeaderProps) {
               ))}
             </motion.nav>
 
-            <div className="
-              flex flex-col xs:flex-row justify-between items-start xs:items-center
-              gap-3 xs:gap-4 text-[11px] tracking-[0.1em] text-white/50
-              px-5 py-3.5 md:px-9 md:py-4 lg:px-14 3xl:px-[4.5rem]
-              pb-[max(0.875rem,env(safe-area-inset-bottom))]
-              pl-[max(1.25rem,env(safe-area-inset-left))]
-              pr-[max(1.25rem,env(safe-area-inset-right))]
-            ">
-              <span className="shrink-0">East London Studio</span>
-              <a
-                href="mailto:info@copaandglas.com"
-                className="text-white/50 no-underline break-all max-w-full"
-              >
-                info@copaandglas.com
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
