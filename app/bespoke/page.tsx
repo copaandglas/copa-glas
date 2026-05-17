@@ -654,30 +654,8 @@ export default function BespokePage() {
         </div>
       </section>
 
-      {/* ── CTA (dark, copper disc) ─────────────────────────────────── */}
+      {/* ── CTA (dark) ──────────────────────────────────────────────── */}
       <section className="relative bg-dark text-white overflow-hidden">
-        {/* Copper disc */}
-        <motion.div
-          aria-hidden
-          initial={{ opacity: 0, scale: 0.88 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-15% 0px" }}
-          transition={{ duration: 1.8, ease }}
-          className="
-            absolute left-1/2 -translate-x-1/2
-            top-[8%] md:top-[10%]
-            w-[260px] h-[260px] md:w-[340px] md:h-[340px] lg:w-[420px] lg:h-[420px]
-            rounded-full
-            pointer-events-none
-          "
-          style={{
-            background:
-              "radial-gradient(circle at 35% 30%, #c87a3f 0%, #a35a26 45%, #6e3614 100%)",
-            boxShadow:
-              "0 30px 90px -20px rgba(200,122,63,0.35), inset -20px -30px 70px rgba(0,0,0,0.45)",
-          }}
-        />
-
         {/* Subtle film grain */}
         <div
           aria-hidden
@@ -694,8 +672,7 @@ export default function BespokePage() {
             relative
             max-w-[1440px] mx-auto
             px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
-            pt-[22rem] md:pt-[26rem] lg:pt-[30rem]
-            pb-20 md:pb-28 lg:pb-32
+            py-24 md:py-32 lg:py-40
           "
         >
           {/* Headline */}
