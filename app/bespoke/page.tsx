@@ -267,17 +267,17 @@ export default function BespokePage() {
               </p>
               <p>
                 We work with interior designers, architects, and private
-                clients to design and make pieces that could not exist anywhere
+                clients to design and make work that could not exist anywhere
                 else. Each commission is led by Anthony McCarty, our Master
-                Craftsman, whose four decades of architectural glazing
+                Artisan, whose four decades of architectural glazing
                 experience means no brief is too complex and no scale too
                 ambitious.
               </p>
               <p>
                 We can work from your specification or develop a design
                 entirely from our studio. Detailed drawings and material
-                samples are available at every stage. Every piece is made to
-                order in our East London workshop.
+                samples are available at every stage. Every commission is
+                made by hand in our East London workshop.
               </p>
             </motion.div>
           </div>
@@ -477,10 +477,10 @@ export default function BespokePage() {
                 in Saudi Arabia.
               </p>
               <p>
-                When you commission a bespoke piece from Copa + Glas, Anthony
-                leads every stage of the conversation, from the first sketch to
-                the moment the piece leaves the studio. His knowledge is not
-                transferable in words. It is visible in the work.
+                When you commission Copa + Glas, Anthony leads every stage of
+                the conversation, from the first sketch to the moment the work
+                leaves the studio. His knowledge is not transferable in words.
+                It is visible in the work.
               </p>
             </div>
           </motion.div>
