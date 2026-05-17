@@ -44,9 +44,9 @@ const NAV_TEXT_CLASS = `
 const MENU_LINKS = [
   { label: "Collection", href: "/collection" },
   { label: "Bespoke", href: "/bespoke" },
+  { label: "About", href: "/about" },
   { label: "Origins", href: "/origins" },
   { label: "Archive", href: "/archive" },
-  { label: "About", href: "/about" },
   { label: "Enquire", href: "/contact" },
 ] as const;
 
