@@ -189,8 +189,8 @@ export default function AboutPage() {
                 Anthony found his calling in his early twenties. Captivated by
                 glass, its structure and demanding precision, he apprenticed
                 at a world-renowned stained glass studio in Shoreditch, East
-                London. He learned early that the material insists on respect.
-                Cut it wrong, and it draws blood.
+                London. He learned early that the material demands patience and
+                precision above all else.
               </p>
               <p>
                 Four decades later, that discipline is the foundation of
