@@ -91,7 +91,7 @@ export default function AboutPage() {
               "
             >
               <p>
-                Copa + Glas was founded in 2021 by Master Craftsman Anthony Mccarty
+                Copa + Glas was founded in 2021 by Co-founder and Master Artisan Anthony Mccarty
                 and designer Bradley Mcwhinney. What began as a workshop conversation
                 has grown into a small studio of skilled craftspeople, comfortable
                 across materials, processes, and brief.
@@ -172,7 +172,7 @@ export default function AboutPage() {
               Anthony Mccarty
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
-              Master Craftsman
+              Co-founder / Master Artisan
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
             <div
