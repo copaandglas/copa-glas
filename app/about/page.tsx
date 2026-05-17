@@ -195,7 +195,7 @@ export default function AboutPage() {
               <p>
                 Four decades later, that discipline is the foundation of
                 everything the studio makes. His past commissions include
-                conservation work on Big Ben and the Palace of Westminster.
+                conservation work on Big Ben.
               </p>
               <p>
                 He specialises in reviving techniques that have been overlooked
