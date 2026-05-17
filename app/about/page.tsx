@@ -91,8 +91,7 @@ export default function AboutPage() {
               "
             >
               <p>
-                Copa + Glas was founded in 2021 by Co-founder and Master Artisan Anthony Mccarty
-                and designer Bradley Mcwhinney. What began as a workshop conversation
+                Copa + Glas was founded in 2021 by Anthony Mccarty and Bradley Mcwhinney. What began as a workshop conversation
                 has grown into a small studio of skilled craftspeople, comfortable
                 across materials, processes, and brief.
               </p>
@@ -220,7 +219,7 @@ export default function AboutPage() {
               Bradley Mcwhinney
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
-              Designer
+              Co-founder / Managing Director
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
             <div
@@ -231,15 +230,14 @@ export default function AboutPage() {
               "
             >
               <p>
-                Bradley brings a considered design sensibility and a commitment
-                to the integrity of materials. His approach is rooted in the
-                belief that objects should have a reason to exist, and that
-                reason should be felt as well as seen.
+                Bradley oversees the direction and day-to-day running of the
+                studio. His background is in design, and that sensibility shapes
+                how Copa + Glas presents itself — the work, the commissions, and
+                the relationships it builds.
               </p>
               <p>
-                Together, the two founders share a clarity of purpose: to make
-                things that are genuinely beautiful, genuinely lasting, and
-                genuinely made.
+                He believes that the commercial and the craft should never be at
+                odds. A well-run studio makes better work.
               </p>
             </div>
           </motion.div>
