@@ -606,7 +606,7 @@ export default function BespokePage() {
             {
               num: "03",
               title: "We make it",
-              body: "Once the brief is agreed, Anthony begins making. A 50% deposit confirms the commission. We send a progress update at the midpoint. The balance is due on completion.",
+              body: "Once the brief is agreed, Anthony begins making. We share progress at the midpoint, and the work is delivered or installed on completion. Terms are confirmed in writing before any work begins.",
             },
           ].map((step, i) => (
             <motion.div
