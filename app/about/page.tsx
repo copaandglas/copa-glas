@@ -196,7 +196,7 @@ export default function AboutPage() {
                 Four decades later, that discipline is the foundation of
                 everything the studio makes. His past commissions include
                 conservation work on the Elizabeth Tower at Westminster,
-                the clock tower better known as Big Ben.
+                one of London's most iconic landmarks.
               </p>
               <p>
                 He specialises in reviving techniques that have been overlooked
