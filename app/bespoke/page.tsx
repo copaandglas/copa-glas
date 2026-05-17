@@ -59,11 +59,11 @@ type FieldKey = "name" | "email" | "message";
 type FieldErrors = Partial<Record<FieldKey, string>>;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* Dark-on-dark form styling */
-const DARK_LABEL = "block text-[10px] tracking-[0.22em] uppercase font-medium mb-2.5 text-white/55";
-const DARK_OPTIONAL = "text-white/25 normal-case tracking-normal ml-2 text-[10px] italic";
-const DARK_INPUT = "w-full py-3.5 px-4 bg-white/[0.04] border border-white/15 text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-white placeholder:text-white/30 focus:border-white/65 focus:shadow-[0_0_0_1px_rgba(255,255,255,0.45)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
-const DARK_INPUT_ERR = "border-[#d97a7a]/55 focus:border-[#d97a7a] focus:shadow-[0_0_0_1px_rgba(217,122,122,0.55)]";
+/* Light form styling */
+const LABEL    = "block text-[10px] tracking-[0.22em] uppercase font-medium mb-2.5 text-black/70";
+const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
+const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
+const INPUT_ERR = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
 /* ── Reusable placeholder for images that have not yet been shot ─────────── */
 function ImagePlaceholder({
@@ -699,7 +699,7 @@ export default function BespokePage() {
           "
         >
           {/* Headline */}
-          <div className="max-w-[640px] mx-auto text-center mb-16 md:mb-20">
+          <div className="max-w-[640px] mx-auto text-center">
             <motion.p
               initial={from(8)}
               whileInView={{ opacity: 1, y: 0 }}
@@ -744,284 +744,292 @@ export default function BespokePage() {
               what you want to make.
             </motion.p>
           </div>
+        </div>
+      </section>
 
-          {/* Form */}
-          <motion.div
-            initial={from(18)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-6% 0px" }}
-            transition={{ duration: 1.3, delay: 0.18, ease }}
-            className="max-w-[680px] mx-auto"
-          >
-            <AnimatePresence mode="wait">
-              {submitState === "sent" ? (
-                <motion.div
-                  key="sent"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.9, ease }}
-                  className="text-center py-10"
+      {/* ── Form (white) ─────────────────────────────────────────────── */}
+      <section
+        className="
+          bg-white
+          py-20 md:py-28 lg:py-32
+          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+        "
+      >
+        <motion.div
+          initial={from(18)}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-6% 0px" }}
+          transition={{ duration: 1.3, ease }}
+          className="max-w-[680px] mx-auto"
+        >
+          <AnimatePresence mode="wait">
+            {submitState === "sent" ? (
+              <motion.div
+                key="sent"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.9, ease }}
+                className="text-center py-10"
+              >
+                <p className="text-[10px] tracking-[0.28em] uppercase text-accent mb-5">Received</p>
+                <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6 text-black/90">
+                  Thank you, {firstName}.
+                </h3>
+                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/60 max-w-[42ch] mx-auto mb-10">
+                  Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setForm(initialForm);
+                    setSubmitState("idle");
+                    setFieldErrors({});
+                    setSubmitError(null);
+                  }}
+                  className="text-[10px] tracking-[0.22em] uppercase bg-transparent border-none cursor-pointer border-b border-black/40 pb-0.5 text-black hover:border-black transition-colors duration-300"
                 >
-                  <p className="text-[10px] tracking-[0.28em] uppercase text-accent/90 mb-5">Received</p>
-                  <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6 text-white/95">
-                    Thank you, {firstName}.
-                  </h3>
-                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-white/65 max-w-[42ch] mx-auto mb-10">
-                    Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within 24 hours.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setForm(initialForm);
-                      setSubmitState("idle");
-                      setFieldErrors({});
-                      setSubmitError(null);
-                    }}
-                    className="text-[10px] tracking-[0.22em] uppercase bg-transparent border-none cursor-pointer border-b border-white/40 pb-0.5 text-white hover:border-white transition-colors duration-300"
-                  >
-                    Send another
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="form"
-                  onSubmit={handleSubmit}
-                  noValidate
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease }}
-                >
-                  {/* Commission type */}
-                  <div className="mb-7 md:mb-8">
-                    <span className={DARK_LABEL}>Type of commission</span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {COMMISSION_TYPES.map((type) => {
-                        const active = form.commissionType === type.id;
-                        return (
-                          <button
-                            key={type.id}
-                            type="button"
-                            onClick={() => update("commissionType", type.id)}
-                            aria-pressed={active}
-                            className={`
-                              text-left px-4 py-4 border
-                              transition-[border-color,background-color] duration-300
-                              cursor-pointer
-                              ${active
-                                ? "border-white/85 bg-white/[0.08]"
-                                : "border-white/15 bg-white/[0.02] hover:border-white/40 hover:bg-white/[0.04]"}
-                            `}
-                          >
-                            <span className={`block text-[13px] md:text-[14px] tracking-[0.02em] mb-1.5 ${active ? "text-white" : "text-white/80"}`}>
-                              {type.label}
-                            </span>
-                            <span className="block text-[11px] md:text-[12px] leading-[1.45] text-white/40">
-                              {type.hint}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                  Send another
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                noValidate
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease }}
+              >
+                {/* Commission type */}
+                <div className="mb-7 md:mb-8">
+                  <span className={LABEL}>Type of commission</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {COMMISSION_TYPES.map((type) => {
+                      const active = form.commissionType === type.id;
+                      return (
+                        <button
+                          key={type.id}
+                          type="button"
+                          onClick={() => update("commissionType", type.id)}
+                          aria-pressed={active}
+                          className={`
+                            text-left px-4 py-4 border
+                            transition-[border-color,background-color] duration-300
+                            cursor-pointer
+                            ${active
+                              ? "border-black bg-offwhite"
+                              : "border-black/[0.14] bg-white hover:border-black/35 hover:bg-faint"}
+                          `}
+                        >
+                          <span className={`block text-[13px] md:text-[14px] tracking-[0.02em] mb-1.5 ${active ? "text-black" : "text-black/75"}`}>
+                            {type.label}
+                          </span>
+                          <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/40">
+                            {type.hint}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
+                </div>
 
-                  {/* Divider */}
-                  <div className="border-t border-white/[0.08] my-6 md:my-7" />
+                {/* Divider */}
+                <div className="border-t border-black/[0.06] my-6 md:my-7" />
 
-                  {/* Name */}
-                  <div className="mb-5">
-                    <label htmlFor="b-name" className={DARK_LABEL}>Name</label>
-                    <input
-                      id="b-name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      value={form.name}
-                      onChange={(e) => update("name", e.target.value)}
-                      placeholder="Your full name"
-                      aria-invalid={Boolean(fieldErrors.name)}
-                      className={`dark-input ${DARK_INPUT} ${fieldErrors.name ? DARK_INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.name && (
-                      <p className="mt-2 text-[12px] text-[#d97a7a]/90">{fieldErrors.name}</p>
-                    )}
-                  </div>
-
-                  {/* Email */}
-                  <div className="mb-5">
-                    <label htmlFor="b-email" className={DARK_LABEL}>Email</label>
-                    <input
-                      id="b-email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      value={form.email}
-                      onChange={(e) => update("email", e.target.value)}
-                      placeholder="you@example.com"
-                      aria-invalid={Boolean(fieldErrors.email)}
-                      className={`dark-input ${DARK_INPUT} ${fieldErrors.email ? DARK_INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.email && (
-                      <p className="mt-2 text-[12px] text-[#d97a7a]/90">{fieldErrors.email}</p>
-                    )}
-                  </div>
-
-                  {/* Telephone + Location */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4 mb-5">
-                    <div>
-                      <label htmlFor="b-tel" className={DARK_LABEL}>
-                        Telephone <span className={DARK_OPTIONAL}>optional</span>
-                      </label>
-                      <input
-                        id="b-tel"
-                        type="tel"
-                        autoComplete="tel"
-                        value={form.telephone}
-                        onChange={(e) => update("telephone", e.target.value)}
-                        placeholder="Including country code"
-                        className={`dark-input ${DARK_INPUT}`}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="b-location" className={DARK_LABEL}>
-                        Location <span className={DARK_OPTIONAL}>optional</span>
-                      </label>
-                      <input
-                        id="b-location"
-                        type="text"
-                        autoComplete="address-level2"
-                        value={form.location}
-                        onChange={(e) => update("location", e.target.value)}
-                        placeholder="City, Country"
-                        className={`dark-input ${DARK_INPUT}`}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Timeline */}
-                  <div className="mb-6">
-                    <span className={DARK_LABEL}>
-                      Timeline <span className={DARK_OPTIONAL}>optional</span>
-                    </span>
-                    <div className="grid grid-cols-2 gap-2.5">
-                      {TIMELINE_OPTIONS.map((opt) => {
-                        const active = form.timeline === opt.id;
-                        return (
-                          <button
-                            key={opt.id}
-                            type="button"
-                            onClick={() => update("timeline", active ? "" : opt.id)}
-                            aria-pressed={active}
-                            className={`
-                              text-[13px] md:text-[14px] tracking-[0.02em]
-                              py-3.5 px-4 text-left border
-                              transition-[border-color,background-color] duration-200 cursor-pointer
-                              ${active
-                                ? "border-white/85 bg-white/[0.08] text-white"
-                                : "border-white/15 bg-white/[0.02] text-white/65 hover:border-white/40 hover:bg-white/[0.04]"}
-                            `}
-                          >
-                            {opt.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Message */}
-                  <div className="mb-7">
-                    <label htmlFor="b-message" className={DARK_LABEL}>Tell us about the project</label>
-                    <textarea
-                      id="b-message"
-                      required
-                      rows={6}
-                      value={form.message}
-                      onChange={(e) => update("message", e.target.value)}
-                      placeholder={MESSAGE_PLACEHOLDER[form.commissionType]}
-                      aria-invalid={Boolean(fieldErrors.message)}
-                      className={`dark-input ${DARK_INPUT} resize-y min-h-[10rem] leading-[1.65] ${fieldErrors.message ? DARK_INPUT_ERR : ""}`}
-                    />
-                    {fieldErrors.message && (
-                      <p className="mt-2 text-[12px] text-[#d97a7a]/90">{fieldErrors.message}</p>
-                    )}
-                  </div>
-
-                  {/* Honeypot */}
+                {/* Name */}
+                <div className="mb-5">
+                  <label htmlFor="b-name" className={LABEL}>Name</label>
                   <input
+                    id="b-name"
                     type="text"
-                    name="website"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={form.website}
-                    onChange={(e) => update("website", e.target.value)}
-                    className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
-                    aria-hidden
+                    required
+                    autoComplete="name"
+                    value={form.name}
+                    onChange={(e) => update("name", e.target.value)}
+                    placeholder="Your full name"
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    className={`${INPUT} ${fieldErrors.name ? INPUT_ERR : ""}`}
                   />
+                  {fieldErrors.name && (
+                    <p className="mt-2 text-[12px] text-[#8a1f1f]">{fieldErrors.name}</p>
+                  )}
+                </div>
 
-                  {/* Error */}
-                  {submitState === "error" && (
-                    <div role="alert" className="mb-6 px-4 py-3.5 border border-[#d97a7a]/30 bg-[#d97a7a]/[0.06] text-[13px] leading-[1.55] text-[#f1c0c0]">
-                      {submitError || "Something didn't send. Please try again."}
-                      {" "}
+                {/* Email */}
+                <div className="mb-5">
+                  <label htmlFor="b-email" className={LABEL}>Email</label>
+                  <input
+                    id="b-email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
+                    placeholder="you@example.com"
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    className={`${INPUT} ${fieldErrors.email ? INPUT_ERR : ""}`}
+                  />
+                  {fieldErrors.email && (
+                    <p className="mt-2 text-[12px] text-[#8a1f1f]">{fieldErrors.email}</p>
+                  )}
+                </div>
+
+                {/* Telephone + Location */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4 mb-5">
+                  <div>
+                    <label htmlFor="b-tel" className={LABEL}>
+                      Telephone <span className={OPTIONAL}>optional</span>
+                    </label>
+                    <input
+                      id="b-tel"
+                      type="tel"
+                      autoComplete="tel"
+                      value={form.telephone}
+                      onChange={(e) => update("telephone", e.target.value)}
+                      placeholder="Including country code"
+                      className={INPUT}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="b-location" className={LABEL}>
+                      Location <span className={OPTIONAL}>optional</span>
+                    </label>
+                    <input
+                      id="b-location"
+                      type="text"
+                      autoComplete="address-level2"
+                      value={form.location}
+                      onChange={(e) => update("location", e.target.value)}
+                      placeholder="City, Country"
+                      className={INPUT}
+                    />
+                  </div>
+                </div>
+
+                {/* Timeline */}
+                <div className="mb-6">
+                  <span className={LABEL}>
+                    Timeline <span className={OPTIONAL}>optional</span>
+                  </span>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {TIMELINE_OPTIONS.map((opt) => {
+                      const active = form.timeline === opt.id;
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => update("timeline", active ? "" : opt.id)}
+                          aria-pressed={active}
+                          className={`
+                            text-[13px] md:text-[14px] tracking-[0.02em]
+                            py-3.5 px-4 text-left border
+                            transition-[border-color,background-color] duration-200 cursor-pointer
+                            ${active
+                              ? "border-black bg-offwhite text-black"
+                              : "border-black/[0.14] bg-white text-black/60 hover:border-black/35 hover:bg-faint"}
+                          `}
+                        >
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="mb-7">
+                  <label htmlFor="b-message" className={LABEL}>Tell us about the project</label>
+                  <textarea
+                    id="b-message"
+                    required
+                    rows={6}
+                    value={form.message}
+                    onChange={(e) => update("message", e.target.value)}
+                    placeholder={MESSAGE_PLACEHOLDER[form.commissionType]}
+                    aria-invalid={Boolean(fieldErrors.message)}
+                    className={`${INPUT} resize-y min-h-[10rem] leading-[1.65] ${fieldErrors.message ? INPUT_ERR : ""}`}
+                  />
+                  {fieldErrors.message && (
+                    <p className="mt-2 text-[12px] text-[#8a1f1f]">{fieldErrors.message}</p>
+                  )}
+                </div>
+
+                {/* Honeypot */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={(e) => update("website", e.target.value)}
+                  className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 w-0"
+                  aria-hidden
+                />
+
+                {/* Error */}
+                {submitState === "error" && (
+                  <div role="alert" className="mb-6 px-4 py-3.5 border border-[#8a1f1f]/25 bg-[#8a1f1f]/[0.035] text-[13px] leading-[1.55] text-[#6e1818]">
+                    {submitError || "Something didn't send. Please try again."}
+                    {" "}
+                    <a
+                      href="mailto:studio@copaglas.com"
+                      className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]"
+                    >
+                      Write to us directly.
+                    </a>
+                  </div>
+                )}
+
+                {/* CTA */}
+                <div className="pt-6 border-t border-black/[0.06] flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 sm:justify-between">
+                  <button
+                    type="submit"
+                    disabled={submitState === "sending"}
+                    className="
+                      group inline-flex items-center justify-between gap-6
+                      py-4 px-9 md:py-[1.125rem] md:px-12
+                      min-w-[18rem]
+                      text-[10px] tracking-[0.28em] uppercase
+                      text-white no-underline bg-dark border-none cursor-pointer
+                      hover:bg-dark/90 transition-colors duration-300
+                      disabled:opacity-60 disabled:cursor-not-allowed
+                    "
+                  >
+                    <span>{submitState === "sending" ? "Sending…" : "Send enquiry"}</span>
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path
+                        d="M1 5h12m0 0L9 1m4 4L9 9"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        strokeLinecap="square"
+                      />
+                    </svg>
+                  </button>
+
+                  <p className="text-[9px] tracking-[0.24em] uppercase text-black/40 font-medium leading-[1.7]">
+                    We respond within 24 hours
+                    <span className="block mt-1">
                       <a
                         href="mailto:studio@copaglas.com"
-                        className="underline decoration-[#f1c0c0]/40 underline-offset-2 hover:decoration-[#f1c0c0]"
+                        className="text-black/55 no-underline hover:text-black/85 transition-colors duration-300"
                       >
-                        Write to us directly.
+                        studio@copaglas.com
                       </a>
-                    </div>
-                  )}
-
-                  {/* CTA */}
-                  <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 sm:justify-between">
-                    <button
-                      type="submit"
-                      disabled={submitState === "sending"}
-                      className="
-                        group inline-flex items-center justify-between gap-6
-                        py-4 px-9 md:py-[1.125rem] md:px-12
-                        min-w-[18rem]
-                        text-[10px] tracking-[0.28em] uppercase
-                        text-dark no-underline bg-white border-none cursor-pointer
-                        hover:bg-white/90 transition-colors duration-300
-                        disabled:opacity-60 disabled:cursor-not-allowed
-                      "
-                    >
-                      <span>{submitState === "sending" ? "Sending…" : "Send enquiry"}</span>
-                      <svg
-                        width="14"
-                        height="10"
-                        viewBox="0 0 14 10"
-                        fill="none"
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      >
-                        <path
-                          d="M1 5h12m0 0L9 1m4 4L9 9"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          strokeLinecap="square"
-                        />
-                      </svg>
-                    </button>
-
-                    <p className="text-[9px] tracking-[0.24em] uppercase text-white/40 font-medium leading-[1.7]">
-                      We respond within 24 hours
-                      <span className="block text-white/30 mt-1">
-                        <a
-                          href="mailto:studio@copaglas.com"
-                          className="text-white/55 no-underline hover:text-white/85 transition-colors duration-300"
-                        >
-                          studio@copaglas.com
-                        </a>
-                      </span>
-                    </p>
-                  </div>
-                </motion.form>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </div>
+                    </span>
+                  </p>
+                </div>
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </section>
 
       <Footer />
