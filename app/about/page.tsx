@@ -236,7 +236,7 @@ export default function AboutPage() {
               <p>
                 Bradley oversees the direction and day-to-day running of the
                 studio. His background is in design, and that sensibility shapes
-                how Copa + Glas presents itself — the work, the commissions, and
+                how Copa + Glas presents itself: the work, the commissions, and
                 the relationships it builds.
               </p>
               <p>
