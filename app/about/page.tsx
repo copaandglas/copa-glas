@@ -195,7 +195,10 @@ export default function AboutPage() {
               <p>
                 Four decades later, that discipline is the foundation of
                 everything the studio makes. His past commissions include
-                conservation work on Big Ben.
+                conservation work on Big Ben and an extensive installation
+                at the Grade II listed Hotel Café Royal on Regent Street,
+                where over a thousand handmade copper screens were crafted
+                across four floors for the hotel&apos;s celebrated lightwell.
               </p>
               <p>
                 He specialises in reviving techniques that have been overlooked
