@@ -472,9 +472,8 @@ export default function BespokePage() {
             >
               <p>
                 Anthony McCarty has been working in architectural copper and
-                glass since 1980. His restoration commissions include the
-                Elizabeth Tower, the Natural History Museum, and a glass dome
-                in Saudi Arabia.
+                glass since 1980. His restoration commissions include Big Ben,
+                the Natural History Museum, and a glass dome in Saudi Arabia.
               </p>
               <p>
                 When you commission Copa + Glas, Anthony leads every stage of
