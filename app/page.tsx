@@ -75,9 +75,9 @@ export default function Home() {
         ">
           <Link href="/collection" className="text-white no-underline">Collection</Link>
           <Link href="/bespoke" className="text-white no-underline">Bespoke</Link>
+          <Link href="/about" className="text-white no-underline">About</Link>
           <Link href="/origins" className="text-white no-underline">Origins</Link>
           <Link href="/archive" className="text-white no-underline">Archive</Link>
-          <Link href="/about" className="text-white no-underline">About</Link>
           <Link
             href="/contact"
             className="
