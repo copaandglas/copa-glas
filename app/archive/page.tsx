@@ -373,9 +373,13 @@ export default function ArchivePage() {
           max-w-[1440px] mx-auto
         "
       >
-        <p className="text-[9px] tracking-[0.22em] uppercase text-black/28 font-medium mb-9 sm:mb-11">
-          Copa + Glas <span className="text-accent/60">/</span> Archive
-        </p>
+        <nav aria-label="Breadcrumb" className="flex items-center text-[9px] tracking-[0.22em] uppercase font-medium mb-9 sm:mb-11">
+          <Link href="/" className="text-black/28 hover:text-black/70 transition-opacity duration-400 no-underline">
+            Copa + Glas
+          </Link>
+          <span className="text-accent/60 mx-2">/</span>
+          <span className="text-black/28">Archive</span>
+        </nav>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20 lg:gap-36">
           <motion.h1
