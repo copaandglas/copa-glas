@@ -98,7 +98,7 @@ export default function AboutPage() {
               </p>
               <p>
                 The studio was born of a directional, sustainable, and deeply personal
-                approach to making — working with two materials above all others:
+                approach to making, working with two materials above all others:
                 copper and glass.
               </p>
             </motion.div>
@@ -184,7 +184,7 @@ export default function AboutPage() {
             >
               <p>
                 Anthony found his calling in his early twenties. Captivated by
-                glass — its structure, its demanding precision — he apprenticed
+                glass, its structure and demanding precision, he apprenticed
                 at a world-renowned stained glass studio in Shoreditch, East
                 London. He learned early that the material insists on respect.
                 Cut it wrong, and it draws blood.
@@ -192,8 +192,8 @@ export default function AboutPage() {
               <p>
                 Four decades later, that discipline is the foundation of
                 everything the studio makes. His past commissions include
-                conservation work on the Elizabeth Tower at Westminster — the
-                clock tower better known as Big Ben.
+                conservation work on the Elizabeth Tower at Westminster,
+                the clock tower better known as Big Ben.
               </p>
               <p>
                 He specialises in reviving techniques that have been overlooked
@@ -233,7 +233,7 @@ export default function AboutPage() {
               <p>
                 Bradley brings a considered design sensibility and a commitment
                 to the integrity of materials. His approach is rooted in the
-                belief that objects should have a reason to exist — and that
+                belief that objects should have a reason to exist, and that
                 reason should be felt as well as seen.
               </p>
               <p>
@@ -315,7 +315,7 @@ export default function AboutPage() {
               <p>
                 The technique is precise but flexible. Scale, shape, and composition
                 can be adapted to suit a particular space, an architect&apos;s brief,
-                or a private commission — each piece carrying the same hand, the same
+                or a private commission. Each piece carries the same hand, the same
                 materials, and the same intention.
               </p>
             </div>
