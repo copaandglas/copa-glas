@@ -91,7 +91,7 @@ export default function AboutPage() {
               "
             >
               <p>
-                Copa + Glas was founded in 2021 by Master Craftsman Anthony McCarty
+                Copa + Glas was founded in 2021 by Master Craftsman Anthony Mccarty
                 and designer Bradley Mcwhinney. What began as a workshop conversation
                 has grown into a small studio of skilled craftspeople, comfortable
                 across materials, processes, and brief.
@@ -114,7 +114,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
               <Image
                 src="/founders.png"
-                alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
+                alt="Anthony Mccarty and Bradley Mcwhinney, Copa + Glas founders"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -169,7 +169,7 @@ export default function AboutPage() {
                 leading-[1.15] font-normal mb-1
               "
             >
-              Anthony McCarty
+              Anthony Mccarty
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
               Master Craftsman
@@ -183,14 +183,21 @@ export default function AboutPage() {
               "
             >
               <p>
-                Anthony brings decades of practice and an extensive knowledge
-                of historical glazing techniques. His past commissions include
+                Anthony found his calling in his early twenties. Captivated by
+                glass — its structure, its demanding precision — he apprenticed
+                at a world-renowned stained glass studio in Shoreditch, East
+                London. He learned early that the material insists on respect.
+                Cut it wrong, and it draws blood.
+              </p>
+              <p>
+                Four decades later, that discipline is the foundation of
+                everything the studio makes. His past commissions include
                 conservation work on the Elizabeth Tower at Westminster — the
                 clock tower better known as Big Ben.
               </p>
               <p>
-                He specialises in reviving methods that have been overlooked
-                or forgotten, and in adapting them for contemporary interiors.
+                He specialises in reviving techniques that have been overlooked
+                or forgotten, and in bringing them forward without compromise.
                 The studio&apos;s craft vocabulary is built entirely on that lineage.
               </p>
             </div>

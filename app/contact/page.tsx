@@ -231,7 +231,7 @@ export default function ContactPage() {
               <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
                 <Image
                   src="/founders.png"
-                  alt="Anthony McCarty and Bradley Mcwhinney, Copa + Glas founders"
+                  alt="Anthony Mccarty and Bradley Mcwhinney, Copa + Glas founders"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover object-top"
