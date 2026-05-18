@@ -337,11 +337,9 @@ export default function BespokePage() {
           transition={{ duration: 1.1, ease }}
           className="text-[9px] tracking-[0.22em] uppercase text-black/62 font-medium mb-10 md:mb-14"
         >
+          Hotel Café Royal Lightwell
+          <span className="text-accent/50 mx-2">·</span>
           Architectural Commission
-          <span className="text-accent/50 mx-2">·</span>
-          Hotel Café Royal
-          <span className="text-accent/50 mx-2">·</span>
-          London
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
@@ -367,19 +365,6 @@ export default function BespokePage() {
                   priority={i === 0}
                 />
               </div>
-              <figcaption className="mt-5 flex items-baseline justify-between gap-4">
-                <span
-                  className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
-                    italic text-[15px] md:text-base text-black/88
-                  "
-                >
-                  {item.title}
-                </span>
-                <span className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium">
-                  {String(i + 1).padStart(2, "0")} / 02
-                </span>
-              </figcaption>
             </motion.figure>
           ))}
         </div>
