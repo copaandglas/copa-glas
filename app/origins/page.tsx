@@ -40,7 +40,7 @@ const chapters: TimelineChapter[] = [
     body:
       "In 1897, the Luxfer Prism Company introduced a new approach to architectural glazing. Decorative, multi-paned fireproof windows held together using slim copper sections: a technique as precise as it was beautiful. For the first time, buildings could be designed around the controlled movement of light through structured glass.",
     plateLetter: "A",
-    plateCaption: "Luxfer double doors · c. 1897",
+    plateCaption: "",
     imageSrc: "/luxferdoors.jpeg",
     align: "right",
   },
@@ -666,14 +666,16 @@ function ImagePlate({ letter, caption, src }: { letter: string; caption: string;
       </span>
 
       {/* Caption */}
-      <figcaption
-        className="
-          absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7
-          text-[10px] md:text-[11px] tracking-[0.22em] opacity-72
-        "
-      >
-        {caption}
-      </figcaption>
+      {caption && (
+        <figcaption
+          className="
+            absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7
+            text-[10px] md:text-[11px] tracking-[0.22em] opacity-72
+          "
+        >
+          {caption}
+        </figcaption>
+      )}
     </figure>
   );
 }
