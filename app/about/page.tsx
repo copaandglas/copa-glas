@@ -110,25 +110,15 @@ export default function AboutPage() {
             transition={{ duration: 1.4, delay: 0.18, ease }}
             className="lg:sticky lg:top-28"
           >
-            <div className="relative w-full aspect-[3/4] overflow-hidden">
-              <Image
-                src="/founders.png"
-                alt="Bradley Mcwhinney and Anthony Mccarty, Copa + Glas founders"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
-                  backgroundSize: "240px 240px",
-                }}
-              />
-            </div>
+            <Image
+              src="/founders.png"
+              alt="Bradley Mcwhinney and Anthony Mccarty, Copa + Glas founders"
+              width={746}
+              height={1024}
+              priority
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="w-full h-auto"
+            />
             <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/45 font-medium flex justify-between">
               <span>Bradley Mcwhinney</span>
               <span>Anthony Mccarty</span>
