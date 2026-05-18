@@ -104,7 +104,7 @@ export default function MirrorsPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
-          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-55 mb-3 md:mb-4"
+          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3 md:mb-4"
         >
           Collection, Mirrors
         </motion.p>
@@ -130,7 +130,7 @@ export default function MirrorsPage() {
           className="
             font-[family-name:var(--font-playfair),Georgia,serif]
             text-[15px] md:text-base lg:text-lg 3xl:text-[19px]
-            leading-[1.75] opacity-[0.72] max-w-xl
+            leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
           A studio-led collection of mirrors in hand-cut silvered glass and
@@ -300,7 +300,7 @@ export default function MirrorsPage() {
                       sm:hidden
                       font-[family-name:var(--font-playfair),Georgia,serif]
                       text-[15px] leading-[1.6] italic
-                      opacity-[0.7] mb-3.5
+                      opacity-[0.85] mb-3.5
                       max-w-[36ch]
                     "
                   >
@@ -314,7 +314,7 @@ export default function MirrorsPage() {
                       pt-3 sm:pt-0 border-t sm:border-t-0 border-black/[0.08]
                     "
                   >
-                    <span className="tracking-[0.08em] uppercase opacity-55">
+                    <span className="tracking-[0.08em] uppercase opacity-75">
                       {mirror.dimension}
                     </span>
                     <span
@@ -331,7 +331,7 @@ export default function MirrorsPage() {
                   <div
                     className="
                       sm:hidden mt-3.5 flex items-center gap-2
-                      text-[11px] tracking-[0.15em] uppercase opacity-70
+                      text-[11px] tracking-[0.15em] uppercase opacity-85
                     "
                   >
                     <span>View Piece</span>
@@ -374,7 +374,7 @@ export default function MirrorsPage() {
           "
         >
           <div className="max-w-xl">
-            <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-55 mb-3">
+            <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3">
               Bespoke
             </p>
             <h2
@@ -390,7 +390,7 @@ export default function MirrorsPage() {
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.75] opacity-[0.72]
+                leading-[1.75] opacity-[0.88]
               "
             >
               Every mirror can be scaled, finished, or reconfigured to suit a

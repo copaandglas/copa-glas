@@ -88,7 +88,7 @@ export default function CollectionPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
-          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-55 mb-3 md:mb-4"
+          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3 md:mb-4"
         >
           The Studio Collection
         </motion.p>
@@ -114,7 +114,7 @@ export default function CollectionPage() {
           className="
             font-[family-name:var(--font-playfair),Georgia,serif]
             text-[15px] md:text-base lg:text-lg 3xl:text-[19px]
-            leading-[1.75] opacity-[0.72] max-w-xl
+            leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
           Mirrors, lighting, and limited editions. Each piece is hand-made to
@@ -224,7 +224,7 @@ export default function CollectionPage() {
                     className="
                       font-[family-name:var(--font-playfair),Georgia,serif]
                       text-[15px] md:text-base lg:text-[17px]
-                      italic leading-[1.55] opacity-[0.75]
+                      italic leading-[1.55] opacity-[0.88]
                       mb-3 md:mb-4 max-w-[38ch]
                     "
                   >
@@ -235,7 +235,7 @@ export default function CollectionPage() {
                     className="
                       font-[family-name:var(--font-playfair),Georgia,serif]
                       text-[14px] md:text-[15px] leading-[1.7]
-                      opacity-[0.65] max-w-[48ch]
+                      opacity-[0.82] max-w-[48ch]
                     "
                   >
                     {category.description}

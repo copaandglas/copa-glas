@@ -358,7 +358,7 @@ export default function ProductPage() {
             </nav>
 
             {/* Designer */}
-            <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase mb-2 md:mb-3 opacity-55">
+            <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase mb-2 md:mb-3 opacity-75">
               {product.designer}
             </p>
 
@@ -380,7 +380,7 @@ export default function ProductPage() {
               <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
                 The Narrative
               </h3>
-              <div className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-[17px] leading-[1.85] opacity-[0.78]">
+              <div className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-[17px] leading-[1.85] opacity-[0.90]">
                 {product.description.split("\n\n").map((para, i) => (
                   <p key={i} className={i === 0 ? "mb-4 lg:mb-6" : ""}>{para}</p>
                 ))}
@@ -392,7 +392,7 @@ export default function ProductPage() {
               <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
                 Provenance &amp; Specification
               </h3>
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] opacity-[0.78] mb-5 lg:mb-6">
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] opacity-[0.90] mb-5 lg:mb-6">
                 {product.provenance}
               </p>
 
@@ -412,7 +412,7 @@ export default function ProductPage() {
                     `}
                   >
                     <span className="font-medium shrink-0 text-xs md:text-[13px]">{spec.label}</span>
-                    <span className="opacity-70 text-left md:text-right leading-normal flex-[1_1_200px] min-w-0">{spec.value}</span>
+                    <span className="opacity-85 text-left md:text-right leading-normal flex-[1_1_200px] min-w-0">{spec.value}</span>
                   </div>
                 ))}
               </div>
@@ -447,7 +447,7 @@ export default function ProductPage() {
                 ">
                   {product.price}
                 </p>
-                <p className="text-[11px] md:text-xs opacity-40 italic tracking-[0.02em]">
+                <p className="text-[11px] md:text-xs opacity-62 italic tracking-[0.02em]">
                   Tax included. Shipping quoted upon enquiry.
                 </p>
               </div>
@@ -469,13 +469,13 @@ export default function ProductPage() {
               </motion.button>
 
               <div className="flex items-center gap-5 md:gap-7 text-[10px] md:text-[11px] tracking-[0.12em] uppercase">
-                <a href="#" className="inline-flex items-center gap-1.5 text-inherit no-underline opacity-50 hover:opacity-100 transition-opacity">
+                <a href="#" className="inline-flex items-center gap-1.5 text-inherit no-underline opacity-70 hover:opacity-100 transition-opacity">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                   </svg>
                   <span>Save</span>
                 </a>
-                <a href="#" className="inline-flex items-center gap-1.5 text-inherit no-underline opacity-50 hover:opacity-100 transition-opacity">
+                <a href="#" className="inline-flex items-center gap-1.5 text-inherit no-underline opacity-70 hover:opacity-100 transition-opacity">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
                     <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />

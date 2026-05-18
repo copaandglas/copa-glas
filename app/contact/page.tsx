@@ -185,7 +185,7 @@ export default function ContactPage() {
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <span aria-hidden className="block h-px w-10 md:w-14 bg-black/25" />
-                  <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase opacity-55">The Studio</p>
+                  <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase opacity-72">The Studio</p>
                 </div>
                 <h1
                   className="
@@ -201,7 +201,7 @@ export default function ContactPage() {
               {/* Email + Studio (horizontal on sm+) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8">
                 <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-40 mb-3">Email</p>
+                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Email</p>
                   <a
                     href="mailto:info@copaandglas.com"
                     className="
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-40 mb-3">Studio</p>
+                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Studio</p>
                   <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[16px] md:text-[17px] opacity-80 leading-[1.6]">
                     East London<br />England
                   </p>
@@ -223,7 +223,7 @@ export default function ContactPage() {
               </div>
 
               {/* Response note */}
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14px] md:text-[15px] opacity-50 leading-[1.7] italic max-w-[36ch]">
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14px] md:text-[15px] opacity-72 leading-[1.7] italic max-w-[36ch]">
                 We reply to every enquiry personally, typically within two working days.
               </p>
 
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6">
                       Thank you, {firstName}.
                     </h2>
-                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-65 max-w-[42ch] mb-10">
+                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-82 max-w-[42ch] mb-10">
                       Your note has reached the studio. We&rsquo;ll be in touch personally within two working days.
                     </p>
                     <button
@@ -306,7 +306,7 @@ export default function ContactPage() {
                               <span className={`block text-[13px] md:text-[14px] tracking-[0.02em] mb-1.5 ${active ? "text-black" : "text-black/75"}`}>
                                 {type.label}
                               </span>
-                              <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/40">
+                              <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/60">
                                 {type.hint}
                               </span>
                             </button>
@@ -447,7 +447,7 @@ export default function ContactPage() {
                             <polyline points="2 6 5 9 10 3" />
                           </svg>
                         </span>
-                        <span className="text-[13px] leading-[1.55] text-black/60 group-hover:text-black/85 transition-colors">
+                        <span className="text-[13px] leading-[1.55] text-black/80 group-hover:text-black transition-colors">
                           Keep me in mind for occasional studio news. Rare, considered.
                         </span>
                       </label>
@@ -494,7 +494,7 @@ export default function ContactPage() {
                           </svg>
                         )}
                       </button>
-                      <p className="text-[11px] leading-[1.5] text-black/40 italic">
+                      <p className="text-[11px] leading-[1.5] text-black/62 italic">
                         Two working days, typically.
                       </p>
                     </div>

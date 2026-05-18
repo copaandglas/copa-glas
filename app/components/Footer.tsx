@@ -112,7 +112,7 @@ export default function Footer() {
         <p
           className="
             text-center text-[9px] sm:text-[10px] md:text-[11px]
-            text-white/40 tracking-[0.12em] mb-9 md:mb-11 lg:mb-12
+            text-white/62 tracking-[0.12em] mb-9 md:mb-11 lg:mb-12
             font-[family-name:var(--font-playfair),Georgia,serif] italic
             max-w-3xl mx-auto leading-[1.6] px-2
           "
@@ -154,7 +154,7 @@ export default function Footer() {
 
           <div>
             <p className="footer-heading">Visit &amp; Contact</p>
-            <p className="text-white/55 text-[13px] md:text-sm leading-[1.8] mb-4">
+            <p className="text-white/75 text-[13px] md:text-sm leading-[1.8] mb-4">
               Copa + Glas Studio<br />
               East London<br />
               England
@@ -192,7 +192,7 @@ export default function Footer() {
         border-t border-white/[0.08]
         max-w-[1400px] 3xl:max-w-[1680px] mx-auto
         flex flex-col md:flex-row justify-between items-start md:items-center
-        gap-2 md:gap-0 text-[10px] md:text-[11px] tracking-[0.08em] text-white/25
+        gap-2 md:gap-0 text-[10px] md:text-[11px] tracking-[0.08em] text-white/45
         pt-5 md:pt-6
         pb-[max(1.25rem,env(safe-area-inset-bottom))]
         md:pb-[max(1.5rem,env(safe-area-inset-bottom))]

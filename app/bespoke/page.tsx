@@ -219,7 +219,7 @@ export default function BespokePage() {
               initial={from(8)}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.06, ease }}
-              className="text-[9px] tracking-[0.28em] uppercase text-black/45 font-medium mb-6"
+              className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-6"
             >
               Bespoke
             </motion.p>
@@ -257,7 +257,7 @@ export default function BespokePage() {
                 space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.85] text-black/60
+                leading-[1.85] text-black/80
               "
             >
               <p>
@@ -311,7 +311,7 @@ export default function BespokePage() {
                   >
                     {stat.figure}
                   </p>
-                  <p className="text-[9px] tracking-[0.22em] uppercase text-black/45 font-medium leading-[1.6]">
+                  <p className="text-[9px] tracking-[0.22em] uppercase text-black/62 font-medium leading-[1.6]">
                     {stat.label}
                   </p>
                 </li>
@@ -335,7 +335,7 @@ export default function BespokePage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8% 0px" }}
           transition={{ duration: 1.1, ease }}
-          className="text-[9px] tracking-[0.22em] uppercase text-black/45 font-medium mb-10 md:mb-14"
+          className="text-[9px] tracking-[0.22em] uppercase text-black/62 font-medium mb-10 md:mb-14"
         >
           Architectural Commission
           <span className="text-accent/50 mx-2">·</span>
@@ -366,12 +366,12 @@ export default function BespokePage() {
                 <span
                   className="
                     font-[family-name:var(--font-playfair),Georgia,serif]
-                    italic text-[15px] md:text-base text-black/75
+                    italic text-[15px] md:text-base text-black/88
                   "
                 >
                   {item.title}
                 </span>
-                <span className="text-[9px] tracking-[0.22em] uppercase text-black/35 font-medium">
+                <span className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium">
                   {String(i + 1).padStart(2, "0")} / 02
                 </span>
               </figcaption>
@@ -391,14 +391,14 @@ export default function BespokePage() {
           "
         >
           <p
-            className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[15px] md:text-base text-black/70
+          className="
+            font-[family-name:var(--font-playfair),Georgia,serif]
+            text-[15px] md:text-base text-black/85
             "
           >
             Hotel Café Royal, London
           </p>
-          <p className="text-[9px] tracking-[0.22em] uppercase text-black/40 font-medium">
+          <p className="text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
             Architectural copper glazing commission
             <span className="text-accent/50 mx-2">·</span>2024
           </p>
@@ -429,7 +429,7 @@ export default function BespokePage() {
               tone="dark"
               ratio="aspect-[4/5]"
             />
-            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-white/35 font-medium">
+            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-white/55 font-medium">
               Anthony cutting glass
             </p>
           </motion.div>
@@ -442,7 +442,7 @@ export default function BespokePage() {
             transition={{ duration: 1.3, delay: 0.12, ease }}
             className="flex flex-col justify-center"
           >
-            <p className="text-[9px] tracking-[0.28em] uppercase text-white/40 font-medium mb-8">
+            <p className="text-[9px] tracking-[0.28em] uppercase text-white/60 font-medium mb-8">
               The Craft
             </p>
 
@@ -467,7 +467,7 @@ export default function BespokePage() {
                 space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.85] text-white/65
+                leading-[1.85] text-white/82
               "
             >
               <p>
@@ -512,7 +512,7 @@ export default function BespokePage() {
                 ratio="aspect-[3/4]"
               />
             </div>
-            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-black/40 font-medium">
+            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
               Aura light being made
             </p>
           </motion.div>
@@ -524,7 +524,7 @@ export default function BespokePage() {
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 1.3, delay: 0.12, ease }}
           >
-            <p className="text-[9px] tracking-[0.28em] uppercase text-black/45 font-medium mb-8">
+            <p className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-8">
               Private Commission
             </p>
 
@@ -549,7 +549,7 @@ export default function BespokePage() {
                 space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.85] text-black/60
+                leading-[1.85] text-black/80
               "
             >
               <p>
@@ -564,7 +564,7 @@ export default function BespokePage() {
                 and glass that changed the quality of light in a room rather
                 than simply adding to it. That is the kind of brief we welcome.
               </p>
-              <p className="italic text-black/70">
+              <p className="italic text-black/85">
                 Every private commission is different. Every piece is made once.
               </p>
             </div>
@@ -586,7 +586,7 @@ export default function BespokePage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8% 0px" }}
           transition={{ duration: 1.1, ease }}
-          className="text-[9px] tracking-[0.28em] uppercase text-black/45 font-medium mb-12 md:mb-16"
+          className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-12 md:mb-16"
         >
           How a commission begins
         </motion.p>
@@ -643,7 +643,7 @@ export default function BespokePage() {
                 className="
                   font-[family-name:var(--font-playfair),Georgia,serif]
                   text-[14.5px] md:text-[15px]
-                  leading-[1.85] text-black/55
+                  leading-[1.85] text-black/75
                 "
               >
                 {step.body}
@@ -681,7 +681,7 @@ export default function BespokePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-8% 0px" }}
               transition={{ duration: 1.1, ease }}
-              className="text-[9px] tracking-[0.28em] uppercase text-white/45 font-medium mb-6"
+              className="text-[9px] tracking-[0.28em] uppercase text-white/65 font-medium mb-6"
             >
               Begin a conversation
             </motion.p>
@@ -712,7 +712,7 @@ export default function BespokePage() {
                 max-w-[480px] mx-auto
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.85] text-white/70
+                leading-[1.85] text-white/85
               "
             >
               We respond to every bespoke enquiry personally. There is no
@@ -752,7 +752,7 @@ export default function BespokePage() {
                 <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6 text-black/90">
                   Thank you, {firstName}.
                 </h3>
-                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/60 max-w-[42ch] mx-auto mb-10">
+                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/80 max-w-[42ch] mx-auto mb-10">
                   Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within 24 hours.
                 </p>
                 <button
@@ -802,7 +802,7 @@ export default function BespokePage() {
                           <span className={`block text-[13px] md:text-[14px] tracking-[0.02em] mb-1.5 ${active ? "text-black" : "text-black/75"}`}>
                             {type.label}
                           </span>
-                          <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/40">
+                          <span className="block text-[11px] md:text-[12px] leading-[1.45] text-black/60">
                             {type.hint}
                           </span>
                         </button>
@@ -990,12 +990,12 @@ export default function BespokePage() {
                     </svg>
                   </button>
 
-                  <p className="text-[9px] tracking-[0.24em] uppercase text-black/40 font-medium leading-[1.7]">
+                  <p className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium leading-[1.7]">
                     We respond within 24 hours
                     <span className="block mt-1">
                       <a
                         href="mailto:studio@copaglas.com"
-                        className="text-black/55 no-underline hover:text-black/85 transition-colors duration-300"
+                        className="text-black/75 no-underline hover:text-black transition-colors duration-300"
                       >
                         studio@copaglas.com
                       </a>

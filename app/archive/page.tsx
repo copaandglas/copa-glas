@@ -180,14 +180,14 @@ function ImageCard({
 
       {/* Caption below */}
       <div className="pt-[9px] pb-4">
-        <p className="text-[8px] tracking-[0.18em] uppercase text-black/30 font-medium leading-[2.2]">
+        <p className="text-[8px] tracking-[0.18em] uppercase text-black/52 font-medium leading-[2.2]">
           <CategoryLabel category={item.category} />
         </p>
         <div className="flex items-baseline justify-between gap-2 mt-[2px]">
-          <p className="text-[11px] tracking-[0.025em] text-black/55 font-[family-name:var(--font-playfair),Georgia,serif]">
+          <p className="text-[11px] tracking-[0.025em] text-black/75 font-[family-name:var(--font-playfair),Georgia,serif]">
             {item.caption}
           </p>
-          <span className="text-[8px] text-black/22 tracking-[0.08em] shrink-0 tabular-nums">
+          <span className="text-[8px] text-black/45 tracking-[0.08em] shrink-0 tabular-nums">
             {item.year}
           </span>
         </div>
@@ -237,14 +237,14 @@ function Lightbox({
       onTouchEnd={handleTouchEnd}
     >
       {/* Counter */}
-      <span className="absolute top-5 left-1/2 -translate-x-1/2 text-[8px] tracking-[0.2em] text-white/22 font-medium tabular-nums pointer-events-none">
+      <span className="absolute top-5 left-1/2 -translate-x-1/2 text-[8px] tracking-[0.2em] text-white/45 font-medium tabular-nums pointer-events-none">
         {String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
       </span>
 
       {/* Close */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-5 text-[8px] tracking-[0.22em] uppercase text-white/35 hover:text-white transition-colors duration-200 font-medium py-2 px-1"
+        className="absolute top-4 right-5 text-[8px] tracking-[0.22em] uppercase text-white/60 hover:text-white transition-colors duration-200 font-medium py-2 px-1"
       >
         Close
       </button>
@@ -282,10 +282,10 @@ function Lightbox({
           transition={{ duration: 0.3, delay: 0.18 }}
           className="absolute bottom-7 sm:bottom-9 left-1/2 -translate-x-1/2 text-center w-full px-10 pointer-events-none"
         >
-          <p className="text-white/60 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
+          <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
             {item.caption}
           </p>
-          <p className="text-white/22 text-[7px] tracking-[0.2em] uppercase mt-2">
+          <p className="text-white/45 text-[7px] tracking-[0.2em] uppercase mt-2">
             <CategoryLabel category={item.category} lightMode />
           </p>
         </motion.div>
@@ -295,7 +295,7 @@ function Lightbox({
       <button
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
         aria-label="Previous"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/25 hover:text-white/80 transition-colors duration-200"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/50 hover:text-white/95 transition-colors duration-200"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round">
           <polyline points="15 18 9 12 15 6" />
@@ -306,7 +306,7 @@ function Lightbox({
       <button
         onClick={(e) => { e.stopPropagation(); onNext(); }}
         aria-label="Next"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/25 hover:text-white/80 transition-colors duration-200"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/50 hover:text-white/95 transition-colors duration-200"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round">
           <polyline points="9 18 15 12 9 6" />
@@ -374,11 +374,11 @@ export default function ArchivePage() {
         "
       >
         <nav aria-label="Breadcrumb" className="flex items-center text-[9px] tracking-[0.22em] uppercase font-medium mb-9 sm:mb-11">
-          <Link href="/" className="text-black/28 hover:text-black/70 transition-opacity duration-400 no-underline">
+          <Link href="/" className="text-black/50 hover:text-black/85 transition-opacity duration-400 no-underline">
             Home
           </Link>
           <span className="text-accent/60 mx-2">/</span>
-          <span className="text-black/28">Archive</span>
+          <span className="text-black/50">Archive</span>
         </nav>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20 lg:gap-36">
@@ -400,7 +400,7 @@ export default function ArchivePage() {
           <motion.p
             className="
               font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[13px] sm:text-sm leading-[1.85] text-black/42
+              text-[13px] sm:text-sm leading-[1.85] text-black/65
               max-w-[310px] md:text-right md:pb-0.5
             "
             initial={{ opacity: 0, y: 16 }}
@@ -515,7 +515,7 @@ export default function ArchivePage() {
                   <p className="text-white/80 text-[9px] tracking-[0.2em] uppercase font-medium">
                     Behind the hand
                   </p>
-                  <p className="text-white/32 text-[8px] tracking-[0.1em] uppercase mt-2">
+                  <p className="text-white/55 text-[8px] tracking-[0.1em] uppercase mt-2">
                     A short film. Workshop, 2024
                   </p>
                 </div>
@@ -584,14 +584,14 @@ export default function ArchivePage() {
             className="
               font-[family-name:var(--font-playfair),Georgia,serif]
               text-[clamp(0.95rem,2vw,1.25rem)]
-              leading-[1.7] text-black/60 italic
+              leading-[1.7] text-black/80 italic
             "
           >
             "The tradition is unchanged. The materials are the same.
             The intention to create something of lasting beauty and
             significance has never wavered."
           </blockquote>
-          <p className="text-[8px] tracking-[0.18em] uppercase text-black/28 mt-5 font-medium">
+          <p className="text-[8px] tracking-[0.18em] uppercase text-black/52 mt-5 font-medium">
             Copa + Glas
           </p>
         </div>
@@ -604,7 +604,7 @@ export default function ArchivePage() {
             href="/collection"
             className="
               text-[13px] font-[family-name:var(--font-playfair),Georgia,serif]
-              text-black/55 hover:text-black
+              text-black/78 hover:text-black
               underline underline-offset-4 decoration-black/12 hover:decoration-black/45
               transition-all duration-200
             "

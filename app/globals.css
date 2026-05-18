@@ -135,16 +135,16 @@ p, a, h1, h2, h3, h4, h5, h6, li {
 
 /* ---- Utility: footer link hover ---- */
 .footer-link {
-  @apply block text-white/55 no-underline text-[13px] md:text-sm leading-[2.2] transition-colors duration-200;
+  @apply block text-white/75 no-underline text-[13px] md:text-sm leading-[2.2] transition-colors duration-200;
 }
 .footer-link:hover {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.97);
 }
 .footer-heading {
-  @apply text-[10px] md:text-[11px] tracking-[0.15em] uppercase text-white/35 mb-4 md:mb-5 font-medium;
+  @apply text-[10px] md:text-[11px] tracking-[0.15em] uppercase text-white/55 mb-4 md:mb-5 font-medium;
 }
 .social-icon {
-  @apply text-white/40 transition-colors duration-200;
+  @apply text-white/62 transition-colors duration-200;
 }
 .social-icon:hover {
   color: rgba(255,255,255,0.9);

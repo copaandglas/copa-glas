@@ -201,7 +201,7 @@ export default function OriginsPage() {
               initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
-              className="text-[9px] tracking-[0.24em] uppercase text-white/40 font-medium mb-5 md:mb-6"
+              className="text-[9px] tracking-[0.24em] uppercase text-white/62 font-medium mb-5 md:mb-6"
             >
               1897 — Present
             </motion.p>
@@ -240,7 +240,7 @@ export default function OriginsPage() {
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-[16px] lg:text-[17px]
-                leading-[1.75] text-white/65 max-w-[48ch]
+                leading-[1.75] text-white/82 max-w-[48ch]
               "
             >
               The glazing tradition behind Copa + Glas did not begin in our
@@ -285,7 +285,7 @@ export default function OriginsPage() {
           transition={{ delay: 1.8, duration: 1.2, ease: luxuryEase }}
           style={{ opacity: scrollIndicatorOpacity }}
         >
-          <span className="text-[8px] tracking-[0.22em] uppercase text-white/38 font-medium">
+          <span className="text-[8px] tracking-[0.22em] uppercase text-white/60 font-medium">
             Scroll
           </span>
           <motion.div
@@ -300,7 +300,7 @@ export default function OriginsPage() {
               stroke="currentColor"
               strokeWidth="1.2"
               strokeLinecap="round"
-              className="text-white/38"
+              className="text-white/60"
             >
               <polyline points="6 9 12 15 18 9" />
             </svg>
@@ -437,7 +437,7 @@ export default function OriginsPage() {
                 space-y-5 md:space-y-6
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px] 3xl:text-[18px]
-                leading-[1.8] opacity-[0.78] max-w-[58ch]
+                leading-[1.8] opacity-[0.90] max-w-[58ch]
               "
             >
               <p>
@@ -579,7 +579,7 @@ function ChapterBlock({
             font-[family-name:var(--font-playfair),Georgia,serif]
             text-[clamp(1.5rem,3.2vw,2.125rem)]
             leading-[1.18] -tracking-[0.003em] font-normal italic
-            opacity-[0.82]
+            opacity-[0.92]
             mb-7 md:mb-9
             max-w-[26ch]
           "
@@ -592,7 +592,7 @@ function ChapterBlock({
           className="
             font-[family-name:var(--font-playfair),Georgia,serif]
             text-[15px] md:text-base lg:text-[17px] 3xl:text-[18px]
-            leading-[1.8] opacity-[0.7]
+            leading-[1.8] opacity-[0.85]
             max-w-[58ch]
           "
         >
@@ -654,7 +654,7 @@ function ImagePlate({ letter, caption }: { letter: string; caption: string }) {
       <figcaption
         className="
           absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7
-          text-[10px] md:text-[11px] tracking-[0.22em] opacity-55
+          text-[10px] md:text-[11px] tracking-[0.22em] opacity-72
         "
       >
         {caption}

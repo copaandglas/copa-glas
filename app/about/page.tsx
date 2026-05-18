@@ -50,7 +50,7 @@ export default function AboutPage() {
               initial={from(8)}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.06, ease }}
-              className="text-[9px] tracking-[0.24em] uppercase text-black/40 font-medium mb-6"
+              className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
             >
               The Studio
             </motion.p>
@@ -87,7 +87,7 @@ export default function AboutPage() {
                 space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
-                leading-[1.85] text-black/60
+                leading-[1.85] text-black/80
               "
             >
               <p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
               />
               <div
                 aria-hidden
-                className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none"
+                className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
                 style={{
                   backgroundImage:
                     "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 }}
               />
             </div>
-            <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/25 font-medium flex justify-between">
+            <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/45 font-medium flex justify-between">
               <span>Bradley Mcwhinney</span>
               <span>Anthony Mccarty</span>
             </p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8% 0px" }}
           transition={{ duration: 1.1, ease }}
-          className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-12 md:mb-16"
+          className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-12 md:mb-16"
         >
           The Studio
         </motion.p>
@@ -174,7 +174,7 @@ export default function AboutPage() {
             >
               Anthony Mccarty
             </h2>
-            <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
+            <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
               Co-founder / Master Artisan
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
@@ -182,7 +182,7 @@ export default function AboutPage() {
               className="
                 space-y-4
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-base leading-[1.85] text-black/58
+                text-[15px] md:text-base                 leading-[1.85] text-black/78
               "
             >
               <p>
@@ -224,7 +224,7 @@ export default function AboutPage() {
             >
               Bradley Mcwhinney
             </h2>
-            <p className="text-[9px] tracking-[0.2em] uppercase text-black/35 font-medium mb-6">
+            <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
               Co-founder / Managing Director
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
@@ -232,7 +232,7 @@ export default function AboutPage() {
               className="
                 space-y-4
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-base leading-[1.85] text-black/58
+                text-[15px] md:text-base                 leading-[1.85] text-black/78
               "
             >
               <p>
@@ -289,7 +289,7 @@ export default function AboutPage() {
             transition={{ duration: 1.3, delay: 0.12, ease }}
             className="flex flex-col justify-center lg:py-8"
           >
-            <p className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-8">
+            <p className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-8">
               The Technique
             </p>
 
@@ -297,7 +297,7 @@ export default function AboutPage() {
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[clamp(1.5rem,2.8vw,2.1rem)]
-                leading-[1.3] font-normal italic text-black/75
+                leading-[1.3] font-normal italic text-black/88
                 mb-8 md:mb-10
               "
             >
@@ -309,7 +309,7 @@ export default function AboutPage() {
                 space-y-5
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[15px] md:text-base lg:text-[16px]
-                leading-[1.85] text-black/55
+                leading-[1.85] text-black/75
               "
             >
               <p>
@@ -343,7 +343,7 @@ export default function AboutPage() {
         <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20">
 
           <div className="max-w-[560px]">
-            <p className="text-[9px] tracking-[0.24em] uppercase text-black/35 font-medium mb-6">
+            <p className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-6">
               Commissions
             </p>
             <h2
@@ -351,7 +351,7 @@ export default function AboutPage() {
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[clamp(1.75rem,3.5vw,2.75rem)]
                 leading-[1.15] -tracking-[0.005em] font-normal
-                mb-6 text-black/85
+                mb-6 text-black/92
               "
             >
               The studio is open to commission, collaboration, and conversation.
@@ -359,7 +359,7 @@ export default function AboutPage() {
             <p
               className="
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] leading-[1.8] text-black/50
+                text-[15px] leading-[1.8] text-black/72
               "
             >
               We welcome enquiries from collectors, interior designers,
@@ -391,7 +391,7 @@ export default function AboutPage() {
               href="/contact"
               className="
                 text-[10px] tracking-[0.18em] uppercase
-                text-black/45 hover:text-black
+                text-black/65 hover:text-black
                 no-underline transition-colors duration-300
                 border-b border-black/20 pb-0.5 self-start md:self-end
               "
