@@ -227,14 +227,14 @@ export default function ContactPage() {
                 We reply to every enquiry personally, typically within two working days.
               </p>
 
-              {/* Founders image */}
-              <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+              {/* Workshop image */}
+              <div className="relative w-full aspect-[1/1] overflow-hidden bg-muted">
                 <Image
-                  src="/founders.png"
-                  alt="Anthony Mccarty and Bradley Mcwhinney, Copa + Glas founders"
+                  src="/Workshoptools.webp"
+                  alt="Copa + Glas studio workshop tools"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover object-top"
+                  className="object-cover"
                 />
                 <div
                   aria-hidden
