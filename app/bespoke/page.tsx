@@ -330,17 +330,27 @@ export default function BespokePage() {
           max-w-[1440px] mx-auto
         "
       >
-        <motion.p
-          initial={from(8)}
+        <motion.div
+          initial={from(12)}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8% 0px" }}
           transition={{ duration: 1.1, ease }}
-          className="text-[9px] tracking-[0.22em] uppercase text-black/62 font-medium mb-10 md:mb-14"
+          className="mb-10 md:mb-14"
         >
-          Hotel Café Royal Lightwell
-          <span className="text-accent/50 mx-2">·</span>
-          Architectural Commission
-        </motion.p>
+          <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium mb-4">
+            Architectural Commission
+            <span className="text-accent/50 mx-2">·</span>
+            2012
+          </p>
+          <p
+            className="
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90
+            "
+          >
+            Hotel Café Royal, London
+          </p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
           {[
@@ -391,20 +401,6 @@ export default function BespokePage() {
             demanding commissions to date.
           </p>
 
-          <div
-            className="
-              pt-6 border-t border-black/10
-              flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3
-            "
-          >
-            <p className="text-[9px] tracking-[0.22em] uppercase text-black/85 font-medium">
-              Hotel Café Royal, London
-            </p>
-            <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium">
-              Architectural copper glazing commission
-              <span className="text-accent/50 mx-2">·</span>2024
-            </p>
-          </div>
         </motion.div>
       </section>
 
