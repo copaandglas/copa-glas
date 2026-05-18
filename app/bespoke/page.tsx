@@ -345,8 +345,8 @@ export default function BespokePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
           {[
-            { id: "lightwell-i",  title: "Café Royal Lightwell I",  src: "/cafe-royal-lightwell-1.png" },
-            { id: "lightwell-ii", title: "Café Royal Lightwell II", src: "/cafe-royal-lightwell-2.png" },
+            { id: "lightwell-i",  title: "Café Royal Lightwell I",  src: "/cafe-royal-lightwell-1.jpg" },
+            { id: "lightwell-ii", title: "Café Royal Lightwell II", src: "/cafe-royal-lightwell-2.jpg" },
           ].map((item, i) => (
             <motion.figure
               key={item.id}
