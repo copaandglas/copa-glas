@@ -293,7 +293,7 @@ export default function BespokePage() {
               {[
                 { figure: "40+", label: "Years of craft experience" },
                 { figure: "6–8", label: "Week lead time, standard commission" },
-                { figure: "London", label: "Studio visits welcome by appointment" },
+                { figure: "London", label: "Studio visits by appointment" },
               ].map((stat, i) => (
                 <li
                   key={stat.figure}
