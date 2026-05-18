@@ -374,24 +374,41 @@ export default function BespokePage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8% 0px" }}
           transition={{ duration: 1.2, delay: 0.18, ease }}
-          className="
-            mt-10 md:mt-14
-            pt-6 border-t border-black/10
-            flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3
-          "
+          className="mt-10 md:mt-14"
         >
           <p
-          className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
-            text-[15px] md:text-base text-black/85
+            className="
+              max-w-2xl
+              text-[15px] md:text-base leading-[1.75] text-black/80
+              mb-8 md:mb-10
             "
           >
-            Hotel Café Royal, London
+            More than one thousand handmade copper and glass screens, each produced
+            in our London studio and installed across four floors of the lightwell
+            at Hotel Café Royal. A commission that asked as much of the craft as
+            it did of the people behind it — set within one of the capital&rsquo;s
+            most storied addresses.
           </p>
-          <p className="text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
-            Architectural copper glazing commission
-            <span className="text-accent/50 mx-2">·</span>2024
-          </p>
+
+          <div
+            className="
+              pt-6 border-t border-black/10
+              flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3
+            "
+          >
+            <p
+              className="
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[15px] md:text-base text-black/85
+              "
+            >
+              Hotel Café Royal, London
+            </p>
+            <p className="text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
+              Architectural copper glazing commission
+              <span className="text-accent/50 mx-2">·</span>2024
+            </p>
+          </div>
         </motion.div>
       </section>
 
