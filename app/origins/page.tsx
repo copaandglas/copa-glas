@@ -20,6 +20,7 @@ const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 /* -------------------------------------------------------------------------- */
 
 interface TimelineChapter {
+  imageSrc?: string;
   id: string;
   yearDisplay: string;
   eyebrow: string;
@@ -39,7 +40,8 @@ const chapters: TimelineChapter[] = [
     body:
       "In 1897, the Luxfer Prism Company introduced a new approach to architectural glazing. Decorative, multi-paned fireproof windows held together using slim copper sections: a technique as precise as it was beautiful. For the first time, buildings could be designed around the controlled movement of light through structured glass.",
     plateLetter: "A",
-    plateCaption: "DOUBLE DOORS · IMAGE TO FOLLOW",
+    plateCaption: "Luxfer double doors · c. 1897",
+    imageSrc: "/luxferdoors.jpeg",
     align: "right",
   },
   {
@@ -537,6 +539,7 @@ function ChapterBlock({
         <ImagePlate
           letter={chapter.plateLetter}
           caption={chapter.plateCaption}
+          src={chapter.imageSrc}
         />
       </motion.div>
 
@@ -607,7 +610,7 @@ function ChapterBlock({
 /*  Image plate (uniform, quiet)                                              */
 /* -------------------------------------------------------------------------- */
 
-function ImagePlate({ letter, caption }: { letter: string; caption: string }) {
+function ImagePlate({ letter, caption, src }: { letter: string; caption: string; src?: string }) {
   return (
     <figure
       className="
@@ -616,6 +619,31 @@ function ImagePlate({ letter, caption }: { letter: string; caption: string }) {
         overflow-hidden select-none
       "
     >
+      {src ? (
+        <Image
+          src={src}
+          alt={caption}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
+        />
+      ) : (
+        <>
+          {/* Large letter watermark */}
+          <span
+            className="
+              absolute inset-0 flex items-center justify-center
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[clamp(8rem,22vw,14rem)] leading-none
+              text-black/[0.06] font-normal italic select-none
+            "
+            aria-hidden
+          >
+            {letter}
+          </span>
+        </>
+      )}
+
       {/* Vignette */}
       <div
         aria-hidden
@@ -631,19 +659,6 @@ function ImagePlate({ letter, caption }: { letter: string; caption: string }) {
           absolute top-5 left-5 md:top-7 md:left-7
           font-[family-name:var(--font-playfair),Georgia,serif]
           text-[14px] md:text-[15px] tracking-[0.04em] opacity-70
-        "
-        aria-hidden
-      >
-        {letter}
-      </span>
-
-      {/* Large letter watermark */}
-      <span
-        className="
-          absolute inset-0 flex items-center justify-center
-          font-[family-name:var(--font-playfair),Georgia,serif]
-          text-[clamp(8rem,22vw,14rem)] leading-none
-          text-black/[0.06] font-normal italic select-none
         "
         aria-hidden
       >
