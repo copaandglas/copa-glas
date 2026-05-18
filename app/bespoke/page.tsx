@@ -385,9 +385,9 @@ export default function BespokePage() {
           >
             More than one thousand handmade copper and glass screens, each produced
             in our London studio and installed across four floors of the lightwell
-            at Hotel Café Royal. A commission that asked as much of the craft as
-            it did of the people behind it — set within one of the capital&rsquo;s
-            most storied addresses.
+            at Hotel Café Royal. Commissioned by David Chipperfield Architects, the
+            work asked as much of the craft as it did of the people behind it —
+            set within one of the capital&rsquo;s most storied addresses.
           </p>
 
           <div
