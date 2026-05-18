@@ -52,7 +52,8 @@ const chapters: TimelineChapter[] = [
     body:
       "Luxfer's manufacturing process was protected by patent in the same year as the company's founding. The method, copper sections holding individual glass panes in precise geometric formations, was both technically innovative and visually refined. It became the foundation upon which an entire tradition of architectural glazing would be built.",
     plateLetter: "B",
-    plateCaption: "TECHNICAL PROCESS · IMAGE TO FOLLOW",
+    plateCaption: "",
+    imageSrc: "/luxferprocess.png",
     align: "left",
   },
   {
