@@ -110,7 +110,7 @@ export default function AboutPage() {
             transition={{ duration: 1.4, delay: 0.18, ease }}
             className="lg:sticky lg:top-28"
           >
-            <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
+            <div className="relative w-full aspect-[3/4] overflow-hidden bg-muted">
               <Image
                 src="/founders.png"
                 alt="Bradley Mcwhinney and Anthony Mccarty, Copa + Glas founders"
