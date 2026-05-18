@@ -64,7 +64,8 @@ const chapters: TimelineChapter[] = [
     body:
       "The Luxfer technique spread with remarkable speed. From Shanghai to ocean liners crossing the Atlantic, architects and designers specified this glazing method for its structural elegance and its capacity to transform how light moved through built space. A technique born in one workshop became the language of a global architectural movement.",
     plateLetter: "C",
-    plateCaption: "SHANGHAI AND SHIP · IMAGE TO FOLLOW",
+    plateCaption: "",
+    imageSrc: "/shanghai.png",
     align: "right",
   },
   {
