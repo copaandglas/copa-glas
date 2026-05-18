@@ -510,14 +510,18 @@ export default function BespokePage() {
             transition={{ duration: 1.3, ease }}
           >
             <div className="bg-white p-3 md:p-4 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.18)]">
-              <ImagePlaceholder
-                label="Studio · Image to follow"
-                tone="light"
-                ratio="aspect-[3/4]"
-              />
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/anthony-cutting-glass.jpg"
+                  alt="Anthony cutting glass for a commissioned piece"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
             <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
-              Aura light being made
+              Anthony cutting glass for a commissioned piece
             </p>
           </motion.div>
 
