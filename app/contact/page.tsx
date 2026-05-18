@@ -230,7 +230,7 @@ export default function ContactPage() {
               {/* Workshop image */}
               <div className="relative w-full aspect-[1/1] overflow-hidden bg-muted">
                 <Image
-                  src="/Workshoptools.webp"
+                  src="/workshop-tools.webp"
                   alt="Copa + Glas studio workshop tools"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
