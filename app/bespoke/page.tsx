@@ -235,9 +235,9 @@ export default function BespokePage() {
                 mb-10 md:mb-12
               "
             >
-              Made for the space
+              Commissioned for
               <br />
-              <em>it will live in.</em>
+              <em>where it belongs.</em>
             </motion.h1>
 
             <motion.div
