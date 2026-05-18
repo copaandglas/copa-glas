@@ -398,7 +398,7 @@ export default function OriginsPage() {
                   border border-white/25
                 "
               >
-                STUDIO PIECE · MONDRIAN MIRROR
+                STUDIO PIECE · ROTATION MIRROR
               </div>
             </div>
           </motion.div>
@@ -418,7 +418,7 @@ export default function OriginsPage() {
                   leading-none tracking-[-0.01em] font-normal text-accent
                 "
               >
-                2024
+                2021
               </span>
               <span aria-hidden className="block h-px flex-1 max-w-14 bg-black/25" />
               <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-accent">
