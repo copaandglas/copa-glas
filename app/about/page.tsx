@@ -307,10 +307,11 @@ export default function AboutPage() {
                 pure, solid copper. Multifaceted, deliberate, made one pane at a time.
               </p>
               <p>
-                The technique is precise but flexible. Scale, shape, and composition
-                can be adapted to suit a particular space, an architect&apos;s brief,
-                or a private commission. Each piece carries the same hand, the same
-                materials, and the same intention.
+                The technique is precise but flexible. Scale, shape, glass type, and
+                composition are all adapted to the nature of the commission — whether
+                that is a collection piece, an architectural brief, or a private work.
+                What does not change is how it is made: by hand, with full attention,
+                from start to finish.
               </p>
             </div>
           </motion.div>
