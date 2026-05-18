@@ -268,7 +268,7 @@ export default function BespokePage() {
                 We work with interior designers, architects, and private
                 clients to design and make work that could not exist anywhere
                 else. Each commission is led by Anthony McCarty, our Master
-                Artisan, whose four decades of architectural glazing
+                Craftsman, whose four decades of architectural glazing
                 experience means no brief is too complex and no scale too
                 ambitious.
               </p>
