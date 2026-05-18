@@ -423,13 +423,18 @@ export default function BespokePage() {
             viewport={{ once: true, margin: "-10% 0px" }}
             transition={{ duration: 1.3, ease }}
           >
-            <ImagePlaceholder
-              label="Gif · Image to follow"
-              tone="dark"
-              ratio="aspect-[4/5]"
-            />
-            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-white/55 font-medium">
-              Anthony cutting glass
+            <div className="relative w-full aspect-[1/1] overflow-hidden">
+              <Image
+                src="/anthony-saudi-arabia-1983.jpg"
+                alt="Anthony McCarty installing stained glass dome, Riyadh, 1983"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-white/55 font-medium leading-[1.7]">
+              Anthony McCarty installing stained glass dome in a private residence,
+              Riyadh, Saudi Arabia. 1983
             </p>
           </motion.div>
 
