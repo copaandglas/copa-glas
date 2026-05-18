@@ -521,7 +521,7 @@ export default function BespokePage() {
               </div>
             </div>
             <p className="mt-4 text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
-              Anthony cutting glass for a commissioned piece
+              Hand-cutting glass for a private commission
             </p>
           </motion.div>
 
