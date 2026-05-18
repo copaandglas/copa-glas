@@ -335,7 +335,7 @@ export default function AboutPage() {
         transition={{ duration: 1.2, ease }}
         className="
           border-t border-black/[0.06]
-          bg-[#f4f3f1]
+          bg-[#ede9e2]
           py-20 md:py-28 lg:py-36
           px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
         "

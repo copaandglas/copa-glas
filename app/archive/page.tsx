@@ -146,7 +146,7 @@ function ImageCard({
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay }}
       onClick={onOpen}
     >
-      <div className={`relative overflow-hidden bg-[#d9d4cd] shimmer ${imageClassName}`}>
+      <div className={`relative overflow-hidden bg-[#d5cfc6] shimmer ${imageClassName}`}>
         <Image
           src={item.src}
           alt={item.alt}
@@ -361,7 +361,7 @@ export default function ArchivePage() {
   }, [lightboxIndex]);
 
   return (
-    <div className="min-h-screen bg-[#f3f2f0]">
+    <div className="min-h-screen bg-[#ede9e2]">
       <Header variant="dark" />
 
       {/* ── Header ──────────────────────────────────── */}

@@ -81,8 +81,8 @@ function ImagePlaceholder({
     tone === "dark"
       ? "bg-[#141414] text-white/35"
       : tone === "cream"
-      ? "bg-[#efece6] text-black/30"
-      : "bg-[#ecebe6] text-black/30";
+      ? "bg-[#ede9e2] text-black/30"
+      : "bg-[#e8e3db] text-black/30";
 
   return (
     <div
@@ -486,7 +486,7 @@ export default function BespokePage() {
       </section>
 
       {/* ── Private Commission (cream) ──────────────────────────────── */}
-      <section className="bg-[#f4f3f1]">
+      <section className="bg-[#ede9e2]">
         <div
           className="
             max-w-[1440px] mx-auto

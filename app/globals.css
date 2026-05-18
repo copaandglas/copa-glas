@@ -9,9 +9,9 @@
   --color-fg: #000000;
   --color-dark: #0a0a0a;
   --color-accent: #8B4513;
-  --color-muted: #f5f5f5;
-  --color-offwhite: #f5f5f3;
-  --color-faint: #fafafa;
+  --color-muted: #ede9e2;
+  --color-offwhite: #e8e3db;
+  --color-faint: #f5f1eb;
 
   --breakpoint-xs: 25rem;    /* 400px  */
   --breakpoint-3xl: 90rem;   /* 1440px */
@@ -121,9 +121,9 @@ p, a, h1, h2, h3, h4, h5, h6, li {
 .shimmer {
   background-image: linear-gradient(
     90deg,
-    #d9d4cd 25%,
-    #e4dfda 50%,
-    #d9d4cd 75%
+    #d5cfc6 25%,
+    #e0d9d0 50%,
+    #d5cfc6 75%
   );
   background-size: 200% 100%;
   animation: shimmer 1.6s ease-in-out infinite;
