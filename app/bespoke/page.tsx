@@ -378,8 +378,9 @@ export default function BespokePage() {
         >
           <p
             className="
-              max-w-2xl
-              text-[15px] md:text-base leading-[1.75] text-black/80
+              max-w-xl
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              italic text-[13px] md:text-sm leading-[1.8] text-black/70
               mb-8 md:mb-10
             "
           >
@@ -396,15 +397,10 @@ export default function BespokePage() {
               flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3
             "
           >
-            <p
-              className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[15px] md:text-base text-black/85
-              "
-            >
+            <p className="text-[9px] tracking-[0.22em] uppercase text-black/85 font-medium">
               Hotel Café Royal, London
             </p>
-            <p className="text-[9px] tracking-[0.22em] uppercase text-black/60 font-medium">
+            <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium">
               Architectural copper glazing commission
               <span className="text-accent/50 mx-2">·</span>2024
             </p>
