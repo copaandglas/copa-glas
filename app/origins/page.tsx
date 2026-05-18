@@ -76,7 +76,8 @@ const chapters: TimelineChapter[] = [
     body:
       "Frank Lloyd Wright saw something in the Luxfer technique that others had not. He understood the copper-section glazing method as an architectural language in its own right, developing entirely new geometric compositions and introducing art glass as a chromatic element. His Prairie Style windows, most notably at the Cheney House, Oak Park, 1903, remain among the most significant examples of the technique ever realised. What had been structural became sublime.",
     plateLetter: "D",
-    plateCaption: "ART GLASS COMPOSITION · IMAGE TO FOLLOW",
+    plateCaption: "",
+    imageSrc: "/flwartglass.png",
     align: "left",
   },
 ];
