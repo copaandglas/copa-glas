@@ -261,9 +261,8 @@ export default function BespokePage() {
               "
             >
               <p>
-                Every Copa + Glas commission begins with a conversation. Not a
-                form, not a brief, a conversation about the space, the light,
-                and what you want to live with.
+                Every Copa + Glas commission begins with a conversation — about
+                the space, the light, and what you are hoping to achieve.
               </p>
               <p>
                 We work with interior designers, architects, and private
@@ -596,7 +595,7 @@ export default function BespokePage() {
             {
               num: "01",
               title: "Begin a conversation",
-              body: "Tell us about the space, the brief, and what you are hoping to achieve. There is no form and no obligation. We respond to every enquiry personally, usually within 24 hours.",
+              body: "Tell us about the project, the space, and what you are hoping to achieve. We respond to every enquiry personally, usually within 24 hours.",
             },
             {
               num: "02",
@@ -717,7 +716,7 @@ export default function BespokePage() {
             >
               We respond to every bespoke enquiry personally. There is no
               automated reply, no standard rate card. Just a conversation about
-              what you want to make.
+              what you have in mind.
             </motion.p>
           </div>
         </div>
