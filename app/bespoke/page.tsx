@@ -269,7 +269,7 @@ export default function BespokePage() {
                 We work with interior designers, architects, and private
                 clients to design and make work that could not exist anywhere
                 else. Each commission is led by Anthony McCarty, our Master
-                Craftsman, whose four decades of architectural glazing
+                Craftsman, whose five decades of architectural glazing
                 experience means no brief is too complex and no scale too
                 ambitious.
               </p>
@@ -291,7 +291,7 @@ export default function BespokePage() {
           >
             <ul className="flex flex-col divide-y divide-black/10">
               {[
-                { figure: "40+", label: "Years of craft experience" },
+                { figure: "50+", label: "Years of craft experience" },
                 { figure: "6–8", label: "Week lead time, standard commission" },
                 { figure: "London", label: "Studio visits by appointment" },
               ].map((stat, i) => (
@@ -458,7 +458,7 @@ export default function BespokePage() {
                 mb-9 text-white/95
               "
             >
-              Four decades held
+              Five decades held
               <br />
               <em>in a pair of hands.</em>
             </h2>
