@@ -382,8 +382,8 @@ export default function OriginsPage() {
           >
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
-                src="/mondrian-mirror.png"
-                alt="Studio piece, Mondrian Mirror"
+                src="/rotation-mirror.png"
+                alt="Studio piece, Rotation Mirror"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
