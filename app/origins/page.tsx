@@ -628,7 +628,7 @@ function ImagePlate({ letter, caption, src }: { letter: string; caption: string;
           alt={caption}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover"
+          className="object-contain"
         />
       ) : (
         <>
