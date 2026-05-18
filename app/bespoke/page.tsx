@@ -345,8 +345,8 @@ export default function BespokePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
           {[
-            { id: "lightwell-i", title: "Café Royal Lightwell I" },
-            { id: "lightwell-ii", title: "Café Royal Lightwell II" },
+            { id: "lightwell-i",  title: "Café Royal Lightwell I",  src: "/cafe-royal-lightwell-1.png" },
+            { id: "lightwell-ii", title: "Café Royal Lightwell II", src: "/cafe-royal-lightwell-2.png" },
           ].map((item, i) => (
             <motion.figure
               key={item.id}
@@ -356,11 +356,16 @@ export default function BespokePage() {
               transition={{ duration: 1.3, delay: 0.06 + i * 0.1, ease }}
               className="flex flex-col"
             >
-              <ImagePlaceholder
-                label="Image to follow"
-                tone="cream"
-                ratio="aspect-[4/5]"
-              />
+              <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </div>
               <figcaption className="mt-5 flex items-baseline justify-between gap-4">
                 <span
                   className="
