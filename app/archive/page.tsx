@@ -44,12 +44,12 @@ const row2Items: ArchiveItem[] = [
     year: "2023",
   },
   {
-    id: "rotation-close",
-    src: "/rotation-mirror-close.png",
-    alt: "Detail of copper frame, Rotation Mirror",
-    caption: "Detail, copper frame",
-    category: "Process / Workshop",
-    year: "2024",
+    id: "saudi-dome",
+    src: "/anthony-saudi-arabia-1983.jpg",
+    alt: "Anthony McCarty installing stained glass dome, Riyadh, 1983",
+    caption: "Riyadh, 1983",
+    category: "Commission / Architectural",
+    year: "1983",
   },
   {
     id: "mondrian-close",
