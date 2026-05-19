@@ -21,8 +21,8 @@ interface ArchiveItem {
 const row1Left: ArchiveItem = {
   id: "bigben",
   src: "/bigben.png",
-  alt: "Big Ben, Westminster — architectural glazing commission",
-  caption: "Westminster",
+  alt: "Big Ben Clock tower — architectural glazing commission",
+  caption: "Big Ben Clock tower",
   category: "Historic Commissions",
   year: "2001",
 };
@@ -47,7 +47,7 @@ const row2Items: ArchiveItem[] = [
     id: "saudi-dome",
     src: "/anthony-saudi-arabia-1983.jpg",
     alt: "Anthony McCarty installing stained glass dome, Riyadh, 1983",
-    caption: "Riyadh, 1983",
+    caption: "Riyadh",
     category: "Historic Commissions",
     year: "1983",
   },
@@ -145,6 +145,7 @@ function ImageCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const captionWithYear = `${item.caption}, ${item.year}`;
 
   return (
     <motion.div
@@ -169,10 +170,7 @@ function ImageCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 md:p-5">
           <div className="translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
             <p className="text-white text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] leading-snug italic">
-              {item.caption}
-            </p>
-            <p className="text-white/45 text-[8px] tracking-[0.16em] uppercase mt-1.5">
-              {item.year}
+              {captionWithYear}
             </p>
           </div>
         </div>
@@ -192,14 +190,9 @@ function ImageCard({
         <p className="text-[8px] tracking-[0.18em] uppercase text-black/52 font-medium leading-[2.2]">
           <CategoryLabel category={item.category} />
         </p>
-        <div className="flex items-baseline justify-between gap-2 mt-[2px]">
-          <p className="text-[11px] tracking-[0.025em] text-black/75 font-[family-name:var(--font-playfair),Georgia,serif]">
-            {item.caption}
-          </p>
-          <span className="text-[8px] text-black/45 tracking-[0.08em] shrink-0 tabular-nums">
-            {item.year}
-          </span>
-        </div>
+        <p className="text-[11px] tracking-[0.025em] text-black/75 font-[family-name:var(--font-playfair),Georgia,serif] mt-[2px]">
+          {captionWithYear}
+        </p>
       </div>
     </motion.div>
   );
@@ -292,7 +285,7 @@ function Lightbox({
           className="absolute bottom-7 sm:bottom-9 left-1/2 -translate-x-1/2 text-center w-full px-10 pointer-events-none"
         >
           <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
-            {item.caption}
+            {item.caption}, {item.year}
           </p>
           <p className="text-white/45 text-[7px] tracking-[0.2em] uppercase mt-2">
             <CategoryLabel category={item.category} lightMode />
