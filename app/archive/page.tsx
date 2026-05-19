@@ -19,82 +19,48 @@ interface ArchiveItem {
 
 /* ─── Archive content ─── */
 const row1Left: ArchiveItem = {
-  id: "mondrian-full",
-  src: "/mondrian-mirror.png",
-  alt: "Mondrian Mirror, bespoke commission, Chelsea",
-  caption: "Mondrian Mirror",
-  category: "Collection / Mirrors / Chelsea",
+  id: "bigben",
+  src: "/bigben.png",
+  alt: "Big Ben, Westminster — architectural glazing commission",
+  caption: "Westminster",
+  category: "Commission / Architectural",
   year: "2022",
 };
 const row1Right: ArchiveItem = {
-  id: "rotation-full",
-  src: "/rotation-mirror.png",
-  alt: "Rotation Mirror, copper and antiqued glass",
-  caption: "Rotation Mirror",
-  category: "Collection / Mirrors",
-  year: "2024",
-};
-const row2Left: ArchiveItem = {
-  id: "flw-mirror",
-  src: "/frank-lloyd-wright-mirror.png",
-  alt: "Frank Lloyd Wright-inspired mirror, archive commission",
-  caption: "Taliesin Mirror",
-  category: "Commission / Installation",
-  year: "2019",
-};
-const row2Right: ArchiveItem = {
-  id: "fibonacci-mantel",
-  src: "/fibonacci-mirror-mantel.png",
-  alt: "Fibonacci Mirror installed above mantel, Notting Hill",
-  caption: "Fibonacci Mirror",
-  category: "Collection / Mirrors / Notting Hill",
+  id: "naturalhistory",
+  src: "/naturalhistory.png",
+  alt: "Natural History Museum — architectural glazing commission",
+  caption: "Natural History Museum",
+  category: "Commission / Architectural",
   year: "2023",
 };
-const row3Items: ArchiveItem[] = [
+const row2Items: ArchiveItem[] = [
   {
-    id: "aura-light",
-    src: "/aura-wall-light.png",
-    alt: "Aura Wall Light, brushed copper finish",
-    caption: "Aura Wall Light",
-    category: "Collection / Lighting",
-    year: "2024",
+    id: "workshop-hands",
+    src: "/workshop-hands.png",
+    alt: "Hands at work in the Copa + Glas studio",
+    caption: "Studio, London",
+    category: "Process / Workshop",
+    year: "2023",
   },
   {
     id: "rotation-close",
     src: "/rotation-mirror-close.png",
     alt: "Detail of copper frame, Rotation Mirror",
-    caption: "Detail, Rotation",
+    caption: "Detail, copper frame",
     category: "Process / Workshop",
     year: "2024",
   },
   {
     id: "mondrian-close",
     src: "/mondrian-mirror-close.png",
-    alt: "Detail of leaded glass, Mondrian Mirror",
-    caption: "Detail, Mondrian",
-    category: "Limited / Edition / Cage",
+    alt: "Detail of leaded glass panes",
+    caption: "Detail, leaded glass",
+    category: "Process / Workshop",
     year: "2022",
   },
 ];
-const row4Items: ArchiveItem[] = [
-  {
-    id: "bigben",
-    src: "/bigben.png",
-    alt: "Big Ben, Westminster — architectural glazing commission",
-    caption: "Westminster",
-    category: "Commission / Architectural",
-    year: "2022",
-  },
-  {
-    id: "naturalhistory",
-    src: "/naturalhistory.png",
-    alt: "Natural History Museum — architectural glazing commission",
-    caption: "Natural History Museum",
-    category: "Commission / Architectural",
-    year: "2023",
-  },
-];
-const videoSide: ArchiveItem = {
+const row3Item: ArchiveItem = {
   id: "founders",
   src: "/founders.png",
   alt: "The founders in the East London workshop",
@@ -103,20 +69,14 @@ const videoSide: ArchiveItem = {
   year: "2020",
 };
 
-/* Mobile uses the same set as desktop — defined after lightboxItems below */
-
 /* All clickable image items — used for lightbox navigation and mobile grid */
 const lightboxItems: ArchiveItem[] = [
   row1Left,
   row1Right,
-  row2Left,
-  row2Right,
-  ...row3Items,
-  ...row4Items,
-  videoSide,
+  ...row2Items,
+  row3Item,
 ];
 
-const mobileItems = lightboxItems;
 
 /* ─── Category label with copper slashes ─── */
 function CategoryLabel({ category, lightMode = false }: { category: string; lightMode?: boolean }) {
@@ -465,29 +425,9 @@ export default function ArchivePage() {
             />
           </div>
 
-          {/* Row 2 — [1/3] [2/3] */}
+          {/* Row 2 — three equal thirds */}
           <div className="flex gap-1">
-            <ImageCard
-              item={row2Left}
-              className="flex-[1]"
-              imageClassName="h-[34vw] max-h-[490px]"
-              sizes="(max-width: 1440px) 33vw, 480px"
-              delay={0.04}
-              onOpen={() => openLightbox(2)}
-            />
-            <ImageCard
-              item={row2Right}
-              className="flex-[2]"
-              imageClassName="h-[34vw] max-h-[490px]"
-              sizes="(max-width: 1440px) 66vw, 960px"
-              delay={0.1}
-              onOpen={() => openLightbox(3)}
-            />
-          </div>
-
-          {/* Row 3 — three equal thirds */}
-          <div className="flex gap-1">
-            {row3Items.map((item, i) => (
+            {row2Items.map((item, i) => (
               <ImageCard
                 key={item.id}
                 item={item}
@@ -495,86 +435,28 @@ export default function ArchivePage() {
                 imageClassName="h-[30vw] max-h-[430px]"
                 sizes="(max-width: 1440px) 33vw, 480px"
                 delay={i * 0.07}
-                onOpen={() => openLightbox(4 + i)}
+                onOpen={() => openLightbox(2 + i)}
               />
             ))}
           </div>
 
-          {/* Row 4 — two equal halves */}
+          {/* Row 3 — founders full width */}
           <div className="flex gap-1">
-            {row4Items.map((item, i) => (
-              <ImageCard
-                key={item.id}
-                item={item}
-                className="flex-1"
-                imageClassName="h-[34vw] max-h-[490px]"
-                sizes="(max-width: 1440px) 50vw, 720px"
-                delay={i * 0.07}
-                onOpen={() => openLightbox(7 + i)}
-              />
-            ))}
-          </div>
-
-          {/* Row 5 — [video 2/3] [portrait 1/3] */}
-          <div className="flex gap-1 items-start">
-
-            {/* Video panel — not in lightbox */}
-            <motion.div
-              className="flex-[2] group cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="relative h-[34vw] max-h-[490px] overflow-hidden bg-black">
-                <Image
-                  src="/heroimage.png"
-                  alt="Copper workshop, hand-forming"
-                  fill
-                  sizes="(max-width: 1440px) 66vw, 960px"
-                  className="object-cover opacity-52 transition-opacity duration-500 group-hover:opacity-40"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    className="w-[54px] h-[54px] rounded-full border border-white/35 flex items-center justify-center"
-                    whileHover={{ scale: 1.12, borderColor: "rgba(255,255,255,0.7)" }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <svg className="w-[18px] h-[18px] text-white ml-[3px]" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </motion.div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
-                  <p className="text-white/80 text-[9px] tracking-[0.2em] uppercase font-medium">
-                    Behind the hand
-                  </p>
-                  <p className="text-white/55 text-[8px] tracking-[0.1em] uppercase mt-2">
-                    A short film. Workshop, 2024
-                  </p>
-                </div>
-              </div>
-              <div className="pt-[9px] pb-4">
-                <p className="text-[8px] tracking-[0.18em] uppercase text-black/30 font-medium leading-[2.2]">
-                  Studio <span className="text-accent/50">/</span> Film
-                </p>
-              </div>
-            </motion.div>
-
             <ImageCard
-              item={videoSide}
+              item={row3Item}
               className="flex-[1]"
               imageClassName="h-[34vw] max-h-[490px]"
-              sizes="(max-width: 1440px) 33vw, 480px"
-              delay={0.07}
-              onOpen={() => openLightbox(lightboxItems.indexOf(videoSide))}
+              sizes="(max-width: 1440px) 100vw, 1440px"
+              delay={0.04}
+              onOpen={() => openLightbox(5)}
             />
           </div>
+
         </div>
 
         {/* Mobile (< md): 2-column masonry */}
         <div className="md:hidden columns-2 gap-1">
-          {mobileItems.map((item, i) => {
+          {lightboxItems.map((item, i) => {
             const lbIndex = lightboxItems.findIndex((l) => l.id === item.id);
             return (
               <ImageCard
