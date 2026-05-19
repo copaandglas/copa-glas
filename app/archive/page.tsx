@@ -36,10 +36,10 @@ const row1Right: ArchiveItem = {
 };
 const row2Items: ArchiveItem[] = [
   {
-    id: "workshop-hands",
-    src: "/workshop-hands.png",
-    alt: "Hands at work in the Copa + Glas studio",
-    caption: "Studio, London",
+    id: "workshop-tools",
+    src: "/workshop-tools.webp",
+    alt: "Workshop tools, Copa + Glas studio",
+    caption: "Workshop tools",
     category: "Process / Workshop",
     year: "2023",
   },
