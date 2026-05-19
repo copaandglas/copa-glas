@@ -167,19 +167,9 @@ export default function Footer() {
             </a>
 
             <div className="flex gap-4 mt-5">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon">
+              <a href="https://www.instagram.com/copaandglas" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="social-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.52.76 1.52 1.68 0 1.02-.66 2.56-.98 3.98-.28 1.18.58 2.14 1.74 2.14 2.1 0 3.7-2.2 3.7-5.38 0-2.82-2.02-4.78-4.92-4.78-3.36 0-5.32 2.5-5.32 5.1 0 1.02.38 2.1.88 2.7.1.12.1.22.08.32l-.34 1.36c-.04.18-.16.22-.36.14-1.36-.64-2.2-2.62-2.2-4.22 0-3.44 2.5-6.6 7.2-6.6 3.78 0 6.72 2.7 6.72 6.28 0 3.76-2.36 6.78-5.66 6.78-1.1 0-2.14-.58-2.5-1.26l-.68 2.58c-.24.94-.9 2.12-1.34 2.84A12 12 0 1 0 12 0z"/>
-                </svg>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
                 </svg>
               </a>
             </div>
