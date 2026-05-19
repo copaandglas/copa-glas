@@ -60,21 +60,31 @@ const row2Items: ArchiveItem[] = [
     year: "2023",
   },
 ];
-const row3Item: ArchiveItem = {
-  id: "founders",
-  src: "/founders.png",
-  alt: "The founders in the East London workshop",
-  caption: "The Founders",
-  category: "Studio / Portrait",
-  year: "2020",
-};
+const row3Items: ArchiveItem[] = [
+  {
+    id: "cafe-royal",
+    src: "/cafe-royal-lightwell-1.jpg",
+    alt: "Hotel Café Royal lightwell, London — copper and glass commission",
+    caption: "Hotel Café Royal",
+    category: "Historic Commissions",
+    year: "2012",
+  },
+  {
+    id: "founders",
+    src: "/founders.png",
+    alt: "The founders in the East London workshop",
+    caption: "The Founders",
+    category: "Workshop",
+    year: "2021",
+  },
+];
 
 /* All clickable image items — used for lightbox navigation and mobile grid */
 const lightboxItems: ArchiveItem[] = [
   row1Left,
   row1Right,
   ...row2Items,
-  row3Item,
+  ...row3Items,
 ];
 
 
@@ -440,17 +450,19 @@ export default function ArchivePage() {
             ))}
           </div>
 
-          {/* Row 3 — founders square at half width */}
+          {/* Row 3 — two equal squares */}
           <div className="flex gap-1">
-            <ImageCard
-              item={row3Item}
-              className="w-1/2"
-              imageClassName="h-[34vw] max-h-[490px]"
-              sizes="(max-width: 1440px) 50vw, 720px"
-              delay={0.04}
-              onOpen={() => openLightbox(5)}
-            />
-            <div className="w-1/2" />
+            {row3Items.map((item, i) => (
+              <ImageCard
+                key={item.id}
+                item={item}
+                className="flex-1"
+                imageClassName="h-[34vw] max-h-[490px]"
+                sizes="(max-width: 1440px) 50vw, 720px"
+                delay={i * 0.07}
+                onOpen={() => openLightbox(5 + i)}
+              />
+            ))}
           </div>
 
         </div>
