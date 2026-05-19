@@ -60,14 +60,24 @@ const row2Items: ArchiveItem[] = [
     year: "2023",
   },
 ];
-const row4Item: ArchiveItem = {
-  id: "royal-ag-hall",
-  src: "/royalaghallstainglass.jpg",
-  alt: "Royal Agricultural Hall, stained glass commission",
-  caption: "Royal Agricultural Hall",
-  category: "Historic Commissions",
-  year: "2019",
-};
+const row4Items: ArchiveItem[] = [
+  {
+    id: "workshop-film",
+    src: "/workshopfilm.jpg",
+    alt: "Workshop, Copa + Glas studio",
+    caption: "Workshop",
+    category: "Workshop",
+    year: "2023",
+  },
+  {
+    id: "royal-ag-hall",
+    src: "/royalaghallstainglass.jpg",
+    alt: "Royal Agricultural Hall, stained glass commission",
+    caption: "Royal Agricultural Hall",
+    category: "Historic Commissions",
+    year: "2019",
+  },
+];
 
 const row3Items: ArchiveItem[] = [
   {
@@ -94,7 +104,7 @@ const lightboxItems: ArchiveItem[] = [
   row1Right,
   ...row2Items,
   ...row3Items,
-  row4Item,
+  ...row4Items,
 ];
 
 
@@ -475,15 +485,23 @@ export default function ArchivePage() {
             ))}
           </div>
 
-          {/* Row 4 — full width landscape */}
+          {/* Row 4 — [1/3 portrait] [2/3 landscape] */}
           <div className="flex gap-1">
             <ImageCard
-              item={row4Item}
-              className="flex-1"
-              imageClassName="h-[28vw] max-h-[400px]"
-              sizes="(max-width: 1440px) 100vw, 1440px"
+              item={row4Items[0]}
+              className="flex-[1]"
+              imageClassName="h-[34vw] max-h-[490px]"
+              sizes="(max-width: 1440px) 33vw, 480px"
               delay={0.04}
               onOpen={() => openLightbox(7)}
+            />
+            <ImageCard
+              item={row4Items[1]}
+              className="flex-[2]"
+              imageClassName="h-[34vw] max-h-[490px]"
+              sizes="(max-width: 1440px) 66vw, 960px"
+              delay={0.1}
+              onOpen={() => openLightbox(8)}
             />
           </div>
 
