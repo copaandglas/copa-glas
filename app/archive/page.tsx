@@ -52,12 +52,12 @@ const row2Items: ArchiveItem[] = [
     year: "1983",
   },
   {
-    id: "mondrian-close",
-    src: "/mondrian-mirror-close.png",
-    alt: "Detail of leaded glass panes",
-    caption: "Detail, leaded glass",
+    id: "master-craftsman",
+    src: "/ammastercraftsman.png",
+    alt: "Anthony McCarty, Master Craftsman",
+    caption: "Anthony McCarty",
     category: "Workshop",
-    year: "2022",
+    year: "2023",
   },
 ];
 const row3Item: ArchiveItem = {
