@@ -134,10 +134,10 @@ export default function Footer() {
           <div>
             <p className="footer-heading">Studio</p>
             <nav>
-              <Link href="/about" className="footer-link">About</Link>
               <Link href="/bespoke" className="footer-link">Bespoke</Link>
               <Link href="/origins" className="footer-link">Origins</Link>
               <Link href="/archive" className="footer-link">Archive</Link>
+              <Link href="/about" className="footer-link">About</Link>
               <Link href="/trade-specification" className="footer-link">Trade &amp; Specification</Link>
               <Link href="/contact" className="footer-link">Contact</Link>
             </nav>
