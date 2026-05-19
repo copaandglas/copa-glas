@@ -23,7 +23,7 @@ const row1Left: ArchiveItem = {
   src: "/bigben.png",
   alt: "Big Ben, Westminster — architectural glazing commission",
   caption: "Westminster",
-  category: "Commission / Architectural",
+  category: "Historic Commissions",
   year: "2022",
 };
 const row1Right: ArchiveItem = {
@@ -31,7 +31,7 @@ const row1Right: ArchiveItem = {
   src: "/naturalhistory.png",
   alt: "Natural History Museum — architectural glazing commission",
   caption: "Natural History Museum",
-  category: "Commission / Architectural",
+  category: "Historic Commissions",
   year: "2023",
 };
 const row2Items: ArchiveItem[] = [
@@ -40,7 +40,7 @@ const row2Items: ArchiveItem[] = [
     src: "/workshop-tools.webp",
     alt: "Workshop tools, Copa + Glas studio",
     caption: "Workshop tools",
-    category: "Process / Workshop",
+    category: "Workshop",
     year: "2023",
   },
   {
@@ -48,7 +48,7 @@ const row2Items: ArchiveItem[] = [
     src: "/anthony-saudi-arabia-1983.jpg",
     alt: "Anthony McCarty installing stained glass dome, Riyadh, 1983",
     caption: "Riyadh, 1983",
-    category: "Commission / Architectural",
+    category: "Historic Commissions",
     year: "1983",
   },
   {
@@ -56,7 +56,7 @@ const row2Items: ArchiveItem[] = [
     src: "/mondrian-mirror-close.png",
     alt: "Detail of leaded glass panes",
     caption: "Detail, leaded glass",
-    category: "Process / Workshop",
+    category: "Workshop",
     year: "2022",
   },
 ];
