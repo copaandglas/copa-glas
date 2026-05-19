@@ -60,6 +60,15 @@ const row2Items: ArchiveItem[] = [
     year: "2023",
   },
 ];
+const row4Item: ArchiveItem = {
+  id: "royal-ag-hall",
+  src: "/royalaghallstainglass.jpg",
+  alt: "Royal Agricultural Hall, stained glass commission",
+  caption: "Royal Agricultural Hall",
+  category: "Historic Commissions",
+  year: "2019",
+};
+
 const row3Items: ArchiveItem[] = [
   {
     id: "cafe-royal",
@@ -85,6 +94,7 @@ const lightboxItems: ArchiveItem[] = [
   row1Right,
   ...row2Items,
   ...row3Items,
+  row4Item,
 ];
 
 
@@ -463,6 +473,18 @@ export default function ArchivePage() {
                 onOpen={() => openLightbox(5 + i)}
               />
             ))}
+          </div>
+
+          {/* Row 4 — full width landscape */}
+          <div className="flex gap-1">
+            <ImageCard
+              item={row4Item}
+              className="flex-1"
+              imageClassName="h-[28vw] max-h-[400px]"
+              sizes="(max-width: 1440px) 100vw, 1440px"
+              delay={0.04}
+              onOpen={() => openLightbox(7)}
+            />
           </div>
 
         </div>
