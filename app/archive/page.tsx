@@ -63,7 +63,7 @@ const row2Items: ArchiveItem[] = [
 const row3Items: ArchiveItem[] = [
   {
     id: "cafe-royal",
-    src: "/cafe-royal-lightwell-1.jpg",
+    src: "/cafe-royal-lightwell-bw.jpg",
     alt: "Hotel Café Royal lightwell, London — copper and glass commission",
     caption: "Hotel Café Royal",
     category: "Historic Commissions",
