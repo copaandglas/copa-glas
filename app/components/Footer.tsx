@@ -202,7 +202,7 @@ export default function Footer() {
         3xl:px-[max(5rem,env(safe-area-inset-left))]
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
-        <p className="italic">Handmade in East London</p>
+
         <p>
           Website by{" "}
           <a
