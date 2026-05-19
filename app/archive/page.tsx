@@ -24,7 +24,7 @@ const row1Left: ArchiveItem = {
   alt: "Big Ben, Westminster — architectural glazing commission",
   caption: "Westminster",
   category: "Historic Commissions",
-  year: "2022",
+  year: "2001",
 };
 const row1Right: ArchiveItem = {
   id: "naturalhistory",
@@ -32,7 +32,7 @@ const row1Right: ArchiveItem = {
   alt: "Natural History Museum — architectural glazing commission",
   caption: "Natural History Museum",
   category: "Historic Commissions",
-  year: "2023",
+  year: "1994",
 };
 const row2Items: ArchiveItem[] = [
   {
@@ -57,7 +57,7 @@ const row2Items: ArchiveItem[] = [
     alt: "Anthony McCarty, Master Craftsman",
     caption: "Anthony McCarty",
     category: "Workshop",
-    year: "2023",
+    year: "2003",
   },
 ];
 const row4Items: ArchiveItem[] = [
@@ -75,7 +75,7 @@ const row4Items: ArchiveItem[] = [
     alt: "Royal Agricultural Hall, stained glass commission",
     caption: "Royal Agricultural Hall",
     category: "Historic Commissions",
-    year: "2019",
+    year: "1997",
   },
 ];
 
