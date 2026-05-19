@@ -76,6 +76,24 @@ const row3Items: ArchiveItem[] = [
     year: "2022",
   },
 ];
+const row4Items: ArchiveItem[] = [
+  {
+    id: "bigben",
+    src: "/bigben.png",
+    alt: "Big Ben, Westminster — architectural glazing commission",
+    caption: "Westminster",
+    category: "Commission / Architectural",
+    year: "2022",
+  },
+  {
+    id: "naturalhistory",
+    src: "/naturalhistory.png",
+    alt: "Natural History Museum — architectural glazing commission",
+    caption: "Natural History Museum",
+    category: "Commission / Architectural",
+    year: "2023",
+  },
+];
 const videoSide: ArchiveItem = {
   id: "founders",
   src: "/founders.png",
@@ -94,6 +112,7 @@ const lightboxItems: ArchiveItem[] = [
   row2Left,
   row2Right,
   ...row3Items,
+  ...row4Items,
   videoSide,
 ];
 
@@ -481,7 +500,22 @@ export default function ArchivePage() {
             ))}
           </div>
 
-          {/* Row 4 — [video 2/3] [portrait 1/3] */}
+          {/* Row 4 — two equal halves */}
+          <div className="flex gap-1">
+            {row4Items.map((item, i) => (
+              <ImageCard
+                key={item.id}
+                item={item}
+                className="flex-1"
+                imageClassName="h-[34vw] max-h-[490px]"
+                sizes="(max-width: 1440px) 50vw, 720px"
+                delay={i * 0.07}
+                onOpen={() => openLightbox(7 + i)}
+              />
+            ))}
+          </div>
+
+          {/* Row 5 — [video 2/3] [portrait 1/3] */}
           <div className="flex gap-1 items-start">
 
             {/* Video panel — not in lightbox */}
