@@ -440,16 +440,17 @@ export default function ArchivePage() {
             ))}
           </div>
 
-          {/* Row 3 — founders full width */}
+          {/* Row 3 — founders square at half width */}
           <div className="flex gap-1">
             <ImageCard
               item={row3Item}
-              className="flex-[1]"
+              className="w-1/2"
               imageClassName="h-[34vw] max-h-[490px]"
-              sizes="(max-width: 1440px) 100vw, 1440px"
+              sizes="(max-width: 1440px) 50vw, 720px"
               delay={0.04}
               onOpen={() => openLightbox(5)}
             />
+            <div className="w-1/2" />
           </div>
 
         </div>
