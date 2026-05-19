@@ -203,6 +203,17 @@ export default function Footer() {
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
         <p className="italic">Handmade in East London</p>
+        <p>
+          Website by{" "}
+          <a
+            href="https://www.satsuma.studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white/90 transition-colors duration-300"
+          >
+            Satsuma
+          </a>
+        </p>
       </div>
     </footer>
   );
