@@ -54,8 +54,8 @@ const row2Items: ArchiveItem[] = [
   {
     id: "master-craftsman",
     src: "/ammastercraftsman.png",
-    alt: "Anthony McCarty, Master Craftsman",
-    caption: "Anthony McCarty",
+    alt: "Anthony McCarty, Walthamstow Workshop, 2003",
+    caption: "Anthony McCarty, Walthamstow Workshop",
     category: "Workshop",
     year: "2003",
   },
@@ -83,8 +83,8 @@ const row3Items: ArchiveItem[] = [
   {
     id: "cafe-royal",
     src: "/cafe-royal-lightwell-bw.jpg",
-    alt: "Hotel Café Royal lightwell, London — copper and glass commission",
-    caption: "Hotel Café Royal",
+    alt: "Lightwell, Hotel Café Royal, 2012",
+    caption: "Lightwell, Hotel Café Royal",
     category: "Historic Commissions",
     year: "2012",
   },
