@@ -145,6 +145,7 @@ export default function EnquiryDrawer({
   variant = "collection",
 }: EnquiryDrawerProps) {
   const isConfigurator = variant === "configurator";
+  const hideSpaceAndTimeline = product?.slug === "three-geishas";
   const [form, setForm] = useState<FormState>(initialState);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -269,8 +270,12 @@ export default function EnquiryDrawer({
           email: form.email.trim(),
           telephone: form.telephone.trim() || null,
           location: form.location.trim() || null,
-          intendedSpace: isConfigurator ? null : form.intendedSpace.trim() || null,
-          timeline: isConfigurator ? null : form.timeline || null,
+          intendedSpace:
+            isConfigurator || hideSpaceAndTimeline
+              ? null
+              : form.intendedSpace.trim() || null,
+          timeline:
+            isConfigurator || hideSpaceAndTimeline ? null : form.timeline || null,
           units: isConfigurator ? form.units.trim() || null : null,
           contactMethod: form.contactMethod,
           message: form.message.trim(),
@@ -615,7 +620,7 @@ export default function EnquiryDrawer({
                       </Field>
                     )}
 
-                    {product && !isConfigurator && (
+                    {product && !isConfigurator && !hideSpaceAndTimeline && (
                       <Field>
                         <label htmlFor="enq-space" className={LABEL_CLASS}>
                           Intended space
@@ -633,7 +638,7 @@ export default function EnquiryDrawer({
                       </Field>
                     )}
 
-                    {!isConfigurator && (
+                    {!isConfigurator && !hideSpaceAndTimeline && (
                       <Field>
                         <span className={LABEL_CLASS}>Timeline</span>
                         <div className="grid grid-cols-2 gap-2.5">
