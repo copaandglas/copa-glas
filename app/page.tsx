@@ -78,15 +78,20 @@ export default function Home() {
           <Link href="/origins" className="text-white no-underline">Origins</Link>
           <Link href="/archive" className="text-white no-underline">Archive</Link>
           <Link href="/about" className="text-white no-underline">About</Link>
-          <Link
-            href="/contact"
+          <div
             className="
-              text-white no-underline
+              flex flex-col sm:flex-row sm:items-baseline
+              gap-2.5 sm:gap-6 lg:gap-8
               mt-6 sm:mt-7 lg:mt-8 xl:mt-9
             "
           >
-            Enquire
-          </Link>
+            <Link href="/collaborative" className="text-white no-underline">
+              Collaborative
+            </Link>
+            <Link href="/contact" className="text-white no-underline">
+              Enquire
+            </Link>
+          </div>
         </nav>
       </div>
 

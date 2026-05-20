@@ -46,8 +46,8 @@ const row2Items: ArchiveItem[] = [
   {
     id: "saudi-dome",
     src: "/anthony-saudi-arabia-1983.jpg",
-    alt: "Anthony McCarty installing stained glass dome, Riyadh, 1983",
-    caption: "Riyadh",
+    alt: "Glass dome, Riyadh, 1983",
+    caption: "Glass Dome, Riyadh",
     category: "Historic Commissions",
     year: "1983",
   },
@@ -233,7 +233,7 @@ function Lightbox({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.28 }}
-      className="fixed inset-0 z-[9999] bg-[#0a0a0a]/95 backdrop-blur-md flex items-center justify-center"
+      className="fixed inset-0 z-[9999] bg-[#0a0a0a]/95 backdrop-blur-md flex flex-col items-center justify-center px-5 pt-14 pb-8 sm:pb-10"
       onClick={onClose}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -251,47 +251,50 @@ function Lightbox({
         Close
       </button>
 
-      {/* Image — directional slide */}
-      <AnimatePresence mode="wait" initial={false} custom={direction}>
-        <motion.div
-          key={index}
-          custom={direction}
-          initial={{ opacity: 0, x: direction * 32 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction * -32 }}
-          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-[92vw] h-[70vh] sm:w-[85vw] sm:h-[76vh] md:w-[76vw] md:h-[80vh]"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            sizes="90vw"
-            className="object-contain"
-            priority
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Image + caption — stacked with gap so caption never overlaps image */}
+      <motion.div
+        className="flex flex-col items-center w-full max-w-[92vw] sm:max-w-[85vw] md:max-w-[76vw] gap-6 sm:gap-8 min-h-0 flex-1 justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <AnimatePresence mode="wait" initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            initial={{ opacity: 0, x: direction * 32 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction * -32 }}
+            transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full flex-1 min-h-0 max-h-[min(70vh,calc(100vh-11rem))] sm:max-h-[min(76vh,calc(100vh-12rem))] md:max-h-[min(80vh,calc(100vh-13rem))]"
+          >
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes="90vw"
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
 
-      {/* Caption */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`cap-${index}`}
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, delay: 0.18 }}
-          className="absolute bottom-7 sm:bottom-9 left-1/2 -translate-x-1/2 text-center w-full px-10 pointer-events-none"
-        >
-          <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
-            {item.caption}, {item.year}
-          </p>
-          <p className="text-white/45 text-[7px] tracking-[0.2em] uppercase mt-2">
-            <CategoryLabel category={item.category} lightMode />
-          </p>
-        </motion.div>
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`cap-${index}`}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, delay: 0.18 }}
+            className="shrink-0 text-center w-full px-4 pointer-events-none"
+          >
+            <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
+              {item.caption}, {item.year}
+            </p>
+            <p className="text-white/45 text-[7px] tracking-[0.2em] uppercase mt-2">
+              <CategoryLabel category={item.category} lightMode />
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
 
       {/* Prev */}
       <button
