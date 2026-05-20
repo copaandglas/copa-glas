@@ -24,7 +24,7 @@ const row1Left: ArchiveItem = {
   alt: "Big Ben Clock tower — architectural glazing commission",
   caption: "Big Ben Clock tower",
   category: "Historic Commissions",
-  year: "2001",
+  year: "2010",
 };
 const row1Right: ArchiveItem = {
   id: "naturalhistory",
@@ -41,7 +41,7 @@ const row2Items: ArchiveItem[] = [
     alt: "Workshop tools, Copa + Glas studio",
     caption: "Workshop tools",
     category: "Workshop",
-    year: "2023",
+    year: "2021",
   },
   {
     id: "saudi-dome",
@@ -94,7 +94,7 @@ const row3Items: ArchiveItem[] = [
     alt: "The founders in the East London workshop",
     caption: "The Founders",
     category: "Workshop",
-    year: "2021",
+    year: "2024",
   },
 ];
 
