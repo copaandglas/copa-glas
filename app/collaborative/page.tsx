@@ -8,16 +8,13 @@ import Footer from "@/app/components/Footer";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const INSTITUTIONS = [
-  {
-    name: "Liberty London",
-    body:
-      "An example from our collection — for Liberty London we produced a range of art glass mirrors as a celebration of the store's heritage, craft, and place in the city. Each piece draws on the studio's copper-and-glass technique while speaking to the building, its history, and the people who move through it.",
-    imageSrc: null as string | null,
-    imageAlt: "Liberty London — art glass mirror collection",
-    placeholder: "Liberty London",
-  },
-] as const;
+const LIBERTY_COLLECTION = {
+  body:
+    "An example from our collection — for Liberty London we produced a range of art glass mirrors as a celebration of the store's heritage, craft, and place in the city. Each piece draws on the studio's copper-and-glass technique while speaking to the building, its history, and the people who move through it.",
+  imageSrc: null as string | null,
+  imageAlt: "Liberty London Collection — art glass mirrors",
+  placeholder: "Liberty London",
+} as const;
 
 export default function CollaborativePage() {
   const reduced = useReducedMotion();
@@ -100,8 +97,8 @@ export default function CollaborativePage() {
         >
           <p>
             Beyond the collection and bespoke commissions, the studio works
-            selectively with artists, designers, and institutions — people and
-            places where craft, vision, and material meet on equal terms.
+            selectively with artists and designers — people where craft, vision,
+            and material meet on equal terms.
           </p>
           <p>
             These collaborations are not production runs. Each is a considered
@@ -166,20 +163,50 @@ export default function CollaborativePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 1.2, delay: 0.08, ease }}
-            className="relative aspect-[4/5] bg-[#e8e3db] overflow-hidden"
           >
-            <Image
-              src="/copaxlucywilliams.jpg"
-              alt="Copa + Glas collaboration with Lucy Williams"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+            <div className="relative aspect-[4/5] bg-[#e8e3db] overflow-hidden">
+              <Image
+                src="/copaxlucywilliams.jpg"
+                alt="Three Geishas — Copa + Glas in collaboration with Lucy Williams"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/45 font-medium">
+              <span className="block">Three Geishas</span>
+              <span className="block mt-1">In collaboration with Lucy Williams</span>
+            </p>
+            <Link
+              href="/product/three-geishas"
+              className="
+                group mt-4 inline-flex items-center gap-2
+                text-[10px] tracking-[0.22em] uppercase
+                text-black/55 no-underline
+                transition-colors duration-400 hover:text-black/90
+              "
+            >
+              <span>View Piece</span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Institutions */}
+      {/* Liberty London Collection */}
       <section
         className="
           border-t border-black/[0.06]
@@ -196,77 +223,57 @@ export default function CollaborativePage() {
           className="max-w-[1440px] mx-auto mb-14 md:mb-20"
         >
           <p className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-6">
-            Institutions
+            Liberty London Collection
           </p>
           <h2
             className="
               font-[family-name:var(--font-playfair),Georgia,serif]
               text-[clamp(1.75rem,3.5vw,2.75rem)]
               leading-[1.15] -tracking-[0.005em] font-normal
-              max-w-[20ch] text-black/92
+              max-w-[24ch] text-black/92
             "
           >
-            Buildings with history. Work with permanence.
+            Art glass mirrors. A celebration of Liberty.
           </h2>
         </motion.div>
 
-        <div className="max-w-[1440px] mx-auto space-y-16 md:space-y-24">
-          {INSTITUTIONS.map((item, index) => (
-            <motion.article
-              key={item.name}
-              initial={from(18)}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-6% 0px" }}
-              transition={{ duration: 1.2, delay: index * 0.06, ease }}
-              className={`
-                grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center
-                ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}
-              `}
-            >
-              <motion.div
-                className="relative aspect-[16/10] bg-[#e8e3db] overflow-hidden"
-              >
-                {item.imageSrc ? (
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[9px] tracking-[0.28em] uppercase text-black/30 font-medium">
-                      {item.placeholder}
-                    </span>
-                  </div>
-                )}
-              </motion.div>
+        <div className="max-w-[1440px] mx-auto">
+          <motion.article
+            initial={from(18)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-6% 0px" }}
+            transition={{ duration: 1.2, ease }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center"
+          >
+            <motion.div className="relative aspect-[16/10] bg-[#e8e3db] overflow-hidden">
+              {LIBERTY_COLLECTION.imageSrc ? (
+                <Image
+                  src={LIBERTY_COLLECTION.imageSrc}
+                  alt={LIBERTY_COLLECTION.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-[9px] tracking-[0.28em] uppercase text-black/30 font-medium">
+                    {LIBERTY_COLLECTION.placeholder}
+                  </span>
+                </div>
+              )}
+            </motion.div>
 
-              <div>
-                <p className="text-[9px] tracking-[0.22em] uppercase text-black/50 font-medium mb-4">
-                  Institution
-                </p>
-                <h3
-                  className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
-                    text-[clamp(1.5rem,2.5vw,2rem)]
-                    leading-[1.2] font-normal mb-5
-                  "
-                >
-                  {item.name}
-                </h3>
-                <p
-                  className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
-                    text-[15px] md:text-base leading-[1.85] text-black/75
-                  "
-                >
-                  {item.body}
-                </p>
-              </div>
-            </motion.article>
-          ))}
+            <div>
+              <p
+                className="
+                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  text-[15px] md:text-base leading-[1.85] text-black/75
+                "
+              >
+                {LIBERTY_COLLECTION.body}
+              </p>
+            </div>
+          </motion.article>
         </div>
       </section>
 
@@ -304,8 +311,8 @@ export default function CollaborativePage() {
                 text-[15px] leading-[1.8] text-black/72
               "
             >
-              We welcome enquiries from artists, designers, curators, and
-              institutions with a brief worth making together.
+              We welcome enquiries from artists and designers with a brief
+              worth making together.
             </p>
           </div>
 

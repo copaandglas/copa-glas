@@ -115,6 +115,23 @@ The piece shown was made for a private commission: a solid copper frame with tin
   collectionCategory: { href: "/lighting", label: "Lighting" },
 };
 
+const threeGeishas: ProductData = {
+  designer: "Lucy Williams",
+  name: "Three Geishas",
+  size: "",
+  description: `Three Geishas is a collaborative work between Copa + Glas and the artist Lucy Williams — copper and hand-cut glass brought together in dialogue with Williams's visual language.
+
+Made in the studio as a single piece, conceived and finished for the wall.`,
+  provenance: `In collaboration with Lucy Williams. Assembled and finished by hand in our East London workshop.`,
+  material: "Solid copper; hand-cut glass",
+  dimensions: { cm: "Dimensions on request", inches: "Dimensions on request" },
+  finish: "Copper hand-finished in the studio",
+  leadTime: "Made to order",
+  price: "Price on request",
+  images: [{ src: "/copaxlucywilliams.jpg" }],
+  collectionCategory: { href: "/collaborative", label: "Collaborative" },
+};
+
 const rotationConfettiMirror: ProductData = {
   designer: "Copa + Glas Studio",
   name: "The Rotation Confetti Mirror",
@@ -134,6 +151,7 @@ Assembled and finished to order in our East London workshop.`,
 
 function productForSlug(slug: string | undefined): ProductData {
   if (slug === "aura-wall-light") return auraWallLight;
+  if (slug === "three-geishas") return threeGeishas;
   if (slug === "mondrian-mirror") return mondrianMirror;
   if (slug === "fibonacci-mirror") return fibonacciMirror;
   if (slug === "frank-lloyd-wright-mirror") return frankLloydWrightMirror;
