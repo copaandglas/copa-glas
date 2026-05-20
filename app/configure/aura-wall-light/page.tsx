@@ -135,6 +135,7 @@ export default function AuraWallLightConfigurePage() {
         title="Enquiry"
         product={enquiryProduct}
         configurationMessage={configurationMessage}
+        variant="configurator"
       />
     </div>
   );

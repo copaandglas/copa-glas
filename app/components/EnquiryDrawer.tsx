@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+type Timeline = "within-month" | "1-3-months" | "later-year" | "exploring";
 type ContactMethod = "email" | "phone" | "either";
+type EnquiryVariant = "collection" | "configurator";
 
 export interface EnquiryDrawerProduct {
   name: string;
@@ -28,6 +30,8 @@ interface EnquiryDrawerProps {
    * the configuration changes (e.g. configurator finish selection).
    */
   configurationMessage?: string;
+  /** Collection product pages use the standard form; configurator uses a tailored form. */
+  variant?: EnquiryVariant;
 }
 
 interface FormState {
@@ -35,6 +39,8 @@ interface FormState {
   email: string;
   telephone: string;
   location: string;
+  intendedSpace: string;
+  timeline: Timeline | "";
   units: string;
   contactMethod: ContactMethod;
   message: string;
@@ -48,12 +54,21 @@ const initialState: FormState = {
   email: "",
   telephone: "",
   location: "",
+  intendedSpace: "",
+  timeline: "",
   units: "",
   contactMethod: "either",
   message: "",
   newsletter: false,
   website: "",
 };
+
+const TIMELINE_OPTIONS: { id: Timeline; label: string }[] = [
+  { id: "within-month", label: "Within a month" },
+  { id: "1-3-months", label: "1 to 3 months" },
+  { id: "later-year", label: "Later this year" },
+  { id: "exploring", label: "Still exploring" },
+];
 
 const CONTACT_OPTIONS: { id: ContactMethod; label: string }[] = [
   { id: "email", label: "Email" },
@@ -127,7 +142,9 @@ export default function EnquiryDrawer({
   product,
   title,
   configurationMessage,
+  variant = "collection",
 }: EnquiryDrawerProps) {
+  const isConfigurator = variant === "configurator";
   const [form, setForm] = useState<FormState>(initialState);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -160,7 +177,7 @@ export default function EnquiryDrawer({
   }, [open, onClose]);
 
   useEffect(() => {
-    if (!open || !configurationMessage) return;
+    if (!open || !configurationMessage || !isConfigurator) return;
 
     setForm((prev) => {
       const userHasEdited =
@@ -171,7 +188,7 @@ export default function EnquiryDrawer({
       lastSyncedConfigurationRef.current = configurationMessage;
       return { ...prev, message: configurationMessage };
     });
-  }, [open, configurationMessage]);
+  }, [open, configurationMessage, isConfigurator]);
 
   useEffect(() => {
     if (open) {
@@ -252,7 +269,9 @@ export default function EnquiryDrawer({
           email: form.email.trim(),
           telephone: form.telephone.trim() || null,
           location: form.location.trim() || null,
-          units: form.units.trim() || null,
+          intendedSpace: isConfigurator ? null : form.intendedSpace.trim() || null,
+          timeline: isConfigurator ? null : form.timeline || null,
+          units: isConfigurator ? form.units.trim() || null : null,
           contactMethod: form.contactMethod,
           message: form.message.trim(),
           newsletter: form.newsletter,
@@ -260,7 +279,7 @@ export default function EnquiryDrawer({
             ? {
                 name: product.name,
                 slug: product.slug ?? null,
-                finish: product.finish ?? null,
+                finish: isConfigurator ? product.finish ?? null : null,
               }
             : null,
           source:
@@ -332,22 +351,44 @@ export default function EnquiryDrawer({
                   {eyebrow}
                 </p>
                 {product ? (
-                  <div className="flex items-center gap-3 min-w-0">
-                    <ProductThumbnail product={product} />
-                    <div className="min-w-0">
+                  isConfigurator ? (
+                    <div className="flex items-center gap-3 min-w-0">
+                      <ProductThumbnail product={product} />
+                      <div className="min-w-0">
+                        <h2
+                          id="enquiry-drawer-title"
+                          className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
+                        >
+                          {product.name}
+                        </h2>
+                        {product.finish && (
+                          <p className="text-[10px] tracking-[0.12em] uppercase text-black/50 mt-1 truncate">
+                            {product.finish}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-3 min-w-0">
+                      {product.image && (
+                        <div className="relative shrink-0 w-11 h-11 bg-muted overflow-hidden">
+                          <Image
+                            src={product.image}
+                            alt=""
+                            fill
+                            sizes="44px"
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
                       <h2
                         id="enquiry-drawer-title"
-                        className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
+                        className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2] truncate"
                       >
                         {product.name}
                       </h2>
-                      {product.finish && (
-                        <p className="text-[10px] tracking-[0.12em] uppercase text-black/50 mt-1 truncate">
-                          {product.finish}
-                        </p>
-                      )}
                     </div>
-                  </div>
+                  )
                 ) : (
                   <h2
                     id="enquiry-drawer-title"
@@ -430,9 +471,11 @@ export default function EnquiryDrawer({
                     noValidate
                   >
                     <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] text-black/65 mb-8 max-w-[44ch]">
-                      {product
+                      {isConfigurator
                         ? "Tell us about yourself — and the room this piece might transform."
-                        : "A few details so we can respond thoughtfully."}
+                        : product
+                          ? "Tell us a little about yourself and the space you have in mind."
+                          : "A few details so we can respond thoughtfully."}
                     </p>
 
                     <SectionHeading>About you</SectionHeading>
@@ -512,27 +555,48 @@ export default function EnquiryDrawer({
 
                     {product && (
                       <Field>
-                        <span className={LABEL_CLASS}>The glass you have chosen</span>
-                        <div className="
-                          flex items-center gap-3
-                          px-4 py-3 border border-black/[0.08] bg-faint
-                        ">
-                          <ProductPiecePreview product={product} />
-                          <div className="min-w-0">
-                            <span className="block font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
-                              {product.name}
-                            </span>
-                            {product.finish && (
-                              <span className="block text-[10px] tracking-[0.1em] uppercase text-black/50 mt-1">
-                                {product.finish}
+                        {isConfigurator ? (
+                          <>
+                            <span className={LABEL_CLASS}>The glass you have chosen</span>
+                            <div className="
+                              flex items-center gap-3
+                              px-4 py-3 border border-black/[0.08] bg-faint
+                            ">
+                              <ProductPiecePreview product={product} />
+                              <div className="min-w-0">
+                                <span className="block font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
+                                  {product.name}
+                                </span>
+                                {product.finish && (
+                                  <span className="block text-[10px] tracking-[0.1em] uppercase text-black/50 mt-1">
+                                    {product.finish}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <span className={LABEL_CLASS}>Piece</span>
+                            <div className="
+                              flex items-center gap-3
+                              px-4 py-3 border border-black/[0.08] bg-faint
+                            ">
+                              {product.image && (
+                                <div className="relative shrink-0 w-9 h-9 bg-muted overflow-hidden">
+                                  <Image src={product.image} alt="" fill sizes="36px" className="object-cover" />
+                                </div>
+                              )}
+                              <span className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80 truncate">
+                                {product.name}
                               </span>
-                            )}
-                          </div>
-                        </div>
+                            </div>
+                          </>
+                        )}
                       </Field>
                     )}
 
-                    {product && (
+                    {product && isConfigurator && (
                       <Field>
                         <label htmlFor="enq-units" className={LABEL_CLASS}>
                           Number of pieces
@@ -548,6 +612,54 @@ export default function EnquiryDrawer({
                           placeholder="One for the hall — or several throughout the home"
                           className={INPUT_CLASS}
                         />
+                      </Field>
+                    )}
+
+                    {product && !isConfigurator && (
+                      <Field>
+                        <label htmlFor="enq-space" className={LABEL_CLASS}>
+                          Intended space
+                          <span className={LABEL_OPTIONAL_CLASS}>optional</span>
+                        </label>
+                        <input
+                          id="enq-space"
+                          name="intendedSpace"
+                          type="text"
+                          value={form.intendedSpace}
+                          onChange={(e) => update("intendedSpace", e.target.value)}
+                          placeholder="Which room is this for?"
+                          className={INPUT_CLASS}
+                        />
+                      </Field>
+                    )}
+
+                    {!isConfigurator && (
+                      <Field>
+                        <span className={LABEL_CLASS}>Timeline</span>
+                        <div className="grid grid-cols-2 gap-2.5">
+                          {TIMELINE_OPTIONS.map((opt) => {
+                            const active = form.timeline === opt.id;
+                            return (
+                              <button
+                                key={opt.id}
+                                type="button"
+                                onClick={() => update("timeline", active ? "" : opt.id)}
+                                aria-pressed={active}
+                                className={`
+                                  relative text-[12px] md:text-[12.5px] tracking-[0.04em]
+                                  py-3 pl-3 pr-3 text-left
+                                  border transition-[border-color,background-color,color] duration-200
+                                  cursor-pointer
+                                  ${active
+                                    ? "border-black bg-offwhite text-black font-medium"
+                                    : "border-black/[0.14] bg-white text-black/60 hover:border-black/45 hover:text-black/85"}
+                                `}
+                              >
+                                {opt.label}
+                              </button>
+                            );
+                          })}
+                        </div>
                       </Field>
                     )}
 
@@ -589,9 +701,11 @@ export default function EnquiryDrawer({
                         value={form.message}
                         onChange={(e) => update("message", e.target.value)}
                         placeholder={
-                          product
+                          isConfigurator
                             ? "A note, if you wish"
-                            : "Tell us a little about what you have in mind."
+                            : product
+                              ? `Anything you'd like us to know about ${product.name} or the space it's for.`
+                              : "Tell us a little about what you have in mind."
                         }
                         aria-invalid={Boolean(fieldErrors.message)}
                         aria-describedby={fieldErrors.message ? "enq-message-err" : undefined}
