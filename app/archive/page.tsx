@@ -45,7 +45,7 @@ const row2Items: ArchiveItem[] = [
   },
   {
     id: "saudi-dome",
-    src: "/anthony-saudi-arabia-1983.jpg",
+    src: "/saudiarabia.jpg",
     alt: "Glass dome, Riyadh, 1983",
     caption: "Glass Dome, Riyadh",
     category: "Historic Commissions",
