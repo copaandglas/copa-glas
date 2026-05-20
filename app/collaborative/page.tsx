@@ -96,9 +96,8 @@ export default function CollaborativePage() {
           "
         >
           <p>
-            Beyond the collection and bespoke commissions, the studio works
-            selectively with artists and designers — people where craft, vision,
-            and material meet on equal terms.
+            Beyond the collection, the studio works selectively with artists and
+            designers whose vision and material sensibility align with our own.
           </p>
           <p>
             These collaborations are not production runs. Each is a considered
