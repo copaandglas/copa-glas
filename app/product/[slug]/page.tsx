@@ -123,7 +123,9 @@ const threeGeishas: ProductData = {
 
 Lucy uses a unique photographic print process, creating subtle, nostalgic imagery through naturally occurring bleeds and chemical reactions.
 
-In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece. Lucy originates from Wales and her family still live there.`,
+In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece.
+
+Lucy originates from Wales and her family still live there.`,
   provenance: `In collaboration with Lucy Williams. Assembled and finished by hand in our East London workshop.`,
   material: "Solid copper; Welsh slate; photographic print",
   dimensions: { cm: "41 × 45.5cm", inches: "16.1 × 17.9in" },
@@ -401,8 +403,13 @@ export default function ProductPage() {
                 The Narrative
               </h3>
               <div className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-[17px] leading-[1.85] opacity-[0.90]">
-                {product.description.split("\n\n").map((para, i) => (
-                  <p key={i} className={i === 0 ? "mb-4 lg:mb-6" : ""}>{para}</p>
+                {product.description.split("\n\n").map((para, i, arr) => (
+                  <p
+                    key={i}
+                    className={i < arr.length - 1 ? "mb-4 lg:mb-6" : ""}
+                  >
+                    {para}
+                  </p>
                 ))}
               </div>
             </section>
