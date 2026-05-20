@@ -53,7 +53,7 @@ const chapters: TimelineChapter[] = [
       "Luxfer's manufacturing process was protected by patent in the same year as the company's founding. The method, copper sections holding individual glass panes in precise geometric formations, was both technically innovative and visually refined. It became the foundation upon which an entire tradition of architectural glazing would be built.",
     plateLetter: "B",
     plateCaption: "",
-    imageSrc: "/luxferprocess.png",
+    imageSrc: "/luxferprocess.webp",
     align: "left",
   },
   {
@@ -65,7 +65,7 @@ const chapters: TimelineChapter[] = [
       "The Luxfer technique spread with remarkable speed. From Shanghai to ocean liners crossing the Atlantic, architects and designers specified this glazing method for its structural elegance and its capacity to transform how light moved through built space. A technique born in one workshop became the language of a global architectural movement.",
     plateLetter: "C",
     plateCaption: "",
-    imageSrc: "/shanghai.png",
+    imageSrc: "/shanghai.webp",
     align: "right",
   },
   {
@@ -77,7 +77,7 @@ const chapters: TimelineChapter[] = [
       "Frank Lloyd Wright saw something in the Luxfer technique that others had not. He understood the copper-section glazing method as an architectural language in its own right, developing entirely new geometric compositions and introducing art glass as a chromatic element. His Prairie Style windows, most notably at the Cheney House, Oak Park, 1903, remain among the most significant examples of the technique ever realised. What had been structural became sublime.",
     plateLetter: "D",
     plateCaption: "",
-    imageSrc: "/flwartglass.png",
+    imageSrc: "/flwartglass.webp",
     align: "left",
   },
 ];
@@ -269,7 +269,7 @@ export default function OriginsPage() {
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
             />
             {/* Left edge: blend into dark bg */}
@@ -349,6 +349,7 @@ export default function OriginsPage() {
             <ChapterBlock
               key={chapter.id}
               chapter={chapter}
+              index={index}
               isLast={index === chapters.length - 1}
               prefersReducedMotion={!!prefersReducedMotion}
             />
@@ -507,10 +508,12 @@ export default function OriginsPage() {
 
 function ChapterBlock({
   chapter,
+  index,
   isLast,
   prefersReducedMotion,
 }: {
   chapter: TimelineChapter;
+  index: number;
   isLast: boolean;
   prefersReducedMotion: boolean;
 }) {
@@ -543,6 +546,7 @@ function ChapterBlock({
           letter={chapter.plateLetter}
           caption={chapter.plateCaption}
           src={chapter.imageSrc}
+          priority={index === 0}
         />
       </motion.div>
 
@@ -613,7 +617,17 @@ function ChapterBlock({
 /*  Image plate (uniform, quiet)                                              */
 /* -------------------------------------------------------------------------- */
 
-function ImagePlate({ letter, caption, src }: { letter: string; caption: string; src?: string }) {
+function ImagePlate({
+  letter,
+  caption,
+  src,
+  priority = false,
+}: {
+  letter: string;
+  caption: string;
+  src?: string;
+  priority?: boolean;
+}) {
   return (
     <figure
       className="
@@ -625,9 +639,11 @@ function ImagePlate({ letter, caption, src }: { letter: string; caption: string;
       {src ? (
         <Image
           src={src}
-          alt={caption}
+          alt={caption || `Archive plate ${letter}`}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
+          priority={priority}
+          quality={82}
           className="object-contain"
         />
       ) : (
