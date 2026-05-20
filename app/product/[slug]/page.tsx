@@ -126,10 +126,10 @@ Lucy uses a unique photographic print process, creating subtle, nostalgic imager
 In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece.`,
   provenance: `In collaboration with Lucy Williams. Assembled and finished by hand in our East London workshop.`,
   material: "Solid copper; Welsh slate; photographic print",
-  dimensions: { cm: "Dimensions on request", inches: "Dimensions on request" },
+  dimensions: { cm: "41 × 45.5cm", inches: "16.1 × 17.9in" },
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
-  price: "Price on request",
+  price: "£1,700.00",
   images: [{ src: "/copaxlucywilliams.jpg" }],
   collectionCategory: { href: "/collaborative", label: "Collaborative" },
 };
@@ -437,21 +437,6 @@ export default function ProductPage() {
                 ))}
               </div>
             </section>
-
-            {/* Download */}
-            <a
-              href="#"
-              className="
-                inline-flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.12em] uppercase
-                text-inherit no-underline mb-7 md:mb-8 lg:mb-10 3xl:mb-11
-                pb-1 border-b border-black/25 hover:border-black/80 transition-[border-color]
-              "
-            >
-              <span>Download Spec Sheet</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-            </a>
 
             {/* Price & CTA */}
             <div className="
