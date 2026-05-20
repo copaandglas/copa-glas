@@ -305,7 +305,6 @@ export default function LightingPage() {
           ))}
         </div>
 
-        {/* Gentle note under a sparse collection */}
         <p
           className="
             mt-16 md:mt-20 lg:mt-24
@@ -315,8 +314,8 @@ export default function LightingPage() {
             max-w-[44ch]
           "
         >
-          Further lighting pieces are in development in the studio. Sign up or
-          enquire to be the first to see them.
+          Further lighting pieces are in development in the studio. Enquire to be
+          the first to see them.
         </p>
       </div>
 

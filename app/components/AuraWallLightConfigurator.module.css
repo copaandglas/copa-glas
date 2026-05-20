@@ -1,0 +1,367 @@
+.root {
+  --active-pane-color: #c45b12;
+  --copper-accent: #b87352;
+  --border-color: #e5e5e5;
+  --text-secondary: #666666;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  gap: 80px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.visualizerPane {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.sconceSvg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
+  transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tubeGlow,
+.centralGlass,
+.tubeShadow,
+.sunkenShadow {
+  will-change: opacity, fill, filter;
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tubeGlow {
+  fill: var(--active-pane-color);
+  opacity: 0;
+}
+
+.centralGlass {
+  fill: var(--active-pane-color);
+}
+
+.root.isOn .tubeGlow {
+  opacity: 0.8;
+}
+
+.root.isOn .centralGlass {
+  filter: brightness(1.3) saturate(1.2);
+}
+
+.root.isOn .tubeShadow {
+  opacity: 0.2;
+}
+
+.root.isOn .sunkenShadow {
+  opacity: 0.15;
+}
+
+.controlsPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.collectionName {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.intro {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #1a1a1a;
+  opacity: 0.88;
+  margin: 0 0 32px 0;
+  max-width: 36ch;
+}
+
+.sectionLabel {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.activeColorName {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: var(--copper-accent);
+  margin: 0 0 12px 0;
+}
+
+.activeColorDesc {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  min-height: 50px;
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.swatchWrapper {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.swatchWrapperActive .swatch {
+  border: 1px solid var(--copper-accent);
+}
+
+.swatchWrapper:focus-visible .swatch {
+  outline: 1px solid var(--copper-accent);
+  outline-offset: 4px;
+}
+
+.swatchLabel {
+  margin-top: 10px;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.swatchWrapperActive .swatchLabel {
+  color: #1a1a1a;
+}
+
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.toggleLabel {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #e5e5e5;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 24px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.switch input:checked + .slider {
+  background-color: var(--copper-accent);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(16px);
+}
+
+.specsTable {
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #1a1a1a;
+  gap: 16px;
+}
+
+.specLabel {
+  font-weight: 500;
+}
+
+.specValue {
+  text-align: right;
+}
+
+.enquireBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 1rem 1.25rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.enquireBtn:hover {
+  background: #1a1a1a;
+}
+
+/* Hide in-page enquire on mobile — fixed bar handles CTA */
+@media (max-width: 850px) {
+  .enquireBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .mobileShell {
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 4.5rem);
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 0;
+    gap: 0;
+    max-width: none;
+  }
+
+  .visualizerPane {
+    flex: 0 0 45%;
+    height: 45%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px;
+    z-index: 1;
+  }
+
+  .sconceSvg {
+    height: 100%;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+  }
+
+  .controlsPane {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 30px 24px calc(40px + env(safe-area-inset-bottom));
+    justify-content: flex-start;
+    min-height: 0;
+  }
+
+  :global(.configure-embedded) .controlsPane {
+    padding-bottom: calc(8.5rem + env(safe-area-inset-bottom));
+  }
+
+  :global(.configure-embedded) .mobileShell {
+    height: calc(100dvh - 4.5rem);
+  }
+
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  .activeColorDesc {
+    min-height: auto;
+    margin-bottom: 24px;
+    font-size: 1rem;
+  }
+
+  .swatchGrid {
+    gap: 12px;
+  }
+}

@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Timeline = "within-month" | "1-3-months" | "later-year" | "exploring";
 type ContactMethod = "email" | "phone" | "either";
 
 export interface EnquiryDrawerProduct {
@@ -12,6 +11,10 @@ export interface EnquiryDrawerProduct {
   slug?: string;
   image?: string;
   price?: string;
+  /** Configurator finish label, e.g. "Amber Iridescent". */
+  finish?: string;
+  /** Hex for finish swatch in the drawer. */
+  finishSwatch?: string;
 }
 
 interface EnquiryDrawerProps {
@@ -20,6 +23,11 @@ interface EnquiryDrawerProps {
   product?: EnquiryDrawerProduct;
   /** Optional override eyebrow label (e.g. "Studio Enquiry"). */
   title?: string;
+  /**
+   * Pre-fills / refreshes the message when the drawer opens or when
+   * the configuration changes (e.g. configurator finish selection).
+   */
+  configurationMessage?: string;
 }
 
 interface FormState {
@@ -27,8 +35,7 @@ interface FormState {
   email: string;
   telephone: string;
   location: string;
-  intendedSpace: string;
-  timeline: Timeline | "";
+  units: string;
   contactMethod: ContactMethod;
   message: string;
   newsletter: boolean;
@@ -41,20 +48,12 @@ const initialState: FormState = {
   email: "",
   telephone: "",
   location: "",
-  intendedSpace: "",
-  timeline: "",
+  units: "",
   contactMethod: "either",
   message: "",
   newsletter: false,
   website: "",
 };
-
-const TIMELINE_OPTIONS: { id: Timeline; label: string }[] = [
-  { id: "within-month", label: "Within a month" },
-  { id: "1-3-months", label: "1 to 3 months" },
-  { id: "later-year", label: "Later this year" },
-  { id: "exploring", label: "Still exploring" },
-];
 
 const CONTACT_OPTIONS: { id: ContactMethod; label: string }[] = [
   { id: "email", label: "Email" },
@@ -78,13 +77,64 @@ type FieldErrors = Partial<Record<FieldKey, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function EnquiryDrawer({ open, onClose, product, title }: EnquiryDrawerProps) {
+function ProductThumbnail({ product }: { product: EnquiryDrawerProduct }) {
+  if (product.finishSwatch) {
+    return (
+      <div
+        className="relative shrink-0 w-11 h-11 overflow-hidden border border-black/[0.08]"
+        style={{
+          background: `linear-gradient(135deg, ${product.finishSwatch} 0%, #1a1a1a 140%)`,
+        }}
+        aria-hidden
+      />
+    );
+  }
+  if (product.image) {
+    return (
+      <div className="relative shrink-0 w-11 h-11 bg-muted overflow-hidden">
+        <Image src={product.image} alt="" fill sizes="44px" className="object-cover" />
+      </div>
+    );
+  }
+  return null;
+}
+
+function ProductPiecePreview({ product }: { product: EnquiryDrawerProduct }) {
+  if (product.finishSwatch) {
+    return (
+      <div
+        className="relative shrink-0 w-9 h-9 overflow-hidden border border-black/[0.08]"
+        style={{
+          background: `linear-gradient(135deg, ${product.finishSwatch} 0%, #1a1a1a 140%)`,
+        }}
+        aria-hidden
+      />
+    );
+  }
+  if (product.image) {
+    return (
+      <div className="relative shrink-0 w-9 h-9 bg-muted overflow-hidden">
+        <Image src={product.image} alt="" fill sizes="36px" className="object-cover" />
+      </div>
+    );
+  }
+  return null;
+}
+
+export default function EnquiryDrawer({
+  open,
+  onClose,
+  product,
+  title,
+  configurationMessage,
+}: EnquiryDrawerProps) {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const lastSyncedConfigurationRef = useRef<string | null>(null);
 
   const eyebrow = useMemo(() => {
     if (title) return title;
@@ -110,6 +160,20 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
   }, [open, onClose]);
 
   useEffect(() => {
+    if (!open || !configurationMessage) return;
+
+    setForm((prev) => {
+      const userHasEdited =
+        prev.message.trim().length > 0 &&
+        prev.message !== lastSyncedConfigurationRef.current;
+      if (userHasEdited) return prev;
+
+      lastSyncedConfigurationRef.current = configurationMessage;
+      return { ...prev, message: configurationMessage };
+    });
+  }, [open, configurationMessage]);
+
+  useEffect(() => {
     if (open) {
       const t = setTimeout(() => firstFieldRef.current?.focus(), 420);
       return () => clearTimeout(t);
@@ -120,6 +184,7 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
         setSubmitState("idle");
         setFieldErrors({});
         setSubmitError(null);
+        lastSyncedConfigurationRef.current = null;
       }
     }, 400);
     return () => clearTimeout(t);
@@ -187,13 +252,16 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
           email: form.email.trim(),
           telephone: form.telephone.trim() || null,
           location: form.location.trim() || null,
-          intendedSpace: form.intendedSpace.trim() || null,
-          timeline: form.timeline || null,
+          units: form.units.trim() || null,
           contactMethod: form.contactMethod,
           message: form.message.trim(),
           newsletter: form.newsletter,
           product: product
-            ? { name: product.name, slug: product.slug ?? null }
+            ? {
+                name: product.name,
+                slug: product.slug ?? null,
+                finish: product.finish ?? null,
+              }
             : null,
           source:
             typeof window !== "undefined"
@@ -265,23 +333,20 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                 </p>
                 {product ? (
                   <div className="flex items-center gap-3 min-w-0">
-                    {product.image && (
-                      <div className="relative shrink-0 w-11 h-11 bg-muted overflow-hidden">
-                        <Image
-                          src={product.image}
-                          alt=""
-                          fill
-                          sizes="44px"
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <h2
-                      id="enquiry-drawer-title"
-                      className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2] truncate"
-                    >
-                      {product.name}
-                    </h2>
+                    <ProductThumbnail product={product} />
+                    <div className="min-w-0">
+                      <h2
+                        id="enquiry-drawer-title"
+                        className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
+                      >
+                        {product.name}
+                      </h2>
+                      {product.finish && (
+                        <p className="text-[10px] tracking-[0.12em] uppercase text-black/50 mt-1 truncate">
+                          {product.finish}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <h2
@@ -366,7 +431,7 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                   >
                     <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] text-black/65 mb-8 max-w-[44ch]">
                       {product
-                        ? "Tell us a little about yourself and the space you have in mind."
+                        ? "Tell us about yourself — and the room this piece might transform."
                         : "A few details so we can respond thoughtfully."}
                     </p>
 
@@ -447,68 +512,44 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
 
                     {product && (
                       <Field>
-                        <span className={LABEL_CLASS}>Piece</span>
+                        <span className={LABEL_CLASS}>The glass you have chosen</span>
                         <div className="
                           flex items-center gap-3
                           px-4 py-3 border border-black/[0.08] bg-faint
                         ">
-                          {product.image && (
-                            <div className="relative shrink-0 w-9 h-9 bg-muted overflow-hidden">
-                              <Image src={product.image} alt="" fill sizes="36px" className="object-cover" />
-                            </div>
-                          )}
-                          <span className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80 truncate">
-                            {product.name}
-                          </span>
+                          <ProductPiecePreview product={product} />
+                          <div className="min-w-0">
+                            <span className="block font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
+                              {product.name}
+                            </span>
+                            {product.finish && (
+                              <span className="block text-[10px] tracking-[0.1em] uppercase text-black/50 mt-1">
+                                {product.finish}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </Field>
                     )}
 
                     {product && (
                       <Field>
-                        <label htmlFor="enq-space" className={LABEL_CLASS}>
-                          Intended space
+                        <label htmlFor="enq-units" className={LABEL_CLASS}>
+                          Number of pieces
                           <span className={LABEL_OPTIONAL_CLASS}>optional</span>
                         </label>
                         <input
-                          id="enq-space"
-                          name="intendedSpace"
+                          id="enq-units"
+                          name="units"
                           type="text"
-                          value={form.intendedSpace}
-                          onChange={(e) => update("intendedSpace", e.target.value)}
-                          placeholder="Which room is this for?"
+                          inputMode="numeric"
+                          value={form.units}
+                          onChange={(e) => update("units", e.target.value)}
+                          placeholder="One for the hall — or several throughout the home"
                           className={INPUT_CLASS}
                         />
                       </Field>
                     )}
-
-                    <Field>
-                      <span className={LABEL_CLASS}>Timeline</span>
-                      <div className="grid grid-cols-2 gap-2.5">
-                        {TIMELINE_OPTIONS.map((opt) => {
-                          const active = form.timeline === opt.id;
-                          return (
-                            <button
-                              key={opt.id}
-                              type="button"
-                              onClick={() => update("timeline", active ? "" : opt.id)}
-                              aria-pressed={active}
-                              className={`
-                                relative text-[12px] md:text-[12.5px] tracking-[0.04em]
-                                py-3 pl-3 pr-3 text-left
-                                border transition-[border-color,background-color,color] duration-200
-                                cursor-pointer
-                                ${active
-                                  ? "border-black bg-offwhite text-black font-medium"
-                                  : "border-black/[0.14] bg-white text-black/60 hover:border-black/45 hover:text-black/85"}
-                              `}
-                            >
-                              {opt.label}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </Field>
 
                     <Field>
                       <span className={LABEL_CLASS}>Preferred contact</span>
@@ -549,7 +590,7 @@ export default function EnquiryDrawer({ open, onClose, product, title }: Enquiry
                         onChange={(e) => update("message", e.target.value)}
                         placeholder={
                           product
-                            ? `Anything you'd like us to know about ${product.name} or the space it's for.`
+                            ? "The room, the light you imagine, anything the studio should know…"
                             : "Tell us a little about what you have in mind."
                         }
                         aria-invalid={Boolean(fieldErrors.message)}

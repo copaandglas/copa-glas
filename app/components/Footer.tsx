@@ -121,7 +121,7 @@ export default function Footer() {
         </p>
 
         {/* Navigation columns */}
-        <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1fr_1.2fr] gap-y-8 gap-x-4 md:gap-10 lg:gap-[3.75rem] mb-10 md:mb-14 lg:mb-[4.5rem]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-4 md:gap-8 lg:gap-10 mb-10 md:mb-14 lg:mb-[4.5rem]">
           <div>
             <p className="footer-heading">Collections</p>
             <nav>
@@ -140,6 +140,18 @@ export default function Footer() {
               <Link href="/about" className="footer-link">About</Link>
               <Link href="/trade-specification" className="footer-link">Trade &amp; Specification</Link>
               <Link href="/contact" className="footer-link">Contact</Link>
+            </nav>
+          </div>
+
+          <div>
+            <p className="footer-heading">Custom</p>
+            <nav>
+              <Link href="/configure" className="footer-link">
+                Make Your Own
+                <span className="text-white/40 normal-case tracking-normal text-[11px] ml-1.5">
+                  (beta)
+                </span>
+              </Link>
             </nav>
           </div>
 

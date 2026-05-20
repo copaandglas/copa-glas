@@ -21,10 +21,11 @@ interface EnquiryPayload {
   location?: string | null;
   intendedSpace?: string | null;
   timeline?: string | null;
+  units?: string | null;
   enquiryType?: string | null;
   contactMethod?: "email" | "phone" | "either";
   newsletter?: boolean;
-  product?: { name?: string; slug?: string | null } | string | null;
+  product?: { name?: string; slug?: string | null; finish?: string | null } | string | null;
   source?: { url?: string; path?: string } | null;
   submittedAt?: string;
 }
@@ -90,10 +91,11 @@ interface NormalisedEnquiry {
   location: string | null;
   intendedSpace: string | null;
   timeline: string | null;
+  units: string | null;
   enquiryType: string | null;
   contactMethod: "email" | "phone" | "either";
   newsletter: boolean;
-  product: { name: string; slug: string | null } | null;
+  product: { name: string; slug: string | null; finish: string | null } | null;
   source: { url?: string; path?: string } | null;
   submittedAt: string;
   ip: string | null;
@@ -108,8 +110,10 @@ function renderPlainText(e: NormalisedEnquiry): string {
     ["Telephone", e.telephone],
     ["Location", e.location],
     ["Piece", e.product?.name ?? null],
+    ["Glass finish", e.product?.finish ?? null],
     ["Intended space", e.intendedSpace],
     ["Timeline", e.timeline ? TIMELINE_LABELS[e.timeline] ?? e.timeline : null],
+    ["Number of pieces", e.units],
     ["Preferred contact", CONTACT_LABELS[e.contactMethod] ?? e.contactMethod],
     ["Studio news opt-in", e.newsletter ? "Yes" : "No"],
   ];
@@ -158,8 +162,10 @@ function renderHtml(e: NormalisedEnquiry): string {
     row("Telephone", e.telephone),
     row("Location", e.location),
     row("Piece", e.product?.name ?? null),
+    row("Glass finish", e.product?.finish ?? null),
     row("Intended space", e.intendedSpace),
     row("Timeline", e.timeline ? TIMELINE_LABELS[e.timeline] ?? e.timeline : null),
+    row("Number of pieces", e.units),
     row("Preferred contact", CONTACT_LABELS[e.contactMethod] ?? e.contactMethod),
     row("Studio news", e.newsletter ? "Wants occasional updates" : null),
   ].join("");
@@ -257,6 +263,10 @@ export async function POST(request: Request) {
     typeof body.product === "object" && body.product !== null
       ? body.product.slug ?? null
       : null;
+  const productFinish =
+    typeof body.product === "object" && body.product !== null
+      ? body.product.finish?.toString().trim() || null
+      : null;
 
   const enquiry: NormalisedEnquiry = {
     name,
@@ -266,11 +276,16 @@ export async function POST(request: Request) {
     location: body.location?.toString().trim() || null,
     intendedSpace: body.intendedSpace?.toString().trim() || null,
     timeline: body.timeline || null,
+    units: body.units?.toString().trim() || null,
     enquiryType: body.enquiryType?.toString().trim() || null,
     contactMethod: body.contactMethod ?? "either",
     newsletter: Boolean(body.newsletter),
     product: productName
-      ? { name: productName.toString().slice(0, 200), slug: productSlug }
+      ? {
+          name: productName.toString().slice(0, 200),
+          slug: productSlug,
+          finish: productFinish ? productFinish.slice(0, 200) : null,
+        }
       : null,
     source: body.source ?? null,
     submittedAt: body.submittedAt ?? new Date().toISOString(),
@@ -279,7 +294,9 @@ export async function POST(request: Request) {
   };
 
   const subject = enquiry.product
-    ? `Enquiry: ${enquiry.product.name} (${enquiry.name})`
+    ? enquiry.product.finish
+      ? `Enquiry: ${enquiry.product.name} — ${enquiry.product.finish} (${enquiry.name})`
+      : `Enquiry: ${enquiry.product.name} (${enquiry.name})`
     : `Studio enquiry from ${enquiry.name}`;
 
   if (resend) {
