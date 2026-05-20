@@ -119,11 +119,11 @@ const threeGeishas: ProductData = {
   designer: "Lucy Williams",
   name: "Three Geishas",
   size: "",
-  description: `Three Geishas is a collaborative work between Copa + Glas and emerging artist Lucy Williams.
+  description: `A collaborative piece, created in partnership with the incredibly talented artist "Lucy Williams".
 
 Lucy uses a unique photographic print process, creating subtle, nostalgic imagery through naturally occurring bleeds and chemical reactions.
 
-In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece.`,
+In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece. Lucy originates from Wales and her family still live there.`,
   provenance: `In collaboration with Lucy Williams. Assembled and finished by hand in our East London workshop.`,
   material: "Solid copper; Welsh slate; photographic print",
   dimensions: { cm: "41 × 45.5cm", inches: "16.1 × 17.9in" },
