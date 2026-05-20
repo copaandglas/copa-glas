@@ -8,23 +8,6 @@ import Footer from "@/app/components/Footer";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const configurators = [
-  {
-    href: "/configure/aura-wall-light",
-    name: "Aura Wall Light",
-    tagline: "A single pane of iridescent art glass at the centre — choose yours, and watch the room change around it.",
-    image: "/aura-wall-light.png",
-    available: true,
-  },
-  {
-    href: "#",
-    name: "Studio Mirrors",
-    tagline: "Silvered glass and copper, composed for the wall — in development in the studio.",
-    image: "/mondrian-mirror.png",
-    available: false,
-  },
-] as const;
-
 export default function ConfigurePage() {
   return (
     <div className="min-h-screen bg-white">
@@ -97,77 +80,45 @@ export default function ConfigurePage() {
             max-w-2xl mb-14 md:mb-16 lg:mb-20
           "
         >
-          Each piece holds glass and copper shaped by hand in East London. Begin with
-          the Aura wall light: choose the iridescent finish that belongs in your room,
-          lift the light, and send your note when the piece feels like yours.
+          Each piece holds glass and copper shaped by hand in East London. Choose the
+          iridescent finish that belongs in your room, lift the light, and send your
+          note when the piece feels like yours.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-          {configurators.map((item, i) => (
-            <motion.article
-              key={item.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.12 + i * 0.08, ease: luxuryEase }}
-            >
-              {item.available ? (
-                <Link href={item.href} className="group block no-underline text-inherit">
-                  <ConfiguratorCard item={item} />
-                </Link>
-              ) : (
-                <div className="opacity-70 cursor-default" aria-disabled>
-                  <ConfiguratorCard item={item} comingSoon />
-                </div>
-              )}
-            </motion.article>
-          ))}
-        </div>
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.12, ease: luxuryEase }}
+          className="max-w-md"
+        >
+          <Link href="/configure/aura-wall-light" className="group block no-underline text-inherit">
+            <div className="relative aspect-[4/5] bg-muted overflow-hidden mb-5">
+              <Image
+                src="/aura-wall-light.png"
+                alt="Aura Wall Light"
+                fill
+                sizes="(max-width: 768px) 100vw, 448px"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <span className="absolute top-4 left-4 text-[9px] tracking-[0.2em] uppercase bg-white/90 px-3 py-1.5">
+                Beta
+              </span>
+            </div>
+            <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-xl md:text-2xl font-normal mb-2">
+              Aura Wall Light
+            </h2>
+            <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
+              A single pane of iridescent art glass at the centre — choose yours, and
+              watch the room change around it.
+            </p>
+            <span className="text-[10px] tracking-[0.15em] uppercase border-b border-black/25 pb-0.5 group-hover:border-black/80 transition-[border-color]">
+              Step inside
+            </span>
+          </Link>
+        </motion.article>
       </div>
 
       <Footer />
     </div>
-  );
-}
-
-function ConfiguratorCard({
-  item,
-  comingSoon = false,
-}: {
-  item: (typeof configurators)[number];
-  comingSoon?: boolean;
-}) {
-  return (
-    <>
-      <div className="relative aspect-[4/5] bg-muted overflow-hidden mb-5">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className={`object-cover transition-transform duration-700 ${comingSoon ? "" : "group-hover:scale-[1.02]"}`}
-        />
-        {!comingSoon && (
-          <span className="absolute top-4 left-4 text-[9px] tracking-[0.2em] uppercase bg-white/90 px-3 py-1.5">
-            Beta
-          </span>
-        )}
-        {comingSoon && (
-          <span className="absolute top-4 left-4 text-[9px] tracking-[0.2em] uppercase bg-white/90 px-3 py-1.5">
-            Coming soon
-          </span>
-        )}
-      </div>
-      <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-xl md:text-2xl font-normal mb-2">
-        {item.name}
-      </h2>
-      <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
-        {item.tagline}
-      </p>
-      {!comingSoon && (
-        <span className="text-[10px] tracking-[0.15em] uppercase border-b border-black/25 pb-0.5 group-hover:border-black/80 transition-[border-color]">
-          Step inside
-        </span>
-      )}
-    </>
   );
 }

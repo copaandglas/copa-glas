@@ -47,7 +47,7 @@ export function auraColorById(id: string): AuraColorOption {
 }
 
 export function auraConfigurationSummary(colorName: string): string {
-  return `I am drawn to the Aura Wall Light — with ${colorName} at its heart.\n\nI would love to speak with the studio about bringing this piece into my home: the room it will live in, and the making of it.`;
+  return `Aura Wall Light — ${colorName}`;
 }
 
 export interface AuraConfiguration {

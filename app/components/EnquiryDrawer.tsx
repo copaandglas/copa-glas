@@ -590,7 +590,7 @@ export default function EnquiryDrawer({
                         onChange={(e) => update("message", e.target.value)}
                         placeholder={
                           product
-                            ? "The room, the light you imagine, anything the studio should know…"
+                            ? "A note, if you wish"
                             : "Tell us a little about what you have in mind."
                         }
                         aria-invalid={Boolean(fieldErrors.message)}
