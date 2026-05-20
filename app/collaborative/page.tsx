@@ -12,18 +12,10 @@ const INSTITUTIONS = [
   {
     name: "Liberty London",
     body:
-      "Working with one of London's most storied institutions to bring the studio's copper-and-glass technique into a new context — pieces conceived for the building, its history, and the people who move through it.",
+      "An example from our collection — for Liberty London we produced a range of art glass mirrors as a celebration of the store's heritage, craft, and place in the city. Each piece draws on the studio's copper-and-glass technique while speaking to the building, its history, and the people who move through it.",
     imageSrc: null as string | null,
-    imageAlt: "Liberty London collaboration",
+    imageAlt: "Liberty London — art glass mirror collection",
     placeholder: "Liberty London",
-  },
-  {
-    name: "Hotel Café Royal",
-    body:
-      "A lightwell commission for the restored Hotel Café Royal — copper sections and hand-cut glass forming a luminous architectural feature at the heart of the building.",
-    imageSrc: "/cafe-royal-lightwell-bw.jpg",
-    imageAlt: "Hotel Café Royal lightwell, London — copper and glass commission",
-    placeholder: null,
   },
 ] as const;
 
@@ -177,8 +169,8 @@ export default function CollaborativePage() {
             className="relative aspect-[4/5] bg-[#e8e3db] overflow-hidden"
           >
             <Image
-              src="/workshop-hands.png"
-              alt="Hands at work in the Copa + Glas studio"
+              src="/copaxlucywilliams.jpg"
+              alt="Copa + Glas collaboration with Lucy Williams"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
