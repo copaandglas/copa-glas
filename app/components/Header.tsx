@@ -47,7 +47,7 @@ const MENU_LINKS = [
   { label: "Origins", href: "/origins" },
   { label: "Archive", href: "/archive" },
   { label: "About", href: "/about" },
-  { label: "Collaborative", href: "/collaborative" },
+  { label: "Collaborations", href: "/collaborative" },
   { label: "Enquire", href: "/contact" },
 ] as const;
 

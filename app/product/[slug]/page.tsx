@@ -133,7 +133,7 @@ Lucy originates from Wales and her family still live there.`,
   leadTime: "Made to order",
   price: "£1,700.00",
   images: [{ src: "/copaxlucywilliams.jpg" }],
-  collectionCategory: { href: "/collaborative", label: "Collaborative" },
+  collectionCategory: { href: "/collaborative", label: "Collaborations" },
 };
 
 const rotationConfettiMirror: ProductData = {

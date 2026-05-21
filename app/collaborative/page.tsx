@@ -48,7 +48,7 @@ export default function CollaborativePage() {
             Home
           </Link>
           <span className="opacity-20 mx-2">/</span>
-          <span className="opacity-85">Collaborative</span>
+          <span className="opacity-85">Collaborations</span>
         </motion.nav>
 
         <motion.p
@@ -57,7 +57,7 @@ export default function CollaborativePage() {
           transition={{ duration: 1.1, delay: 0.06, ease }}
           className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
         >
-          Collaborative
+          Collaborations
         </motion.p>
 
         <motion.h1
@@ -289,7 +289,7 @@ export default function CollaborativePage() {
           px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
         "
       >
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20">
+        <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
           <div className="max-w-[560px]">
             <p className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-6">
               Enquire

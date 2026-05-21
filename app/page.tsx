@@ -80,13 +80,13 @@ export default function Home() {
           <Link href="/about" className="text-white no-underline">About</Link>
           <div
             className="
-              flex flex-col sm:flex-row sm:items-baseline
-              gap-2.5 sm:gap-6 lg:gap-8
+              flex flex-col
+              gap-2.5 sm:gap-3 lg:gap-3.5 xl:gap-4
               mt-6 sm:mt-7 lg:mt-8 xl:mt-9
             "
           >
             <Link href="/collaborative" className="text-white no-underline">
-              Collaborative
+              Collaborations
             </Link>
             <Link href="/contact" className="text-white no-underline">
               Enquire
