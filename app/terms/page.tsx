@@ -53,15 +53,15 @@ const TERMS_SECTIONS: TermsSection[] = [
       {
         title: "UK Delivery",
         paragraphs: [
-          "All UK deliveries are carried out by our specialist courier service and include delivery and installation to your specified room. Our couriers will contact you directly to arrange a suitable delivery date and time. Standard delivery operates Monday to Friday.",
+          "All UK deliveries are carried out by our own in-house specialised delivery service and include delivery and installation to your specified room. Our delivery team will contact you directly to arrange a suitable delivery date and time. Standard delivery operates Monday to Friday.",
           "The customer is responsible for ensuring adequate access for safe delivery and installation. Doorway widths, stairwells, corridor dimensions, and any access restrictions must be assessed in advance. Copa + Glas cannot be held liable if delivery or installation is not possible due to access limitations. Dimensions and package weights are available on request.",
         ],
       },
       {
         title: "International Delivery",
         paragraphs: [
-          "Copa + Glas ships internationally. All pieces are dispatched from our East London studio in protective packaging appropriate to the fragility of the work. International delivery includes specialist courier handling to your specified address.",
-          "For international deliveries, installation services may vary by location. Please contact us at the point of enquiry to confirm what is available in your country. Transit times vary by destination — we will provide an estimate at the time of order confirmation.",
+          "Copa + Glas ships internationally. All pieces are dispatched from our East London studio in protective packaging appropriate to the fragility of the work. International delivery is coordinated by the studio with specialist handling to your specified address.",
+          "For international deliveries, installation services may vary by location. Please contact us at the point of enquiry to confirm what is available in your country. Transit times vary by destination. We will provide an estimate at the time of order confirmation.",
         ],
       },
       {
@@ -76,8 +76,8 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "04",
     title: "Inspection & Damage",
     paragraphs: [
-      "All pieces must be inspected carefully at the time of delivery. Any damage must be reported to both the courier and Copa + Glas within 48 hours of receipt. We are unable to process claims or arrange replacements after this period.",
-      "In the event of damage, clear photographs of both the packaging and the piece — including any damage — must be submitted to studio@copaglas.com for assessment. Please retain all original packaging until the piece has been fully inspected.",
+      "All pieces must be inspected carefully at the time of delivery. Any damage must be reported to our delivery team and Copa + Glas within 48 hours of receipt. We are unable to process claims or arrange replacements after this period.",
+      "In the event of damage, clear photographs of both the packaging and the piece, including any damage, must be submitted to studio@copaglas.com for assessment. Please retain all original packaging until the piece has been fully inspected.",
       "All deliveries are insured. Where damage has occurred in transit, we will manage the claim and arrange for repair or replacement as appropriate. Copa + Glas cannot accept responsibility for damage resulting from third-party installation or misuse after delivery.",
       "If delivery is signed for without inspection, Copa + Glas cannot accept liability for transit damage reported after the fact.",
     ],
@@ -94,8 +94,8 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "06",
     title: "Mirrors & Glass",
     paragraphs: [
-      "All Copa + Glas mirrors use hand-cut and hand-ground silvered glass. Due to the nature of hand craftsmanship, each piece will carry slight tonal and surface variation — this is not a defect but an inherent characteristic of the making process and a mark of its authenticity.",
-      "All mirrors are inspected prior to dispatch to ensure they meet our quality standards. Inspection is carried out viewing vertically from a distance of two metres under normal daylight — not under direct or artificial spotlighting. Faults not visible under these conditions are considered within tolerance.",
+      "All Copa + Glas mirrors use hand-cut and hand-ground silvered glass. Due to the nature of hand craftsmanship, each piece will carry slight tonal and surface variation. This is not a defect but an inherent characteristic of the making process and a mark of its authenticity.",
+      "All mirrors are inspected prior to dispatch to ensure they meet our quality standards. Inspection is carried out viewing vertically from a distance of two metres under normal daylight, not under direct or artificial spotlighting. Faults not visible under these conditions are considered within tolerance.",
     ],
     lists: [
       {
@@ -121,8 +121,8 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "07",
     title: "Copper & Materials",
     paragraphs: [
-      "All copper used in Copa + Glas pieces is hand-formed and will naturally exhibit tonal variation. This is not a flaw — it is a hallmark of the hand-making process and the character of the material itself. Copper is a living material; it will age and develop its own patina over time, which we consider part of the beauty of the object.",
-      "Where iridescent or art glass is used — as in our limited edition pieces and selected collaborative works — each panel is unique. No two pieces will be identical in colour or light behaviour. This is the nature of the material and cannot be guaranteed to match any reference sample.",
+      "All copper used in Copa + Glas pieces is hand-formed and will naturally exhibit tonal variation. This is not a flaw. It is a hallmark of the hand-making process and the character of the material itself. Copper is a living material; it will age and develop its own patina over time, which we consider part of the beauty of the object.",
+      "Where iridescent or art glass is used, as in our limited edition pieces and selected collaborative works, each panel is unique. No two pieces will be identical in colour or light behaviour. This is the nature of the material and cannot be guaranteed to match any reference sample.",
       "All pieces are intended for indoor use only unless explicitly specified otherwise. Care instructions are provided with every piece and should be followed carefully to preserve the finish. Metal cleaning products should never be used on copper as they will strip the surface.",
     ],
   },
@@ -132,7 +132,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     paragraphs: [
       "Copa + Glas limited editions are produced in runs of ten worldwide. Each piece is individually numbered, signed by our Master Craftsman, and supplied with a certificate of authenticity on cotton rag paper and a copper provenance plate fixed to the backing board.",
       "Once an edition is complete it will not be remade. Sold-out editions remain documented on the website as a permanent record of the work.",
-      "Payment terms for limited editions follow our standard commission terms — 50% deposit to confirm, balance on completion. The edition number is assigned at the point of deposit confirmation.",
+      "Payment terms for limited editions follow our standard commission terms: 50% deposit to confirm, balance on completion. The edition number is assigned at the point of deposit confirmation.",
       "The certificate of authenticity and copper provenance plate are considered part of the work. Copa + Glas cannot be held responsible for the value or resale of limited edition pieces.",
     ],
   },
@@ -140,7 +140,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "09",
     title: "Bespoke Commissions",
     paragraphs: [
-      "Bespoke commissions are undertaken on the basis of an agreed written brief. Detailed drawings and material samples are provided during the development process and must be approved by the client in writing before production begins. Copa + Glas cannot be held responsible for faults arising from specifications that have not been through a prototyping phase — we recommend a prototyping phase for all first-time bespoke commissions.",
+      "Bespoke commissions are undertaken on the basis of an agreed written brief. Detailed drawings and material samples are provided during the development process and must be approved by the client in writing before production begins. Copa + Glas cannot be held responsible for faults arising from specifications that have not been through a prototyping phase. We recommend a prototyping phase for all first-time bespoke commissions.",
       "By placing a bespoke order, the client confirms they hold all necessary rights to any design, reference, or intellectual property supplied to Copa + Glas in connection with the commission.",
       "Unless otherwise agreed in writing, Copa + Glas retains all intellectual property and reproduction rights in the designs, processes, and techniques used in the production of bespoke work.",
       "Bespoke commissions are non-cancellable once production has commenced. The deposit is non-refundable in all cases.",
@@ -151,7 +151,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     title: "Care & Installation",
     paragraphs: [
       "Every Copa + Glas piece is supplied with care instructions. These should be read carefully and followed closely to preserve the finish and the integrity of the work over time.",
-      "Our specialist courier service includes installation for UK deliveries. For international installations, please contact us at the point of enquiry to discuss what is available in your location.",
+      "Our in-house specialised delivery service includes installation for UK deliveries. For international installations, please contact us at the point of enquiry to discuss what is available in your location.",
       "Where installation is carried out by a third party, Copa + Glas cannot accept responsibility for damage resulting from improper fitting or handling. The client is responsible for ensuring the wall or surface to which the piece is fixed is structurally suitable. Fixing specifications are available on request.",
     ],
   },
@@ -160,7 +160,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     title: "Trade & Specification",
     paragraphs: [
       "Copa + Glas operates a trade programme for interior designers, architects, and hospitality practices. Trade pricing is confirmed on approval and applies to all collection pieces. Trade partners are invoiced ex-VAT with full VAT receipts.",
-      "All other terms — lead times, payment structure, delivery, damage reporting, and returns — apply equally to trade orders. No exceptions are made to these terms without prior written agreement.",
+      "All other terms, including lead times, payment structure, delivery, damage reporting, and returns, apply equally to trade orders. No exceptions are made to these terms without prior written agreement.",
     ],
     footer: (
       <p>
