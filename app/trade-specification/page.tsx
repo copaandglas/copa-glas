@@ -1104,7 +1104,7 @@ export default function TradeSpecificationPage() {
                       >
                         {submitError || "Something didn't send. Please try again."}{" "}
                         <a
-                          href="mailto:studio@copaglas.com"
+                          href="mailto:info@copaandglas.com"
                           className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]"
                         >
                           Write to us directly.
@@ -1154,10 +1154,10 @@ export default function TradeSpecificationPage() {
                         We respond within 2 working days
                         <span className="block mt-1">
                           <a
-                            href="mailto:studio@copaglas.com"
+                            href="mailto:info@copaandglas.com"
                             className="text-black/70 no-underline hover:text-black transition-colors duration-300 normal-case tracking-normal text-[11px]"
                           >
-                            studio@copaglas.com
+                            info@copaandglas.com
                           </a>
                         </span>
                       </p>

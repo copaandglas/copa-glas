@@ -119,19 +119,17 @@ const threeGeishas: ProductData = {
   designer: "Lucy Williams",
   name: "Three Geishas",
   size: "",
-  description: `A collaborative piece, created in partnership with the incredibly talented artist "Lucy Williams".
+  description: `A collaborative piece, created in partnership with the incredibly talented artist Lucy Williams.
 
 Lucy uses a unique photographic print process, creating subtle, nostalgic imagery through naturally occurring bleeds and chemical reactions.
 
-In an interesting twist, we chose to replace the traditional mirror and art glass with Welsh slate, resulting in a beautifully distinctive and characterful piece.
-
-Lucy originates from Wales and her family still live there.`,
+In place of traditional mirror and art glass, we worked with Welsh slate. Lucy has Welsh heritage; her parents were from Wales, and the slate symbolises that connection for her. The result is a beautifully distinctive and characterful piece.`,
   provenance: `In collaboration with Lucy Williams. Assembled and finished by hand in our East London workshop.`,
   material: "Solid copper; Welsh slate; photographic print",
   dimensions: { cm: "41 × 45.5cm", inches: "16.1 × 17.9in" },
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
-  price: "£1,700.00",
+  price: "POA",
   images: [{ src: "/copaxlucywilliams.jpg" }],
   collectionCategory: { href: "/collaborative", label: "Collaborations" },
 };

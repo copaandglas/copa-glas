@@ -74,7 +74,7 @@ const resend = process.env.RESEND_API_KEY
   : null;
 const ENQUIRY_TO = process.env.ENQUIRY_TO_EMAIL ?? "info@copaandglas.com";
 const ENQUIRY_FROM =
-  process.env.ENQUIRY_FROM_EMAIL ?? "Copa + Glas <enquiries@copaandglas.com>";
+  process.env.ENQUIRY_FROM_EMAIL ?? "Copa + Glas <info@copaandglas.com>";
 
 const ENQUIRY_TYPE_LABELS: Record<string, string> = {
   general:    "General",
