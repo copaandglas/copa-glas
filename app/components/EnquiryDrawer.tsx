@@ -362,7 +362,7 @@ export default function EnquiryDrawer({
                       <div className="min-w-0">
                         <h2
                           id="enquiry-drawer-title"
-                          className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
+                          className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.3]"
                         >
                           {product.name}
                         </h2>
@@ -388,7 +388,7 @@ export default function EnquiryDrawer({
                       )}
                       <h2
                         id="enquiry-drawer-title"
-                        className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2] truncate"
+                        className="min-w-0 font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.3]"
                       >
                         {product.name}
                       </h2>
@@ -592,7 +592,7 @@ export default function EnquiryDrawer({
                                   <Image src={product.image} alt="" fill sizes="36px" className="object-cover" />
                                 </div>
                               )}
-                              <span className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80 truncate">
+                              <span className="min-w-0 font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
                                 {product.name}
                               </span>
                             </div>
