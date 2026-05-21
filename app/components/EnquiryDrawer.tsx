@@ -87,6 +87,10 @@ const INPUT_CLASS =
 const HELP_CLASS = "text-[11px] leading-[1.5] text-black/45 mt-2";
 const ERROR_INPUT_CLASS = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
+/** Italic Playfair overhangs its box; padding prevents flex/overflow clipping the last glyph. */
+const PRODUCT_NAME_CLASS =
+  "font-[family-name:var(--font-playfair),Georgia,serif] italic pr-[0.2em] overflow-visible";
+
 type FieldKey = "name" | "email" | "message";
 type FieldErrors = Partial<Record<FieldKey, string>>;
 
@@ -362,7 +366,7 @@ export default function EnquiryDrawer({
                       <div className="min-w-0">
                         <h2
                           id="enquiry-drawer-title"
-                          className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.3]"
+                          className={`${PRODUCT_NAME_CLASS} text-[1.25rem] md:text-[1.375rem] leading-[1.3]`}
                         >
                           {product.name}
                         </h2>
@@ -388,7 +392,7 @@ export default function EnquiryDrawer({
                       )}
                       <h2
                         id="enquiry-drawer-title"
-                        className="min-w-0 font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.3]"
+                        className={`min-w-0 flex-1 ${PRODUCT_NAME_CLASS} text-[1.25rem] md:text-[1.375rem] leading-[1.3]`}
                       >
                         {product.name}
                       </h2>
@@ -564,12 +568,12 @@ export default function EnquiryDrawer({
                           <>
                             <span className={LABEL_CLASS}>The glass you have chosen</span>
                             <div className="
-                              flex items-center gap-3
+                              flex items-center gap-3 overflow-visible
                               px-4 py-3 border border-black/[0.08] bg-faint
                             ">
                               <ProductPiecePreview product={product} />
-                              <div className="min-w-0">
-                                <span className="block font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
+                              <div className="min-w-0 flex-1 overflow-visible">
+                                <span className={`block ${PRODUCT_NAME_CLASS} text-[15px] text-black/80`}>
                                   {product.name}
                                 </span>
                                 {product.finish && (
@@ -584,7 +588,7 @@ export default function EnquiryDrawer({
                           <>
                             <span className={LABEL_CLASS}>Piece</span>
                             <div className="
-                              flex items-center gap-3
+                              flex items-center gap-3 overflow-visible
                               px-4 py-3 border border-black/[0.08] bg-faint
                             ">
                               {product.image && (
@@ -592,9 +596,11 @@ export default function EnquiryDrawer({
                                   <Image src={product.image} alt="" fill sizes="36px" className="object-cover" />
                                 </div>
                               )}
-                              <span className="min-w-0 font-[family-name:var(--font-playfair),Georgia,serif] italic text-[15px] text-black/80">
-                                {product.name}
-                              </span>
+                              <div className="min-w-0 flex-1 overflow-visible">
+                                <span className={`block ${PRODUCT_NAME_CLASS} text-[15px] text-black/80`}>
+                                  {product.name}
+                                </span>
+                              </div>
                             </div>
                           </>
                         )}
