@@ -53,7 +53,7 @@ const TERMS_SECTIONS: TermsSection[] = [
       {
         title: "UK Delivery",
         paragraphs: [
-          "All UK deliveries are carried out by our own in-house specialised delivery service and include delivery and installation to your specified room. Our delivery team will contact you directly to arrange a suitable delivery date and time. Standard delivery operates Monday to Friday.",
+          "All UK deliveries are carried out by our own in-house specialised delivery service and include delivery and installation to your specified space. Our delivery team will contact you directly to arrange a suitable delivery date and time. Standard delivery operates Monday to Friday.",
           "The customer is responsible for ensuring adequate access for safe delivery and installation. Doorway widths, stairwells, corridor dimensions, and any access restrictions must be assessed in advance. Copa + Glas cannot be held liable if delivery or installation is not possible due to access limitations. Dimensions and package weights are available on request.",
         ],
       },
