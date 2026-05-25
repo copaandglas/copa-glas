@@ -79,6 +79,7 @@ export function auraEnquiryProduct(config: AuraConfiguration) {
     slug: "aura-wall-light",
     finish: color.name,
     finishSwatch: color.hex,
+    finishImage: color.image,
     image: config.illuminated ? "/aura-wall-light.png" : "/aura-wall-light-off.png",
     price: "Price on application",
   };

@@ -15,8 +15,10 @@ export interface EnquiryDrawerProduct {
   price?: string;
   /** Configurator finish label, e.g. "Corella Orange Glass". */
   finish?: string;
-  /** Hex for finish swatch in the drawer. */
+  /** Hex for finish swatch in the drawer (used as fallback when no finishImage). */
   finishSwatch?: string;
+  /** Actual glass photo for the finish swatch — preferred over finishSwatch when present. */
+  finishImage?: string;
 }
 
 interface EnquiryDrawerProps {
@@ -97,6 +99,13 @@ type FieldErrors = Partial<Record<FieldKey, string>>;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function ProductThumbnail({ product }: { product: EnquiryDrawerProduct }) {
+  if (product.finishImage) {
+    return (
+      <div className="relative shrink-0 w-11 h-11 overflow-hidden border border-black/[0.08]">
+        <Image src={product.finishImage} alt={product.finish ?? ""} fill sizes="44px" className="object-cover" />
+      </div>
+    );
+  }
   if (product.finishSwatch) {
     return (
       <div
@@ -119,6 +128,13 @@ function ProductThumbnail({ product }: { product: EnquiryDrawerProduct }) {
 }
 
 function ProductPiecePreview({ product }: { product: EnquiryDrawerProduct }) {
+  if (product.finishImage) {
+    return (
+      <div className="relative shrink-0 w-9 h-9 overflow-hidden border border-black/[0.08]">
+        <Image src={product.finishImage} alt={product.finish ?? ""} fill sizes="36px" className="object-cover" />
+      </div>
+    );
+  }
   if (product.finishSwatch) {
     return (
       <div
