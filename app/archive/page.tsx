@@ -397,7 +397,7 @@ export default function ArchivePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            Five decades
+            Four decades
             <br />
             <em>of making.</em>
           </motion.h1>
