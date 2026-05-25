@@ -56,7 +56,11 @@ export default function AuraWallLightConfigurator({
       <div className={styles.mobileShell}>
         <div className={styles.container} id="aura-configurator">
           <div className={styles.visualizerPane} aria-hidden="true">
-            <SconceSvg className={styles.sconceSvg} />
+            <SconceSvg
+              className={styles.sconceSvg}
+              paneImage={activeColor.image}
+              paneColor={activeColor.hex}
+            />
           </div>
 
           <div className={styles.controlsPane}>
@@ -184,7 +188,17 @@ export default function AuraWallLightConfigurator({
   );
 }
 
-function SconceSvg({ className }: { className?: string }) {
+function SconceSvg({
+  className,
+  paneImage,
+  paneColor,
+}: {
+  className?: string;
+  paneImage?: string;
+  paneColor: string;
+}) {
+  const encodedImage = paneImage ? encodeURI(paneImage) : null;
+
   return (
     <svg
       className={className}
@@ -196,6 +210,9 @@ function SconceSvg({ className }: { className?: string }) {
         <filter id="aura-ambient-glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="6" result="blur" />
         </filter>
+        <clipPath id="aura-pane-clip">
+          <rect x="48" y="32" width="6" height="86" />
+        </clipPath>
         <linearGradient id="aura-copperFrame" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#b87352" />
           <stop offset="50%" stopColor="#d49b78" />
@@ -251,7 +268,35 @@ function SconceSvg({ className }: { className?: string }) {
       <rect x="48" y="2" width="50" height="28" fill="url(#aura-paneGloss)" />
       <rect x="56" y="32" width="42" height="116" fill="url(#aura-silveredGlass)" />
       <rect x="56" y="32" width="42" height="116" fill="url(#aura-paneGloss)" />
-      <rect x="48" y="32" width="6" height="86" className={styles.centralGlass} />
+
+      {/* Centre glass pane — photo texture + colour tint overlay */}
+      {encodedImage ? (
+        <>
+          <image
+            href={encodedImage}
+            x="48"
+            y="32"
+            width="6"
+            height="86"
+            preserveAspectRatio="xMidYMid slice"
+            clipPath="url(#aura-pane-clip)"
+            className={styles.centralGlassImage}
+          />
+          <rect
+            x="48"
+            y="32"
+            width="6"
+            height="86"
+            fill={paneColor}
+            fillOpacity="0.28"
+            clipPath="url(#aura-pane-clip)"
+            className={styles.centralGlassTint}
+          />
+        </>
+      ) : (
+        <rect x="48" y="32" width="6" height="86" className={styles.centralGlass} />
+      )}
+
       <rect
         x="48"
         y="32"

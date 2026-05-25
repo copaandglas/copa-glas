@@ -32,6 +32,8 @@
 
 .tubeGlow,
 .centralGlass,
+.centralGlassImage,
+.centralGlassTint,
 .tubeShadow,
 .sunkenShadow {
   will-change: opacity, fill, filter;
@@ -50,12 +52,28 @@
   fill: var(--active-pane-color);
 }
 
+.centralGlassImage {
+  /* real glass texture */
+}
+
+.centralGlassTint {
+  /* colour overlay at 0.28 opacity set inline */
+}
+
 .root.isOn .tubeGlow {
   opacity: 0.8;
 }
 
 .root.isOn .centralGlass {
   filter: brightness(1.3) saturate(1.2);
+}
+
+.root.isOn .centralGlassImage {
+  filter: brightness(1.35) saturate(1.25);
+}
+
+.root.isOn .centralGlassTint {
+  opacity: 0.45;
 }
 
 .root.isOn .tubeShadow {
