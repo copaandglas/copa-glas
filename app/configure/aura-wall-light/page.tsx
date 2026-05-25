@@ -65,7 +65,7 @@ export default function AuraWallLightConfigurePage() {
         <span className="opacity-90">Aura Wall Light</span>
       </motion.nav>
 
-      <main className="flex-1 min-h-0 pt-[4.5rem] md:pt-0 md:py-8 lg:py-12 md:px-[max(2.25rem,env(safe-area-inset-left))] lg:px-[max(3.5rem,env(safe-area-inset-left))]">
+      <main className="flex-1 min-h-0 pt-[max(4.5rem,calc(env(safe-area-inset-top)+3.75rem))] md:pt-0 md:py-8 lg:py-12 md:px-[max(2.25rem,env(safe-area-inset-left))] lg:px-[max(3.5rem,env(safe-area-inset-left))]">
         <AuraWallLightConfigurator
           onConfigurationChange={handleConfigurationChange}
           onEnquire={openEnquiry}

@@ -153,6 +153,12 @@
   margin-bottom: 30px;
 }
 
+@media (max-width: 380px) {
+  .swatchGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .swatchWrapper {
   background: none;
   border: none;
@@ -334,7 +340,7 @@
   .mobileShell {
     display: flex;
     flex-direction: column;
-    height: calc(100dvh - 4.5rem);
+    height: calc(100dvh - max(4.5rem, calc(env(safe-area-inset-top) + 3.75rem)));
     min-height: 0;
     overflow: hidden;
   }
@@ -381,7 +387,7 @@
   }
 
   :global(.configure-embedded) .mobileShell {
-    height: calc(100dvh - 4.5rem);
+    height: calc(100dvh - max(4.5rem, calc(env(safe-area-inset-top) + 3.75rem)));
   }
 
   .title {
