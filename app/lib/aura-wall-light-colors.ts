@@ -36,7 +36,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     id: "red",
     name: "Antique Opalescent Red Wispy",
     shortName: "Antique Red",
-    hex: "#9e1c1c",
+    hex: "#cc1a1a",
     image: "/antique-wispy-red.png",
     desc: "A deep, warm red with a wispy, hand-made quality — each pane unique in tone and texture, drawing the eye before the light is even lit.",
   },
