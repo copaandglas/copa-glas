@@ -4,36 +4,41 @@ export interface AuraColorOption {
   shortName: string;
   hex: string;
   desc: string;
+  image?: string;
 }
 
 export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
   {
     id: "amber",
-    name: "Amber Iridescent",
-    shortName: "Amber",
-    hex: "#c45b12",
+    name: "Corella Orange Glass",
+    shortName: "Corella Orange",
+    hex: "#d45210",
+    image: "/corella orange.png",
     desc: "A single pane of iridescent orange art glass, which shifts in colour as the room moves around it. Beautifully harmonious with the brushed copper frame.",
   },
   {
     id: "emerald",
-    name: "Emerald Iridescent",
-    shortName: "Emerald",
-    hex: "#0f7034",
+    name: "English Muffle Sussex Green",
+    shortName: "Sussex Green",
+    hex: "#3d7a38",
+    image: "/English Muffle Sussex Green.png",
     desc: "Lush botanical green with dark, dramatic shadows and vibrant edge refractions, responding delicately to the light in the room.",
   },
   {
     id: "champagne",
-    name: "Champagne Iridescent",
-    shortName: "Champagne",
-    hex: "#a88032",
-    desc: "Bright, celebratory metallic gold that unifies the sconce into a single, cohesive architectural element.",
+    name: "Corella Yellow Glass",
+    shortName: "Corella Yellow",
+    hex: "#cdb800",
+    image: "/Corella yellow.jpg",
+    desc: "Bright, celebratory acid yellow that catches every shift in daylight — alive in the room from morning to dusk.",
   },
   {
-    id: "peacock",
-    name: "Peacock Iridescent",
-    shortName: "Peacock",
-    hex: "#14767a",
-    desc: "Vibrant teal and blue-green hues characterized by rich saturation and complex depth.",
+    id: "red",
+    name: "Antique Opalescent Red Wispy",
+    shortName: "Antique Red",
+    hex: "#9e1c1c",
+    image: "/antique wispy red.png",
+    desc: "A deep, warm red with a wispy, hand-made quality — each pane unique in tone and texture, drawing the eye before the light is even lit.",
   },
 ];
 

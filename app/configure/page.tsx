@@ -109,7 +109,11 @@ export default function ConfigurePage() {
             </h2>
             <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
               A single pane of iridescent art glass at the centre — choose yours, and
-              watch the room change around it.
+              watch the room change around it. Made to a standard size, or yours
+              entirely.
+            </p>
+            <p className="text-[10px] tracking-[0.12em] uppercase opacity-45 mb-4">
+              300 × 415 mm — custom sizing available
             </p>
             <span className="text-[10px] tracking-[0.15em] uppercase border-b border-black/25 pb-0.5 group-hover:border-black/80 transition-[border-color]">
               Step inside

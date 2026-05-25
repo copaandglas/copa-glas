@@ -85,7 +85,8 @@ export default function AuraWallLightConfigurePage() {
           <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-85 max-w-xl">
             When the glass feels right, send your note to the studio. Anthony will
             follow up personally — to hear about the room, the light you imagine, and
-            the making of the piece.
+            the making of the piece. If you have a particular colour in mind, let us
+            know and we can explore.
           </p>
           <motion.button
             type="button"

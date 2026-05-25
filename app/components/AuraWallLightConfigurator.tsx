@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import {
   AURA_COLOR_OPTIONS,
   DEFAULT_AURA_COLOR_ID,
@@ -91,10 +92,22 @@ export default function AuraWallLightConfigurator({
                   >
                     <div
                       className={styles.swatch}
-                      style={{
-                        background: `linear-gradient(135deg, ${option.hex} 0%, #000 150%)`,
-                      }}
-                    />
+                      style={
+                        option.image
+                          ? undefined
+                          : { background: `linear-gradient(135deg, ${option.hex} 0%, #000 150%)` }
+                      }
+                    >
+                      {option.image && (
+                        <Image
+                          src={option.image}
+                          alt={option.name}
+                          fill
+                          sizes="80px"
+                          className={styles.swatchImage}
+                        />
+                      )}
+                    </div>
                     <span className={styles.swatchLabel}>{option.shortName}</span>
                   </button>
                 );
@@ -130,7 +143,24 @@ export default function AuraWallLightConfigurator({
                 <span className={styles.specLabel}>Centre glass</span>
                 <span className={styles.specValue}>{activeColor.name}</span>
               </div>
+              <div className={styles.specRow}>
+                <span className={styles.specLabel}>Piece size</span>
+                <span className={styles.specValue}>300 × 415 mm</span>
+              </div>
+              <div className={styles.specRow}>
+                <span className={styles.specLabel}>Glass centre</span>
+                <span className={styles.specValue}>30 × 270 mm</span>
+              </div>
+              <div className={styles.specRow}>
+                <span className={styles.specLabel}>Sizing</span>
+                <span className={styles.specValue}>Custom on request</span>
+              </div>
             </div>
+
+            <p className={styles.colourNote}>
+              If you have a particular colour in mind, let us know when you
+              enquire — we can explore options beyond those shown here.
+            </p>
 
             {onEnquire && (
               <button
