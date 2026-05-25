@@ -25,7 +25,7 @@ const lights: Light[] = [
     slug: "aura-wall-light",
     name: "Aura Wall Light",
     designer: "Copa + Glas Studio",
-    dimension: "50 × 65cm, as shown",
+    dimension: "300 × 415mm — custom sizing available",
     price: "Price on application",
     image: "/aura-wall-light.png",
     tagline:

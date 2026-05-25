@@ -13,7 +13,7 @@ export interface EnquiryDrawerProduct {
   slug?: string;
   image?: string;
   price?: string;
-  /** Configurator finish label, e.g. "Amber Iridescent". */
+  /** Configurator finish label, e.g. "Corella Orange Glass". */
   finish?: string;
   /** Hex for finish swatch in the drawer. */
   finishSwatch?: string;

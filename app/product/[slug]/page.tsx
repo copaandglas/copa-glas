@@ -104,7 +104,9 @@ const auraWallLight: ProductData = {
   size: "",
   description: `The Aura wall light is a composition of hand-formed copper and hand-finished glass, drawn into the glow of a room. Scale, proportion, glass finish, and colour are shaped to the space it lives in.
 
-The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of iridescent orange art glass, which shifts in colour as the room moves around it. Each Aura is made once, to the room it belongs in.`,
+The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of iridescent art glass, which shifts in colour as the room moves around it. Each Aura is made once, to the room it belongs in.
+
+The standard piece is 300 × 415mm. Custom sizing is available on request.`,
   provenance: `Made to order in our East London workshop, each Aura is assembled and finished by hand before leaving the studio.`,
   material: "Solid copper frame; hand-finished glass",
   dimensions: { cm: "50 × 65cm (piece shown)", inches: "19.7 × 25.6in (piece shown)" },

@@ -33,8 +33,8 @@ export default function AuraWallLightConfigurePage() {
   const enquiryProduct = useMemo(() => auraEnquiryProduct(config), [config]);
 
   const configurationMessage = useMemo(
-    () => auraConfigurationSummary(config.colorName),
-    [config.colorName],
+    () => auraConfigurationSummary(config),
+    [config],
   );
 
   return (

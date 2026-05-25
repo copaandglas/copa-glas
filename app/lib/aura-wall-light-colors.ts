@@ -13,7 +13,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "Corella Orange Glass",
     shortName: "Corella Orange",
     hex: "#d45210",
-    image: "/corella orange.png",
+    image: "/corella-orange.png",
     desc: "A single pane of iridescent orange art glass, which shifts in colour as the room moves around it. Beautifully harmonious with the brushed copper frame.",
   },
   {
@@ -21,7 +21,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "English Muffle Sussex Green",
     shortName: "Sussex Green",
     hex: "#3d7a38",
-    image: "/English Muffle Sussex Green.png",
+    image: "/english-muffle-sussex-green.png",
     desc: "Lush botanical green with dark, dramatic shadows and vibrant edge refractions, responding delicately to the light in the room.",
   },
   {
@@ -29,7 +29,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "Corella Yellow Glass",
     shortName: "Corella Yellow",
     hex: "#cdb800",
-    image: "/Corella yellow.jpg",
+    image: "/corella-yellow.jpg",
     desc: "Bright, celebratory acid yellow that catches every shift in daylight — alive in the room from morning to dusk.",
   },
   {
@@ -37,7 +37,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "Antique Opalescent Red Wispy",
     shortName: "Antique Red",
     hex: "#9e1c1c",
-    image: "/antique wispy red.png",
+    image: "/antique-wispy-red.png",
     desc: "A deep, warm red with a wispy, hand-made quality — each pane unique in tone and texture, drawing the eye before the light is even lit.",
   },
 ];
@@ -51,8 +51,9 @@ export function auraColorById(id: string): AuraColorOption {
   );
 }
 
-export function auraConfigurationSummary(colorName: string): string {
-  return `Aura Wall Light — ${colorName}`;
+export function auraConfigurationSummary(config: AuraConfiguration): string {
+  const lit = config.illuminated ? " (lit)" : "";
+  return `Aura Wall Light — ${config.colorName}${lit}`;
 }
 
 export interface AuraConfiguration {

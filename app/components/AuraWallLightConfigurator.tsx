@@ -119,18 +119,20 @@ export default function AuraWallLightConfigurator({
             </div>
 
             <div className={styles.toggleWrapper}>
-              <label className={styles.toggleLabel} htmlFor="aura-light-toggle">
+              <span id="aura-light-label" className={styles.toggleLabel}>
                 Light the piece
-              </label>
+              </span>
               <div className={styles.switch}>
                 <input
                   type="checkbox"
                   id="aura-light-toggle"
+                  role="switch"
+                  aria-checked={illuminated}
+                  aria-labelledby="aura-light-label"
                   checked={illuminated}
                   onChange={(e) => setIlluminated(e.target.checked)}
-                  aria-label="Light the Aura wall light"
                 />
-                <label className={styles.slider} htmlFor="aura-light-toggle" />
+                <label className={styles.slider} htmlFor="aura-light-toggle" aria-hidden="true" />
               </div>
             </div>
 
@@ -197,7 +199,7 @@ function SconceSvg({
   paneImage?: string;
   paneColor: string;
 }) {
-  const encodedImage = paneImage ? encodeURI(paneImage) : null;
+  const encodedImage = paneImage ?? null;
 
   return (
     <svg
