@@ -107,6 +107,7 @@ export default function AuraWallLightConfigurator({
                           src={option.image}
                           alt={option.name}
                           fill
+                          priority={option.id === DEFAULT_AURA_COLOR_ID}
                           sizes="(max-width: 850px) 80px, 120px"
                           className={styles.swatchImage}
                         />

@@ -97,6 +97,7 @@ export default function ConfigurePage() {
                 src="/aura-wall-light.png"
                 alt="Aura Wall Light"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 448px"
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
