@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -213,12 +212,13 @@ export default function Footer() {
             aria-label="ACID — Anti Copying in Design"
             className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/ACIDLOGO.png"
               alt="ACID — Anti Copying in Design"
               width={72}
               height={27}
-              className="block"
+              style={{ display: "block", width: 72, height: 27 }}
             />
           </a>
 
