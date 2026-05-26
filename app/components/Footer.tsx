@@ -192,7 +192,7 @@ export default function Footer() {
       <div className="
         border-t border-white/[0.08]
         max-w-[1400px] 3xl:max-w-[1680px] mx-auto
-        flex flex-col md:flex-row justify-between items-start md:items-center
+        relative flex flex-col md:flex-row justify-between items-start md:items-center
         gap-2 md:gap-0 text-[10px] md:text-[11px] tracking-[0.08em] text-white/45
         pt-5 md:pt-6
         pb-[max(1.25rem,env(safe-area-inset-bottom))]
@@ -204,36 +204,34 @@ export default function Footer() {
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
 
-        <div className="flex items-center gap-5">
+        <a
+          href="https://www.acid.uk.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="ACID — Anti Copying in Design"
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/ACIDLOGO.png"
+            alt="ACID — Anti Copying in Design"
+            width={96}
+            height={36}
+            style={{ display: "block", width: 96, height: 36 }}
+          />
+        </a>
+
+        <p>
+          Website by{" "}
           <a
-            href="https://www.acid.uk.com"
+            href="https://www.satsuma.studio"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="ACID — Anti Copying in Design"
-            className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
+            className="hover:text-white/90 transition-colors duration-300"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/ACIDLOGO.png"
-              alt="ACID — Anti Copying in Design"
-              width={96}
-              height={36}
-              style={{ display: "block", width: 96, height: 36 }}
-            />
+            Satsuma
           </a>
-
-          <p>
-            Website by{" "}
-            <a
-              href="https://www.satsuma.studio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white/90 transition-colors duration-300"
-            >
-              Satsuma
-            </a>
-          </p>
-        </div>
+        </p>
       </div>
     </footer>
   );
