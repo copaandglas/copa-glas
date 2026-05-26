@@ -77,7 +77,11 @@ Each panel catches light differently, so the composition shifts subtly as you mo
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "£5,500.00",
-  images: [{ src: "/fibonacci-mirror-mantel.png" }],
+  images: [
+    { src: "/fibonacci-mirror-mantel.png" },
+    { src: "/fibonacciclose1.jpg" },
+    { src: "/Fibonacciclose2.png" },
+  ],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
