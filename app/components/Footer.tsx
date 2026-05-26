@@ -204,7 +204,7 @@ export default function Footer() {
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
 
-        <div className="hidden md:flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
+        <div className="flex items-center gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
           <a
             href="https://www.acid.uk.com"
             target="_blank"
