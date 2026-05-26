@@ -216,9 +216,9 @@ export default function Footer() {
             <img
               src="/ACIDLOGO.png"
               alt="ACID — Anti Copying in Design"
-              width={72}
-              height={27}
-              style={{ display: "block", width: 72, height: 27 }}
+              width={96}
+              height={36}
+              style={{ display: "block", width: 96, height: 36 }}
             />
           </a>
 
