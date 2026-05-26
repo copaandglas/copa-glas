@@ -18,7 +18,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
   },
   {
     id: "emerald",
-    name: "English Muffle Sussex Green",
+    name: "English Muffle Sussex Green Glass",
     shortName: "Sussex Green",
     hex: "#3d7a38",
     image: "/english-muffle-sussex-green.png",
@@ -34,7 +34,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
   },
   {
     id: "red",
-    name: "Antique Opalescent Red Wispy",
+    name: "Antique Opalescent Red Wispy Glass",
     shortName: "Antique Red",
     hex: "#cc1a1a",
     image: "/antique-wispy-red.png",
