@@ -8,21 +8,34 @@ import Footer from "@/app/components/Footer";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [viewportH, setViewportH] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
+    const handleResize = () => setViewportH(window.innerHeight);
+    handleResize();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const blurAmount = Math.max(0, 25 - (scrollY / 200) * 25);
   const textOpacity = Math.max(0, 1 - scrollY / 300);
   const overlayOpacity = Math.max(0, 0.5 - (scrollY / 250) * 0.5);
 
+  // Switch header to dark once we've scrolled into the white section
+  // (a little before the section reaches the top so it doesn't lag).
+  const headerVariant: "light" | "dark" =
+    viewportH > 0 && scrollY > viewportH * 0.7 ? "dark" : "light";
+
   return (
-    <div className="w-full min-w-0 box-border">
-      {/* Background image: scroll-driven blur requires inline style */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
+    <div className="w-full min-w-0 box-border bg-white">
+      {/* Fixed background image: only visible behind the hero.
+          Sits behind the white section, which covers it as you scroll. */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src="/heroimage.png"
           alt=""
@@ -38,12 +51,12 @@ export default function Home() {
         />
       </div>
 
-      <Header variant="light" />
+      <Header variant={headerVariant} />
 
-      {/* Hero content: opacity driven by scroll */}
-      <div
+      {/* ── Hero (grey/dark background scroll) ───────────────── */}
+      <section
         className="
-          relative z-10 min-h-screen w-full box-border
+          relative z-10 h-screen w-full box-border
           max-w-full sm:max-w-[min(90%,520px)] lg:max-w-[520px] xl:max-w-[600px]
           pt-[max(100px,calc(72px+env(safe-area-inset-top)))]
           sm:pt-[max(130px,calc(72px+env(safe-area-inset-top)))]
@@ -93,7 +106,22 @@ export default function Home() {
             </Link>
           </div>
         </nav>
-      </div>
+      </section>
+
+      {/* ── White canvas: content to be punched in ───────────── */}
+      <section
+        aria-label="Studio"
+        className="
+          relative z-10 bg-white text-dark
+          min-h-screen w-full
+          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+          py-24 md:py-32 lg:py-40
+        "
+      >
+        <div className="max-w-[1440px] mx-auto">
+          {/* Content goes here */}
+        </div>
+      </section>
 
       <div className="relative z-20">
         <Footer />
