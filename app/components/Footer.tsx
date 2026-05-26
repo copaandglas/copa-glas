@@ -216,8 +216,8 @@ export default function Footer() {
             <Image
               src="/ACIDLOGO.png"
               alt="ACID — Anti Copying in Design"
-              width={52}
-              height={28}
+              width={72}
+              height={27}
               className="block"
             />
           </a>
