@@ -204,22 +204,40 @@ export default function Footer() {
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
 
-        <a
-          href="https://www.acid.uk.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="ACID — Anti Copying in Design"
-          className="hidden md:block absolute left-1/2 -translate-x-1/2 opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/ACIDLOGO.png"
-            alt="ACID — Anti Copying in Design"
-            width={96}
-            height={36}
-            style={{ display: "block", width: 96, height: 36 }}
-          />
-        </a>
+        <div className="hidden md:flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
+          <a
+            href="https://www.acid.uk.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ACID — Anti Copying in Design"
+            className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ACIDLOGO.png"
+              alt="ACID — Anti Copying in Design"
+              width={96}
+              height={36}
+              style={{ display: "block", width: 96, height: 36 }}
+            />
+          </a>
+          <a
+            href="https://www.madeinbritain.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Made in Britain"
+            className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/MadeinBRITAIN.png"
+              alt="Made in Britain"
+              width={72}
+              height={36}
+              style={{ display: "block", width: 72, height: 36 }}
+            />
+          </a>
+        </div>
 
         <p>
           Website by{" "}
