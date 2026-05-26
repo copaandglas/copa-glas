@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -158,7 +159,6 @@ export default function Footer() {
           <div>
             <p className="footer-heading">Information</p>
             <nav>
-              <Link href="/shipping" className="footer-link">Shipping &amp; Returns</Link>
               <Link href="/privacy" className="footer-link">Privacy Policy</Link>
               <Link href="/terms" className="footer-link">Terms of Service</Link>
             </nav>
@@ -205,17 +205,35 @@ export default function Footer() {
       ">
         <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
 
-        <p>
-          Website by{" "}
+        <div className="flex items-center gap-5">
           <a
-            href="https://www.satsuma.studio"
+            href="https://www.acid.uk.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white/90 transition-colors duration-300"
+            aria-label="ACID — Anti Copying in Design"
+            className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
           >
-            Satsuma
+            <Image
+              src="/ACIDLOGO.png"
+              alt="ACID — Anti Copying in Design"
+              width={52}
+              height={28}
+              className="block"
+            />
           </a>
-        </p>
+
+          <p>
+            Website by{" "}
+            <a
+              href="https://www.satsuma.studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white/90 transition-colors duration-300"
+            >
+              Satsuma
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
