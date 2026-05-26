@@ -347,11 +347,11 @@ export default function ProductPage() {
                   onClick={() => { setSwipeDirection(index > selectedImage ? 1 : -1); setSelectedImage(index); }}
                   aria-label={`View image ${index + 1} of ${product.images.length}`}
                   aria-pressed={selectedImage === index}
-                  className="flex-1 aspect-square max-w-20 p-0 bg-muted cursor-pointer overflow-hidden transition-[opacity,border-color] duration-200"
-                  style={{
-                    border: selectedImage === index ? "2px solid #000" : "2px solid transparent",
-                    opacity: selectedImage === index ? 1 : 0.55,
-                  }}
+                  className={`
+                    flex-1 aspect-square max-w-20 p-0 bg-muted cursor-pointer overflow-hidden
+                    transition-[opacity,border-color] duration-200 border-2
+                    ${selectedImage === index ? "border-accent opacity-100" : "border-transparent opacity-55"}
+                  `}
                   whileHover={{ opacity: 1 }}
                   whileTap={{ scale: 0.97 }}
                 >
