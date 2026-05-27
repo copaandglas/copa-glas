@@ -60,7 +60,11 @@ Each pane sits within its own frame; the interplay of line and reflection reads 
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "£8,500.00",
-  images: [{ src: "/mondrian-mirror.png" }],
+  images: [
+    { src: "/mondrian-mirror.png" },
+    { src: "/Mondrianclose.jpg" },
+    { src: "/mondrianclose2.jpg" },
+  ],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
