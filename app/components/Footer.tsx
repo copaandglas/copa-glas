@@ -192,8 +192,9 @@ export default function Footer() {
       <div className="
         border-t border-white/[0.08]
         max-w-[1400px] 3xl:max-w-[1680px] mx-auto
-        relative flex flex-col md:flex-row justify-between items-start md:items-center
-        gap-2 md:gap-0 text-[10px] md:text-[11px] tracking-[0.08em] text-white/45
+        flex flex-col items-start gap-4
+        lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-4
+        text-[10px] md:text-[11px] tracking-[0.08em] text-white/45
         pt-5 md:pt-6
         pb-[max(1.25rem,env(safe-area-inset-bottom))]
         md:pb-[max(1.5rem,env(safe-area-inset-bottom))]
@@ -202,9 +203,9 @@ export default function Footer() {
         lg:px-[max(3.5rem,env(safe-area-inset-left))]
         3xl:px-[max(5rem,env(safe-area-inset-left))]
       ">
-        <p>&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
+        <p className="lg:justify-self-start">&copy; {new Date().getFullYear()} Copa + Glas Studio. All rights reserved.</p>
 
-        <div className="flex items-center gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
+        <div className="flex items-center gap-4 lg:justify-self-center">
           <a
             href="https://www.acid.uk.com"
             target="_blank"
@@ -239,7 +240,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p>
+        <p className="lg:justify-self-end lg:text-right">
           Website by{" "}
           <a
             href="https://www.satsuma.studio"
