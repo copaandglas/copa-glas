@@ -191,6 +191,23 @@ export default function AuraWallLightConfigurator({
   );
 }
 
+function hexToRgb(hex: string): [number, number, number] {
+  const h = hex.replace("#", "");
+  const full = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const n = parseInt(full, 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+/** Lighten toward white by `amt` (0–1), keeping the hue — a luminous version. */
+function lighten(hex: string, amt: number): [number, number, number] {
+  const [r, g, b] = hexToRgb(hex);
+  return [
+    Math.round(r + (255 - r) * amt),
+    Math.round(g + (255 - g) * amt),
+    Math.round(b + (255 - b) * amt),
+  ];
+}
+
 function SconceSvg({
   className,
   paneImage,
@@ -201,6 +218,8 @@ function SconceSvg({
   paneColor: string;
 }) {
   const encodedImage = paneImage ?? null;
+  const [gr, gg, gb] = lighten(paneColor, 0.45);
+  const glow = (a: number) => `rgba(${gr}, ${gg}, ${gb}, ${a})`;
 
   return (
     <svg
@@ -217,11 +236,11 @@ function SconceSvg({
           <feGaussianBlur stdDeviation="9" />
         </filter>
         <linearGradient id="aura-litCore" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,244,224,0)" />
-          <stop offset="12%" stopColor="rgba(255,248,236,0.92)" />
-          <stop offset="50%" stopColor="rgba(255,253,247,1)" />
-          <stop offset="88%" stopColor="rgba(255,248,236,0.92)" />
-          <stop offset="100%" stopColor="rgba(255,244,224,0)" />
+          <stop offset="0%" stopColor={glow(0)} />
+          <stop offset="12%" stopColor={glow(0.85)} />
+          <stop offset="50%" stopColor={glow(1)} />
+          <stop offset="88%" stopColor={glow(0.85)} />
+          <stop offset="100%" stopColor={glow(0)} />
         </linearGradient>
         <clipPath id="aura-pane-clip">
           <rect x="48" y="32" width="6" height="86" />

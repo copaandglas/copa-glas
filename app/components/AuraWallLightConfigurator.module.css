@@ -90,15 +90,15 @@
 }
 
 .root.isOn .lightGlow {
-  opacity: 0.92;
+  opacity: 0.85;
 }
 
 .root.isOn .litHaloWide {
-  opacity: 0.5;
+  opacity: 0.55;
 }
 
 .root.isOn .litHaloCore {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .root.isOn .tubeShadow {
