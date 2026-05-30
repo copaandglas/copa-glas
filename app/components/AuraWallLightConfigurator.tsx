@@ -213,6 +213,16 @@ function SconceSvg({
         <filter id="aura-ambient-glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="6" result="blur" />
         </filter>
+        <filter id="aura-bloom-wide" x="-150%" y="-150%" width="400%" height="400%">
+          <feGaussianBlur stdDeviation="9" />
+        </filter>
+        <linearGradient id="aura-litCore" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="rgba(255,244,224,0)" />
+          <stop offset="12%" stopColor="rgba(255,248,236,0.92)" />
+          <stop offset="50%" stopColor="rgba(255,253,247,1)" />
+          <stop offset="88%" stopColor="rgba(255,248,236,0.92)" />
+          <stop offset="100%" stopColor="rgba(255,244,224,0)" />
+        </linearGradient>
         <clipPath id="aura-pane-clip">
           <rect x="48" y="32" width="6" height="86" />
         </clipPath>
@@ -272,6 +282,27 @@ function SconceSvg({
       <rect x="56" y="32" width="42" height="116" fill="url(#aura-silveredGlass)" />
       <rect x="56" y="32" width="42" height="116" fill="url(#aura-paneGloss)" />
 
+      {/*
+        Light spill — rendered above the frame so the lit tube appears to
+        cast its colour onto the surrounding silvered glass and copper.
+      */}
+      <rect
+        x="30"
+        y="14"
+        width="42"
+        height="122"
+        className={styles.litHaloWide}
+        filter="url(#aura-bloom-wide)"
+      />
+      <rect
+        x="42"
+        y="26"
+        width="18"
+        height="98"
+        className={styles.litHaloCore}
+        filter="url(#aura-ambient-glow)"
+      />
+
       {/* Centre glass pane — photo texture + colour tint overlay */}
       {encodedImage ? (
         <>
@@ -301,16 +332,16 @@ function SconceSvg({
       )}
 
       {/*
-        Opacity-driven warm glow so the lit state reads on WebKit
-        (iPad / iOS Safari), which ignores CSS filter: brightness()
-        on inner SVG elements. Kept subtle to preserve the glass texture.
+        Bright emitting core — a warm gradient (hot centre, soft ends) driven
+        by opacity so it lights up reliably on WebKit (iPad / iOS Safari),
+        which ignores CSS filter: brightness() on inner SVG elements.
       */}
       <rect
         x="48"
         y="32"
         width="6"
         height="86"
-        fill="#fff1d6"
+        fill="url(#aura-litCore)"
         clipPath="url(#aura-pane-clip)"
         className={styles.lightGlow}
       />

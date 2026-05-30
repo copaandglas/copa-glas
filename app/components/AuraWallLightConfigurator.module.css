@@ -35,6 +35,8 @@
 .centralGlassImage,
 .centralGlassTint,
 .lightGlow,
+.litHaloWide,
+.litHaloCore,
 .tubeShadow,
 .sunkenShadow {
   will-change: opacity, fill, filter;
@@ -45,6 +47,12 @@
 }
 
 .lightGlow {
+  opacity: 0;
+}
+
+.litHaloWide,
+.litHaloCore {
+  fill: var(--active-pane-color);
   opacity: 0;
 }
 
@@ -82,7 +90,15 @@
 }
 
 .root.isOn .lightGlow {
-  opacity: 0.22;
+  opacity: 0.92;
+}
+
+.root.isOn .litHaloWide {
+  opacity: 0.5;
+}
+
+.root.isOn .litHaloCore {
+  opacity: 0.85;
 }
 
 .root.isOn .tubeShadow {
