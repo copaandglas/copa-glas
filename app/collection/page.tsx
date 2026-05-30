@@ -136,8 +136,9 @@ export default function CollectionPage() {
       >
         <div
           className="
-            grid grid-cols-1 lg:grid-cols-3
-            gap-y-12 lg:gap-x-8 3xl:gap-x-12
+            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+            gap-x-5 md:gap-x-6 lg:gap-x-8 3xl:gap-x-12
+            gap-y-12
           "
         >
           {categories.map((category, i) => (
@@ -162,7 +163,7 @@ export default function CollectionPage() {
                     src={category.image}
                     alt={`${category.name}, ${category.tagline}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                     className={`
                       object-cover will-change-[transform,opacity]
                       transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
@@ -177,7 +178,7 @@ export default function CollectionPage() {
                       alt=""
                       aria-hidden
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                       className="
                         hidden sm:block object-cover will-change-[transform,opacity]
                         opacity-0
