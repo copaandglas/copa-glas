@@ -300,6 +300,26 @@ function SconceSvg({
         <rect x="48" y="32" width="6" height="86" className={styles.centralGlass} />
       )}
 
+      {/* Luminous core — opacity-driven so WebKit (iPad/iOS) lights up reliably */}
+      <rect
+        x="48"
+        y="32"
+        width="6"
+        height="86"
+        fill={paneColor}
+        clipPath="url(#aura-pane-clip)"
+        className={styles.lightBloom}
+      />
+      <rect
+        x="48"
+        y="32"
+        width="6"
+        height="86"
+        fill="#fff4df"
+        clipPath="url(#aura-pane-clip)"
+        className={styles.lightCore}
+      />
+
       <rect
         x="48"
         y="32"

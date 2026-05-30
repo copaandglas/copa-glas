@@ -34,13 +34,12 @@
 .centralGlass,
 .centralGlassImage,
 .centralGlassTint,
+.lightBloom,
+.lightCore,
 .tubeShadow,
 .sunkenShadow {
-  will-change: opacity, fill, filter;
-  transition:
-    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tubeGlow {
@@ -60,20 +59,35 @@
   /* colour overlay at 0.28 opacity set inline */
 }
 
+/*
+ * Luminous overlays are driven purely by opacity rather than CSS
+ * `filter: brightness()`, which WebKit (iPad / iOS Safari) does not
+ * apply reliably to inner SVG elements. Opacity transitions render
+ * consistently across every browser, so the "lit" state reads the
+ * same on desktop, iPad and mobile.
+ */
+.lightBloom {
+  opacity: 0;
+}
+
+.lightCore {
+  opacity: 0;
+}
+
 .root.isOn .tubeGlow {
-  opacity: 0.8;
-}
-
-.root.isOn .centralGlass {
-  filter: brightness(1.3) saturate(1.2);
-}
-
-.root.isOn .centralGlassImage {
-  filter: brightness(1.35) saturate(1.25);
+  opacity: 0.95;
 }
 
 .root.isOn .centralGlassTint {
-  opacity: 0.45;
+  opacity: 0.5;
+}
+
+.root.isOn .lightBloom {
+  opacity: 0.6;
+}
+
+.root.isOn .lightCore {
+  opacity: 0.32;
 }
 
 .root.isOn .tubeShadow {
