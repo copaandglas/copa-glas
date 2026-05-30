@@ -94,11 +94,11 @@
 }
 
 .root.isOn .litHaloWide {
-  opacity: 0.55;
+  opacity: 0.18;
 }
 
 .root.isOn .litHaloCore {
-  opacity: 0.9;
+  opacity: 0.38;
 }
 
 .root.isOn .tubeShadow {
