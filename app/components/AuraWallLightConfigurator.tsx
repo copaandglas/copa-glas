@@ -218,7 +218,7 @@ function SconceSvg({
   paneColor: string;
 }) {
   const encodedImage = paneImage ?? null;
-  const [gr, gg, gb] = lighten(paneColor, 0.45);
+  const [gr, gg, gb] = lighten(paneColor, 0.12);
   const glow = (a: number) => `rgba(${gr}, ${gg}, ${gb}, ${a})`;
 
   return (
