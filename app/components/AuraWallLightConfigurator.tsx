@@ -300,24 +300,19 @@ function SconceSvg({
         <rect x="48" y="32" width="6" height="86" className={styles.centralGlass} />
       )}
 
-      {/* Luminous core — opacity-driven so WebKit (iPad/iOS) lights up reliably */}
+      {/*
+        Opacity-driven warm glow so the lit state reads on WebKit
+        (iPad / iOS Safari), which ignores CSS filter: brightness()
+        on inner SVG elements. Kept subtle to preserve the glass texture.
+      */}
       <rect
         x="48"
         y="32"
         width="6"
         height="86"
-        fill={paneColor}
+        fill="#fff1d6"
         clipPath="url(#aura-pane-clip)"
-        className={styles.lightBloom}
-      />
-      <rect
-        x="48"
-        y="32"
-        width="6"
-        height="86"
-        fill="#fff4df"
-        clipPath="url(#aura-pane-clip)"
-        className={styles.lightCore}
+        className={styles.lightGlow}
       />
 
       <rect
