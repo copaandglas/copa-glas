@@ -3,12 +3,66 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+
+const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+interface FeaturedWork {
+  slug: string;
+  name: string;
+  dimension: string;
+  price: string;
+  image: string;
+  hoverImage?: string;
+  tagline: string;
+  /* Per-tile shape + vertical offset for a gallery-hung, off-axis rhythm */
+  aspect: string;
+  offset: string;
+}
+
+const featuredWorks: FeaturedWork[] = [
+  {
+    slug: "rotation-mirror",
+    name: "Rotation Mirror",
+    dimension: "97cm Ø",
+    price: "£6,000",
+    image: "/rotation-mirror.png",
+    hoverImage: "/rotation-mirror-close.png",
+    tagline: "Twenty-six hand-cut facets set in solid copper.",
+    aspect: "aspect-[4/5]",
+    offset: "lg:mt-0",
+  },
+  {
+    slug: "mondrian-mirror",
+    name: "The Mondrian Mirror",
+    dimension: "69.5 × 100.5cm",
+    price: "£8,500",
+    image: "/mondrian-mirror.png",
+    hoverImage: "/mondrian-mirror-close.png",
+    tagline: "Rectilinear panes held in a grid of hand-formed copper.",
+    aspect: "aspect-[3/4]",
+    offset: "lg:mt-28",
+  },
+  {
+    slug: "fibonacci-mirror",
+    name: "Fibonacci Mirror",
+    dimension: "65 × 90cm",
+    price: "£5,500",
+    image: "/fibonacci-mirror-mantel.png",
+    hoverImage: "/fibonacci-mirror-close.png",
+    tagline: "A spiralling study in proportion, drawn from nature's geometry.",
+    aspect: "aspect-[5/6]",
+    offset: "lg:mt-12",
+  },
+];
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [viewportH, setViewportH] = useState(0);
+  const reduced = useReducedMotion();
+  const rise = (y: number) => (reduced ? { opacity: 0 } : { opacity: 0, y });
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -108,20 +162,558 @@ export default function Home() {
         </nav>
       </section>
 
-      {/* ── White canvas: content to be punched in ───────────── */}
-      <section
-        aria-label="Studio"
-        className="
-          relative z-10 bg-white text-dark
-          min-h-screen w-full
-          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
-          py-24 md:py-32 lg:py-40
-        "
-      >
-        <div className="max-w-[1440px] mx-auto">
-          {/* Content goes here */}
-        </div>
-      </section>
+      {/* ── White canvas ─────────────────────────────────────── */}
+      <div className="relative z-10 bg-white text-dark w-full overflow-hidden">
+
+        {/* 1 · Studio statement + Annealing video */}
+        <section
+          aria-label="The studio"
+          className="
+            px-5 sm:px-10 lg:px-16 xl:px-20
+            pt-28 md:pt-40 lg:pt-52
+            pb-24 md:pb-32 lg:pb-44 xl:pb-52
+          "
+        >
+          {/* Eyebrow — whisper quiet, sits alone */}
+          <motion.p
+            initial={rise(6)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-14% 0px" }}
+            transition={{ duration: 1.1, ease: luxuryEase }}
+            className="
+              text-[8px] tracking-[0.32em] uppercase text-black/30 font-medium
+              mb-12 md:mb-16
+            "
+          >
+            Copa + Glas · East London
+          </motion.p>
+
+          {/*
+            Two-zone flex row on desktop:
+              Left  (~55 %) → large headline, vertically centred
+              Right (~45 %) → small portrait video on top, copy below
+            On mobile they stack: headline → video → copy
+          */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-x-16 xl:gap-x-24">
+
+            {/* ── Left: headline ── */}
+            <motion.h2
+              initial={rise(24)}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 1.4, ease: luxuryEase }}
+              className="
+                lg:w-[55%] xl:w-[57%] shrink-0
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[clamp(2.6rem,7vw,6rem)]
+                leading-[1.04] -tracking-[0.016em] font-normal
+              "
+            >
+              Objects made<br />
+              to hold the<br />
+              <em>light</em> of a room.
+            </motion.h2>
+
+            {/* ── Right: video then copy, stacked, no overlap possible ── */}
+            <div className="mt-12 lg:mt-0 flex flex-col items-start min-w-0">
+
+              {/* Portrait video — small, sits at the top of the right zone */}
+              <motion.div
+                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 1.6, delay: 0.1, ease: luxuryEase }}
+                className="
+                  w-[44vw] sm:w-[32vw] lg:w-[52%] xl:w-[48%]
+                  max-w-[220px] lg:max-w-none
+                  ml-auto lg:ml-0
+                "
+              >
+                <div className="relative w-full aspect-[3/4] overflow-hidden bg-stone-50">
+                  <video
+                    src="/Annealing.MP4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Annealing process in the C+G Workshop"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  {/* Film grain overlay */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none opacity-[0.32] mix-blend-overlay"
+                    style={{
+                      backgroundImage:
+                        "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>\")",
+                      backgroundSize: "180px 180px",
+                    }}
+                  />
+                  {/* Warm tonal wash — softens the digital edge */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none opacity-[0.12] mix-blend-multiply bg-amber-900"
+                  />
+                </div>
+                <p className="
+                  mt-2.5 text-[7px] tracking-[0.28em] uppercase text-black/28
+                  flex items-center gap-2
+                ">
+                  <span aria-hidden className="block w-4 h-px bg-black/18" />
+                  Annealing · C+G Workshop
+                </p>
+              </motion.div>
+
+              {/* Body copy — directly below the video, in normal flow */}
+              <motion.div
+                initial={rise(14)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 1.3, delay: 0.28, ease: luxuryEase }}
+                className="mt-10 lg:mt-10 w-full"
+              >
+                <span className="block w-8 h-px bg-accent/45 mb-5" />
+                <p className="
+                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  text-[15px] md:text-[16px] lg:text-[15px] xl:text-[16px]
+                  leading-[1.9] text-black/62 max-w-[40ch]
+                ">
+                  Working in copper and hand-cut glass, Copa + Glas makes
+                  mirrors and lighting that gather and return the light around
+                  them. Every piece is drawn from a single material language
+                  and made to order in our East London workshop.
+                </p>
+              </motion.div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* 2 · Selected works */}
+        <section
+          aria-label="Selected works"
+          className="
+            px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+            pb-20 md:pb-28 lg:pb-36
+          "
+        >
+          {/* Section header — quiet, slightly indented on desktop */}
+          <motion.div
+            initial={rise(8)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 1.1, ease: luxuryEase }}
+            className="
+              flex items-end justify-between
+              mb-12 md:mb-16 lg:mb-20
+              lg:pl-[5%]
+            "
+          >
+            <div>
+              <p className="
+                text-[8px] tracking-[0.28em] uppercase text-black/32
+                font-medium mb-3.5
+              ">
+                Selected Works
+              </p>
+              <h2 className="
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[clamp(1.45rem,3vw,2.5rem)]
+                leading-[1.12] -tracking-[0.004em] font-normal
+              ">
+                A few pieces from the collection.
+              </h2>
+            </div>
+
+            <Link
+              href="/collection"
+              className="
+                group hidden lg:inline-flex items-center gap-2 shrink-0 mb-1
+                pb-px border-b border-black/18
+                text-[9px] tracking-[0.2em] uppercase text-black/45
+                no-underline transition-colors duration-500
+                hover:text-black hover:border-black/55
+              "
+            >
+              <span>View All</span>
+              <svg
+                width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor"
+                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </motion.div>
+
+          {/* Works grid — items-start preserves the gallery-hung rhythm */}
+          <div className="
+            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+            gap-x-8 lg:gap-x-14
+            gap-y-16 md:gap-y-20
+            items-start
+          ">
+            {featuredWorks.map((work, i) => (
+              <motion.div
+                key={work.slug}
+                initial={rise(28)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-8% 0px" }}
+                transition={{ duration: 1, delay: i * 0.12, ease: luxuryEase }}
+                className={work.offset}
+              >
+                <Link
+                  href={`/product/${work.slug}`}
+                  className="group block text-inherit no-underline"
+                  aria-label={`View ${work.name}`}
+                >
+                  <div className={`relative w-full ${work.aspect} overflow-hidden bg-muted`}>
+                    <Image
+                      src={work.image}
+                      alt={`${work.name}, ${work.tagline}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className={`
+                        object-cover will-change-[transform,opacity]
+                        transition-[transform,opacity] duration-0
+                        ease-[cubic-bezier(0.37,0,0.63,1)]
+                        group-hover:scale-[1.03] group-hover:duration-[1500ms]
+                        ${work.hoverImage ? "sm:group-hover:opacity-0" : ""}
+                      `}
+                    />
+                    {work.hoverImage && (
+                      <Image
+                        src={work.hoverImage}
+                        alt=""
+                        aria-hidden
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="
+                          hidden sm:block object-cover will-change-[transform,opacity]
+                          opacity-0
+                          transition-[transform,opacity] duration-0
+                          ease-[cubic-bezier(0.37,0,0.63,1)]
+                          group-hover:opacity-100 group-hover:scale-[1.03]
+                          group-hover:duration-[1500ms] pointer-events-none
+                        "
+                      />
+                    )}
+                    <div className="
+                      absolute inset-0 bg-black/0
+                      sm:group-hover:bg-black/10
+                      transition-colors duration-0
+                      ease-[cubic-bezier(0.37,0,0.63,1)]
+                      group-hover:duration-[1100ms]
+                    " />
+                  </div>
+
+                  <div className="pt-5 md:pt-6">
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="
+                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        text-[11px] italic text-accent/60 tabular-nums
+                      ">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="
+                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        text-[1.25rem] md:text-[1.2rem] lg:text-[1.3rem]
+                        font-normal leading-[1.2] tracking-[0.01em]
+                      ">
+                        {work.name}
+                      </h3>
+                    </div>
+                    <p className="
+                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      text-[13px] md:text-[14px] leading-[1.6]
+                      italic text-black/58 mb-3.5 max-w-[34ch]
+                    ">
+                      {work.tagline}
+                    </p>
+                    <div className="
+                      flex items-baseline justify-between gap-3
+                      text-[11px] pt-3 border-t border-black/[0.07]
+                    ">
+                      <span className="tracking-[0.08em] uppercase text-black/52">
+                        {work.dimension}
+                      </span>
+                      <span className="
+                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        text-[13px] tabular-nums text-black/62
+                      ">
+                        {work.price}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile view-all */}
+          <div className="lg:hidden mt-12">
+            <Link
+              href="/collection"
+              className="
+                inline-flex items-center gap-2 pb-px
+                border-b border-black/18
+                text-[10px] tracking-[0.18em] uppercase text-black/55 no-underline
+              "
+            >
+              <span>View the Collection</span>
+              <svg
+                width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor"
+                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+
+        {/* 3 · Bespoke — key feature, dark band with the small glass video */}
+        <section
+          aria-label="Bespoke and commissions"
+          className="relative bg-dark text-white overflow-hidden"
+        >
+          {/* Ambient copper warmth + faint light, matching the studio language */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_82%_12%,rgba(139,69,19,0.16),transparent_55%)]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_15%_95%,rgba(255,255,255,0.045),transparent_55%)]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none opacity-[0.10] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+              backgroundSize: "240px 240px",
+            }}
+          />
+
+          <div
+            className="
+              relative z-10 max-w-[1440px] mx-auto
+              px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+              py-24 md:py-32 lg:py-40
+            "
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+              {/* Text — leads on desktop */}
+              <motion.div
+                initial={rise(20)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-12% 0px" }}
+                transition={{ duration: 1.3, ease: luxuryEase }}
+                className="lg:col-span-7 order-2 lg:order-1"
+              >
+                <p className="text-[9px] md:text-[10px] tracking-[0.24em] uppercase text-white/55 font-medium mb-5 md:mb-6">
+                  Bespoke &amp; Commissions
+                </p>
+                <h2
+                  className="
+                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    text-[clamp(2rem,4.6vw,3.5rem)]
+                    leading-[1.08] -tracking-[0.01em] font-normal
+                    mb-7 md:mb-9 max-w-[18ch]
+                  "
+                >
+                  Commissioned for the <em>space</em> it is made for.
+                </h2>
+
+                <span className="block w-10 h-px bg-accent/50 mb-7 md:mb-9" />
+
+                <p
+                  className="
+                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    text-[15px] md:text-base lg:text-[17px]
+                    leading-[1.85] text-white/72 max-w-[50ch] mb-9 md:mb-11
+                  "
+                >
+                  Every piece can be scaled, finished, or wholly reconceived in
+                  copper and hand-cut glass — for a private interior, an
+                  architectural brief, or a singular work. We welcome collectors,
+                  designers, and architects. Visits to the East London studio are
+                  by appointment.
+                </p>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7">
+                  <Link
+                    href="/bespoke"
+                    className="
+                      group inline-flex items-center justify-between gap-6
+                      py-4 px-8 md:py-[1.125rem] md:px-10 min-w-[15rem]
+                      text-[10px] tracking-[0.22em] uppercase
+                      text-dark no-underline bg-white
+                      transition-colors duration-500 hover:bg-white/85
+                    "
+                  >
+                    <span>Begin a Commission</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="
+                      text-[10px] tracking-[0.18em] uppercase text-white/65 hover:text-white
+                      no-underline transition-colors duration-300
+                      border-b border-white/25 pb-0.5 self-start sm:self-auto
+                    "
+                  >
+                    Or contact the studio
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Small glass video — contained on desktop */}
+              <motion.div
+                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-12% 0px" }}
+                transition={{ duration: 1.4, delay: 0.12, ease: luxuryEase }}
+                className="lg:col-span-4 lg:col-start-9 order-1 lg:order-2"
+              >
+                <div className="w-full max-w-[300px] sm:max-w-[320px] lg:max-w-none mx-auto lg:ml-auto lg:mr-0">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-black/40 border border-white/12">
+                    <video
+                      src="/copa.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      aria-label="Hand-cut glass being worked in the studio"
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                  <p className="mt-3.5 text-[8px] tracking-[0.22em] uppercase text-white/45 font-medium flex items-center gap-2.5">
+                    <span aria-hidden className="block w-5 h-px bg-accent/60" />
+                    Hand-cut glass, in the studio
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4 · Origins — overlapping text card over archival image */}
+        <section
+          aria-label="Origins"
+          className="
+            px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+            py-16 md:py-24 lg:py-32
+          "
+        >
+          <div className="max-w-[1440px] mx-auto relative">
+            {/* Oversized, quiet year — adds depth behind the composition */}
+            <span
+              aria-hidden
+              className="
+                hidden lg:block absolute -top-10 right-0 z-0 pointer-events-none select-none
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[12rem] xl:text-[15rem] leading-none italic
+                text-accent/[0.07]
+              "
+            >
+              1897
+            </span>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-0 lg:gap-x-0">
+              {/* Image */}
+              <motion.div
+                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 1.3, ease: luxuryEase }}
+                className="lg:col-span-7 lg:row-start-1 lg:col-start-1 relative z-0"
+              >
+                <div className="relative w-full aspect-[4/5] lg:aspect-[5/6] overflow-hidden bg-faint border border-black/[0.06]">
+                  <Image
+                    src="/luxferdoors.jpeg"
+                    alt="Archival Luxfer prism glazing — copper sections holding hand-cut glass"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5 text-[10px] tracking-[0.18em] uppercase text-white/95 px-2.5 py-1 bg-white/[0.12] backdrop-blur-xl border border-white/25">
+                    Luxfer · 1897
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Text card overlaps the image on desktop */}
+              <motion.div
+                initial={rise(20)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 1.3, delay: 0.12, ease: luxuryEase }}
+                className="
+                  lg:col-span-6 lg:col-start-7 lg:row-start-1
+                  relative z-10
+                  lg:mt-28 lg:-ml-16 xl:-ml-24
+                  bg-white
+                  px-0 lg:px-10 xl:px-12 lg:py-10 xl:py-12
+                  pt-8 lg:pt-10
+                "
+              >
+                <p className="text-[9px] md:text-[10px] tracking-[0.24em] uppercase text-accent font-medium mb-5 md:mb-6">
+                  Origins · 1897
+                </p>
+                <h2
+                  className="
+                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    text-[clamp(1.75rem,4vw,3rem)]
+                    leading-[1.1] -tracking-[0.008em] font-normal mb-6 md:mb-8
+                  "
+                >
+                  A lineage over a century in the making.
+                </h2>
+                <p
+                  className="
+                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    text-[15px] md:text-base lg:text-[17px]
+                    leading-[1.85] text-black/75 max-w-[52ch] mb-8 md:mb-10
+                  "
+                >
+                  Our glazing tradition begins with the Luxfer Prism Company and
+                  the copper-section technique later transformed by Frank Lloyd
+                  Wright. We carry that lineage forward by hand — the same
+                  materials, the same intention, made for the interiors of today.
+                </p>
+                <Link
+                  href="/origins"
+                  className="
+                    group inline-flex items-center gap-3
+                    pb-1 border-b border-black/25
+                    text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-black/75
+                    no-underline transition-colors duration-500 hover:text-black hover:border-black/70
+                  "
+                >
+                  <span>Read the Origins</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+      </div>
 
       <div className="relative z-20">
         <Footer />

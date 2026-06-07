@@ -78,11 +78,11 @@ const row4Items: ArchiveItem[] = [
     year: "1997",
   },
 ];
-const exhibitionConfetti: ArchiveItem = {
-  id: "exhibition-confetti",
+const artOfSeeingExhibition: ArchiveItem = {
+  id: "art-of-seeing-exhibition",
   src: "/Exhibitionconfetti.jpg",
-  alt: "Rotation Confetti Mirror at exhibition",
-  caption: "Rotation Confetti Mirror, Exhibition",
+  alt: "The Art of Seeing Exhibition, 2025",
+  caption: "The Art of Seeing Exhibition",
   category: "Exhibitions",
   year: "2025",
 };
@@ -113,7 +113,7 @@ const lightboxItems: ArchiveItem[] = [
   ...row2Items,
   ...row3Items,
   ...row4Items,
-  exhibitionConfetti,
+  artOfSeeingExhibition,
 ];
 
 
@@ -513,7 +513,7 @@ export default function ArchivePage() {
           {/* Row 5 — full width */}
           <div className="flex gap-1">
             <ImageCard
-              item={exhibitionConfetti}
+              item={artOfSeeingExhibition}
               className="flex-1"
               imageClassName="h-[30vw] max-h-[430px]"
               sizes="(max-width: 1440px) 100vw, 1440px"
