@@ -264,7 +264,6 @@ export default function OriginsPage() {
             transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
           >
             <video
-              src="/copa.mp4"
               autoPlay
               loop
               muted
@@ -272,7 +271,10 @@ export default function OriginsPage() {
               preload="metadata"
               aria-label="Copper and glass craft work in the Copa + Glas studio"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
-            />
+            >
+              <source src="/copa.webm" type="video/webm" />
+              <source src="/copa.mp4" type="video/mp4" />
+            </video>
             {/* Left edge: blend into dark bg */}
             <div className="absolute inset-y-0 left-0 w-40 xl:w-56 bg-gradient-to-r from-dark to-transparent" />
             {/* Top edge */}
