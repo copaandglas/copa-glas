@@ -27,7 +27,7 @@ const mirrors: Mirror[] = [
     name: "Rotation Mirror",
     designer: "Copa + Glas Studio",
     dimension: "97cm Ø",
-    price: "£6,000",
+    price: "£6,000.00",
     image: "/rotation-mirror.png",
     hoverImage: "/rotation-mirror-close.png",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
@@ -38,7 +38,7 @@ const mirrors: Mirror[] = [
     name: "The Mondrian Mirror",
     designer: "Copa + Glas Studio",
     dimension: "69.5 × 100.5cm",
-    price: "£8,500",
+    price: "£8,500.00",
     image: "/mondrian-mirror.png",
     hoverImage: "/mondrian-mirror-close.png",
     tagline:
@@ -50,7 +50,7 @@ const mirrors: Mirror[] = [
     name: "Fibonacci Mirror",
     designer: "Copa + Glas Studio",
     dimension: "65 × 90cm",
-    price: "£5,500",
+    price: "£5,500.00",
     image: "/fibonacci-mirror-mantel.png",
     hoverImage: "/fibonacci-mirror-close.png",
     tagline:

@@ -250,11 +250,9 @@ function productForSlug(slug: string | undefined): ProductData | null {
 export default function ProductPage() {
   const params = useParams();
   const slug = params?.slug as string | undefined;
-  const product = useMemo(() => {
-    const p = productForSlug(slug);
-    if (!p) notFound();
-    return p;
-  }, [slug]);
+  const product = useMemo(() => productForSlug(slug), [slug]);
+
+  if (!product) notFound();
 
   const [mounted, setMounted] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
