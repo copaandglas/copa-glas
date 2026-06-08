@@ -574,9 +574,9 @@ export default function ArchivePage() {
               leading-[1.7] text-black/80 italic
             "
           >
-            "The tradition is unchanged. The materials are the same.
+            &ldquo;The tradition is unchanged. The materials are the same.
             The intention to create something of lasting beauty and
-            significance has never wavered."
+            significance has never wavered.&rdquo;
           </blockquote>
           <p className="text-[8px] tracking-[0.18em] uppercase text-black/52 mt-5 font-medium">
             Copa + Glas
