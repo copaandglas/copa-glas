@@ -33,7 +33,7 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/rotation-mirror-close.png",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
     aspect: "aspect-[4/5]",
-    width: "w-full sm:w-[72%] lg:w-[50%]",
+    width: "w-full sm:w-[72%] lg:w-[46%] xl:w-[36%] lg:max-w-[430px]",
     indent: "lg:ml-[5%]",
   },
   {
@@ -45,7 +45,7 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/mondrian-mirror-close.png",
     tagline: "Rectilinear panes held in a grid of hand-formed copper.",
     aspect: "aspect-[3/4]",
-    width: "w-full sm:w-[58%] lg:w-[35%]",
+    width: "w-full sm:w-[58%] lg:w-[32%] xl:w-[24%] lg:max-w-[310px]",
     indent: "lg:ml-auto lg:mr-[7%]",
   },
   {
@@ -57,7 +57,7 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/fibonacci-mirror-close.png",
     tagline: "A spiralling study in proportion, drawn from nature's geometry.",
     aspect: "aspect-[5/6]",
-    width: "w-full sm:w-[65%] lg:w-[42%]",
+    width: "w-full sm:w-[65%] lg:w-[38%] xl:w-[28%] lg:max-w-[380px]",
     indent: "lg:ml-[20%]",
   },
 ];
@@ -291,7 +291,7 @@ export default function Home() {
                       src={work.image}
                       alt={`${work.name}, ${work.tagline}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
                       className={`
                         object-cover will-change-[transform,opacity]
                         transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
@@ -303,7 +303,7 @@ export default function Home() {
                       <Image
                         src={work.hoverImage}
                         alt="" aria-hidden fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
                         className="
                           hidden sm:block object-cover will-change-[transform,opacity] opacity-0
                           transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
