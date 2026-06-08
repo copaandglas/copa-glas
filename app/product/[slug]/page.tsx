@@ -96,7 +96,7 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
   material: "Solid copper; hand-cut silvered glass",
   dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
   finish: "Copper hand-finished in the studio",
-  leadTime: "Master-led and made to order",
+  leadTime: "6–8 weeks",
   price: "£6,000.00",
   images: [
     { src: "/rotation-mirror.png" },
@@ -117,7 +117,7 @@ Each pane sits within its own frame; the interplay of line and reflection reads 
   material: "Solid copper; hand-cut silvered glass",
   dimensions: { cm: "69.5 × 100.5cm", inches: "27.4 × 39.6in" },
   finish: "Copper hand-finished in the studio",
-  leadTime: "Made to order",
+  leadTime: "6–8 weeks",
   price: "£8,500.00",
   images: [
     { src: "/mondrian-mirror.png" },
@@ -138,7 +138,7 @@ Each panel catches light differently, so the composition shifts subtly as you mo
   material: "Solid copper; hand-cut silvered glass",
   dimensions: { cm: "65 × 90cm", inches: "25.6 × 35.4in" },
   finish: "Copper hand-finished in the studio",
-  leadTime: "Made to order",
+  leadTime: "6–8 weeks",
   price: "£5,500.00",
   images: [
     { src: "/fibonacci-mirror-mantel.png" },
@@ -159,7 +159,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   material: "Solid copper; hand-cut silvered and art glass",
   dimensions: { cm: "31.5 × 91cm", inches: "12.4 × 35.8in" },
   finish: "Copper hand-finished in the studio",
-  leadTime: "Made to order",
+  leadTime: "6–8 weeks",
   price: "Price on request",
   images: [{ src: "/frank-lloyd-wright-mirror-main.png", objectFit: "contain" }, { src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
@@ -214,11 +214,12 @@ Assembled and finished to order in our East London workshop.`,
   material: "Solid copper; hand-cut silvered and art glass",
   dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
   finish: "Copper hand-finished in the studio",
-  leadTime: "Made to order",
+  leadTime: "6–8 weeks",
   price: "Price on request",
   images: [
     { src: "/rotation-confetti-mirror.png" },
     { src: "/mirror-thumbnail.png" },
+    { src: "/rotation-confetti-plaque.png" },
   ],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
@@ -499,6 +500,10 @@ export default function ProductPage() {
                   { label: "Dimensions", value: product.dimensions.cm },
                   { label: "Finish", value: product.finish },
                   { label: "Lead Time", value: product.leadTime },
+                  ...(product.collectionCategory.href === "/limited-editions" ? [
+                    { label: "Provenance plate", value: "Numbered copper plate, fixed to the backing board" },
+                    { label: "Authentication", value: "Certificate of authenticity issued by the studio" },
+                  ] : []),
                 ].map((spec, i, arr) => (
                   <div
                     key={spec.label}
