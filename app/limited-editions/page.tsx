@@ -16,6 +16,7 @@ interface Edition {
   price: string;
   image: string;
   hoverImage?: string;
+  objectPosition?: string;
   tagline: string;
   leadTime: string;
   edition: string;
@@ -29,6 +30,7 @@ const editions: Edition[] = [
     dimension: "31.5 × 91cm",
     price: "Price on request",
     image: "/frank-lloyd-wright-mirror-main.png",
+    objectPosition: "center top",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
     leadTime: "Made to order",
@@ -177,6 +179,7 @@ export default function LimitedEditionsPage() {
                       group-hover:scale-[1.03] group-hover:duration-[1500ms]
                       ${piece.hoverImage ? "sm:group-hover:opacity-0" : ""}
                     `}
+                    style={piece.objectPosition ? { objectPosition: piece.objectPosition } : undefined}
                   />
 
                   {piece.hoverImage && (
