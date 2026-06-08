@@ -48,15 +48,6 @@ const categories: CollectionCategory[] = [
     count: "Two works · 1 of 10",
     image: "/rotation-confetti-mirror.png",
   },
-  {
-    slug: "collaborative",
-    name: "Collaborations",
-    tagline: "Two voices, one material language.",
-    description:
-      "Pieces made in partnership with artists and makers — where our copper and glass meet another creative vision.",
-    count: "One work",
-    image: "/copaxlucywilliams.jpg",
-  },
 ];
 
 export default function CollectionPage() {
@@ -126,8 +117,8 @@ export default function CollectionPage() {
             leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
-          Mirrors, lighting, limited editions, and collaborations. Each piece
-          is hand-made to order in our East London workshop — drawn from a
+          Mirrors, lighting, and limited editions. Each piece is hand-made to
+          order in our East London workshop, three strands, drawn from a
           single material language in copper and glass.
         </motion.p>
       </div>
