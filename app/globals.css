@@ -3,7 +3,6 @@
 @theme {
   --font-playfair: var(--font-playfair);
   --font-geist-sans: var(--font-geist-sans);
-  --font-geist-mono: var(--font-geist-mono);
 
   --color-bg: #ffffff;
   --color-fg: #000000;

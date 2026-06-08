@@ -18,6 +18,7 @@ interface Light {
   tagline: string;
   leadTime: string;
   edition?: string;
+  href?: string;
 }
 
 const lights: Light[] = [
@@ -31,6 +32,7 @@ const lights: Light[] = [
     tagline:
       "A customisable object — copper and glass configured for the room it will inhabit.",
     leadTime: "Made to order",
+    href: "/configure/aura-wall-light",
   },
 ];
 
@@ -144,7 +146,7 @@ export default function LightingPage() {
               }}
             >
               <Link
-                href={`/product/${light.slug}`}
+                href={light.href ?? `/product/${light.slug}`}
                 className="group block text-inherit no-underline"
                 aria-label={`View ${light.name}`}
               >

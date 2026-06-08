@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +15,14 @@ function ShareMenu({ name }: { name: string }) {
   const [open, setOpen] = useState(false);
   const url = typeof window !== "undefined" ? window.location.href : "";
   const text = `${name} — Copa + Glas`;
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && open) setOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   const shareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(`${text}\n${url}`)}`, "_blank");
@@ -30,6 +38,9 @@ function ShareMenu({ name }: { name: string }) {
     <div className="relative">
       <button
         onClick={() => setOpen(o => !o)}
+        aria-label="Share this piece"
+        aria-expanded={open}
+        aria-haspopup="true"
         className="inline-flex items-center gap-1.5 text-inherit opacity-70 hover:opacity-100 transition-opacity text-[10px] md:text-[11px] tracking-[0.12em] uppercase"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -225,20 +236,25 @@ Assembled and finished to order in our East London workshop.`,
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
-function productForSlug(slug: string | undefined): ProductData {
+function productForSlug(slug: string | undefined): ProductData | null {
+  if (slug === "rotation-mirror") return rotationMirror;
   if (slug === "aura-wall-light") return auraWallLight;
   if (slug === "three-geishas") return threeGeishas;
   if (slug === "mondrian-mirror") return mondrianMirror;
   if (slug === "fibonacci-mirror") return fibonacciMirror;
   if (slug === "frank-lloyd-wright-mirror") return frankLloydWrightMirror;
   if (slug === "rotation-confetti-mirror") return rotationConfettiMirror;
-  return rotationMirror;
+  return null;
 }
 
 export default function ProductPage() {
   const params = useParams();
   const slug = params?.slug as string | undefined;
-  const product = useMemo(() => productForSlug(slug), [slug]);
+  const product = useMemo(() => {
+    const p = productForSlug(slug);
+    if (!p) notFound();
+    return p;
+  }, [slug]);
 
   const [mounted, setMounted] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -283,6 +299,25 @@ export default function ProductPage() {
     return (
       <div className="min-h-screen bg-white">
         <Header variant="dark" />
+        <div className="pt-20 md:pt-[100px] lg:pt-[140px]">
+          <div className="
+            flex flex-col md:flex-row
+            max-w-[1400px] mx-auto
+            pt-5 md:pt-7 lg:pt-10
+            px-5 md:px-9 lg:px-14
+            pb-10 gap-0 md:gap-11 lg:gap-16
+          ">
+            <div className="w-full md:w-[48%] lg:w-1/2 animate-pulse">
+              <div className="aspect-[4/5] bg-[#f5f3ef]" />
+            </div>
+            <div className="flex-1 mt-8 md:mt-0 space-y-4 animate-pulse">
+              <div className="h-3 bg-black/[0.06] rounded w-1/3" />
+              <div className="h-8 bg-black/[0.08] rounded w-3/4" />
+              <div className="h-3 bg-black/[0.05] rounded w-full mt-6" />
+              <div className="h-3 bg-black/[0.05] rounded w-5/6" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -453,6 +488,7 @@ export default function ProductPage() {
               <span className="opacity-25 mx-2">/</span>
               <Link href={product.collectionCategory.href} className="text-inherit no-underline opacity-50 hover:opacity-90 transition-opacity">{product.collectionCategory.label}</Link>
               <span className="opacity-25 mx-2">/</span>
+              <span className="opacity-90">{product.name}</span>
             </nav>
 
             {/* Designer */}

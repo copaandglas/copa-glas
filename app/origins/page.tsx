@@ -270,6 +270,7 @@ export default function OriginsPage() {
               muted
               playsInline
               preload="metadata"
+              aria-label="Copper and glass craft work in the Copa + Glas studio"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
             />
             {/* Left edge: blend into dark bg */}

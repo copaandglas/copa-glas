@@ -126,9 +126,7 @@ export default function AuraWallLightConfigurePage() {
         </button>
       </div>
 
-      <div className="hidden md:block">
-        <Footer />
-      </div>
+      <Footer />
 
       <EnquiryDrawer
         open={enquireOpen}

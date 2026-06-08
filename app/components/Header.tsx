@@ -63,6 +63,14 @@ export default function Header({ variant = "light" }: HeaderProps) {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && menuOpen) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
   const isLight = variant === "light";
 
   return (
@@ -97,6 +105,9 @@ export default function Header({ variant = "light" }: HeaderProps) {
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={menuOpen}
+            aria-controls="site-nav"
             className="
               bg-transparent border-none cursor-pointer
               text-inherit tracking-inherit uppercase font-inherit
@@ -137,6 +148,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
+                aria-label="Close navigation menu"
                 className={`
                   text-white bg-transparent border-none cursor-pointer
                   font-inherit p-2.5 -m-2.5 min-h-11 shrink-0
@@ -149,9 +161,11 @@ export default function Header({ variant = "light" }: HeaderProps) {
             </div>
 
             <motion.nav
+              id="site-nav"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
+              aria-label="Site navigation"
               className="
                 flex-1 flex flex-col justify-center items-center
                 gap-3 md:gap-5 font-[family-name:var(--font-playfair),Georgia,serif]
