@@ -47,8 +47,7 @@ const categories: CollectionCategory[] = [
     description:
       "Each piece limited to ten worldwide. Made once, never repeated.",
     count: "Two works · 1 of 10",
-    image: "/frank-lloyd-wright-mirror-main.png",
-    objectPosition: "center 15%",
+    image: "/mirror-thumbnail.png",
   },
 ];
 
