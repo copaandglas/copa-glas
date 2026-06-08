@@ -13,6 +13,7 @@ const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 interface ProductImage {
   src: string;
+  objectFit?: "cover" | "contain";
 }
 
 interface ProductData {
@@ -43,7 +44,11 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
   finish: "Copper hand-finished in the studio",
   leadTime: "Master-led and made to order",
   price: "£6,000.00",
-  images: [{ src: "/rotation-mirror.png" }],
+  images: [
+    { src: "/rotation-mirror.png" },
+    { src: "/rotation-mirror-close-1.png" },
+    { src: "/rotation-mirror-close-2.png" },
+  ],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
 
@@ -102,7 +107,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: [{ src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png" }],
+  images: [{ src: "/frank-lloyd-wright-mirror-main.png", objectFit: "contain" }, { src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -157,7 +162,10 @@ Assembled and finished to order in our East London workshop.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "Made to order",
   price: "Price on request",
-  images: [{ src: "/mirror-thumbnail.png" }],
+  images: [
+    { src: "/rotation-confetti-mirror.png" },
+    { src: "/mirror-thumbnail.png" },
+  ],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -276,7 +284,7 @@ export default function ProductPage() {
                     alt={`${product.name}, image ${selectedImage + 1} of ${product.images.length}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
+                    className={product.images[selectedImage].objectFit === "contain" ? "object-contain" : "object-cover"}
                     priority={selectedImage === 0}
                   />
                 </motion.div>
