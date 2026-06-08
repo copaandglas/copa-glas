@@ -23,11 +23,15 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Copa + Glas",
     locale: "en_GB",
-    images: [{ url: "/heroimage.png", width: 1200, height: 630, alt: "Copa + Glas Studio" }],
+    url: "https://www.copaandglas.com",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted copper and glass mirrors, East London" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@copaandglas",
+    title: "Copa + Glas — Handcrafted Copper & Glass Mirrors, East London",
+    description: "East London design studio specialising in handcrafted mirrors and lighting in copper and glass. Each piece made to order in our workshop.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
