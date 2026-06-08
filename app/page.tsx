@@ -368,7 +368,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-6% 0px" }}
               transition={{ duration: 1.1, ease: luxuryEase }}
-              className="w-full sm:w-[40%] lg:w-[240px] xl:w-[260px] shrink-0 lg:mt-16"
+              className="w-full sm:w-[44%] lg:w-[280px] xl:w-[300px] shrink-0 lg:mt-16"
             >
               <WorkCard work={featuredWorks[3]} />
             </motion.div>
@@ -378,7 +378,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-6% 0px" }}
               transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
-              className="mt-14 sm:mt-0 w-full sm:w-[50%] lg:w-[270px] xl:w-[280px] shrink-0 lg:ml-auto lg:mr-[8%]"
+              className="mt-14 sm:mt-0 w-full sm:w-[52%] lg:w-[320px] xl:w-[340px] shrink-0 lg:ml-auto lg:mr-[8%]"
             >
               <WorkCard work={featuredWorks[1]} />
             </motion.div>
