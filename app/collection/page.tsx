@@ -16,6 +16,7 @@ interface CollectionCategory {
   count: string;
   image: string;
   hoverImage?: string;
+  desktopImage?: string;
   objectPosition?: string;
 }
 
@@ -38,7 +39,7 @@ const categories: CollectionCategory[] = [
       "Sculptural wall lights and fixtures made in the studio, where the same material language is carried into the glow of a room.",
     count: "One piece",
     image: "/aura-wall-light.png",
-    hoverImage: "/aura-wall-light-off.png",
+    desktopImage: "/aura-wall-light-off.png",
   },
   {
     slug: "limited-editions",
@@ -169,12 +170,26 @@ export default function CollectionPage() {
                       object-cover will-change-[transform,opacity]
                       transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
                       group-hover:scale-[1.035] group-hover:duration-[900ms]
-                      ${category.hoverImage ? "sm:group-hover:opacity-0" : ""}
+                      ${category.desktopImage ? "sm:opacity-0 sm:group-hover:opacity-100" : category.hoverImage ? "sm:group-hover:opacity-0" : ""}
                     `}
                     style={category.objectPosition ? { objectPosition: category.objectPosition } : undefined}
                   />
 
-                  {category.hoverImage && (
+                  {category.desktopImage && (
+                    <Image
+                      src={category.desktopImage}
+                      alt="" aria-hidden fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      className="
+                        hidden sm:block object-cover will-change-[transform,opacity]
+                        transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
+                        group-hover:opacity-0 group-hover:scale-[1.035] group-hover:duration-[900ms]
+                        pointer-events-none
+                      "
+                    />
+                  )}
+
+                  {!category.desktopImage && category.hoverImage && (
                     <Image
                       src={category.hoverImage}
                       alt=""
