@@ -17,6 +17,7 @@ interface Edition {
   image: string;
   hoverImage?: string;
   objectPosition?: string;
+  aspectRatio?: string;
   tagline: string;
   leadTime: string;
   edition: string;
@@ -30,7 +31,7 @@ const editions: Edition[] = [
     dimension: "31.5 × 91cm",
     price: "Price on request",
     image: "/frank-lloyd-wright-mirror-main.png",
-    objectPosition: "center top",
+    aspectRatio: "687/1024",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
     leadTime: "Made to order",
@@ -164,9 +165,8 @@ export default function LimitedEditionsPage() {
               >
                 {/* Uniform image tile */}
                 <div
-                  className="
-                    relative w-full aspect-[4/5] overflow-hidden bg-muted
-                  "
+                  className="relative w-full overflow-hidden bg-muted"
+                  style={{ aspectRatio: piece.aspectRatio ?? "4/5" }}
                 >
                   <Image
                     src={piece.image}
