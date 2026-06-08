@@ -15,7 +15,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.copaandglas.com"),
   title: {
-    default: "Copa + Glas — Handcrafted Copper & Glass Mirrors, East London",
+    default: "Copa + Glas — Handcrafted Mirrors & Lighting in Copper and Glass, East London",
     template: "%s — Copa + Glas",
   },
   description: "East London design studio specialising in handcrafted mirrors and lighting in copper and glass. Each piece made to order in our workshop.",
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     siteName: "Copa + Glas",
     locale: "en_GB",
     url: "https://www.copaandglas.com",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted copper and glass mirrors, East London" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@copaandglas",
-    title: "Copa + Glas — Handcrafted Copper & Glass Mirrors, East London",
+    title: "Copa + Glas — Handcrafted Mirrors & Lighting in Copper and Glass, East London",
     description: "East London design studio specialising in handcrafted mirrors and lighting in copper and glass. Each piece made to order in our workshop.",
     images: ["/og-image.jpg"],
   },

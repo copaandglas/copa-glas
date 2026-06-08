@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Collaborations — Copa + Glas",
     description: "Collaborative works by Copa + Glas — pieces made in partnership with artists and makers who share our material language.",
     url: "/collaborative",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted copper and glass mirrors, East London" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
   },
 };
 
