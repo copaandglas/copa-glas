@@ -68,6 +68,7 @@ function ShareMenu({ name }: { name: string }) {
 interface ProductImage {
   src: string;
   objectFit?: "cover" | "contain";
+  bg?: string;
 }
 
 interface ProductData {
@@ -316,11 +317,15 @@ export default function ProductPage() {
             "
           >
             {/* Main image */}
-            <motion.div               className="
+            <motion.div
+              className="
                 relative aspect-[4/5] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-220px)]
-                bg-muted mb-3 md:mb-4 overflow-hidden
+                mb-3 md:mb-4 overflow-hidden
                 cursor-grab md:cursor-default touch-pan-y
-              ">
+                transition-colors duration-300
+              "
+              style={{ backgroundColor: product.images[selectedImage].bg ?? "#f5f3ef" }}
+            >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={selectedImage}
