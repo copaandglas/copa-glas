@@ -37,8 +37,8 @@ const categories: CollectionCategory[] = [
     description:
       "Sculptural wall lights and fixtures made in the studio, where the same material language is carried into the glow of a room.",
     count: "One piece",
-    image: "/aura-wall-light-off.png",
-    hoverImage: "/aura-wall-light.png",
+    image: "/aura-wall-light.png",
+    hoverImage: "/aura-wall-light-off.png",
   },
   {
     slug: "limited-editions",
