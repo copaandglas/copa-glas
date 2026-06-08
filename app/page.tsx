@@ -588,16 +588,16 @@ export default function Home() {
             <span
               aria-hidden
               className="
-                hidden lg:block absolute top-0 right-0 z-0 pointer-events-none select-none
+                hidden lg:block absolute -top-8 right-0 z-0 pointer-events-none select-none
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[12rem] xl:text-[15rem] leading-none italic
-                text-accent/[0.13]
+                text-accent/[0.18]
               "
             >
               1897
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-0 lg:gap-x-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-0 lg:gap-x-0 relative z-[1]">
               {/* Image */}
               <motion.div
                 initial={reduced ? { opacity: 0 } : { opacity: 0, y: 30 }}
@@ -630,7 +630,7 @@ export default function Home() {
                 className="
                   lg:col-span-6 lg:col-start-7 lg:row-start-1
                   relative z-10
-                  lg:mt-28 lg:-ml-16 xl:-ml-24
+                  lg:mt-52 lg:-ml-16 xl:-ml-24
                   bg-white
                   px-0 lg:px-10 xl:px-12 lg:py-10 xl:py-12
                   pt-8 lg:pt-10
