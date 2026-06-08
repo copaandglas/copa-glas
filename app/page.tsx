@@ -18,6 +18,7 @@ interface FeaturedWork {
   hoverImage?: string;
   tagline: string;
   aspect: string;
+  href?: string;
   /* Editorial scatter — width + horizontal indent on desktop */
   width: string;
   indent: string;
@@ -60,7 +61,79 @@ const featuredWorks: FeaturedWork[] = [
     width: "w-full sm:w-[65%] lg:w-[38%] xl:w-[28%] lg:max-w-[380px]",
     indent: "lg:ml-[20%]",
   },
+  {
+    slug: "aura-wall-light",
+    name: "Aura Wall Light",
+    dimension: "",
+    price: "",
+    image: "/aura-wall-light.png",
+    hoverImage: "/aura-wall-light-off.png",
+    tagline: "A fragment of light held in the wall.",
+    aspect: "aspect-[3/4]",
+    href: "/configure/aura-wall-light",
+    width: "w-full sm:w-[52%] lg:w-[28%] xl:w-[22%] lg:max-w-[270px]",
+    indent: "lg:ml-auto lg:mr-[14%]",
+  },
 ];
+
+function WorkCard({ work }: { work: FeaturedWork }) {
+  return (
+    <Link
+      href={work.href ?? `/product/${work.slug}`}
+      className="group block text-inherit no-underline"
+      aria-label={`View ${work.name}`}
+    >
+      <div className={`relative w-full ${work.aspect} overflow-hidden bg-muted`}>
+        <Image
+          src={work.image}
+          alt={work.tagline ? `${work.name}, ${work.tagline}` : work.name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
+          className={`
+            object-cover will-change-[transform,opacity]
+            transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
+            group-hover:scale-[1.03] group-hover:duration-[1500ms]
+            ${work.hoverImage ? "sm:group-hover:opacity-0" : ""}
+          `}
+        />
+        {work.hoverImage && (
+          <Image
+            src={work.hoverImage}
+            alt="" aria-hidden fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
+            className="
+              hidden sm:block object-cover will-change-[transform,opacity] opacity-0
+              transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
+              group-hover:opacity-100 group-hover:scale-[1.03] group-hover:duration-[1500ms]
+              pointer-events-none
+            "
+          />
+        )}
+        <div className="absolute inset-0 bg-black/0 sm:group-hover:bg-black/8 transition-colors duration-0 ease-[cubic-bezier(0.37,0,0.63,1)] group-hover:duration-[1100ms]" />
+      </div>
+      <div className="pt-4 md:pt-5 flex items-baseline justify-between gap-4">
+        <div>
+          <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] md:text-[1.2rem] font-normal leading-[1.2] tracking-[0.005em] mb-1.5">
+            {work.name}
+          </h3>
+          {work.tagline && (
+            <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[12px] md:text-[13px] leading-[1.55] italic text-black/50">
+              {work.tagline}
+            </p>
+          )}
+        </div>
+        {(work.price || work.dimension) && (
+          <div className="text-right shrink-0">
+            {work.price && (
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] md:text-[14px] tabular-nums text-black/60">{work.price}</p>
+            )}
+            <p className="text-[10px] tracking-[0.08em] uppercase text-black/38 mt-0.5">{work.dimension}</p>
+          </div>
+        )}
+      </div>
+    </Link>
+  );
+}
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -270,70 +343,59 @@ export default function Home() {
             Selected Works
           </motion.p>
 
-          {/* Each work: its own row, its own width, its own indent */}
-          {featuredWorks.map((work, i) => (
+          {/* Rotation Mirror — large, left */}
+          <motion.div
+            initial={rise(30)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-6% 0px" }}
+            transition={{ duration: 1.1, ease: luxuryEase }}
+            className="px-5 sm:px-10 lg:px-16 xl:px-20"
+          >
+            <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent}`}>
+              <WorkCard work={featuredWorks[0]} />
+            </div>
+          </motion.div>
+
+          {/* Aura Wall Light + Mondrian Mirror — same row, each independently placed */}
+          <div className="
+            px-5 sm:px-10 lg:px-16 xl:px-20
+            mt-20 md:mt-28 lg:mt-36
+            flex flex-col sm:flex-row sm:items-start sm:gap-12
+          ">
+            {/* Aura — sits at natural left flow position */}
             <motion.div
-              key={work.slug}
               initial={rise(30)}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-6% 0px" }}
               transition={{ duration: 1.1, ease: luxuryEase }}
-              className={`px-5 sm:px-10 lg:px-16 xl:px-20 ${i > 0 ? "mt-20 md:mt-28 lg:mt-36" : ""}`}
+              className="w-full sm:w-[40%] lg:w-[240px] xl:w-[260px] shrink-0 lg:mt-16"
             >
-              <div className={`${work.width} ${work.indent}`}>
-                <Link
-                  href={`/product/${work.slug}`}
-                  className="group block text-inherit no-underline"
-                  aria-label={`View ${work.name}`}
-                >
-                  <div className={`relative w-full ${work.aspect} overflow-hidden bg-muted`}>
-                    <Image
-                      src={work.image}
-                      alt={`${work.name}, ${work.tagline}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
-                      className={`
-                        object-cover will-change-[transform,opacity]
-                        transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-                        group-hover:scale-[1.03] group-hover:duration-[1500ms]
-                        ${work.hoverImage ? "sm:group-hover:opacity-0" : ""}
-                      `}
-                    />
-                    {work.hoverImage && (
-                      <Image
-                        src={work.hoverImage}
-                        alt="" aria-hidden fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
-                        className="
-                          hidden sm:block object-cover will-change-[transform,opacity] opacity-0
-                          transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-                          group-hover:opacity-100 group-hover:scale-[1.03] group-hover:duration-[1500ms]
-                          pointer-events-none
-                        "
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-black/0 sm:group-hover:bg-black/8 transition-colors duration-0 ease-[cubic-bezier(0.37,0,0.63,1)] group-hover:duration-[1100ms]" />
-                  </div>
-
-                  {/* Caption row */}
-                  <div className="pt-4 md:pt-5 flex items-baseline justify-between gap-4">
-                    <div>
-                      <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] md:text-[1.2rem] font-normal leading-[1.2] tracking-[0.005em] mb-1.5">
-                        {work.name}
-                      </h3>
-                      <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[12px] md:text-[13px] leading-[1.55] italic text-black/50">
-                        {work.tagline}
-                      </p>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] md:text-[14px] tabular-nums text-black/60">{work.price}</p>
-                      <p className="text-[10px] tracking-[0.08em] uppercase text-black/38 mt-0.5">{work.dimension}</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+              <WorkCard work={featuredWorks[3]} />
             </motion.div>
-          ))}
+            {/* Mondrian — pushed far right with a large auto left margin */}
+            <motion.div
+              initial={rise(30)}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-6% 0px" }}
+              transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
+              className="mt-14 sm:mt-0 w-full sm:w-[50%] lg:w-[270px] xl:w-[280px] shrink-0 lg:ml-auto lg:mr-[8%]"
+            >
+              <WorkCard work={featuredWorks[1]} />
+            </motion.div>
+          </div>
+
+          {/* Fibonacci Mirror — center-left */}
+          <motion.div
+            initial={rise(30)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-6% 0px" }}
+            transition={{ duration: 1.1, ease: luxuryEase }}
+            className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-20 md:mt-28 lg:mt-36"
+          >
+            <div className={`${featuredWorks[2].width} ${featuredWorks[2].indent}`}>
+              <WorkCard work={featuredWorks[2]} />
+            </div>
+          </motion.div>
 
           {/* View collection — floats quietly after the last piece */}
           <motion.div
