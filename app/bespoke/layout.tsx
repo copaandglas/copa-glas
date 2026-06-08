@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Bespoke & Commissions — Copa + Glas",
     description: "Commission a bespoke mirror or lighting piece with Copa + Glas. Every piece can be scaled, finished, or wholly reconceived in copper and hand-cut glass.",
     url: "/bespoke",
-    images: [{ url: "/heroimage.png", width: 1200, height: 630, alt: "Copa + Glas Studio" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted copper and glass mirrors, East London" }],
   },
 };
 
