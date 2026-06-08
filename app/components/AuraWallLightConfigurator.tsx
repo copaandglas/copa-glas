@@ -76,7 +76,9 @@ export default function AuraWallLightConfigurator({
             <p className={styles.activeColorDesc}>{activeColor.desc}</p>
 
             <p className={styles.sectionLabel}>The heart of the piece</p>
-            <h2 className={styles.activeColorName}>{activeColor.name}</h2>
+            <h2 className={styles.activeColorName}>
+              {activeColor.id === "custom" ? "Your colour, to be discussed" : activeColor.name}
+            </h2>
 
             <div
               className={styles.swatchGrid}
@@ -85,24 +87,42 @@ export default function AuraWallLightConfigurator({
             >
               {AURA_COLOR_OPTIONS.map((option) => {
                 const isActive = option.id === activeColorId;
+                const isCustom = option.id === "custom";
                 return (
                   <button
                     key={option.id}
                     type="button"
                     className={`${styles.swatchWrapper} ${isActive ? styles.swatchWrapperActive : ""}`}
                     aria-pressed={isActive}
-                    aria-label={`Choose ${option.name}`}
-                    onClick={() => setActiveColorId(option.id)}
+                    aria-label={isCustom ? "Request a custom glass colour" : `Choose ${option.name}`}
+                    onClick={() => {
+                      setActiveColorId(option.id);
+                      if (isCustom) {
+                        onEnquire?.({
+                          colorId: option.id,
+                          colorName: option.name,
+                          illuminated,
+                        });
+                      }
+                    }}
                   >
                     <div
                       className={styles.swatch}
                       style={
-                        option.image
-                          ? undefined
-                          : { background: `linear-gradient(135deg, ${option.hex} 0%, #000 150%)` }
+                        isCustom
+                          ? { background: "#f5f3ef", border: "1.5px dashed rgba(0,0,0,0.2)" }
+                          : option.image
+                            ? undefined
+                            : { background: `linear-gradient(135deg, ${option.hex} 0%, #000 150%)` }
                       }
                     >
-                      {option.image && (
+                      {isCustom ? (
+                        <span style={{
+                          position: "absolute", inset: 0,
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          fontSize: "1.25rem", color: "rgba(0,0,0,0.35)", lineHeight: 1,
+                        }}>+</span>
+                      ) : option.image ? (
                         <Image
                           src={option.image}
                           alt={option.name}
@@ -111,7 +131,7 @@ export default function AuraWallLightConfigurator({
                           sizes="(max-width: 850px) 80px, 120px"
                           className={styles.swatchImage}
                         />
-                      )}
+                      ) : null}
                     </div>
                     <span className={styles.swatchLabel}>{option.shortName}</span>
                   </button>
@@ -148,26 +168,19 @@ export default function AuraWallLightConfigurator({
               </div>
               <div className={styles.specRow}>
                 <span className={styles.specLabel}>Centre glass</span>
-                <span className={styles.specValue}>{activeColor.name}</span>
+                <span className={styles.specValue}>
+                  {activeColor.id === "custom" ? "To be discussed" : activeColor.name}
+                </span>
               </div>
               <div className={styles.specRow}>
                 <span className={styles.specLabel}>Piece size</span>
-                <span className={styles.specValue}>300 × 415 mm</span>
+                <span className={styles.specValue}>Bespoke to order</span>
               </div>
               <div className={styles.specRow}>
                 <span className={styles.specLabel}>Glass centre</span>
-                <span className={styles.specValue}>30 × 270 mm</span>
-              </div>
-              <div className={styles.specRow}>
-                <span className={styles.specLabel}>Sizing</span>
-                <span className={styles.specValue}>Custom on request</span>
+                <span className={styles.specValue}>Bespoke to order</span>
               </div>
             </div>
-
-            <p className={styles.colourNote}>
-              If you have a particular colour in mind, let us know when you
-              enquire — we can explore options beyond those shown here.
-            </p>
 
             {onEnquire && (
               <button

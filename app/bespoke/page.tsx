@@ -291,7 +291,7 @@ export default function BespokePage() {
           >
             <ul className="flex flex-col divide-y divide-black/10">
               {[
-                { figure: "50+", label: "Years of craft experience" },
+                { figure: "40+", label: "Years of craft experience" },
                 { figure: "6–8", label: "Week lead time, standard commission" },
                 { figure: "London", label: "Studio visits by appointment" },
               ].map((stat, i) => (
@@ -402,6 +402,86 @@ export default function BespokePage() {
           </p>
 
         </motion.div>
+      </section>
+
+      {/* ── Private Residential Commissions ──────────────────────────── */}
+      <section
+        className="
+          border-t border-black/[0.06]
+          py-20 md:py-28 lg:py-32
+          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
+          max-w-[1440px] mx-auto
+        "
+      >
+        <motion.div
+          initial={from(12)}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-8% 0px" }}
+          transition={{ duration: 1.1, ease }}
+          className="mb-12 md:mb-16"
+        >
+          <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium mb-4">
+            Private Commission
+            <span className="text-accent/50 mx-2">·</span>
+            Residential
+          </p>
+          <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90">
+            Made once, for one space.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-10 items-start">
+          <motion.div
+            initial={from(28)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 1.3, delay: 0.06, ease }}
+          >
+            <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+              <Image
+                src="/art-mirror-commission.png"
+                alt="Art Mirror — Copa + Glas private residential commission, London"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-5">
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
+                Art Mirror, private residence
+              </p>
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
+                A bespoke copper-framed mirror shaped around the room and the art already within it.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={from(28)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 1.3, delay: 0.14, ease }}
+            className="md:mt-16"
+          >
+            <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+              <Image
+                src="/aureole-mirror-commission.png"
+                alt="Aureole Mirror — Copa + Glas private residential commission"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-5">
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
+                Aureole Mirror, private residence
+              </p>
+              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
+                A refined copper edge embracing softly tinted glass — a study in subtle warmth.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── The Craft (dark) ─────────────────────────────────────────── */}
