@@ -260,7 +260,6 @@ export default function AboutPage() {
           >
             <div className="relative w-full aspect-[4/5] overflow-hidden bg-dark">
               <video
-                src="/copa.mp4"
                 autoPlay
                 loop
                 muted
@@ -268,7 +267,10 @@ export default function AboutPage() {
                 preload="metadata"
                 aria-label="Hand-cut glass being worked in the Copa + Glas studio"
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
-              />
+              >
+                <source src="/copa.webm" type="video/webm" />
+                <source src="/copa.mp4" type="video/mp4" />
+              </video>
             </div>
           </motion.div>
 
