@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -214,13 +215,12 @@ export default function Footer() {
             aria-label="ACID — Anti Copying in Design"
             className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/ACIDLOGO.png"
               alt="ACID — Anti Copying in Design"
               width={96}
               height={36}
-              style={{ display: "block", width: 96, height: 36 }}
+              style={{ display: "block" }}
             />
           </a>
           <a
@@ -230,13 +230,12 @@ export default function Footer() {
             aria-label="Made in Britain"
             className="opacity-40 hover:opacity-65 transition-opacity duration-300 shrink-0"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/MadeinBRITAIN.png"
               alt="Made in Britain"
               width={72}
               height={36}
-              style={{ display: "block", width: 72, height: 36 }}
+              style={{ display: "block" }}
             />
           </a>
         </div>

@@ -265,7 +265,7 @@ export default function AboutPage() {
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
                 aria-label="Hand-cut glass being worked in the Copa + Glas studio"
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
               />
