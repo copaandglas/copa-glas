@@ -255,6 +255,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Input too long." }, { status: 400 });
   }
 
+  const telephone = body.telephone?.toString().trim() || null;
+  const location  = body.location?.toString().trim() || null;
+  const intendedSpace = body.intendedSpace?.toString().trim() || null;
+  const units = body.units?.toString().trim() || null;
+
+  if (
+    (telephone && telephone.length > 30) ||
+    (location && location.length > 200) ||
+    (intendedSpace && intendedSpace.length > 500) ||
+    (units && units.length > 50)
+  ) {
+    return NextResponse.json({ error: "Input too long." }, { status: 400 });
+  }
+
   const productName =
     typeof body.product === "string"
       ? body.product
@@ -272,11 +286,11 @@ export async function POST(request: Request) {
     name,
     email,
     message,
-    telephone: body.telephone?.toString().trim() || null,
-    location: body.location?.toString().trim() || null,
-    intendedSpace: body.intendedSpace?.toString().trim() || null,
+    telephone,
+    location,
+    intendedSpace,
     timeline: body.timeline || null,
-    units: body.units?.toString().trim() || null,
+    units,
     enquiryType: body.enquiryType?.toString().trim() || null,
     contactMethod: body.contactMethod ?? "either",
     newsletter: Boolean(body.newsletter),
@@ -288,7 +302,7 @@ export async function POST(request: Request) {
         }
       : null,
     source: body.source ?? null,
-    submittedAt: body.submittedAt ?? new Date().toISOString(),
+    submittedAt: new Date().toISOString(),
     ip,
     userAgent: request.headers.get("user-agent"),
   };
