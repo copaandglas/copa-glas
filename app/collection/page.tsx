@@ -16,6 +16,7 @@ interface CollectionCategory {
   count: string;
   image: string;
   hoverImage?: string;
+  objectPosition?: string;
 }
 
 const categories: CollectionCategory[] = [
@@ -46,7 +47,8 @@ const categories: CollectionCategory[] = [
     description:
       "Each piece limited to ten worldwide. Made once, never repeated.",
     count: "Two works · 1 of 10",
-    image: "/rotation-confetti-mirror.png",
+    image: "/frank-lloyd-wright-mirror-main.png",
+    objectPosition: "center 15%",
   },
 ];
 
@@ -170,6 +172,7 @@ export default function CollectionPage() {
                       group-hover:scale-[1.035] group-hover:duration-[900ms]
                       ${category.hoverImage ? "sm:group-hover:opacity-0" : ""}
                     `}
+                    style={category.objectPosition ? { objectPosition: category.objectPosition } : undefined}
                   />
 
                   {category.hoverImage && (
