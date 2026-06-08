@@ -28,7 +28,7 @@ const editions: Edition[] = [
     designer: "Copa + Glas Studio",
     dimension: "31.5 × 91cm",
     price: "Price on request",
-    image: "/frank-lloyd-wright-mirror.png",
+    image: "/frank-lloyd-wright-mirror-main.png",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
     leadTime: "Made to order",
