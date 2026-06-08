@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Archive — Copa + Glas",
     description: "The Copa + Glas archive — a record of commissions, installations, and studio work past and present.",
     url: "/archive",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted copper and glass mirrors, East London" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
   },
 };
 
