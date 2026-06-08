@@ -16,6 +16,8 @@ interface FeaturedWork {
   price: string;
   image: string;
   hoverImage?: string;
+  /* If set: desktop shows desktopImage by default, image on hover; mobile always shows image */
+  desktopImage?: string;
   tagline: string;
   aspect: string;
   href?: string;
@@ -67,7 +69,8 @@ const featuredWorks: FeaturedWork[] = [
     dimension: "",
     price: "",
     image: "/aura-wall-light.png",
-    hoverImage: "/aura-wall-light-off.png",
+    hoverImage: "/aura-wall-light.png",
+    desktopImage: "/aura-wall-light-off.png",
     tagline: "A fragment of light held in the wall.",
     aspect: "aspect-[3/4]",
     href: "/configure/aura-wall-light",
@@ -84,6 +87,7 @@ function WorkCard({ work }: { work: FeaturedWork }) {
       aria-label={`View ${work.name}`}
     >
       <div className={`relative w-full ${work.aspect} overflow-hidden bg-muted`}>
+        {/* Mobile: always show image. Desktop with desktopImage: hide this, show desktopImage instead */}
         <Image
           src={work.image}
           alt={work.tagline ? `${work.name}, ${work.tagline}` : work.name}
@@ -93,10 +97,25 @@ function WorkCard({ work }: { work: FeaturedWork }) {
             object-cover will-change-[transform,opacity]
             transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
             group-hover:scale-[1.03] group-hover:duration-[1500ms]
-            ${work.hoverImage ? "sm:group-hover:opacity-0" : ""}
+            ${work.desktopImage ? "sm:opacity-0 sm:group-hover:opacity-100" : work.hoverImage ? "sm:group-hover:opacity-0" : ""}
           `}
         />
-        {work.hoverImage && (
+        {/* Desktop default image — shown until hover */}
+        {work.desktopImage && (
+          <Image
+            src={work.desktopImage}
+            alt="" aria-hidden fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
+            className="
+              hidden sm:block object-cover will-change-[transform,opacity]
+              transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
+              group-hover:opacity-0 group-hover:scale-[1.03] group-hover:duration-[1500ms]
+              pointer-events-none
+            "
+          />
+        )}
+        {/* Standard hover image (non-desktopImage works) */}
+        {work.hoverImage && !work.desktopImage && (
           <Image
             src={work.hoverImage}
             alt="" aria-hidden fill
