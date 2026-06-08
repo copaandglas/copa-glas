@@ -17,9 +17,10 @@ interface FeaturedWork {
   image: string;
   hoverImage?: string;
   tagline: string;
-  /* Per-tile shape + vertical offset for a gallery-hung, off-axis rhythm */
   aspect: string;
-  offset: string;
+  /* Editorial scatter — width + horizontal indent on desktop */
+  width: string;
+  indent: string;
 }
 
 const featuredWorks: FeaturedWork[] = [
@@ -32,7 +33,8 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/rotation-mirror-close.png",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
     aspect: "aspect-[4/5]",
-    offset: "lg:mt-0",
+    width: "w-full sm:w-[72%] lg:w-[50%]",
+    indent: "lg:ml-[5%]",
   },
   {
     slug: "mondrian-mirror",
@@ -43,7 +45,8 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/mondrian-mirror-close.png",
     tagline: "Rectilinear panes held in a grid of hand-formed copper.",
     aspect: "aspect-[3/4]",
-    offset: "lg:mt-28",
+    width: "w-full sm:w-[58%] lg:w-[35%]",
+    indent: "lg:ml-auto lg:mr-[7%]",
   },
   {
     slug: "fibonacci-mirror",
@@ -54,7 +57,8 @@ const featuredWorks: FeaturedWork[] = [
     hoverImage: "/fibonacci-mirror-close.png",
     tagline: "A spiralling study in proportion, drawn from nature's geometry.",
     aspect: "aspect-[5/6]",
-    offset: "lg:mt-12",
+    width: "w-full sm:w-[65%] lg:w-[42%]",
+    indent: "lg:ml-[20%]",
   },
 ];
 
@@ -165,38 +169,24 @@ export default function Home() {
       {/* ── White canvas ─────────────────────────────────────── */}
       <div className="relative z-10 bg-white text-dark w-full overflow-hidden">
 
-        {/* 1 · Studio statement + Annealing video */}
+        {/* 1 · Studio opening */}
         <section
           aria-label="The studio"
-          className="
-            px-5 sm:px-10 lg:px-16 xl:px-20
-            pt-28 md:pt-40 lg:pt-52
-            pb-24 md:pb-32 lg:pb-44 xl:pb-52
-          "
+          className="px-5 sm:px-10 lg:px-16 xl:px-20 pt-28 md:pt-40 lg:pt-52 pb-20 md:pb-28 lg:pb-36"
         >
-          {/* Eyebrow — whisper quiet, sits alone */}
           <motion.p
             initial={rise(6)}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-14% 0px" }}
             transition={{ duration: 1.1, ease: luxuryEase }}
-            className="
-              text-[8px] tracking-[0.32em] uppercase text-black/30 font-medium
-              mb-12 md:mb-16
-            "
+            className="text-[8px] tracking-[0.32em] uppercase text-black/28 font-medium mb-12 md:mb-16"
           >
             Copa + Glas · East London
           </motion.p>
 
-          {/*
-            Two-zone flex row on desktop:
-              Left  (~55 %) → large headline, vertically centred
-              Right (~45 %) → small portrait video on top, copy below
-            On mobile they stack: headline → video → copy
-          */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-x-16 xl:gap-x-24">
 
-            {/* ── Left: headline ── */}
+            {/* Headline */}
             <motion.h2
               initial={rise(24)}
               whileInView={{ opacity: 1, y: 0 }}
@@ -214,157 +204,83 @@ export default function Home() {
               <em>light</em> of a room.
             </motion.h2>
 
-            {/* ── Right: video then copy, stacked, no overlap possible ── */}
+            {/* Annealing video + copy */}
             <div className="mt-12 lg:mt-0 flex flex-col items-start min-w-0">
-
-              {/* Portrait video — small, sits at the top of the right zone */}
               <motion.div
                 initial={reduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 1.6, delay: 0.1, ease: luxuryEase }}
-                className="
-                  w-[44vw] sm:w-[32vw] lg:w-[52%] xl:w-[48%]
-                  max-w-[220px] lg:max-w-none
-                  ml-auto lg:ml-0
-                "
+                className="w-[44vw] sm:w-[32vw] lg:w-[52%] xl:w-[48%] max-w-[220px] lg:max-w-none ml-auto lg:ml-0"
               >
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-stone-50">
                   <video
                     src="/Annealing.MP4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
+                    autoPlay loop muted playsInline preload="metadata"
                     aria-label="Annealing process in the C+G Workshop"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  {/* Film grain overlay */}
                   <div
                     aria-hidden
                     className="absolute inset-0 pointer-events-none opacity-[0.32] mix-blend-overlay"
                     style={{
-                      backgroundImage:
-                        "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>\")",
+                      backgroundImage: "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>\")",
                       backgroundSize: "180px 180px",
                     }}
                   />
-                  {/* Warm tonal wash — softens the digital edge */}
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 pointer-events-none opacity-[0.12] mix-blend-multiply bg-amber-900"
-                  />
+                  <div aria-hidden className="absolute inset-0 pointer-events-none opacity-[0.12] mix-blend-multiply bg-amber-900" />
                 </div>
-                <p className="
-                  mt-2.5 text-[7px] tracking-[0.28em] uppercase text-black/28
-                  flex items-center gap-2
-                ">
+                <p className="mt-2.5 text-[7px] tracking-[0.28em] uppercase text-black/28 flex items-center gap-2">
                   <span aria-hidden className="block w-4 h-px bg-black/18" />
                   Annealing · C+G Workshop
                 </p>
               </motion.div>
 
-              {/* Body copy — directly below the video, in normal flow */}
               <motion.div
                 initial={rise(14)}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 1.3, delay: 0.28, ease: luxuryEase }}
-                className="mt-10 lg:mt-10 w-full"
+                className="mt-10 w-full"
               >
                 <span className="block w-8 h-px bg-accent/45 mb-5" />
-                <p className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
-                  text-[15px] md:text-[16px] lg:text-[15px] xl:text-[16px]
-                  leading-[1.9] text-black/62 max-w-[40ch]
-                ">
+                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] xl:text-[16px] leading-[1.9] text-black/62 max-w-[40ch]">
                   Working in copper and hand-cut glass, Copa + Glas makes
                   mirrors and lighting that gather and return the light around
                   them. Every piece is drawn from a single material language
                   and made to order in our East London workshop.
                 </p>
               </motion.div>
-
             </div>
+
           </div>
         </section>
 
-        {/* 2 · Selected works */}
-        <section
-          aria-label="Selected works"
-          className="
-            px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
-            pb-20 md:pb-28 lg:pb-36
-          "
-        >
-          {/* Section header — quiet, slightly indented on desktop */}
-          <motion.div
-            initial={rise(8)}
+        {/* 2 · Selected works — editorial scatter, each piece placed independently */}
+        <section aria-label="Selected works" className="pb-24 md:pb-32 lg:pb-44">
+
+          {/* Quiet eyebrow — no heading block */}
+          <motion.p
+            initial={rise(6)}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
+            viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 1.1, ease: luxuryEase }}
-            className="
-              flex items-end justify-between
-              mb-12 md:mb-16 lg:mb-20
-              lg:pl-[5%]
-            "
+            className="px-5 sm:px-10 lg:px-16 xl:px-20 text-[8px] tracking-[0.32em] uppercase text-black/28 font-medium mb-16 md:mb-20 lg:mb-24"
           >
-            <div>
-              <p className="
-                text-[8px] tracking-[0.28em] uppercase text-black/32
-                font-medium mb-3.5
-              ">
-                Selected Works
-              </p>
-              <h2 className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(1.45rem,3vw,2.5rem)]
-                leading-[1.12] -tracking-[0.004em] font-normal
-              ">
-                A few pieces from the collection.
-              </h2>
-            </div>
+            Selected Works
+          </motion.p>
 
-            <Link
-              href="/collection"
-              className="
-                group hidden lg:inline-flex items-center gap-2 shrink-0 mb-1
-                pb-px border-b border-black/18
-                text-[9px] tracking-[0.2em] uppercase text-black/45
-                no-underline transition-colors duration-500
-                hover:text-black hover:border-black/55
-              "
+          {/* Each work: its own row, its own width, its own indent */}
+          {featuredWorks.map((work, i) => (
+            <motion.div
+              key={work.slug}
+              initial={rise(30)}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-6% 0px" }}
+              transition={{ duration: 1.1, ease: luxuryEase }}
+              className={`px-5 sm:px-10 lg:px-16 xl:px-20 ${i > 0 ? "mt-20 md:mt-28 lg:mt-36" : ""}`}
             >
-              <span>View All</span>
-              <svg
-                width="12" height="12" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor"
-                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-          </motion.div>
-
-          {/* Works grid — items-start preserves the gallery-hung rhythm */}
-          <div className="
-            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-            gap-x-8 lg:gap-x-14
-            gap-y-16 md:gap-y-20
-            items-start
-          ">
-            {featuredWorks.map((work, i) => (
-              <motion.div
-                key={work.slug}
-                initial={rise(28)}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-8% 0px" }}
-                transition={{ duration: 1, delay: i * 0.12, ease: luxuryEase }}
-                className={work.offset}
-              >
+              <div className={`${work.width} ${work.indent}`}>
                 <Link
                   href={`/product/${work.slug}`}
                   className="group block text-inherit no-underline"
@@ -375,11 +291,10 @@ export default function Home() {
                       src={work.image}
                       alt={`${work.name}, ${work.tagline}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
                       className={`
                         object-cover will-change-[transform,opacity]
-                        transition-[transform,opacity] duration-0
-                        ease-[cubic-bezier(0.37,0,0.63,1)]
+                        transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
                         group-hover:scale-[1.03] group-hover:duration-[1500ms]
                         ${work.hoverImage ? "sm:group-hover:opacity-0" : ""}
                       `}
@@ -387,93 +302,64 @@ export default function Home() {
                     {work.hoverImage && (
                       <Image
                         src={work.hoverImage}
-                        alt=""
-                        aria-hidden
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        alt="" aria-hidden fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
                         className="
-                          hidden sm:block object-cover will-change-[transform,opacity]
-                          opacity-0
-                          transition-[transform,opacity] duration-0
-                          ease-[cubic-bezier(0.37,0,0.63,1)]
-                          group-hover:opacity-100 group-hover:scale-[1.03]
-                          group-hover:duration-[1500ms] pointer-events-none
+                          hidden sm:block object-cover will-change-[transform,opacity] opacity-0
+                          transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
+                          group-hover:opacity-100 group-hover:scale-[1.03] group-hover:duration-[1500ms]
+                          pointer-events-none
                         "
                       />
                     )}
-                    <div className="
-                      absolute inset-0 bg-black/0
-                      sm:group-hover:bg-black/10
-                      transition-colors duration-0
-                      ease-[cubic-bezier(0.37,0,0.63,1)]
-                      group-hover:duration-[1100ms]
-                    " />
+                    <div className="absolute inset-0 bg-black/0 sm:group-hover:bg-black/8 transition-colors duration-0 ease-[cubic-bezier(0.37,0,0.63,1)] group-hover:duration-[1100ms]" />
                   </div>
 
-                  <div className="pt-5 md:pt-6">
-                    <div className="flex items-baseline gap-3 mb-2">
-                      <span className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
-                        text-[11px] italic text-accent/60 tabular-nums
-                      ">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
-                        text-[1.25rem] md:text-[1.2rem] lg:text-[1.3rem]
-                        font-normal leading-[1.2] tracking-[0.01em]
-                      ">
+                  {/* Caption row */}
+                  <div className="pt-4 md:pt-5 flex items-baseline justify-between gap-4">
+                    <div>
+                      <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] md:text-[1.2rem] font-normal leading-[1.2] tracking-[0.005em] mb-1.5">
                         {work.name}
                       </h3>
+                      <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[12px] md:text-[13px] leading-[1.55] italic text-black/50">
+                        {work.tagline}
+                      </p>
                     </div>
-                    <p className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
-                      text-[13px] md:text-[14px] leading-[1.6]
-                      italic text-black/58 mb-3.5 max-w-[34ch]
-                    ">
-                      {work.tagline}
-                    </p>
-                    <div className="
-                      flex items-baseline justify-between gap-3
-                      text-[11px] pt-3 border-t border-black/[0.07]
-                    ">
-                      <span className="tracking-[0.08em] uppercase text-black/52">
-                        {work.dimension}
-                      </span>
-                      <span className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
-                        text-[13px] tabular-nums text-black/62
-                      ">
-                        {work.price}
-                      </span>
+                    <div className="text-right shrink-0">
+                      <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] md:text-[14px] tabular-nums text-black/60">{work.price}</p>
+                      <p className="text-[10px] tracking-[0.08em] uppercase text-black/38 mt-0.5">{work.dimension}</p>
                     </div>
                   </div>
                 </Link>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
 
-          {/* Mobile view-all */}
-          <div className="lg:hidden mt-12">
+          {/* View collection — floats quietly after the last piece */}
+          <motion.div
+            initial={rise(8)}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-8% 0px" }}
+            transition={{ duration: 1, ease: luxuryEase }}
+            className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-16 md:mt-20 lg:mt-24"
+          >
             <Link
               href="/collection"
               className="
-                inline-flex items-center gap-2 pb-px
-                border-b border-black/18
-                text-[10px] tracking-[0.18em] uppercase text-black/55 no-underline
+                group inline-flex items-center gap-2.5
+                pb-px border-b border-black/18
+                text-[9px] tracking-[0.22em] uppercase text-black/45 no-underline
+                transition-colors duration-500 hover:text-black hover:border-black/50
               "
             >
               <span>View the Collection</span>
-              <svg
-                width="13" height="13" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor"
-                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-          </div>
+          </motion.div>
+
         </section>
 
         {/* 3 · Bespoke — key feature, dark band with the small glass video */}
@@ -621,10 +507,10 @@ export default function Home() {
             <span
               aria-hidden
               className="
-                hidden lg:block absolute -top-10 right-0 z-0 pointer-events-none select-none
+                hidden lg:block absolute top-0 right-0 z-0 pointer-events-none select-none
                 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[12rem] xl:text-[15rem] leading-none italic
-                text-accent/[0.07]
+                text-accent/[0.13]
               "
             >
               1897
