@@ -305,8 +305,8 @@ export default function Home() {
                 leading-[1.04] -tracking-[0.016em] font-normal
               "
             >
-              Hand-cut glass.<br />
-              Hand-formed copper.<br />
+              Hand cut glass.<br />
+              Hand formed copper.<br />
               <em>Made to order.</em>
             </motion.h1>
 
