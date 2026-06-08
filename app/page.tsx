@@ -31,7 +31,7 @@ const featuredWorks: FeaturedWork[] = [
     slug: "rotation-mirror",
     name: "Rotation Mirror",
     dimension: "97cm Ø",
-    price: "£6,000",
+    price: "£6,000.00",
     image: "/rotation-mirror.png",
     hoverImage: "/rotation-mirror-close.png",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
@@ -43,7 +43,7 @@ const featuredWorks: FeaturedWork[] = [
     slug: "mondrian-mirror",
     name: "The Mondrian Mirror",
     dimension: "69.5 × 100.5cm",
-    price: "£8,500",
+    price: "£8,500.00",
     image: "/mondrian-mirror.png",
     hoverImage: "/mondrian-mirror-close.png",
     tagline: "Rectilinear panes held in a grid of hand-formed copper.",
@@ -55,7 +55,7 @@ const featuredWorks: FeaturedWork[] = [
     slug: "fibonacci-mirror",
     name: "Fibonacci Mirror",
     dimension: "65 × 90cm",
-    price: "£5,500",
+    price: "£5,500.00",
     image: "/fibonacci-mirror-mantel.png",
     hoverImage: "/fibonacci-mirror-close.png",
     tagline: "A spiralling study in proportion, drawn from nature's geometry.",
@@ -293,7 +293,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-x-16 xl:gap-x-24">
 
             {/* Headline */}
-            <motion.h2
+            <motion.h1
               initial={rise(24)}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px" }}
@@ -308,7 +308,7 @@ export default function Home() {
               Objects made<br />
               to hold the<br />
               <em>light</em> of a room.
-            </motion.h2>
+            </motion.h1>
 
             {/* Annealing video + copy */}
             <div className="mt-12 lg:mt-0 flex flex-col items-start min-w-0">

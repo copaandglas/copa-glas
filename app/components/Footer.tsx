@@ -63,6 +63,7 @@ export default function Footer() {
                   }
                 }}
                 placeholder="Your email address"
+                aria-label="Email address for newsletter"
                 aria-invalid={status === "error"}
                 className={`
                   dark-input flex-1 min-w-0 w-full md:w-auto
@@ -246,6 +247,7 @@ export default function Footer() {
             href="https://www.satsuma.studio"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Satsuma Studio (opens in new tab)"
             className="hover:text-white/90 transition-colors duration-300"
           >
             Satsuma

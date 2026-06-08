@@ -40,7 +40,7 @@ const editions: Edition[] = [
     designer: "Copa + Glas Studio",
     dimension: "97cm Ø",
     price: "Price on request",
-    image: "/mirror-thumbnail.png",
+    image: "/rotation-confetti-mirror.png",
     tagline:
       "A celebratory reimagining of the Rotation, scattered, refracted colour.",
     leadTime: "Made to order",

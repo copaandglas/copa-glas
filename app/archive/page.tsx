@@ -255,6 +255,7 @@ function Lightbox({
       {/* Close */}
       <button
         onClick={onClose}
+        aria-label="Close lightbox"
         className="absolute top-4 right-5 text-[8px] tracking-[0.22em] uppercase text-white/60 hover:text-white transition-colors duration-200 font-medium py-2 px-1"
       >
         Close
