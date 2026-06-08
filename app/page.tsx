@@ -317,7 +317,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 1.6, delay: 0.1, ease: luxuryEase }}
-                className="w-[44vw] sm:w-[32vw] lg:w-[52%] xl:w-[48%] max-w-[220px] lg:max-w-none ml-auto lg:ml-0"
+                className="w-[72vw] sm:w-[42vw] lg:w-[52%] xl:w-[48%] max-w-[340px] sm:max-w-[300px] lg:max-w-none ml-auto lg:ml-0"
               >
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-stone-50">
                   <video
