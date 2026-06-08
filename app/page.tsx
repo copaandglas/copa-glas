@@ -439,7 +439,7 @@ export default function Home() {
               href="/collection"
               className="
                 group inline-flex items-center gap-3
-                text-[8px] tracking-[0.3em] uppercase text-black/35 no-underline
+                text-[8px] lg:text-[9.5px] tracking-[0.3em] uppercase text-black/35 no-underline
                 transition-colors duration-700 hover:text-black/70
               "
             >
@@ -525,7 +525,7 @@ export default function Home() {
                     href="/bespoke"
                     className="
                       group inline-flex items-center gap-4
-                      text-[8px] tracking-[0.3em] uppercase text-white/90 no-underline
+                      text-[8px] lg:text-[9.5px] tracking-[0.3em] uppercase text-white/90 no-underline
                       pb-px border-b border-white/30
                       transition-colors duration-700 hover:text-white hover:border-white/70
                     "
@@ -539,7 +539,7 @@ export default function Home() {
                   <Link
                     href="/contact"
                     className="
-                      text-[8px] tracking-[0.3em] uppercase text-white/35 hover:text-white/65
+                      text-[8px] lg:text-[9.5px] tracking-[0.3em] uppercase text-white/35 hover:text-white/65
                       no-underline transition-colors duration-500
                       pb-px border-b border-white/15 hover:border-white/35 self-start sm:self-auto
                     "
@@ -671,7 +671,7 @@ export default function Home() {
                   href="/origins"
                   className="
                     group inline-flex items-center gap-3
-                    text-[8px] tracking-[0.3em] uppercase text-black/40
+                    text-[8px] lg:text-[9.5px] tracking-[0.3em] uppercase text-black/40
                     no-underline pb-px border-b border-black/18
                     transition-colors duration-700 hover:text-black/75 hover:border-black/40
                   "
