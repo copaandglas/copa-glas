@@ -79,15 +79,14 @@ const featuredWorks: FeaturedWork[] = [
   },
 ];
 
-function WorkCard({ work }: { work: FeaturedWork }) {
+function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
   return (
     <Link
       href={work.href ?? `/product/${work.slug}`}
       className="group block text-inherit no-underline"
       aria-label={`View ${work.name}`}
     >
-      <div className={`relative w-full ${work.aspect} overflow-hidden bg-muted`}>
-        {/* Mobile: always show image. Desktop with desktopImage: hide this, show desktopImage instead */}
+      <div className={`relative w-full ${work.aspect} overflow-hidden bg-stone-50`}>
         <Image
           src={work.image}
           alt={work.tagline ? `${work.name}, ${work.tagline}` : work.name}
@@ -96,11 +95,10 @@ function WorkCard({ work }: { work: FeaturedWork }) {
           className={`
             object-cover will-change-[transform,opacity]
             transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-            group-hover:scale-[1.03] group-hover:duration-[1500ms]
+            group-hover:scale-[1.025] group-hover:duration-[2000ms]
             ${work.desktopImage ? "sm:opacity-0 sm:group-hover:opacity-100" : work.hoverImage ? "sm:group-hover:opacity-0" : ""}
           `}
         />
-        {/* Desktop default image — shown until hover */}
         {work.desktopImage && (
           <Image
             src={work.desktopImage}
@@ -109,12 +107,11 @@ function WorkCard({ work }: { work: FeaturedWork }) {
             className="
               hidden sm:block object-cover will-change-[transform,opacity]
               transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-              group-hover:opacity-0 group-hover:scale-[1.03] group-hover:duration-[1500ms]
+              group-hover:opacity-0 group-hover:scale-[1.025] group-hover:duration-[2000ms]
               pointer-events-none
             "
           />
         )}
-        {/* Standard hover image (non-desktopImage works) */}
         {work.hoverImage && !work.desktopImage && (
           <Image
             src={work.hoverImage}
@@ -123,32 +120,49 @@ function WorkCard({ work }: { work: FeaturedWork }) {
             className="
               hidden sm:block object-cover will-change-[transform,opacity] opacity-0
               transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-              group-hover:opacity-100 group-hover:scale-[1.03] group-hover:duration-[1500ms]
+              group-hover:opacity-100 group-hover:scale-[1.025] group-hover:duration-[2000ms]
               pointer-events-none
             "
           />
         )}
-        <div className="absolute inset-0 bg-black/0 sm:group-hover:bg-black/8 transition-colors duration-0 ease-[cubic-bezier(0.37,0,0.63,1)] group-hover:duration-[1100ms]" />
       </div>
-      <div className="pt-4 md:pt-5 flex items-baseline justify-between gap-4">
-        <div>
-          <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] md:text-[1.2rem] font-normal leading-[1.2] tracking-[0.005em] mb-1.5">
-            {work.name}
-          </h3>
+
+      <div className="pt-4 md:pt-5 flex items-start gap-3.5">
+        {index !== undefined && (
+          <span className="
+            font-[family-name:var(--font-playfair),Georgia,serif]
+            text-[10px] italic text-black/22 tabular-nums leading-[1.9] shrink-0
+          ">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        )}
+        <div className="flex-1 min-w-0 border-t border-black/[0.09] pt-3.5">
+          <div className="flex items-baseline justify-between gap-3">
+            <h3 className="
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[0.95rem] md:text-[1rem]
+              font-normal leading-[1.3] tracking-[0.01em] text-black/85
+            ">
+              {work.name}
+            </h3>
+            {work.price && (
+              <span className="
+                font-[family-name:var(--font-playfair),Georgia,serif]
+                text-[11px] tabular-nums text-black/35 shrink-0
+              ">
+                {work.price}
+              </span>
+            )}
+          </div>
           {work.tagline && (
-            <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[12px] md:text-[13px] leading-[1.55] italic text-black/50">
+            <p className="
+              font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[11.5px] leading-[1.65] italic text-black/38 mt-1
+            ">
               {work.tagline}
             </p>
           )}
         </div>
-        {(work.price || work.dimension) && (
-          <div className="text-right shrink-0">
-            {work.price && (
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] md:text-[14px] tabular-nums text-black/60">{work.price}</p>
-            )}
-            <p className="text-[10px] tracking-[0.08em] uppercase text-black/38 mt-0.5">{work.dimension}</p>
-          </div>
-        )}
       </div>
     </Link>
   );
@@ -271,7 +285,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-14% 0px" }}
             transition={{ duration: 1.1, ease: luxuryEase }}
-            className="text-[8px] tracking-[0.32em] uppercase text-black/28 font-medium mb-12 md:mb-16"
+            className="text-[7.5px] tracking-[0.38em] uppercase text-black/22 font-medium mb-14 md:mb-20"
           >
             Copa + Glas · East London
           </motion.p>
@@ -322,8 +336,7 @@ export default function Home() {
                   />
                   <div aria-hidden className="absolute inset-0 pointer-events-none opacity-[0.12] mix-blend-multiply bg-amber-900" />
                 </div>
-                <p className="mt-2.5 text-[7px] tracking-[0.28em] uppercase text-black/28 flex items-center gap-2">
-                  <span aria-hidden className="block w-4 h-px bg-black/18" />
+                <p className="mt-3 text-[7.5px] tracking-[0.32em] uppercase text-black/22">
                   Annealing · C+G Workshop
                 </p>
               </motion.div>
@@ -333,10 +346,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 1.3, delay: 0.28, ease: luxuryEase }}
-                className="mt-10 w-full"
+                className="mt-12 w-full"
               >
-                <span className="block w-8 h-px bg-accent/45 mb-5" />
-                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] xl:text-[16px] leading-[1.9] text-black/62 max-w-[40ch]">
+                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14.5px] xl:text-[15.5px] leading-[2] text-black/52 max-w-[36ch]">
                   Working in copper and hand-cut glass, Copa + Glas makes
                   mirrors and lighting that gather and return the light around
                   them. Every piece is drawn from a single material language
@@ -351,13 +363,12 @@ export default function Home() {
         {/* 2 · Selected works — editorial scatter, each piece placed independently */}
         <section aria-label="Selected works" className="pb-24 md:pb-32 lg:pb-44">
 
-          {/* Quiet eyebrow — no heading block */}
           <motion.p
             initial={rise(6)}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 1.1, ease: luxuryEase }}
-            className="px-5 sm:px-10 lg:px-16 xl:px-20 text-[8px] tracking-[0.32em] uppercase text-black/28 font-medium mb-16 md:mb-20 lg:mb-24"
+            className="px-5 sm:px-10 lg:px-16 xl:px-20 text-[7.5px] tracking-[0.38em] uppercase text-black/22 font-medium mb-16 md:mb-20 lg:mb-24"
           >
             Selected Works
           </motion.p>
@@ -371,7 +382,7 @@ export default function Home() {
             className="px-5 sm:px-10 lg:px-16 xl:px-20"
           >
             <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent}`}>
-              <WorkCard work={featuredWorks[0]} />
+              <WorkCard work={featuredWorks[0]} index={0} />
             </div>
           </motion.div>
 
@@ -389,7 +400,7 @@ export default function Home() {
               transition={{ duration: 1.1, ease: luxuryEase }}
               className="w-full sm:w-[44%] lg:w-[280px] xl:w-[300px] shrink-0 lg:mt-16"
             >
-              <WorkCard work={featuredWorks[3]} />
+              <WorkCard work={featuredWorks[3]} index={3} />
             </motion.div>
             {/* Mondrian — pushed far right with a large auto left margin */}
             <motion.div
@@ -399,7 +410,7 @@ export default function Home() {
               transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
               className="mt-14 sm:mt-0 w-full sm:w-[52%] lg:w-[320px] xl:w-[340px] shrink-0 lg:ml-auto lg:mr-[8%]"
             >
-              <WorkCard work={featuredWorks[1]} />
+              <WorkCard work={featuredWorks[1]} index={1} />
             </motion.div>
           </div>
 
@@ -412,7 +423,7 @@ export default function Home() {
             className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-20 md:mt-28 lg:mt-36"
           >
             <div className={`${featuredWorks[2].width} ${featuredWorks[2].indent}`}>
-              <WorkCard work={featuredWorks[2]} />
+              <WorkCard work={featuredWorks[2]} index={2} />
             </div>
           </motion.div>
 
@@ -427,14 +438,13 @@ export default function Home() {
             <Link
               href="/collection"
               className="
-                group inline-flex items-center gap-2.5
-                pb-px border-b border-black/18
-                text-[9px] tracking-[0.22em] uppercase text-black/45 no-underline
-                transition-colors duration-500 hover:text-black hover:border-black/50
+                group inline-flex items-center gap-3
+                text-[8px] tracking-[0.3em] uppercase text-black/35 no-underline
+                transition-colors duration-700 hover:text-black/70
               "
             >
-              <span>View the Collection</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+              <span className="pb-px border-b border-current transition-colors duration-700">View the Collection</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -483,7 +493,7 @@ export default function Home() {
                 transition={{ duration: 1.3, ease: luxuryEase }}
                 className="lg:col-span-7 order-2 lg:order-1"
               >
-                <p className="text-[9px] md:text-[10px] tracking-[0.24em] uppercase text-white/55 font-medium mb-5 md:mb-6">
+                <p className="text-[7.5px] tracking-[0.38em] uppercase text-white/38 font-medium mb-7 md:mb-10">
                   Bespoke &amp; Commissions
                 </p>
                 <h2
@@ -491,41 +501,37 @@ export default function Home() {
                     font-[family-name:var(--font-playfair),Georgia,serif]
                     text-[clamp(2rem,4.6vw,3.5rem)]
                     leading-[1.08] -tracking-[0.01em] font-normal
-                    mb-7 md:mb-9 max-w-[18ch]
+                    mb-9 md:mb-11 max-w-[18ch]
                   "
                 >
                   Commissioned for the <em>space</em> it is made for.
                 </h2>
 
-                <span className="block w-10 h-px bg-accent/50 mb-7 md:mb-9" />
-
                 <p
                   className="
                     font-[family-name:var(--font-playfair),Georgia,serif]
-                    text-[15px] md:text-base lg:text-[17px]
-                    leading-[1.85] text-white/72 max-w-[50ch] mb-9 md:mb-11
+                    text-[14.5px] md:text-[15px] lg:text-[16px]
+                    leading-[2] text-white/55 max-w-[46ch] mb-10 md:mb-14
                   "
                 >
                   Every piece can be scaled, finished, or wholly reconceived in
                   copper and hand-cut glass — for a private interior, an
                   architectural brief, or a singular work. We welcome collectors,
-                  designers, and architects. Visits to the East London studio are
-                  by appointment.
+                  designers, and architects.
                 </p>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
                   <Link
                     href="/bespoke"
                     className="
-                      group inline-flex items-center justify-between gap-6
-                      py-4 px-8 md:py-[1.125rem] md:px-10 min-w-[15rem]
-                      text-[10px] tracking-[0.22em] uppercase
-                      text-dark no-underline bg-white
-                      transition-colors duration-500 hover:bg-white/85
+                      group inline-flex items-center gap-4
+                      text-[8px] tracking-[0.3em] uppercase text-white/90 no-underline
+                      pb-px border-b border-white/30
+                      transition-colors duration-700 hover:text-white hover:border-white/70
                     "
                   >
                     <span>Begin a Commission</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
@@ -533,12 +539,12 @@ export default function Home() {
                   <Link
                     href="/contact"
                     className="
-                      text-[10px] tracking-[0.18em] uppercase text-white/65 hover:text-white
-                      no-underline transition-colors duration-300
-                      border-b border-white/25 pb-0.5 self-start sm:self-auto
+                      text-[8px] tracking-[0.3em] uppercase text-white/35 hover:text-white/65
+                      no-underline transition-colors duration-500
+                      pb-px border-b border-white/15 hover:border-white/35 self-start sm:self-auto
                     "
                   >
-                    Or contact the studio
+                    Contact the studio
                   </Link>
                 </div>
               </motion.div>
@@ -565,9 +571,8 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                   </div>
-                  <p className="mt-3.5 text-[8px] tracking-[0.22em] uppercase text-white/45 font-medium flex items-center gap-2.5">
-                    <span aria-hidden className="block w-5 h-px bg-accent/60" />
-                    Hand-cut glass, in the studio
+                  <p className="mt-3 text-[7.5px] tracking-[0.32em] uppercase text-white/30 font-medium">
+                    Hand-cut glass · C+G Workshop
                   </p>
                 </div>
               </motion.div>
@@ -636,14 +641,14 @@ export default function Home() {
                   pt-8 lg:pt-10
                 "
               >
-                <p className="text-[9px] md:text-[10px] tracking-[0.24em] uppercase text-accent font-medium mb-5 md:mb-6">
+                <p className="text-[7.5px] tracking-[0.38em] uppercase text-black/28 font-medium mb-7 md:mb-10">
                   Origins · 1897
                 </p>
                 <h2
                   className="
                     font-[family-name:var(--font-playfair),Georgia,serif]
                     text-[clamp(1.75rem,4vw,3rem)]
-                    leading-[1.1] -tracking-[0.008em] font-normal mb-6 md:mb-8
+                    leading-[1.1] -tracking-[0.008em] font-normal mb-7 md:mb-9
                   "
                 >
                   A lineage over a century in the making.
@@ -651,8 +656,8 @@ export default function Home() {
                 <p
                   className="
                     font-[family-name:var(--font-playfair),Georgia,serif]
-                    text-[15px] md:text-base lg:text-[17px]
-                    leading-[1.85] text-black/75 max-w-[52ch] mb-8 md:mb-10
+                    text-[14.5px] md:text-[15px] lg:text-[16px]
+                    leading-[2] text-black/52 max-w-[46ch] mb-9 md:mb-11
                   "
                 >
                   Our glazing tradition begins with the Luxfer Prism Company and
@@ -664,13 +669,13 @@ export default function Home() {
                   href="/origins"
                   className="
                     group inline-flex items-center gap-3
-                    pb-1 border-b border-black/25
-                    text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-black/75
-                    no-underline transition-colors duration-500 hover:text-black hover:border-black/70
+                    text-[8px] tracking-[0.3em] uppercase text-black/40
+                    no-underline pb-px border-b border-black/18
+                    transition-colors duration-700 hover:text-black/75 hover:border-black/40
                   "
                 >
                   <span>Read the Origins</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>

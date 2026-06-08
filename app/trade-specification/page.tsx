@@ -597,11 +597,11 @@ export default function TradeSpecificationPage() {
                 Developed for a private client who wanted a wall light that did not
                 yet exist — a copper and glass sconce that changed the quality of
                 light in a room rather than simply adding to it. Made once, for one
-                space. This is the kind of brief interior designers bring to us.
+                space.
               </p>
               <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
                 <Image
-                  src="/aura-wall-light.png"
+                  src="/aura-green-client.png"
                   alt="Aura Sconce — Copa + Glas private commission"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -610,54 +610,95 @@ export default function TradeSpecificationPage() {
               </div>
             </motion.div>
 
-            {/* Case 3: Hotel Café Royal Lightwell placeholder */}
+            {/* Case 3: Art mirror private commission */}
             <motion.div
-              initial={from(16)}
+              initial={from(22)}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-8% 0px" }}
-              transition={{ duration: 1.2, delay: 0.06, ease }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 1.3, delay: 0.1, ease }}
             >
               <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium mb-4 flex items-center gap-2">
-                Architectural Commission
+                Private Commission
                 <span className="text-accent/50">·</span>
-                Image to follow
+                Residential
               </p>
               <h3
                 className="
                   font-[family-name:var(--font-playfair),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
-                  mb-8
+                  mb-6
                 "
               >
-                Hotel Café Royal Lightwell
+                Art Mirror, private residence
               </h3>
-              <ImagePlaceholder label="Image to follow" ratio="aspect-[3/2]" />
+              <p
+                className="
+                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  text-[14.5px] md:text-[15px]
+                  leading-[1.85] text-black/75
+                  mb-8 max-w-[44ch]
+                "
+              >
+                A bespoke mirror commissioned for a private London residence —
+                copper-framed, hand-cut glass in a format shaped around the
+                room and the art already within it.
+              </p>
+              <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+                <Image
+                  src="/art-mirror-commission.png"
+                  alt="Art Mirror — Copa + Glas private commission, London residence"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+              </div>
             </motion.div>
 
-            {/* Case 4: Private Residential Commission placeholder */}
+
+            {/* Case 6: Aureole Mirror private residential */}
             <motion.div
-              initial={from(16)}
+              initial={from(22)}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-8% 0px" }}
-              transition={{ duration: 1.2, delay: 0.12, ease }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 1.3, delay: 0.1, ease }}
             >
               <p className="text-[9px] tracking-[0.22em] uppercase text-black/55 font-medium mb-4 flex items-center gap-2">
-                Studio Piece
+                Private Commission
                 <span className="text-accent/50">·</span>
-                Image to follow
+                Residential
               </p>
               <h3
                 className="
                   font-[family-name:var(--font-playfair),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
-                  mb-8
+                  mb-6
                 "
               >
-                Private Residential Commission
+                Aureole Mirror, private residence
               </h3>
-              <ImagePlaceholder label="Image to follow" ratio="aspect-[3/2]" />
+              <p
+                className="
+                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  text-[14.5px] md:text-[15px]
+                  leading-[1.85] text-black/75
+                  mb-8 max-w-[44ch]
+                "
+              >
+                A study in subtle warmth — a refined copper edge embracing
+                softly tinted glass, casting a gentle glow and adding a layer
+                of quiet sophistication to the room it inhabits.
+              </p>
+              <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
+                <Image
+                  src="/aureole-mirror-commission.png"
+                  alt="Aureole Mirror — Copa + Glas private residential commission"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+              </div>
             </motion.div>
 
           </div>

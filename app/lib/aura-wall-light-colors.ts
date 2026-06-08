@@ -40,6 +40,13 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     image: "/antique-wispy-red.png",
     desc: "A deep, warm red with a wispy, hand-made quality — each pane unique in tone and texture, drawing the eye before the light is even lit.",
   },
+  {
+    id: "custom",
+    name: "Custom Glass",
+    shortName: "Custom",
+    hex: "#888888",
+    desc: "Have a particular colour, texture, or finish in mind? Describe it when you enquire — we can source and work with a much wider range of art glass than shown here.",
+  },
 ];
 
 export const DEFAULT_AURA_COLOR_ID = "amber";
@@ -53,6 +60,9 @@ export function auraColorById(id: string): AuraColorOption {
 
 export function auraConfigurationSummary(config: AuraConfiguration): string {
   const lit = config.illuminated ? " (lit)" : "";
+  if (config.colorId === "custom") {
+    return `Aura Wall Light — Custom glass (to be discussed)${lit}`;
+  }
   return `Aura Wall Light — ${config.colorName}${lit}`;
 }
 

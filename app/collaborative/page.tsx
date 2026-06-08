@@ -8,13 +8,6 @@ import Footer from "@/app/components/Footer";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const LIBERTY_COLLECTION = {
-  body:
-    "An example from our collection — for Liberty London we produced a range of art glass mirrors as a celebration of the store's heritage, craft, and place in the city. Each piece draws on the studio's copper-and-glass technique while speaking to the building, its history, and the people who move through it.",
-  imageSrc: null as string | null,
-  imageAlt: "Liberty London Collection — art glass mirrors",
-  placeholder: "Liberty London",
-} as const;
 
 export default function CollaborativePage() {
   const reduced = useReducedMotion();
@@ -205,76 +198,6 @@ export default function CollaborativePage() {
         </div>
       </section>
 
-      {/* Liberty London Collection */}
-      <section
-        className="
-          border-t border-black/[0.06]
-          bg-[#f7f5f1]
-          py-20 md:py-28 lg:py-36
-          px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20
-        "
-      >
-        <motion.div
-          initial={from(12)}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-8% 0px" }}
-          transition={{ duration: 1.1, ease }}
-          className="max-w-[1440px] mx-auto mb-14 md:mb-20"
-        >
-          <p className="text-[9px] tracking-[0.24em] uppercase text-black/55 font-medium mb-6">
-            Liberty London Collection
-          </p>
-          <h2
-            className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
-              text-[clamp(1.75rem,3.5vw,2.75rem)]
-              leading-[1.15] -tracking-[0.005em] font-normal
-              max-w-[24ch] text-black/92
-            "
-          >
-            Art glass mirrors. A celebration of Liberty.
-          </h2>
-        </motion.div>
-
-        <div className="max-w-[1440px] mx-auto">
-          <motion.article
-            initial={from(18)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-6% 0px" }}
-            transition={{ duration: 1.2, ease }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center"
-          >
-            <motion.div className="relative aspect-[16/10] bg-[#e8e3db] overflow-hidden">
-              {LIBERTY_COLLECTION.imageSrc ? (
-                <Image
-                  src={LIBERTY_COLLECTION.imageSrc}
-                  alt={LIBERTY_COLLECTION.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-[9px] tracking-[0.28em] uppercase text-black/30 font-medium">
-                    {LIBERTY_COLLECTION.placeholder}
-                  </span>
-                </div>
-              )}
-            </motion.div>
-
-            <div>
-              <p
-                className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
-                  text-[15px] md:text-base leading-[1.85] text-black/75
-                "
-              >
-                {LIBERTY_COLLECTION.body}
-              </p>
-            </div>
-          </motion.article>
-        </div>
-      </section>
 
       {/* CTA */}
       <motion.section

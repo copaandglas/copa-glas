@@ -25,11 +25,11 @@ const lights: Light[] = [
     slug: "aura-wall-light",
     name: "Aura Wall Light",
     designer: "Copa + Glas Studio",
-    dimension: "300 × 415mm — custom sizing available",
-    price: "Price on application",
+    dimension: "Bespoke · made to order",
+    price: "Enquire",
     image: "/aura-wall-light.png",
     tagline:
-      "Copper and glass, shaped to the room it lives in.",
+      "A customisable object — copper and glass configured for the room it will inhabit.",
     leadTime: "Made to order",
   },
 ];

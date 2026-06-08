@@ -46,6 +46,7 @@ interface FormState {
   units: string;
   contactMethod: ContactMethod;
   message: string;
+  customColourNote: string;
   newsletter: boolean;
   /** Honeypot - leave blank. */
   website: string;
@@ -61,6 +62,7 @@ const initialState: FormState = {
   units: "",
   contactMethod: "either",
   message: "",
+  customColourNote: "",
   newsletter: false,
   website: "",
 };
@@ -256,7 +258,7 @@ export default function EnquiryDrawer({
     } else if (!EMAIL_RE.test(form.email.trim())) {
       errs.email = "Please check the email address.";
     }
-    if (!form.message.trim()) {
+    if (!isConfigurator && !form.message.trim()) {
       errs.message = "A short note — whatever's on your mind.";
     }
     return errs;
@@ -298,7 +300,14 @@ export default function EnquiryDrawer({
             isConfigurator || hideSpaceAndTimeline ? null : form.timeline || null,
           units: isConfigurator ? form.units.trim() || null : null,
           contactMethod: form.contactMethod,
-          message: form.message.trim(),
+          message: [
+            form.message.trim(),
+            form.customColourNote.trim()
+              ? `Custom colour / size note: ${form.customColourNote.trim()}`
+              : "",
+          ]
+            .filter(Boolean)
+            .join("\n\n"),
           newsletter: form.newsletter,
           product: product
             ? {
@@ -582,23 +591,27 @@ export default function EnquiryDrawer({
                       <Field>
                         {isConfigurator ? (
                           <>
-                            <span className={LABEL_CLASS}>The glass you have chosen</span>
-                            <div className="
-                              flex items-center gap-3 overflow-visible
-                              px-4 py-3 border border-black/[0.08] bg-faint
-                            ">
-                              <ProductPiecePreview product={product} />
-                              <div className="min-w-0 flex-1 overflow-visible">
-                                <span className={`block ${PRODUCT_NAME_CLASS} text-[15px] text-black/80`}>
-                                  {product.name}
-                                </span>
-                                {product.finish && (
-                                  <span className="block text-[10px] tracking-[0.1em] uppercase text-black/50 mt-1">
-                                    {product.finish}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
+                            {product.finish !== "Custom Glass" && (
+                              <>
+                                <span className={LABEL_CLASS}>The glass you have chosen</span>
+                                <div className="
+                                  flex items-center gap-3 overflow-visible
+                                  px-4 py-3 border border-black/[0.08] bg-faint
+                                ">
+                                  <ProductPiecePreview product={product} />
+                                  <div className="min-w-0 flex-1 overflow-visible">
+                                    <span className={`block ${PRODUCT_NAME_CLASS} text-[15px] text-black/80`}>
+                                      {product.name}
+                                    </span>
+                                    {product.finish && (
+                                      <span className="block text-[10px] tracking-[0.1em] uppercase text-black/50 mt-1">
+                                        {product.finish}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              </>
+                            )}
                           </>
                         ) : (
                           <>
@@ -636,7 +649,7 @@ export default function EnquiryDrawer({
                           inputMode="numeric"
                           value={form.units}
                           onChange={(e) => update("units", e.target.value)}
-                          placeholder="One for the hall — or several throughout the home"
+                          placeholder="One piece — or several throughout the project"
                           className={INPUT_CLASS}
                         />
                       </Field>
@@ -718,25 +731,50 @@ export default function EnquiryDrawer({
                       </div>
                     </Field>
 
+                    {isConfigurator && product?.finish === "Custom Glass" && (
+                      <Field>
+                        <label htmlFor="enq-custom-colour" className={LABEL_CLASS}>
+                          Describe your centre pane
+                        </label>
+                        <p className="text-[12px] leading-[1.7] text-black/55 mb-3 font-[family-name:var(--font-playfair),Georgia,serif] italic">
+                          Tell us about the colour, texture, or quality of light you have in mind — we work with a much wider range of art glass than shown.
+                        </p>
+                        <textarea
+                          id="enq-custom-colour"
+                          name="customColourNote"
+                          rows={4}
+                          value={form.customColourNote}
+                          onChange={(e) => update("customColourNote", e.target.value)}
+                          placeholder="e.g. a warm amber, deep cobalt, something opalescent — any reference points help."
+                          className={`${INPUT_CLASS} resize-y min-h-[5rem] leading-[1.6]`}
+                        />
+                      </Field>
+                    )}
+
                     <Field>
-                      <label htmlFor="enq-message" className={LABEL_CLASS}>Message</label>
+                      <label htmlFor="enq-message" className={LABEL_CLASS}>
+                        {isConfigurator ? "Anything else" : "Message"}
+                        {isConfigurator && (
+                          <span className="text-black/35 normal-case tracking-normal ml-2 text-[10px] italic font-normal">optional</span>
+                        )}
+                      </label>
                       <textarea
                         id="enq-message"
                         name="message"
-                        required
-                        rows={5}
+                        required={!isConfigurator}
+                        rows={isConfigurator ? 3 : 5}
                         value={form.message}
                         onChange={(e) => update("message", e.target.value)}
                         placeholder={
                           isConfigurator
-                            ? "A note, if you wish"
+                            ? "A note about the space, the light, or anything else."
                             : product
                               ? `Anything you'd like us to know about ${product.name} or the space it's for.`
                               : "Tell us a little about what you have in mind."
                         }
                         aria-invalid={Boolean(fieldErrors.message)}
                         aria-describedby={fieldErrors.message ? "enq-message-err" : undefined}
-                        className={`${INPUT_CLASS} resize-y min-h-32 leading-[1.6] ${fieldErrors.message ? ERROR_INPUT_CLASS : ""}`}
+                        className={`${INPUT_CLASS} resize-y min-h-[5rem] leading-[1.6] ${fieldErrors.message ? ERROR_INPUT_CLASS : ""}`}
                       />
                       {fieldErrors.message && <FieldErrorText id="enq-message-err">{fieldErrors.message}</FieldErrorText>}
                     </Field>
