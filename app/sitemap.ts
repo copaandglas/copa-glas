@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://www.copaandglas.com";
+const BASE = "https://copaandglas.com";
 
 const productSlugs = [
   "rotation-mirror",

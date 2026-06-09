@@ -13,7 +13,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.copaandglas.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://copaandglas.com"),
   title: {
     default: "Copa + Glas — Handcrafted Mirrors & Lighting, East London",
     template: "%s — Copa + Glas",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Copa + Glas",
     locale: "en_GB",
-    url: "https://www.copaandglas.com",
+    url: "https://copaandglas.com",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
   },
   twitter: {
