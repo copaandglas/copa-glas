@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import AutoplayVideo from "@/app/components/AutoplayVideo";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -572,18 +573,13 @@ export default function Home() {
               >
                 <div className="w-full max-w-[300px] sm:max-w-[320px] lg:max-w-none mx-auto lg:ml-auto lg:mr-0">
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-black/40 border border-white/12">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
+                    <AutoplayVideo
                       aria-label="Hand-cut glass being worked in the studio"
                       className="absolute inset-0 w-full h-full object-cover object-center"
                     >
                       <source src="/copa.webm" type="video/webm" />
                       <source src="/copa.mp4" type="video/mp4" />
-                    </video>
+                    </AutoplayVideo>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                   </div>
                   <p className="mt-3 text-[7.5px] tracking-[0.32em] uppercase text-white/30 font-medium">

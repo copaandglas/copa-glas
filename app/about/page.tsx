@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import AutoplayVideo from "@/app/components/AutoplayVideo";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -259,18 +260,13 @@ export default function AboutPage() {
             transition={{ duration: 1.3, ease }}
           >
             <div className="relative w-full aspect-[4/5] overflow-hidden bg-dark">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
+              <AutoplayVideo
                 aria-label="Hand-cut glass being worked in the Copa + Glas studio"
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
               >
                 <source src="/copa.webm" type="video/webm" />
                 <source src="/copa.mp4" type="video/mp4" />
-              </video>
+              </AutoplayVideo>
             </div>
           </motion.div>
 
