@@ -32,7 +32,6 @@ const lights: Light[] = [
     tagline:
       "A customisable object — copper and glass configured for the room it will inhabit.",
     leadTime: "Made to order",
-    href: "/configure/aura-wall-light",
   },
 ];
 
