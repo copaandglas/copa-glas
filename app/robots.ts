@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/configure/", "/api/"],
       },
     ],
-    sitemap: "https://www.copaandglas.com/sitemap.xml",
-    host: "https://www.copaandglas.com",
+    sitemap: "https://copaandglas.com/sitemap.xml",
+    host: "https://copaandglas.com",
   };
 }
