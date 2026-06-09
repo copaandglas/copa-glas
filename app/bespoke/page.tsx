@@ -66,48 +66,6 @@ const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] ita
 const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
-/* ── Reusable placeholder for images that have not yet been shot ─────────── */
-function ImagePlaceholder({
-  label,
-  tone = "light",
-  className = "",
-  ratio = "aspect-[4/5]",
-}: {
-  label: string;
-  tone?: "light" | "dark" | "cream";
-  className?: string;
-  ratio?: string;
-}) {
-  const toneClasses =
-    tone === "dark"
-      ? "bg-[#141414] text-white/35"
-      : tone === "cream"
-      ? "bg-[#ede9e2] text-black/30"
-      : "bg-[#e8e3db] text-black/30";
-
-  return (
-    <div
-      className={`relative w-full overflow-hidden ${ratio} ${toneClasses} ${className}`}
-    >
-      {/* Subtle film-grain noise overlay for warmth */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
-          backgroundSize: "240px 240px",
-        }}
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-[9px] tracking-[0.28em] uppercase font-medium">
-          {label}
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export default function BespokePage() {
   const reduced = useReducedMotion();
   const from = (y: number) =>

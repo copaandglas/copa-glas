@@ -260,10 +260,13 @@ export default function ProductPage() {
   const [swipeDirection, setSwipeDirection] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   useEffect(() => {
+    // Reset image gallery when navigating between products
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedImage(0);
   }, [slug]);
 

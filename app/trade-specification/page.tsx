@@ -9,8 +9,6 @@ import Footer from "@/app/components/Footer";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const GRAIN_SVG =
-  "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")";
 
 /* ── Form types ──────────────────────────────────────────────────────────── */
 type PracticeType =
@@ -60,37 +58,6 @@ const INPUT =
   "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR =
   "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
-
-/* ── Placeholder tile ────────────────────────────────────────────────────── */
-function ImagePlaceholder({
-  label,
-  className = "",
-  ratio = "aspect-[4/3]",
-}: {
-  label: string;
-  className?: string;
-  ratio?: string;
-}) {
-  return (
-    <div
-      className={`relative w-full overflow-hidden ${ratio} bg-[#e8e3db] text-black/30 ${className}`}
-    >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-        style={{
-          backgroundImage: GRAIN_SVG,
-          backgroundSize: "240px 240px",
-        }}
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-[9px] tracking-[0.28em] uppercase font-medium">
-          {label}
-        </span>
-      </div>
-    </div>
-  );
-}
 
 /* ── Programme items ─────────────────────────────────────────────────────── */
 const PROGRAMME_ITEMS = [
