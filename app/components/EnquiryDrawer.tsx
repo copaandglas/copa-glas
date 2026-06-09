@@ -841,8 +841,8 @@ export default function EnquiryDrawer({
                         {" "}
                         <span className="text-[#6e1818]/70">
                           Or write to{" "}
-                          <a href="mailto:info@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
-                            info@copaandglas.com
+                          <a href="mailto:studio@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
+                            studio@copaandglas.com
                           </a>
                           .
                         </span>

@@ -21,7 +21,7 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
     title: "Who We Are",
     paragraphs: [
       "Copa + Glas Studio is a maker of handcrafted glass mirrors and lighting, based in East London, England. We operate under the trading name Copa + Glas and are the data controller responsible for your personal information.",
-      "You can contact us at any time regarding this policy or your personal data by writing to us at info@copaandglas.com.",
+      "You can contact us at any time regarding this policy or your personal data by writing to us at studio@copaandglas.com.",
     ],
   },
   {
@@ -113,10 +113,10 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
       <p>
         To exercise any of these rights, please contact us at{" "}
         <a
-          href="mailto:info@copaandglas.com"
+          href="mailto:studio@copaandglas.com"
           className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
         >
-          info@copaandglas.com
+          studio@copaandglas.com
         </a>
         . We will respond within 30 days. You also have the right to lodge a
         complaint with the Information Commissioner&apos;s Office (ICO) at{" "}
@@ -249,10 +249,10 @@ export default function PrivacyPage() {
                 it, and your rights in relation to it. If you have any
                 questions, please contact us at{" "}
                 <a
-                  href="mailto:info@copaandglas.com"
+                  href="mailto:studio@copaandglas.com"
                   className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
                 >
-                  info@copaandglas.com
+                  studio@copaandglas.com
                 </a>
                 .
               </motion.p>
@@ -329,10 +329,10 @@ export default function PrivacyPage() {
                   If you have any questions about this policy or how we handle
                   your data, please contact us at{" "}
                   <a
-                    href="mailto:info@copaandglas.com"
+                    href="mailto:studio@copaandglas.com"
                     className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
                   >
-                    info@copaandglas.com
+                    studio@copaandglas.com
                   </a>
                   . This policy was last updated May 2026.
                 </p>
