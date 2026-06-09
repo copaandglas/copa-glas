@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
@@ -172,6 +172,18 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [viewportH, setViewportH] = useState(0);
   const reduced = useReducedMotion();
+  const annealingRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = annealingRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) video.play().catch(() => {}); },
+      { threshold: 0.1 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
   const rise = (y: number) => (reduced ? { opacity: 0 } : { opacity: 0, y });
 
   useEffect(() => {
@@ -321,8 +333,9 @@ export default function Home() {
               >
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-stone-50">
                   <video
+                    ref={annealingRef}
                     src="/Annealing.MP4"
-                    autoPlay loop muted playsInline preload="metadata"
+                    autoPlay loop muted playsInline preload="auto"
                     aria-label="Annealing process in the C+G Workshop"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
