@@ -18,7 +18,7 @@
 
 /* ---- Base ---- */
 html {
-  background: var(--color-bg);
+  background: var(--color-dark);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
