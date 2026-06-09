@@ -128,7 +128,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[10000] bg-dark flex flex-col"
+            className="fixed inset-x-0 top-0 z-[10000] bg-dark flex flex-col h-[100dvh]"
           >
             <div className={BAR_CLASS}>
               <Link
@@ -171,6 +171,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
                 gap-3 md:gap-5 font-[family-name:var(--font-playfair),Georgia,serif]
                 text-[clamp(1.25rem,5vw,1.5rem)] md:text-[1.75rem] lg:text-4xl
                 px-[max(1rem,env(safe-area-inset-left))] overflow-y-auto
+                pb-[max(1.5rem,env(safe-area-inset-bottom))]
               "
               style={{ WebkitOverflowScrolling: "touch" }}
             >
