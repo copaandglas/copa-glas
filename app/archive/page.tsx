@@ -232,7 +232,7 @@ function Lightbox({
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchRef.current === null) return;
     const diff = touchRef.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 48) diff > 0 ? onNext() : onPrev();
+    if (Math.abs(diff) > 48) { if (diff > 0) { onNext(); } else { onPrev(); } }
     touchRef.current = null;
   };
 
