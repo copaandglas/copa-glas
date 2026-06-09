@@ -996,7 +996,7 @@ export default function BespokePage() {
                     {submitError || "Something didn't send. Please try again."}
                     {" "}
                     <a
-                      href="mailto:info@copaandglas.com"
+                      href="mailto:studio@copaandglas.com"
                       className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]"
                     >
                       Write to us directly.
@@ -1040,10 +1040,10 @@ export default function BespokePage() {
                     We respond within 24 hours
                     <span className="block mt-1">
                       <a
-                        href="mailto:info@copaandglas.com"
+                        href="mailto:studio@copaandglas.com"
                         className="text-black/75 no-underline hover:text-black transition-colors duration-300"
                       >
-                        info@copaandglas.com
+                        studio@copaandglas.com
                       </a>
                     </span>
                   </p>

@@ -203,7 +203,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Email</p>
                   <a
-                    href="mailto:info@copaandglas.com"
+                    href="mailto:studio@copaandglas.com"
                     className="
                       font-[family-name:var(--font-playfair),Georgia,serif]
                       text-[16px] md:text-[17px] text-inherit no-underline
@@ -211,7 +211,7 @@ export default function ContactPage() {
                       hover:border-black/70 transition-colors duration-500
                     "
                   >
-                    info@copaandglas.com
+                    studio@copaandglas.com
                   </a>
                 </div>
                 <div>
@@ -466,7 +466,7 @@ export default function ContactPage() {
                       <div role="alert" className="mb-6 px-4 py-3.5 border border-[#8a1f1f]/25 bg-[#8a1f1f]/[0.035] text-[13px] leading-[1.55] text-[#6e1818]">
                         {submitError || "Something didn't send. Please try again."}
                         {" "}
-                        <a href="mailto:info@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
+                        <a href="mailto:studio@copaandglas.com" className="underline decoration-[#6e1818]/40 underline-offset-2 hover:decoration-[#6e1818]">
                           Write to us directly.
                         </a>
                       </div>

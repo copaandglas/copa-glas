@@ -77,7 +77,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     title: "Inspection & Damage",
     paragraphs: [
       "All pieces must be inspected carefully at the time of delivery. Any damage must be reported to our delivery team and Copa + Glas within 48 hours of receipt. We are unable to process claims or arrange replacements after this period.",
-      "In the event of damage, clear photographs of both the packaging and the piece, including any damage, must be submitted to info@copaandglas.com for assessment. Please retain all original packaging until the piece has been fully inspected.",
+      "In the event of damage, clear photographs of both the packaging and the piece, including any damage, must be submitted to studio@copaandglas.com for assessment. Please retain all original packaging until the piece has been fully inspected.",
       "All deliveries are insured. Where damage has occurred in transit, we will manage the claim and arrange for repair or replacement as appropriate. Copa + Glas cannot accept responsibility for damage resulting from third-party installation or misuse after delivery.",
       "If delivery is signed for without inspection, Copa + Glas cannot accept liability for transit damage reported after the fact.",
     ],
@@ -269,10 +269,10 @@ export default function TermsPage() {
                 studio. Please read these terms carefully before placing an order. If
                 you have any questions, we are always available at{" "}
                 <a
-                  href="mailto:info@copaandglas.com"
+                  href="mailto:studio@copaandglas.com"
                   className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
                 >
-                  info@copaandglas.com
+                  studio@copaandglas.com
                 </a>
                 .
               </motion.p>
@@ -376,10 +376,10 @@ export default function TermsPage() {
                   If you have any questions about these terms before placing an
                   order, please contact us at{" "}
                   <a
-                    href="mailto:info@copaandglas.com"
+                    href="mailto:studio@copaandglas.com"
                     className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
                   >
-                    info@copaandglas.com
+                    studio@copaandglas.com
                   </a>
                   . We respond to all enquiries within 24 hours. These terms were
                   last updated May 2026.

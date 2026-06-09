@@ -173,10 +173,10 @@ export default function Footer() {
               England
             </p>
             <a
-              href="mailto:info@copaandglas.com"
+              href="mailto:studio@copaandglas.com"
               className="footer-link inline border-b border-white/20 pb-0.5 hover:border-white/50"
             >
-              info@copaandglas.com
+              studio@copaandglas.com
             </a>
 
             <div className="flex gap-4 mt-5">
