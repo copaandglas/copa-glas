@@ -13,7 +13,10 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.copaandglas.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.copaandglas.com")
+  ),
   title: {
     default: "Copa + Glas — Handcrafted Mirrors & Lighting, East London",
     template: "%s — Copa + Glas",
