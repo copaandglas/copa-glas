@@ -12,6 +12,7 @@ import {
 
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import AutoplayVideo from "@/app/components/AutoplayVideo";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -263,18 +264,13 @@ export default function OriginsPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
+            <AutoplayVideo
               aria-label="Copper and glass craft work in the Copa + Glas studio"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
             >
               <source src="/copa.webm" type="video/webm" />
               <source src="/copa.mp4" type="video/mp4" />
-            </video>
+            </AutoplayVideo>
             {/* Left edge: blend into dark bg */}
             <div className="absolute inset-y-0 left-0 w-40 xl:w-56 bg-gradient-to-r from-dark to-transparent" />
             {/* Top edge */}
