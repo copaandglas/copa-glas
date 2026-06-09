@@ -178,12 +178,25 @@ export default function Home() {
   useEffect(() => {
     const video = annealingRef.current;
     if (!video) return;
+    let visible = false;
+    const tryPlay = () => { if (video.paused) video.play().catch(() => {}); };
+    const onCanPlay = () => { if (visible) tryPlay(); };
+    video.addEventListener("canplay", onCanPlay);
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) video.play().catch(() => {}); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          visible = true;
+          if (video.readyState >= 3) tryPlay();
+        }
+      },
       { threshold: 0.1 }
     );
     observer.observe(video);
-    return () => observer.disconnect();
+    tryPlay();
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("canplay", onCanPlay);
+    };
   }, []);
   const rise = (y: number) => (reduced ? { opacity: 0 } : { opacity: 0, y });
 
