@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 import { addToAudience } from "@/app/lib/audience";
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const NOTIFY_TO = process.env.ENQUIRY_TO_EMAIL ?? "info@copaandglas.com";
+const NOTIFY_FROM = process.env.ENQUIRY_FROM_EMAIL ?? "Copa + Glas <info@copaandglas.com>";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -52,6 +57,15 @@ export async function POST(request: Request) {
   }
 
   await addToAudience({ email });
+
+  if (resend) {
+    resend.emails.send({
+      from: NOTIFY_FROM,
+      to: [NOTIFY_TO],
+      subject: `New subscriber: ${email}`,
+      text: `${email} just subscribed to studio news via the Copa + Glas website.`,
+    }).catch(() => {});
+  }
 
   return NextResponse.json({ ok: true });
 }
