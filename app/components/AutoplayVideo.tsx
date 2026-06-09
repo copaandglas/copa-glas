@@ -8,9 +8,14 @@ type AutoplayVideoProps = Omit<React.VideoHTMLAttributes<HTMLVideoElement>, "aut
 
 /**
  * Drop-in replacement for <video autoPlay muted playsInline>.
- * Uses an IntersectionObserver to call .play() when the element enters
- * the viewport — fixes Safari desktop which ignores autoPlay for
- * off-screen elements.
+ *
+ * Safari desktop ignores the autoPlay attribute for off-screen elements and
+ * can show a play button overlay while the video is buffering. This component
+ * handles three scenarios:
+ *   1. Video is visible on mount and already has data → play immediately.
+ *   2. Video scrolls into view before it has buffered → flag it as visible;
+ *      the `canplay` listener fires play() once data arrives.
+ *   3. Video has buffered before scrolling into view → observer fires play().
  */
 export default function AutoplayVideo({ className, children, ...props }: AutoplayVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -18,12 +23,38 @@ export default function AutoplayVideo({ className, children, ...props }: Autopla
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
+
+    let visible = false;
+
+    const tryPlay = () => {
+      if (video.paused) video.play().catch(() => {});
+    };
+
+    // Once the browser has enough data, play if already in view.
+    const onCanPlay = () => { if (visible) tryPlay(); };
+    video.addEventListener("canplay", onCanPlay);
+
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) video.play().catch(() => {}); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          visible = true;
+          // If the video already has data (readyState HAVE_FUTURE_DATA or higher)
+          // play right away; otherwise wait for canplay.
+          if (video.readyState >= 3) tryPlay();
+        }
+      },
       { threshold: 0.1 }
     );
     observer.observe(video);
-    return () => observer.disconnect();
+
+    // Also attempt an immediate play on mount — catches videos that are
+    // already visible when the component first renders.
+    tryPlay();
+
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("canplay", onCanPlay);
+    };
   }, []);
 
   return (
