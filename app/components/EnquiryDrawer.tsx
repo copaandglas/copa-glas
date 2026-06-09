@@ -667,7 +667,7 @@ export default function EnquiryDrawer({
                           type="text"
                           value={form.intendedSpace}
                           onChange={(e) => update("intendedSpace", e.target.value)}
-                          placeholder="Which room is this for?"
+                          placeholder=""
                           className={INPUT_CLASS}
                         />
                       </Field>
