@@ -424,7 +424,8 @@ export default function ArchivePage() {
           >
             A visual record of the studio. Workshop processes,
             historical commissions, and the craft language that has
-            shaped our practice since the beginning.
+            shaped our practice since the beginning — led by master
+            craftsman Anthony McCarty.
           </motion.p>
         </div>
       </section>
