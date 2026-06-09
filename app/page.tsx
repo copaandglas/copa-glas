@@ -73,7 +73,7 @@ const featuredWorks: FeaturedWork[] = [
     desktopImage: "/aura-wall-light-off.png",
     tagline: "A fragment of light held in the wall.",
     aspect: "aspect-[3/4]",
-    href: "/configure/aura-wall-light",
+    href: "/product/aura-wall-light",
     width: "w-full sm:w-[52%] lg:w-[28%] xl:w-[22%] lg:max-w-[270px]",
     indent: "lg:ml-auto lg:mr-[14%]",
   },
