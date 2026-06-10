@@ -53,6 +53,9 @@ export async function generateMetadata({
     title: meta.title,
     description: meta.description,
     openGraph: {
+      type: "website",
+      siteName: "Copa + Glas",
+      locale: "en_GB",
       title: `${meta.title} — Copa + Glas`,
       description: meta.description,
       url: `/product/${slug}`,
@@ -60,6 +63,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: "@copaandglas",
       title: `${meta.title} — Copa + Glas`,
       description: meta.description,
       images: [meta.ogImage],
