@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Lighting — Copa + Glas",
     description: "Handcrafted copper and glass wall lights by Copa + Glas Studio — sculptural lighting made to order in East London.",
     url: "/lighting",
-    images: [{ url: "/og-aura-wall-light.jpg", width: 1200, height: 630, alt: "Aura Wall Light by Copa + Glas" }],
+    images: [{ url: "/og-aura-wall-light.jpg", width: 1200, height: 1200, alt: "Aura Wall Light by Copa + Glas" }],
   },
 };
 

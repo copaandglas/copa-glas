@@ -47,7 +47,7 @@ export async function generateMetadata({
   const meta = productMeta[slug];
   if (!meta) return {};
 
-  const ogImageEntry = { url: meta.ogImage, width: 1200, height: 630, alt: meta.title };
+  const ogImageEntry = { url: meta.ogImage, width: 1200, height: 1200, alt: meta.title };
 
   return {
     title: meta.title,
