@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Trade & Specification",
   description: "Trade enquiries and specification information for Copa + Glas Studio. We work with interior designers, architects, and specification professionals.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "Trade & Specification — Copa + Glas",
     description: "Trade enquiries and specification information for Copa + Glas Studio. We work with interior designers, architects, and specification professionals.",
     url: "/trade-specification",

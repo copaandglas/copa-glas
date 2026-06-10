@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Copa + Glas Studio. Enquire about a piece, begin a commission, or visit us in East London.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "Contact — Copa + Glas",
     description: "Get in touch with Copa + Glas Studio. Enquire about a piece, begin a commission, or visit us in East London.",
     url: "/contact",

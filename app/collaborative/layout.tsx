@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Collaborations",
   description: "Collaborative works by Copa + Glas — pieces made in partnership with artists and makers who share our material language.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "Collaborations — Copa + Glas",
     description: "Collaborative works by Copa + Glas — pieces made in partnership with artists and makers who share our material language.",
     url: "/collaborative",

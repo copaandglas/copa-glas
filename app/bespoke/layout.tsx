@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Bespoke & Commissions",
   description: "Commission a bespoke mirror or lighting piece with Copa + Glas. Every piece can be scaled, finished, or wholly reconceived in copper and hand-cut glass.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "Bespoke & Commissions — Copa + Glas",
     description: "Commission a bespoke mirror or lighting piece with Copa + Glas. Every piece can be scaled, finished, or wholly reconceived in copper and hand-cut glass.",
     url: "/bespoke",

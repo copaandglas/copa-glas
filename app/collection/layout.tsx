@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "The Collection",
   description: "The Copa + Glas collection — mirrors, lighting, and limited editions. Each piece hand-made to order in our East London workshop.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "The Collection — Copa + Glas",
     description: "The Copa + Glas collection — mirrors, lighting, and limited editions. Each piece hand-made to order in our East London workshop.",
     url: "/collection",
