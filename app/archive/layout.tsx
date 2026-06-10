@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Archive",
   description: "The Copa + Glas archive — a record of commissions, installations, and studio work past and present.",
   openGraph: {
+    type: "website",
+    siteName: "Copa + Glas",
+    locale: "en_GB",
     title: "Archive — Copa + Glas",
     description: "The Copa + Glas archive — a record of commissions, installations, and studio work past and present.",
     url: "/archive",
