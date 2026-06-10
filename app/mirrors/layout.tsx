@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Mirrors — Copa + Glas",
     description: "Handcrafted copper and glass mirrors by Copa + Glas Studio — the Rotation, Mondrian, and Fibonacci mirrors, made to order in East London.",
     url: "/mirrors",
-    images: [{ url: "/og-rotation-mirror.jpg", width: 1200, height: 630, alt: "The Rotation Mirror by Copa + Glas" }],
+    images: [{ url: "/og-rotation-mirror.jpg", width: 1200, height: 1200, alt: "The Rotation Mirror by Copa + Glas" }],
   },
 };
 
