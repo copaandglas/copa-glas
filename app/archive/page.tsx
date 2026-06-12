@@ -20,7 +20,7 @@ interface ArchiveItem {
 /* ─── Archive content ─── */
 const row1Left: ArchiveItem = {
   id: "bigben",
-  src: "/bigben.png",
+  src: "/bigben.jpg",
   alt: "Big Ben Clock tower — architectural glazing commission",
   caption: "Big Ben Clock tower",
   category: "Historic Commissions",
@@ -28,7 +28,7 @@ const row1Left: ArchiveItem = {
 };
 const row1Right: ArchiveItem = {
   id: "naturalhistory",
-  src: "/naturalhistory.png",
+  src: "/naturalhistory.jpg",
   alt: "Natural History Museum — architectural glazing commission",
   caption: "Natural History Museum",
   category: "Historic Commissions",
