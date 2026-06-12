@@ -81,7 +81,7 @@ export default function ConfigurePage() {
           "
         >
           Each piece holds glass and copper shaped by hand in East London. Choose the
-          iridescent finish that belongs in your room, lift the light, and send your
+          glass finish that belongs in your room, lift the light, and send your
           note when the piece feels like yours.
         </motion.p>
 

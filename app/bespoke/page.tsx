@@ -251,7 +251,7 @@ export default function BespokePage() {
               {[
                 { figure: "40+", label: "Years of craft experience" },
                 { figure: "6–8", label: "Week lead time, standard commission" },
-                { figure: "London", label: "Studio visits by appointment" },
+                { figure: "London", label: "Made in East London" },
               ].map((stat, i) => (
                 <li
                   key={stat.figure}
@@ -599,10 +599,10 @@ export default function BespokePage() {
               "
             >
               <p>
-                Our private commissions begin with a studio visit. You come to
-                East London, you see the copper being worked, the glass being
-                cut. Anthony shows you what is possible. Most clients leave
-                knowing exactly what they want.
+                Our private commissions begin with a conversation. You tell us
+                about the space — the light, the room, what you want it to feel
+                like. Anthony sends material samples and drawings. Most clients
+                know exactly what they want after a single exchange.
               </p>
               <p>
                 The Aura sconce was developed for a private client who wanted
@@ -646,8 +646,8 @@ export default function BespokePage() {
             },
             {
               num: "02",
-              title: "Visit the studio",
-              body: "Serious commissions begin in person. You come to our East London studio, meet Anthony, see the materials and the process. Drawings and samples are prepared to refine the brief.",
+              title: "See the work",
+              body: "Material samples and drawings are prepared specific to your project. Anthony walks you through each decision — glass, copper finish, scale, proportion. Most briefs are resolved in a single exchange.",
             },
             {
               num: "03",
