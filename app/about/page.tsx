@@ -216,7 +216,7 @@ export default function AboutPage() {
               Bradley McWhinney
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
-              Co-founder / Managing Director
+              Founder and Creative Director
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
             <div
