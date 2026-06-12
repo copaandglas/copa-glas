@@ -227,10 +227,10 @@ export default function AboutPage() {
               "
             >
               <p>
-                Bradley co-founded Copa + Glas and leads its creative and ideative
-                direction, shaping how the studio thinks, makes, and presents
-                itself. His background in design runs through everything — the
-                work, the commissions, and the way new ideas take form.
+                Bradley leads the creative and ideative direction of the studio,
+                shaping how Copa + Glas thinks, makes, and presents itself. His
+                background in design runs through everything — the work, the
+                commissions, and the way new ideas take form.
               </p>
               <p>
                 He also oversees the day-to-day running of the business, and
