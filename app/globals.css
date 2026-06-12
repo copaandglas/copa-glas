@@ -36,8 +36,15 @@ body {
 
 /* ---- Selection ---- */
 ::selection {
-  background: rgba(0, 0, 0, 0.08);
-  color: var(--color-fg);
+  background: rgba(139, 69, 19, 0.18);
+  color: #000;
+}
+
+/* Dark backgrounds (hero, bespoke section, menu overlay) */
+.bg-dark ::selection,
+.text-white ::selection {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 
 /* ---- Focus ---- */
