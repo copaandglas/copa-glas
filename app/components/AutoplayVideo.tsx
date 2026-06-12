@@ -64,7 +64,7 @@ export default function AutoplayVideo({ className, children, ...props }: Autopla
       loop
       muted
       playsInline
-      preload="auto"
+      preload="none"
       className={className}
       {...props}
     >

@@ -94,9 +94,9 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
           className={`
-            object-cover will-change-[transform,opacity]
+            object-cover
             transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-            group-hover:scale-[1.025] group-hover:duration-[2000ms]
+            group-hover:scale-[1.025] group-hover:duration-[2000ms] group-hover:will-change-[transform,opacity]
             ${work.desktopImage ? "sm:opacity-0 sm:group-hover:opacity-100" : work.hoverImage ? "sm:group-hover:opacity-0" : ""}
           `}
         />
@@ -106,9 +106,9 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
             alt="" aria-hidden fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
             className="
-              hidden sm:block object-cover will-change-[transform,opacity]
+              hidden sm:block object-cover
               transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-              group-hover:opacity-0 group-hover:scale-[1.025] group-hover:duration-[2000ms]
+              group-hover:opacity-0 group-hover:scale-[1.025] group-hover:duration-[2000ms] group-hover:will-change-[transform,opacity]
               pointer-events-none
             "
           />
@@ -119,9 +119,9 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
             alt="" aria-hidden fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
             className="
-              hidden sm:block object-cover will-change-[transform,opacity] opacity-0
+              hidden sm:block object-cover opacity-0
               transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
-              group-hover:opacity-100 group-hover:scale-[1.025] group-hover:duration-[2000ms]
+              group-hover:opacity-100 group-hover:scale-[1.025] group-hover:duration-[2000ms] group-hover:will-change-[transform,opacity]
               pointer-events-none
             "
           />
@@ -170,10 +170,12 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
 }
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-  const [viewportH, setViewportH] = useState(0);
   const reduced = useReducedMotion();
   const annealingRef = useRef<HTMLVideoElement>(null);
+  const heroBgRef = useRef<HTMLImageElement>(null);
+  const heroOverlayRef = useRef<HTMLDivElement>(null);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const [headerVariant, setHeaderVariant] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const video = annealingRef.current;
@@ -198,28 +200,48 @@ export default function Home() {
       video.removeEventListener("canplay", onCanPlay);
     };
   }, []);
+
   const rise = (y: number) => (reduced ? { opacity: 0 } : { opacity: 0, y });
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    const handleResize = () => setViewportH(window.innerHeight);
-    handleResize();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
+    let viewportH = window.innerHeight;
+    let headerDark = false;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      // Direct DOM writes — no React re-render
+      if (heroBgRef.current) {
+        const blur = Math.max(0, 25 - (y / 200) * 25);
+        heroBgRef.current.style.filter = `blur(${blur}px)`;
+      }
+      if (heroOverlayRef.current) {
+        const overlay = Math.max(0, 0.5 - (y / 250) * 0.5);
+        heroOverlayRef.current.style.opacity = String(overlay);
+      }
+      if (heroSectionRef.current) {
+        const text = Math.max(0, 1 - y / 300);
+        heroSectionRef.current.style.opacity = String(text);
+      }
+
+      // Only trigger a React re-render when the header variant actually flips
+      const shouldBeDark = viewportH > 0 && y > viewportH * 0.7;
+      if (shouldBeDark !== headerDark) {
+        headerDark = shouldBeDark;
+        setHeaderVariant(shouldBeDark ? "dark" : "light");
+      }
+    };
+
+    const onResize = () => { viewportH = window.innerHeight; };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
-
-  const blurAmount = Math.max(0, 25 - (scrollY / 200) * 25);
-  const textOpacity = Math.max(0, 1 - scrollY / 300);
-  const overlayOpacity = Math.max(0, 0.5 - (scrollY / 250) * 0.5);
-
-  // Switch header to dark once we've scrolled into the white section
-  // (a little before the section reaches the top so it doesn't lag).
-  const headerVariant: "light" | "dark" =
-    viewportH > 0 && scrollY > viewportH * 0.7 ? "dark" : "light";
 
   return (
     <div className="w-full min-w-0 box-border bg-white">
@@ -232,12 +254,13 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover scale-110 transition-[filter] duration-150 ease-out"
-          style={{ filter: `blur(${blurAmount}px)` }}
+          className="object-cover scale-110"
+          ref={heroBgRef as React.Ref<HTMLImageElement>}
         />
         <div
-          className="absolute inset-0 bg-black transition-opacity duration-150 ease-out"
-          style={{ opacity: overlayOpacity }}
+          ref={heroOverlayRef}
+          className="absolute inset-0 bg-black"
+          style={{ opacity: 0.5 }}
         />
       </div>
 
@@ -245,6 +268,7 @@ export default function Home() {
 
       {/* ── Hero (grey/dark background scroll) ───────────────── */}
       <section
+        ref={heroSectionRef}
         className="
           relative z-10 h-screen w-full box-border
           max-w-full sm:max-w-[min(90%,520px)] lg:max-w-[520px] xl:max-w-[600px]
@@ -258,7 +282,6 @@ export default function Home() {
           lg:px-[max(1.75rem,env(safe-area-inset-left))]
           xl:px-[max(2rem,env(safe-area-inset-left))]
         "
-        style={{ opacity: textOpacity, transition: "opacity 0.15s ease-out" }}
       >
         <p className="
           text-[15px] sm:text-base lg:text-lg xl:text-xl
@@ -349,7 +372,7 @@ export default function Home() {
                   <video
                     ref={annealingRef}
                     src="/Annealing.MP4"
-                    autoPlay loop muted playsInline preload="auto"
+                    autoPlay loop muted playsInline preload="none"
                     aria-label="Annealing process in the C+G Workshop"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
