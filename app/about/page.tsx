@@ -227,10 +227,10 @@ export default function AboutPage() {
               "
             >
               <p>
-                Bradley leads the creative and ideative direction of the studio,
-                shaping how Copa + Glas thinks, makes, and presents itself. His
-                background in design runs through everything — the work, the
-                commissions, and the way new ideas take form.
+                Bradley&apos;s background is in design, and that sensibility
+                runs through the ideative side of the studio — how new ideas
+                develop, how commissions are approached, and how Copa + Glas
+                presents its work.
               </p>
               <p>
                 He also oversees the day-to-day running of the business, and
