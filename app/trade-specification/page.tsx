@@ -88,8 +88,8 @@ const PROGRAMME_ITEMS = [
   },
   {
     num: "06",
-    title: "Studio visits by appointment",
-    body: "We welcome design professionals to our East London studio. See the copper being worked and the glass being cut. Most of our strongest trade relationships began with a studio visit.",
+    title: "Samples by appointment",
+    body: "Material samples and studio drawings are available for all trade enquiries. We are happy to meet at your office or on site to discuss a specification in detail.",
   },
 ];
 
@@ -136,7 +136,7 @@ const HOW_IT_WORKS = [
 /* ── Spec table ──────────────────────────────────────────────────────────── */
 const SPEC_TABLE = [
   { label: "Minimum order", value: "No minimum" },
-  { label: "Studio visits", value: "Welcome by appointment" },
+  { label: "Meetings", value: "By appointment" },
   { label: "Response time", value: "Within 2 working days" },
   { label: "Worldwide delivery", value: "Available on all commissions" },
 ];

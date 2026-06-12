@@ -123,7 +123,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     paragraphs: [
       "All copper used in Copa + Glas pieces is hand-formed and will naturally exhibit tonal variation. This is not a flaw. It is a hallmark of the hand-making process and the character of the material itself. Copper is a living material; it will age and develop its own patina over time, which we consider part of the beauty of the object.",
       "Where iridescent or art glass is used, as in our limited edition pieces and selected collaborative works, each panel is unique. No two pieces will be identical in colour or light behaviour. This is the nature of the material and cannot be guaranteed to match any reference sample.",
-      "All pieces are intended for indoor use only unless explicitly specified otherwise. Care instructions are provided with every piece and should be followed carefully to preserve the finish. Metal cleaning products should never be used on copper as they will strip the surface.",
+      "All pieces are intended for indoor use only. Metal cleaning products should never be used on copper as they will strip the surface. Full care and installation guidance is set out in section 10.",
     ],
   },
   {
@@ -150,7 +150,8 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "10",
     title: "Care & Installation",
     paragraphs: [
-      "Every Copa + Glas piece is supplied with care instructions. These should be read carefully and followed closely to preserve the finish and the integrity of the work over time.",
+      "Every Copa + Glas piece is designed for internal use only. Mirrors and lighting should not be installed in outdoor spaces, bathrooms, wet rooms, or against walls that are damp or subject to moisture. Exposure to humidity or condensation will damage the copper frame, the glass backing, and the silvering over time.",
+      "To clean, use a dry cloth only. No chemical cleaners, glass sprays, or liquids of any kind should be applied to the surface. Moisture will damage the silvering behind the glass and cannot be repaired without remaking the panel.",
       "Our in-house specialised delivery service includes installation for UK deliveries. For international installations, please contact us at the point of enquiry to discuss what is available in your location.",
       "Where installation is carried out by a third party, Copa + Glas cannot accept responsibility for damage resulting from improper fitting or handling. The client is responsible for ensuring the wall or surface to which the piece is fixed is structurally suitable. Fixing specifications are available on request.",
     ],

@@ -13,7 +13,7 @@ const productMeta: Record<string, { title: string; description: string; ogImage:
   },
   "fibonacci-mirror": {
     title: "Fibonacci Mirror",
-    description: "Nested rectangles drawn from the golden ratio, resolved in hand-cut silvered glass and slender lines of solid copper. 65 × 90cm. From £5,500.",
+    description: "Nested squares drawn from the golden ratio, resolved in hand-cut silvered glass and slender lines of solid copper. 65 × 90cm. From £5,500.",
     ogImage: "/og-fibonacci-mirror.jpg",
   },
   "frank-lloyd-wright-mirror": {

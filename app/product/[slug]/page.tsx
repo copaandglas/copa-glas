@@ -143,10 +143,10 @@ const fibonacciMirror: ProductData = {
   designer: "Copa + Glas Studio",
   name: "Fibonacci Mirror",
   size: "",
-  description: `The Fibonacci mirror explores proportion through nested rectangles, a spiralling geometry drawn from the golden ratio, resolved in hand-cut silvered glass and slender lines of solid, hand-formed copper.
+  description: `The Fibonacci mirror explores proportion through nested squares, a spiralling geometry drawn from the golden ratio, resolved in hand-cut silvered glass and slender lines of solid, hand-formed copper.
 
 Each panel catches light differently, so the composition shifts subtly as you move through the room.`,
-  provenance: `Made to order in our East London workshop, where every joint is soldered and finished by hand.`,
+  provenance: `Made to order in our East London workshop, where each joint is cut by hand.`,
   material: "Solid copper; hand-cut silvered glass",
   dimensions: { cm: "65 × 90cm", inches: "25.6 × 35.4in" },
   finish: "Copper hand-finished in the studio",
@@ -183,7 +183,7 @@ const auraWallLight: ProductData = {
   size: "",
   description: `The Aura wall light is a composition of hand-formed copper and hand-finished glass, drawn into the glow of a room. Scale, proportion, glass finish, and colour are shaped to the space it lives in.
 
-The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of iridescent art glass, which shifts in colour as the room moves around it. Each Aura is made once, to the room it belongs in.
+The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of vibrant coloured art glass, beautifully harmonious with the brushed copper frame. Each Aura is made once, to the room it belongs in.
 
 Each Aura is a bespoke object — scale, finish, and configuration are resolved in conversation with the studio.`,
   provenance: `Made to order in our East London workshop, each Aura is assembled and finished by hand before leaving the studio.`,

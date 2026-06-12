@@ -14,7 +14,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     shortName: "Corella Orange",
     hex: "#d45210",
     image: "/corella-orange.jpg",
-    desc: "A single pane of iridescent orange art glass, which shifts in colour as the room moves around it. Beautifully harmonious with the brushed copper frame.",
+    desc: "Vibrant coloured art glass — beautifully harmonious with the brushed copper frame.",
   },
   {
     id: "emerald",
