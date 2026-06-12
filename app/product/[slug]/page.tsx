@@ -155,7 +155,7 @@ Each panel catches light differently, so the composition shifts subtly as you mo
   images: [
     { src: "/fibonacci-mirror-mantel.png" },
     { src: "/fibonacciclose1.jpg" },
-    { src: "/Fibonacciclose2.png" },
+    { src: "/Fibonacciclose2.jpg" },
   ],
   collectionCategory: { href: "/mirrors", label: "Mirrors" },
 };
@@ -173,7 +173,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
   finish: "Copper hand-finished in the studio",
   leadTime: "6–8 weeks",
   price: "Price on request",
-  images: [{ src: "/frank-lloyd-wright-mirror-main.png", objectFit: "contain" }, { src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.png" }],
+  images: [{ src: "/frank-lloyd-wright-mirror-main.jpg", objectFit: "contain" }, { src: "/frank-lloyd-wright-mirror.png" }, { src: "/frank-lloyd-wright-plate.jpg" }],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
 
@@ -231,7 +231,7 @@ Assembled and finished to order in our East London workshop.`,
   images: [
     { src: "/rotation-confetti-mirror.png" },
     { src: "/mirror-thumbnail.png" },
-    { src: "/rotation-confetti-plaque.png" },
+    { src: "/rotation-confetti-plaque.jpg" },
   ],
   collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
 };
