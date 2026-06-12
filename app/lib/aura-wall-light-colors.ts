@@ -13,7 +13,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "Corella Orange Glass",
     shortName: "Corella Orange",
     hex: "#d45210",
-    image: "/corella-orange.png",
+    image: "/corella-orange.jpg",
     desc: "A single pane of iridescent orange art glass, which shifts in colour as the room moves around it. Beautifully harmonious with the brushed copper frame.",
   },
   {
@@ -37,7 +37,7 @@ export const AURA_COLOR_OPTIONS: AuraColorOption[] = [
     name: "Antique Opalescent Red Wispy Glass",
     shortName: "Antique Red",
     hex: "#cc1a1a",
-    image: "/antique-wispy-red.png",
+    image: "/antique-wispy-red.jpg",
     desc: "A deep, warm red with a wispy, hand-made quality — each pane unique in tone and texture, drawing the eye before the light is even lit.",
   },
   {
