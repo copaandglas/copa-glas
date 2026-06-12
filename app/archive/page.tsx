@@ -53,7 +53,7 @@ const row2Items: ArchiveItem[] = [
   },
   {
     id: "master-craftsman",
-    src: "/ammastercraftsman.png",
+    src: "/ammastercraftsman.jpg",
     alt: "Anthony McCarty, Walthamstow Workshop, 2003",
     caption: "Anthony McCarty, Walthamstow Workshop",
     category: "Workshop",
