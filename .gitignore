@@ -26,6 +26,12 @@
 Screenshot*.png
 /copalogoblack.png
 
+# business cards (local print tooling, invoices, previews)
+.cardbuild/
+.cardfonts/
+.cardvenv/
+*copa-glas-business-card*.pdf
+
 # debug
 npm-debug.log*
 yarn-debug.log*
