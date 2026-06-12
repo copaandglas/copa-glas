@@ -216,7 +216,7 @@ export default function AboutPage() {
               Bradley McWhinney
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
-              Founder and Creative Director
+              Co-founder / Creative Director
             </p>
             <div className="w-8 h-px bg-black/12 mb-6" />
             <div
@@ -227,10 +227,10 @@ export default function AboutPage() {
               "
             >
               <p>
-                Bradley leads the creative and ideative direction of the studio,
-                shaping how Copa + Glas thinks, makes, and presents itself. His
-                background in design runs through everything — the work, the
-                commissions, and the way new ideas take form.
+                Bradley co-founded Copa + Glas and leads its creative and ideative
+                direction, shaping how the studio thinks, makes, and presents
+                itself. His background in design runs through everything — the
+                work, the commissions, and the way new ideas take form.
               </p>
               <p>
                 He also oversees the day-to-day running of the business, and
