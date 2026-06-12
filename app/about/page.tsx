@@ -227,14 +227,15 @@ export default function AboutPage() {
               "
             >
               <p>
-                Bradley oversees the direction and day-to-day running of the
-                studio. His background is in design, and that sensibility shapes
-                how Copa + Glas presents itself: the work, the commissions, and
-                the relationships it builds.
+                Bradley leads the creative and ideative direction of the studio,
+                shaping how Copa + Glas thinks, makes, and presents itself. His
+                background in design runs through everything — the work, the
+                commissions, and the way new ideas take form.
               </p>
               <p>
-                He believes that the commercial and the craft should never be at
-                odds. A well-run studio makes better work.
+                He also oversees the day-to-day running of the business, and
+                believes the commercial and the craft should never be at odds.
+                A well-run studio makes better work.
               </p>
             </div>
           </motion.div>
