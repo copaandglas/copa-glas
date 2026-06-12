@@ -92,7 +92,7 @@ export default function AboutPage() {
               "
             >
               <p>
-                Copa + Glas was founded in 2021 by Anthony Mccarty and Bradley Mcwhinney. What began as a workshop conversation
+                Copa + Glas was founded in 2021 by Anthony McCarty and Bradley McWhinney. What began as a workshop conversation
                 has grown into a small studio of skilled craftspeople, comfortable
                 across materials, processes, and brief.
               </p>
@@ -113,7 +113,7 @@ export default function AboutPage() {
           >
             <Image
               src="/founders.png"
-              alt="Bradley Mcwhinney and Anthony Mccarty, Copa + Glas founders"
+              alt="Bradley McWhinney and Anthony McCarty, Copa + Glas founders"
               width={746}
               height={1024}
               priority
@@ -121,8 +121,8 @@ export default function AboutPage() {
               className="w-full h-auto"
             />
             <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/45 font-medium flex justify-between">
-              <span>Bradley Mcwhinney</span>
-              <span>Anthony Mccarty</span>
+              <span>Bradley McWhinney</span>
+              <span>Anthony McCarty</span>
             </p>
           </motion.div>
         </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 leading-[1.15] font-normal mb-1
               "
             >
-              Anthony Mccarty
+              Anthony McCarty
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
               Co-founder / Master Craftsman
@@ -213,7 +213,7 @@ export default function AboutPage() {
                 leading-[1.15] font-normal mb-1
               "
             >
-              Bradley Mcwhinney
+              Bradley McWhinney
             </h2>
             <p className="text-[9px] tracking-[0.2em] uppercase text-black/55 font-medium mb-6">
               Co-founder / Managing Director
