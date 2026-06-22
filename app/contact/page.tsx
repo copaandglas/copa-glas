@@ -198,7 +198,7 @@ export default function ContactPage() {
                 </h1>
               </div>
 
-              {/* Email + Studio (horizontal on sm+) */}
+              {/* Email, telephone + Studio */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8">
                 <div>
                   <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Email</p>
@@ -212,6 +212,20 @@ export default function ContactPage() {
                     "
                   >
                     studio@copaandglas.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Telephone</p>
+                  <a
+                    href="tel:+442080643753"
+                    className="
+                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      text-[16px] md:text-[17px] text-inherit no-underline
+                      border-b border-black/20 pb-0.5
+                      hover:border-black/70 transition-colors duration-500
+                    "
+                  >
+                    Tel: +44 (0)20 8064 3753
                   </a>
                 </div>
                 <div>

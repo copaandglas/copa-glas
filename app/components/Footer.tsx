@@ -172,12 +172,20 @@ export default function Footer() {
               East London<br />
               England
             </p>
-            <a
-              href="mailto:studio@copaandglas.com"
-              className="footer-link inline border-b border-white/20 pb-0.5 hover:border-white/50"
-            >
-              studio@copaandglas.com
-            </a>
+            <div className="space-y-3">
+              <a
+                href="mailto:studio@copaandglas.com"
+                className="footer-link inline border-b border-white/20 pb-0.5 hover:border-white/50"
+              >
+                studio@copaandglas.com
+              </a>
+              <a
+                href="tel:+442080643753"
+                className="footer-link inline border-b border-white/20 pb-0.5 hover:border-white/50"
+              >
+                Tel: +44 (0)20 8064 3753
+              </a>
+            </div>
 
             <div className="flex gap-4 mt-5">
               <a href="https://www.instagram.com/copaandglas" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon">
