@@ -1,11 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-
-const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 type TermsList = {
   title: string;
@@ -192,10 +187,6 @@ function TermsParagraphs({ paragraphs }: { paragraphs: string[] }) {
 }
 
 export default function TermsPage() {
-  const reduced = useReducedMotion();
-  const from = (y: number) =>
-    reduced ? { opacity: 0 } : { opacity: 0, y };
-
   return (
     <div className="min-h-screen bg-white text-dark">
       <Header variant="dark" />
@@ -210,10 +201,7 @@ export default function TermsPage() {
         "
       >
         <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
-          <motion.nav
-            initial={from(8)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease }}
+          <nav
             aria-label="Breadcrumb"
             className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-14 md:mb-20"
           >
@@ -225,23 +213,15 @@ export default function TermsPage() {
             </Link>
             <span className="opacity-25 mx-2">/</span>
             <span className="opacity-90">Terms of Sale</span>
-          </motion.nav>
+          </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
             <header className="lg:col-span-5 lg:sticky lg:top-28">
-              <motion.p
-                initial={from(8)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.1, delay: 0.05, ease }}
-                className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-7"
-              >
+              <p className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-7">
                 Information
-              </motion.p>
+              </p>
 
-              <motion.h1
-                initial={from(20)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.3, delay: 0.12, ease }}
+              <h1
                 className="
                   font-[family-name:var(--font-playfair),Georgia,serif]
                   text-[clamp(2.5rem,6vw,4.25rem)]
@@ -250,22 +230,11 @@ export default function TermsPage() {
                 "
               >
                 Terms of Sale
-              </motion.h1>
+              </h1>
 
-              <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.28, ease }}
-                style={{ originX: 0 }}
-                className="w-10 h-px bg-black/15 mb-8"
-              />
+              <div className="w-10 h-px bg-black/15 mb-8" />
 
-              <motion.p
-                initial={from(14)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.3, delay: 0.22, ease }}
-                className={`max-w-[32rem] ${BODY}`}
-              >
+              <p className={`max-w-[32rem] ${BODY}`}>
                 Every Copa + Glas piece is made to order by hand in our East London
                 studio. Please read these terms carefully before placing an order. If
                 you have any questions, we are always available at{" "}
@@ -276,19 +245,15 @@ export default function TermsPage() {
                   studio@copaandglas.com
                 </a>
                 .
-              </motion.p>
+              </p>
             </header>
 
             <div className="lg:col-span-7">
               <div className="divide-y divide-black/[0.08]">
-                {TERMS_SECTIONS.map((section, i) => (
-                  <motion.section
+                {TERMS_SECTIONS.map((section) => (
+                  <section
                     key={section.num}
                     id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
-                    initial={from(18)}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-6% 0px" }}
-                    transition={{ duration: 1.2, delay: (i % 3) * 0.06, ease }}
                     className="py-10 md:py-12 first:pt-0"
                   >
                     <p
@@ -359,15 +324,11 @@ export default function TermsPage() {
                     {section.footer && (
                       <div className={`mt-6 ${BODY}`}>{section.footer}</div>
                     )}
-                  </motion.section>
+                  </section>
                 ))}
               </div>
 
-              <motion.aside
-                initial={from(14)}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-6% 0px" }}
-                transition={{ duration: 1.2, ease }}
+              <aside
                 className="
                   mt-12 md:mt-16 pt-10 md:pt-12
                   border-t border-black/[0.08]
@@ -385,7 +346,7 @@ export default function TermsPage() {
                   . We respond to all enquiries within 24 hours. These terms were
                   last updated May 2026.
                 </p>
-              </motion.aside>
+              </aside>
             </div>
           </div>
         </div>
