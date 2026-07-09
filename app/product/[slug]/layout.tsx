@@ -33,7 +33,7 @@ const productMeta: Record<string, { title: string; description: string; ogImage:
   },
   "three-geishas": {
     title: "Three Geishas",
-    description: "A collaborative piece with artist Lucy Williams — solid copper, Welsh slate, and photographic print. Made to order.",
+    description: "A collaborative piece with artist Lucy Williams — solid copper, Welsh slate, and a limited-edition photographic print. Made to order.",
     ogImage: "/og-three-geishas.jpg",
   },
 };
