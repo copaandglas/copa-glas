@@ -168,6 +168,7 @@ export default function CollaborativePage() {
             <p className="mt-3 text-[8px] tracking-[0.16em] uppercase text-black/45 font-medium">
               <span className="block">Three Geishas</span>
               <span className="block mt-1">In collaboration with Lucy Williams</span>
+              <span className="block mt-1">Limited-edition photographic print</span>
             </p>
             <Link
               href="/product/three-geishas"
