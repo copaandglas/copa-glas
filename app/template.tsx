@@ -1,15 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-
+// A new template instance mounts on every navigation, replaying the fade.
 export default function Template({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.22, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="page-fade">{children}</div>;
 }

@@ -184,6 +184,7 @@ export default function MirrorsPage() {
                     src={mirror.image}
                     alt={`${mirror.name}, ${mirror.tagline}`}
                     fill
+                    priority={i < 3}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className={`
                       object-cover will-change-[transform,opacity]

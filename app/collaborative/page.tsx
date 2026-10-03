@@ -161,6 +161,7 @@ export default function CollaborativePage() {
                 src="/copaxlucywilliams.jpg"
                 alt="Three Geishas — Copa + Glas in collaboration with Lucy Williams"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />

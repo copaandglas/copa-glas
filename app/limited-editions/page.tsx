@@ -172,6 +172,7 @@ export default function LimitedEditionsPage() {
                     src={piece.image}
                     alt={`${piece.name}, ${piece.tagline}`}
                     fill
+                    priority={i < 2}
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className={`
                       object-cover will-change-[transform,opacity]
