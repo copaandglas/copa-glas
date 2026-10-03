@@ -120,6 +120,17 @@ p, a, h1, h2, h3, h4, h5, h6, li {
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
 
+/* ---- Page fade-in on load and on every navigation ----
+   Starts a hair above zero: browsers do not count fully transparent content
+   as painted, which would hide the page from paint-timing measurements. */
+@keyframes page-fade {
+  from { opacity: 0.01; }
+  to   { opacity: 1; }
+}
+.page-fade {
+  animation: page-fade 0.22s ease-out;
+}
+
 /* ---- Image shimmer while loading ---- */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }

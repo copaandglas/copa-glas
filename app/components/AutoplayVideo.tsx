@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type AutoplayVideoProps = Omit<React.VideoHTMLAttributes<HTMLVideoElement>, "autoPlay"> & {
   children?: React.ReactNode;
@@ -9,6 +9,34 @@ type AutoplayVideoProps = Omit<React.VideoHTMLAttributes<HTMLVideoElement>, "aut
 /**
  * Drop-in replacement for <video autoPlay muted playsInline>.
  *
+ * The <video> element is only mounted once its slot is within half a screen
+ * of the viewport, so off-screen videos are not downloaded on page load.
+ */
+export default function AutoplayVideo({ className, ...props }: AutoplayVideoProps) {
+  const placeholderRef = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    const placeholder = placeholderRef.current;
+    if (!placeholder) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setNear(true);
+      },
+      { rootMargin: "50% 0px" }
+    );
+    observer.observe(placeholder);
+
+    return () => observer.disconnect();
+  }, []);
+
+  if (!near) return <div ref={placeholderRef} className={className} aria-hidden />;
+
+  return <Player className={className} {...props} />;
+}
+
+/**
  * Safari desktop ignores the autoPlay attribute for off-screen elements and
  * can show a play button overlay while the video is buffering. This component
  * handles three scenarios:
@@ -17,7 +45,7 @@ type AutoplayVideoProps = Omit<React.VideoHTMLAttributes<HTMLVideoElement>, "aut
  *      the `canplay` listener fires play() once data arrives.
  *   3. Video has buffered before scrolling into view → observer fires play().
  */
-export default function AutoplayVideo({ className, children, ...props }: AutoplayVideoProps) {
+function Player({ className, children, ...props }: AutoplayVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

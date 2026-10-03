@@ -65,6 +65,7 @@ export default function HomePage() {
           priority
           sizes="100vw"
           className="object-cover scale-110"
+          style={{ filter: "blur(25px)" }}
           ref={heroBgRef as React.Ref<HTMLImageElement>}
         />
         <div

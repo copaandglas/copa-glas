@@ -74,6 +74,11 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        // Self-hosted videos rarely change; let browsers keep them for 30 days.
+        source: "/:all*(mp4|MP4|webm)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
+      },
     ];
   },
 };

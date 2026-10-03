@@ -158,6 +158,7 @@ export default function LightingPage() {
                     src={light.image}
                     alt={`${light.name}, ${light.tagline}`}
                     fill
+                    priority={i < 3}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="
                       object-cover

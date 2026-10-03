@@ -165,6 +165,7 @@ export default function CollectionPage() {
                     src={category.image}
                     alt={`${category.name}, ${category.tagline}`}
                     fill
+                    priority={i < 3}
                     sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                     className={`
                       object-cover will-change-[transform,opacity]
