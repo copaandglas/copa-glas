@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Make Your Own | Copa + Glas Studio",
+  title: "Make Your Own",
   description:
     "Commission Copa + Glas pieces made once, for the rooms they belong in. Begin with the Aura wall light — art glass at the heart of hand-formed copper.",
   robots: { index: false, follow: false },

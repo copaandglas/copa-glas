@@ -343,7 +343,7 @@ export default function TermsPage() {
                   >
                     studio@copaandglas.com
                   </a>
-                  . We respond to all enquiries within 24 hours. These terms were
+                  . We respond to all enquiries within two working days. These terms were
                   last updated May 2026.
                 </p>
               </aside>

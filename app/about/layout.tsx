@@ -1,19 +1,33 @@
-import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { pageMetadata } from "@/app/lib/metadata";
+import { ORG_ID, breadcrumbSchema, webPageSchema } from "@/app/lib/schema";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "The story of Copa + Glas — an East London design studio making handcrafted mirrors and lighting in copper and hand-cut glass.",
-  openGraph: {
-    type: "website",
-    siteName: "Copa + Glas",
-    locale: "en_GB",
-    title: "About — Copa + Glas",
-    description: "The story of Copa + Glas — an East London design studio making handcrafted mirrors and lighting in copper and hand-cut glass.",
-    url: "/about",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
-  },
-};
+const description =
+  "Founded in 2021 by master craftsman Anthony McCarty and Bradley McWhinney, Copa + Glas is an East London studio making mirrors and lighting in copper and hand-cut glass.";
+
+export const metadata = pageMetadata({
+  title: "About the Studio & Its Founders",
+  shareTitle: "About",
+  description,
+  path: "/about",
+});
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            type: "AboutPage",
+            path: "/about",
+            name: "About Copa + Glas",
+            description,
+            extra: { mainEntity: { "@id": ORG_ID } },
+          }),
+          breadcrumbSchema([{ name: "About", path: "/about" }]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }

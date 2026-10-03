@@ -160,6 +160,7 @@ export default function Footer() {
           <div>
             <p className="footer-heading">Information</p>
             <nav>
+              <Link href="/faq" className="footer-link">Questions</Link>
               <Link href="/privacy" className="footer-link">Privacy Policy</Link>
               <Link href="/terms" className="footer-link">Terms of Service</Link>
             </nav>
