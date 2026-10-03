@@ -642,7 +642,7 @@ export default function BespokePage() {
             {
               num: "01",
               title: "Begin a conversation",
-              body: "Tell us about the project, the space, and what you are hoping to achieve. We respond to every enquiry personally, usually within 24 hours.",
+              body: "Tell us about the project, the space, and what you are hoping to achieve. We respond to every enquiry personally, usually within two working days.",
             },
             {
               num: "02",
@@ -799,7 +799,7 @@ export default function BespokePage() {
                   Thank you, {firstName}.
                 </h3>
                 <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/80 max-w-[42ch] mx-auto mb-10">
-                  Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within 24 hours.
+                  Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within two working days.
                 </p>
                 <button
                   type="button"
@@ -1037,7 +1037,7 @@ export default function BespokePage() {
                   </button>
 
                   <p className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium leading-[1.7]">
-                    We respond within 24 hours
+                    We respond within 2 working days
                     <span className="block mt-1">
                       <a
                         href="mailto:studio@copaandglas.com"

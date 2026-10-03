@@ -1,19 +1,33 @@
-import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { pageMetadata } from "@/app/lib/metadata";
+import { ORG_ID, breadcrumbSchema, webPageSchema } from "@/app/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Copa + Glas Studio. Enquire about a piece or begin a commission.",
-  openGraph: {
-    type: "website",
-    siteName: "Copa + Glas",
-    locale: "en_GB",
-    title: "Contact — Copa + Glas",
-    description: "Get in touch with Copa + Glas Studio. Enquire about a piece or begin a commission.",
-    url: "/contact",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
-  },
-};
+const description =
+  "Contact Copa + Glas Studio in East London. Enquire about a mirror or light, begin a bespoke commission, or make a trade or press enquiry.";
+
+export const metadata = pageMetadata({
+  title: "Contact the Studio",
+  shareTitle: "Contact",
+  description,
+  path: "/contact",
+});
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            type: "ContactPage",
+            path: "/contact",
+            name: "Contact Copa + Glas",
+            description,
+            extra: { mainEntity: { "@id": ORG_ID } },
+          }),
+          breadcrumbSchema([{ name: "Contact", path: "/contact" }]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }

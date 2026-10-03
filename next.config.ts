@@ -51,6 +51,15 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: isDev ? 0 : 31536000,
   },
   compress: true,
+  // One canonical host: send www to the apex domain.
+  redirects: async () => [
+    {
+      source: "/:path*",
+      has: [{ type: "host", value: "www.copaandglas.com" }],
+      destination: "https://copaandglas.com/:path*",
+      permanent: true,
+    },
+  ],
   headers: async () => {
     if (isDev) {
       return [

@@ -1,19 +1,28 @@
-import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { pageMetadata } from "@/app/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/app/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Archive",
-  description: "The Copa + Glas archive — a record of commissions, installations, and studio work past and present.",
-  openGraph: {
-    type: "website",
-    siteName: "Copa + Glas",
-    locale: "en_GB",
-    title: "Archive — Copa + Glas",
-    description: "The Copa + Glas archive — a record of commissions, installations, and studio work past and present.",
-    url: "/archive",
-    images: [{ url: "/og-archive.jpg", width: 1200, height: 1200, alt: "Anthony on the face of Big Ben — Copa + Glas" }],
-  },
-};
+const description =
+  "A visual record of four decades of making — Big Ben, the Natural History Museum, Hotel Café Royal — and the workshop of master craftsman Anthony McCarty.";
+
+export const metadata = pageMetadata({
+  title: "Archive: Four Decades of Architectural Glass",
+  shareTitle: "Archive",
+  description,
+  path: "/archive",
+  image: { url: "/og-archive.jpg", width: 1200, height: 1200, alt: "Anthony on the face of Big Ben — Copa + Glas" },
+});
 
 export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({ type: "CollectionPage", path: "/archive", name: "The Copa + Glas Archive", description }),
+          breadcrumbSchema([{ name: "Archive", path: "/archive" }]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }

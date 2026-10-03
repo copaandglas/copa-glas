@@ -1,19 +1,33 @@
-import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { pageMetadata } from "@/app/lib/metadata";
+import { productsInCategory } from "@/app/lib/products";
+import { breadcrumbSchema, itemListSchema, webPageSchema } from "@/app/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Limited Editions",
-  description: "Limited edition mirrors by Copa + Glas Studio — each work limited to ten worldwide, numbered and certificated.",
-  openGraph: {
-    type: "website",
-    siteName: "Copa + Glas",
-    locale: "en_GB",
-    title: "Limited Editions — Copa + Glas",
-    description: "Limited edition mirrors by Copa + Glas Studio — each work limited to ten worldwide, numbered and certificated.",
-    url: "/limited-editions",
-    images: [{ url: "/og-rotation-confetti-mirror.jpg", width: 1200, height: 1200, alt: "The Rotation Confetti Mirror by Copa + Glas" }],
-  },
-};
+const description =
+  "Limited edition mirrors by Copa + Glas Studio — each work limited to ten worldwide, numbered and certificated.";
+
+export const metadata = pageMetadata({
+  title: "Limited Edition Mirrors in Copper & Art Glass",
+  shareTitle: "Limited Editions",
+  description,
+  path: "/limited-editions",
+  image: { url: "/og-rotation-confetti-mirror.jpg", width: 1200, height: 1200, alt: "The Rotation Confetti Mirror by Copa + Glas" },
+});
 
 export default function LimitedEditionsLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({ type: "CollectionPage", path: "/limited-editions", name: "Copa + Glas Limited Editions", description }),
+          itemListSchema("Copa + Glas Limited Editions", productsInCategory("/limited-editions")),
+          breadcrumbSchema([
+            { name: "Collection", path: "/collection" },
+            { name: "Limited Editions", path: "/limited-editions" },
+          ]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,19 +1,27 @@
-import type { Metadata } from "next";
+import JsonLd from "@/app/components/JsonLd";
+import { pageMetadata } from "@/app/lib/metadata";
+import { breadcrumbSchema, serviceSchema } from "@/app/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Trade & Specification",
-  description: "Trade enquiries and specification information for Copa + Glas Studio. We work with interior designers, architects, and specification professionals.",
-  openGraph: {
-    type: "website",
-    siteName: "Copa + Glas",
-    locale: "en_GB",
-    title: "Trade & Specification — Copa + Glas",
-    description: "Trade enquiries and specification information for Copa + Glas Studio. We work with interior designers, architects, and specification professionals.",
-    url: "/trade-specification",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Copa + Glas Studio — handcrafted mirrors and lighting in copper and glass, East London" }],
-  },
-};
+const description =
+  "The Copa + Glas trade programme for interior designers, architects, and hospitality practices — preferential pricing, a named studio contact, and bespoke specification support.";
+
+export const metadata = pageMetadata({
+  title: "Trade Programme for Designers & Architects",
+  shareTitle: "Trade & Specification",
+  description,
+  path: "/trade-specification",
+});
 
 export default function TradeSpecificationLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={[
+          serviceSchema({ name: "Copa + Glas trade and specification programme", description, path: "/trade-specification" }),
+          breadcrumbSchema([{ name: "Trade & Specification", path: "/trade-specification" }]),
+        ]}
+      />
+      {children}
+    </>
+  );
 }
