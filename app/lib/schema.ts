@@ -139,6 +139,16 @@ export function productSchema(product: ProductData) {
     brand: { "@type": "Brand", name: SITE_NAME },
     manufacturer: { "@id": ORG_ID },
     countryOfOrigin: { "@type": "Country", name: "United Kingdom" },
+    ...(product.spec && {
+      depth: { "@type": "QuantitativeValue", value: product.spec.depthCm, unitCode: "CMT" },
+      weight: { "@type": "QuantitativeValue", value: product.spec.weightKg, unitCode: "KGM" },
+      subjectOf: {
+        "@type": "DigitalDocument",
+        name: `${product.name} specification sheet`,
+        encodingFormat: "application/pdf",
+        url: absoluteUrl(product.spec.sheet),
+      },
+    }),
     additionalProperty: [
       { "@type": "PropertyValue", name: "Dimensions", value: `${product.dimensions.cm} (${product.dimensions.inches})` },
       { "@type": "PropertyValue", name: "Finish", value: product.finish },
