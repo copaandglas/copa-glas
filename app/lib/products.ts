@@ -17,6 +17,13 @@ export interface ProductData {
   dimensions: { cm: string; inches: string };
   finish: string;
   leadTime: string;
+  /** From the studio's specification sheet, where one exists. */
+  spec?: {
+    depthCm: number;
+    weightKg: number;
+    weightLb: number;
+    sheet: string;
+  };
   price: string;
   /** Listed price in GBP, tax included. Omitted for pieces priced on request. */
   priceGBP?: number;
@@ -36,10 +43,16 @@ export const products: ProductData[] = [
 
 The result is a subtle, shifting perspective, a refractive depth that intensifies as one moves through the space. It is a piece designed not just to reflect an interior, but to articulate the light within it.`,
     provenance: `Hand-formed in our East London workshop, the Rotation series has been commissioned for architectural environments of note, including the Burberry flagship on Regent Street.`,
-    material: "Solid copper; hand-cut silvered glass",
+    material: "Solid copper; hand-cut silvered glass; birch ply backing board",
     dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
     finish: "Copper hand-finished in the studio",
     leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2.8,
+      weightKg: 20,
+      weightLb: 44,
+      sheet: "/specs/copa-glas-rotation-mirror-specification.pdf",
+    },
     price: "£6,000.00",
     priceGBP: 6000,
     images: [
@@ -64,10 +77,16 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
 
 Each pane sits within its own frame; the interplay of line and reflection reads differently from every angle in the room.`,
     provenance: `Made to order in our East London workshop, where each joint is formed and fitted by hand.`,
-    material: "Solid copper; hand-cut silvered glass",
+    material: "Solid copper; hand-cut silvered glass; birch ply backing board",
     dimensions: { cm: "69.5 × 100.5cm", inches: "27.4 × 39.6in" },
     finish: "Copper hand-finished in the studio",
     leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2.8,
+      weightKg: 19,
+      weightLb: 42,
+      sheet: "/specs/copa-glas-mondrian-mirror-specification.pdf",
+    },
     price: "£8,500.00",
     priceGBP: 8500,
     images: [
@@ -92,10 +111,16 @@ Each pane sits within its own frame; the interplay of line and reflection reads 
 
 Each panel catches light differently, so the composition shifts subtly as you move through the room.`,
     provenance: `Made to order in our East London workshop, where each joint is cut by hand.`,
-    material: "Solid copper; hand-cut silvered glass",
+    material: "Solid copper; hand-cut silvered glass; birch ply backing board",
     dimensions: { cm: "65 × 90cm", inches: "25.6 × 35.4in" },
     finish: "Copper hand-finished in the studio",
     leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2.8,
+      weightKg: 19,
+      weightLb: 42,
+      sheet: "/specs/copa-glas-fibonacci-mirror-specification.pdf",
+    },
     price: "£5,500.00",
     priceGBP: 5500,
     images: [

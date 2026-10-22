@@ -71,7 +71,9 @@ export const faqSections: FaqSection[] = [
         question: "What are the dimensions of the mirrors?",
         answer: `${list(
           mirrors.map((p) => `${named(p.name)} is ${p.dimensions.cm.replace("cm Diameter", "cm in diameter")}`),
-        ).replace(/^t/, "T")}. Any piece may be rescaled or reconfigured as a commission.`,
+        ).replace(/^t/, "T")}. Each is ${mirrors[0].spec!.depthCm}cm deep and weighs between ${Math.min(
+          ...mirrors.map((p) => p.spec!.weightKg),
+        )} and ${Math.max(...mirrors.map((p) => p.spec!.weightKg))}kg, with a birch ply backing board. Any piece may be rescaled or reconfigured as a commission.`,
       },
       {
         question: "How are the limited editions produced and authenticated?",

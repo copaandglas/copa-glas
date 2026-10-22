@@ -331,6 +331,10 @@ export default function ProductView({ product }: { product: ProductData }) {
                 {[
                   { label: "Materials", value: product.material },
                   { label: "Dimensions", value: product.dimensions.cm },
+                  ...(product.spec ? [
+                    { label: "Depth", value: `${product.spec.depthCm}cm` },
+                    { label: "Weight", value: `${product.spec.weightKg}kg` },
+                  ] : []),
                   { label: "Finish", value: product.finish },
                   { label: "Lead Time", value: product.leadTime },
                   ...(product.collectionCategory.href === "/limited-editions" ? [
@@ -351,6 +355,23 @@ export default function ProductView({ product }: { product: ProductData }) {
                   </div>
                 ))}
               </div>
+
+              {product.spec && (
+                <a
+                  href={product.spec.sheet}
+                  target="_blank"
+                  rel="noopener"
+                  className="
+                    inline-block mt-5 lg:mt-6 pb-1
+                    text-[10px] md:text-[11px] tracking-[0.15em] uppercase font-medium no-underline
+                    text-black/50 hover:text-black/85
+                    border-b border-black/15 hover:border-black/40
+                    transition-colors duration-300
+                  "
+                >
+                  Specification sheet (PDF)
+                </a>
+              )}
             </section>
 
             {/* Price & CTA */}
