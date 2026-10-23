@@ -30,8 +30,8 @@ const editions: Edition[] = [
     designer: "Copa + Glas Studio",
     dimension: "31.5 × 91cm",
     price: "Price on request",
-    image: "/prairie-mirror-main.jpg",
-    aspectRatio: "687/1024",
+    image: "/prairie-mirror-wallpaper.webp",
+    aspectRatio: "1027/1532",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
     leadTime: "Made to order",
