@@ -28,7 +28,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.85,
-    images: product.images.map((img) => `${BASE}${img.src}`),
+    images: product.images.filter((img) => !img.video).map((img) => `${BASE}${img.src}`),
+    videos: product.images.flatMap((img) =>
+      img.video
+        ? [{
+            title: img.alt,
+            description: img.alt,
+            thumbnail_loc: `${BASE}${img.src}`,
+            content_loc: `${BASE}${img.video.mp4}`,
+          }]
+        : [],
+    ),
   }));
 
   return [...staticRoutes, ...productRoutes];

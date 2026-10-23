@@ -1,6 +1,8 @@
 export interface ProductImage {
+  /** For a video slide, this is the poster frame. */
   src: string;
   alt: string;
+  video?: { mp4: string; webm: string; duration: string; uploadDate: string };
   objectFit?: "cover" | "contain";
   bg?: string;
 }
@@ -28,6 +30,8 @@ export interface ProductData {
   /** Listed price in GBP, tax included. Omitted for pieces priced on request. */
   priceGBP?: number;
   images: ProductImage[];
+  /** Where the piece can currently be seen in person. */
+  onView?: { venue: string; url: string; address: string; area: string };
   collectionCategory: { href: string; label: string };
   seo: { title: string; description: string; ogImage: string };
 }
@@ -91,8 +95,24 @@ The glass is silvered with a copper tint, so reflections take on the warmth of t
     priceGBP: 7000,
     images: [
       { src: "/rotation-mirror-copper-tone.webp", alt: "Rotation Mirror in Copper Tone — a round mirror of copper-toned glass facets set in solid copper, reflecting a sash window" },
+      {
+        src: "/rotation-mirror-copper-tone-estila.jpg",
+        alt: "Rotation Mirror in Copper Tone on display in the window of House of Estila, Clerkenwell",
+        video: {
+          mp4: "/rotation-mirror-copper-tone-estila.mp4",
+          webm: "/rotation-mirror-copper-tone-estila.webm",
+          duration: "PT6S",
+          uploadDate: "2026-10-23",
+        },
+      },
       { src: "/rotation-mirror-copper-tone-close.webp", alt: "Rotation Mirror in Copper Tone, detail of the solid copper sections between the copper-toned glass" },
     ],
+    onView: {
+      venue: "House of Estila",
+      url: "https://houseofestila.com/",
+      address: "66A Turnmill Street, London EC1M 5RR",
+      area: "the Clerkenwell design district",
+    },
     collectionCategory: { href: "/mirrors", label: "Mirrors" },
     seo: {
       title: "Rotation Mirror in Copper Tone: Round Copper Mirror",

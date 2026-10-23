@@ -166,14 +166,31 @@ export default function ProductView({ product }: { product: ProductData }) {
                   onDragEnd={handleDragEnd}
                   className="absolute inset-0 md:pointer-events-auto"
                 >
-                  <Image
-                    src={product.images[selectedImage].src}
-                    alt={product.images[selectedImage].alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className={product.images[selectedImage].objectFit === "contain" ? "object-contain" : "object-cover"}
-                    priority={selectedImage === 0}
-                  />
+                  {product.images[selectedImage].video ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      poster={product.images[selectedImage].src}
+                      aria-label={product.images[selectedImage].alt}
+                      draggable={false}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    >
+                      <source src={product.images[selectedImage].video.webm} type="video/webm" />
+                      <source src={product.images[selectedImage].video.mp4} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      src={product.images[selectedImage].src}
+                      alt={product.images[selectedImage].alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={product.images[selectedImage].objectFit === "contain" ? "object-contain" : "object-cover"}
+                      priority={selectedImage === 0}
+                    />
+                  )}
                 </motion.div>
               </AnimatePresence>
 
@@ -244,7 +261,7 @@ export default function ProductView({ product }: { product: ProductData }) {
                 <motion.button
                   key={index}
                   onClick={() => { setSwipeDirection(index > selectedImage ? 1 : -1); setSelectedImage(index); }}
-                  aria-label={`View image ${index + 1} of ${product.images.length}`}
+                  aria-label={`View ${img.video ? "film" : "image"} ${index + 1} of ${product.images.length}`}
                   aria-pressed={selectedImage === index}
                   className={`
                     flex-1 aspect-square max-w-20 p-0 bg-muted cursor-pointer overflow-hidden
@@ -254,7 +271,20 @@ export default function ProductView({ product }: { product: ProductData }) {
                   whileHover={{ opacity: 1 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <Image src={img.src} alt="" width={80} height={80} className="w-full h-full object-cover" />
+                  <span className="relative block w-full h-full">
+                    <Image src={img.src} alt="" width={80} height={80} className="w-full h-full object-cover" />
+                    {img.video && (
+                      <svg
+                        aria-hidden
+                        width="9"
+                        height="10"
+                        viewBox="0 0 9 10"
+                        className="absolute bottom-1.5 right-1.5 fill-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                      >
+                        <path d="M0 0l9 5-9 5z" />
+                      </svg>
+                    )}
+                  </span>
                 </motion.button>
               ))}
             </div>
@@ -326,6 +356,21 @@ export default function ProductView({ product }: { product: ProductData }) {
               <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] opacity-[0.90] mb-5 lg:mb-6">
                 {product.provenance}
               </p>
+
+              {product.onView && (
+                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] italic opacity-[0.90] mb-5 lg:mb-6">
+                  Currently on view at{" "}
+                  <a
+                    href={product.onView.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
+                  >
+                    {product.onView.venue}
+                  </a>
+                  , {product.onView.address}, in {product.onView.area}.
+                </p>
+              )}
 
               <div className="text-[13px] md:text-sm">
                 {[
