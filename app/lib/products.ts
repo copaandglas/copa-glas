@@ -136,12 +136,12 @@ Each panel catches light differently, so the composition shifts subtly as you mo
     },
   },
   {
-    slug: "frank-lloyd-wright-mirror",
+    slug: "prairie-mirror",
     designer: "Copa + Glas Studio",
-    name: "The Frank Lloyd Wright Mirror",
+    name: "The Prairie Mirror",
     size: "",
     tagline: "An architectural homage, prairie geometries in silvered glass and copper.",
-    description: `A tall vertical mirror in the spirit of Prairie School geometry, a disciplined grid of hand-formed copper holds clear silvered glass alongside panels of coloured and iridescent art glass, with a broad central field for the room to settle into.
+    description: `A tall vertical mirror in the spirit of the Prairie School art glass windows of Frank Lloyd Wright, a disciplined grid of hand-formed copper holds clear silvered glass alongside panels of coloured and iridescent art glass, with a broad central field for the room to settle into.
 
 Commissioned feeling, architectural scale, and craft detail in a single piece.`,
     provenance: `Limited to ten pieces worldwide. Each mirror is assembled and finished by hand in our East London workshop.`,
@@ -151,15 +151,14 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
     leadTime: "6–8 weeks",
     price: "Price on request",
     images: [
-      { src: "/frank-lloyd-wright-mirror-main.jpg", alt: "The Frank Lloyd Wright Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
-      { src: "/frank-lloyd-wright-mirror.png", alt: "The Frank Lloyd Wright Mirror, view of the copper grid and coloured art glass panels" },
-      { src: "/frank-lloyd-wright-plate.jpg", alt: "Copper provenance plate engraved Copa + Glas, Frank Lloyd Wright Mirror, Edition 1 of 10" },
+      { src: "/prairie-mirror-main.jpg", alt: "The Prairie Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
+      { src: "/prairie-mirror.png", alt: "The Prairie Mirror, view of the copper grid and coloured art glass panels" },
     ],
     collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
     seo: {
-      title: "The Frank Lloyd Wright Mirror: Limited Edition of 10",
-      description: "A Prairie School-inspired grid of hand-formed copper holding silvered and iridescent art glass. Limited to 10 worldwide. Price on request.",
-      ogImage: "/og-frank-lloyd-wright-mirror.jpg",
+      title: "The Prairie Mirror: Limited Edition of 10",
+      description: "Inspired by the Prairie School windows of Frank Lloyd Wright — a grid of hand-formed copper holding silvered and iridescent art glass. Limited to 10 worldwide.",
+      ogImage: "/og-prairie-mirror.jpg",
     },
   },
   {
