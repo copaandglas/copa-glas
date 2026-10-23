@@ -145,10 +145,16 @@ Each panel catches light differently, so the composition shifts subtly as you mo
 
 Commissioned feeling, architectural scale, and craft detail in a single piece.`,
     provenance: `Limited to ten pieces worldwide. Each mirror is assembled and finished by hand in our East London workshop.`,
-    material: "Solid copper; hand-cut silvered and art glass",
+    material: "Solid copper; hand-cut silvered and art glass; birch ply backing board",
     dimensions: { cm: "31.5 × 91cm", inches: "12.4 × 35.8in" },
     finish: "Copper hand-finished in the studio",
     leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2,
+      weightKg: 14,
+      weightLb: 31,
+      sheet: "/specs/copa-glas-prairie-mirror-specification.pdf",
+    },
     price: "Price on request",
     images: [
       { src: "/prairie-mirror-main.jpg", alt: "The Prairie Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
@@ -171,10 +177,16 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
 
 Assembled and finished to order in our East London workshop.`,
     provenance: `Limited to ten pieces worldwide. Each mirror is finished by hand in our East London workshop.`,
-    material: "Solid copper; hand-cut silvered and art glass",
+    material: "Solid copper; hand-cut silvered and art glass; birch ply backing board",
     dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
     finish: "Copper hand-finished in the studio",
     leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2.8,
+      weightKg: 20,
+      weightLb: 44,
+      sheet: "/specs/copa-glas-rotation-confetti-mirror-specification.pdf",
+    },
     price: "Price on request",
     images: [
       { src: "/rotation-confetti-mirror.png", alt: "The Rotation Confetti Mirror — a round copper mirror with facets of silvered and coloured art glass" },
