@@ -133,7 +133,7 @@ export function productSchema(product: ProductData) {
     name: product.name,
     description: product.description.replace(/\n\n/g, " "),
     url,
-    image: product.images.map((img) => absoluteUrl(img.src)),
+    image: product.images.filter((img) => !img.video).map((img) => absoluteUrl(img.src)),
     category: product.collectionCategory.label,
     material: product.material,
     brand: { "@type": "Brand", name: SITE_NAME },
@@ -142,13 +142,33 @@ export function productSchema(product: ProductData) {
     ...(product.spec && {
       depth: { "@type": "QuantitativeValue", value: product.spec.depthCm, unitCode: "CMT" },
       weight: { "@type": "QuantitativeValue", value: product.spec.weightKg, unitCode: "KGM" },
-      subjectOf: {
-        "@type": "DigitalDocument",
-        name: `${product.name} specification sheet`,
-        encodingFormat: "application/pdf",
-        url: absoluteUrl(product.spec.sheet),
-      },
     }),
+    ...((product.spec || product.images.some((img) => img.video)) && {
+      subjectOf: [
+        ...(product.spec
+          ? [{
+              "@type": "DigitalDocument",
+              name: `${product.name} specification sheet`,
+              encodingFormat: "application/pdf",
+              url: absoluteUrl(product.spec.sheet),
+            }]
+          : []),
+        ...product.images.flatMap((img) =>
+          img.video
+            ? [{
+                "@type": "VideoObject",
+                name: img.alt,
+                description: img.alt,
+                thumbnailUrl: absoluteUrl(img.src),
+                contentUrl: absoluteUrl(img.video.mp4),
+                uploadDate: img.video.uploadDate,
+                duration: img.video.duration,
+              }]
+            : [],
+        ),
+      ],
+    }),
+
     additionalProperty: [
       { "@type": "PropertyValue", name: "Dimensions", value: `${product.dimensions.cm} (${product.dimensions.inches})` },
       { "@type": "PropertyValue", name: "Finish", value: product.finish },
@@ -157,6 +177,14 @@ export function productSchema(product: ProductData) {
       { "@type": "PropertyValue", name: "Made in", value: "East London, England" },
       ...(limitedEdition
         ? [{ "@type": "PropertyValue", name: "Edition", value: "Limited to ten worldwide, numbered and certificated" }]
+        : []),
+      ...(product.onView
+        ? [{
+            "@type": "PropertyValue",
+            name: "On view",
+            value: `${product.onView.venue}, ${product.onView.address}`,
+            url: product.onView.url,
+          }]
         : []),
     ],
     // Pieces priced on request carry no Offer: an Offer without a price is invalid.

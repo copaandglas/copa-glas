@@ -10,7 +10,7 @@ export function GET() {
   const pieces = products
     .map(
       (p) =>
-        `- [${p.name}](${absoluteUrl(`/product/${p.slug}`)}): ${p.tagline} Category: ${p.collectionCategory.label}. Materials: ${p.material}. Dimensions: ${p.dimensions.cm}${p.spec ? `, depth ${p.spec.depthCm}cm, weight ${p.spec.weightKg}kg (specification sheet: ${absoluteUrl(p.spec.sheet)})` : ""}. Price: ${p.price}${p.priceGBP !== undefined ? " including VAT" : ""}. Lead time: ${p.leadTime}.`,
+        `- [${p.name}](${absoluteUrl(`/product/${p.slug}`)}): ${p.tagline} Category: ${p.collectionCategory.label}. Materials: ${p.material}. Dimensions: ${p.dimensions.cm}${p.spec ? `, depth ${p.spec.depthCm}cm, weight ${p.spec.weightKg}kg (specification sheet: ${absoluteUrl(p.spec.sheet)})` : ""}. Price: ${p.price}${p.priceGBP !== undefined ? " including VAT" : ""}. Lead time: ${p.leadTime}.${p.onView ? ` Currently on view at ${p.onView.venue}, ${p.onView.address}, in ${p.onView.area}.` : ""}`,
     )
     .join("\n");
 
