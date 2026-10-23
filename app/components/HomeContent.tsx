@@ -199,7 +199,7 @@ export default function HomeContent() {
               className="
                 lg:w-[55%] xl:w-[57%] shrink-0
                 font-[family-name:var(--font-playfair),Georgia,serif]
-                text-[clamp(2.6rem,7vw,6rem)]
+                text-[clamp(2.6rem,7vw,5rem)] lg:text-[clamp(2.6rem,5vw,5rem)] xl:text-[clamp(2.6rem,5.25vw,5rem)]
                 leading-[1.04] -tracking-[0.016em] font-normal
               "
             >
