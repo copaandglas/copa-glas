@@ -210,7 +210,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
     },
     price: "Price on request",
     images: [
-      { src: "/prairie-mirror-main.jpg", alt: "The Prairie Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
+      { src: "/prairie-mirror-wallpaper.webp", alt: "The Prairie Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
       { src: "/prairie-mirror.png", alt: "The Prairie Mirror, view of the copper grid and coloured art glass panels" },
     ],
     collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
