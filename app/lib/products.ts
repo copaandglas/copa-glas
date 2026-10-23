@@ -68,6 +68,39 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
     },
   },
   {
+    slug: "rotation-mirror-copper-tone",
+    designer: "Copa + Glas Studio",
+    name: "Rotation Mirror in Copper Tone",
+    size: "",
+    tagline: "Twenty-six hand-cut facets of copper-toned glass, set in solid copper.",
+    description: `Twenty-six facets of hand cut glass, each one set within a frame of solid copper, itself cut by hand.
+
+Here the glass carries a copper tone, so the light it returns is warmer and quieter, closer to the colour of the metal that holds it.`,
+    provenance: `Hand-formed in our East London workshop, the Rotation series has been commissioned for architectural environments of note, including the Burberry flagship on Regent Street.`,
+    material: "Solid copper; hand-cut copper tone silvered glass; birch ply backing board",
+    dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
+    finish: "Copper hand-finished in the studio",
+    leadTime: "6–8 weeks",
+    spec: {
+      depthCm: 2.8,
+      weightKg: 23,
+      weightLb: 51,
+      sheet: "/specs/copa-glas-rotation-mirror-copper-tone-specification.pdf",
+    },
+    price: "£7,000.00",
+    priceGBP: 7000,
+    images: [
+      { src: "/rotation-mirror-copper-tone.webp", alt: "Rotation Mirror in Copper Tone — a round mirror of copper-toned glass facets set in solid copper, reflecting a sash window" },
+      { src: "/rotation-mirror-copper-tone-close.webp", alt: "Rotation Mirror in Copper Tone, detail of the solid copper sections between the copper-toned glass" },
+    ],
+    collectionCategory: { href: "/mirrors", label: "Mirrors" },
+    seo: {
+      title: "Rotation Mirror in Copper Tone: Round Copper Mirror",
+      description: "Twenty-six hand-cut facets of copper-toned glass set within solid, hand-formed copper — 97cm diameter. Made to order in our East London workshop. £7,000.",
+      ogImage: "/og-rotation-mirror-copper-tone.jpg",
+    },
+  },
+  {
     slug: "mondrian-mirror",
     designer: "Copa + Glas Studio",
     name: "The Mondrian Mirror",

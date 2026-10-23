@@ -4,7 +4,7 @@ import { productsInCategory } from "@/app/lib/products";
 import { breadcrumbSchema, itemListSchema, webPageSchema } from "@/app/lib/schema";
 
 const description =
-  "Handcrafted copper and glass mirrors by Copa + Glas Studio — the Rotation, Mondrian, and Fibonacci mirrors, made to order in East London.";
+  "Handcrafted copper and glass mirrors by Copa + Glas Studio — the Rotation, in silvered or copper tone glass, the Mondrian, and the Fibonacci, made to order in East London.";
 
 export const metadata = pageMetadata({
   title: "Handmade Copper & Glass Mirrors",

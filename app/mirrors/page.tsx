@@ -34,6 +34,17 @@ const mirrors: Mirror[] = [
     leadTime: "Made to order",
   },
   {
+    slug: "rotation-mirror-copper-tone",
+    name: "Rotation Mirror in Copper Tone",
+    designer: "Copa + Glas Studio",
+    dimension: "97cm Ø",
+    price: "£7,000.00",
+    image: "/rotation-mirror-copper-tone.webp",
+    hoverImage: "/rotation-mirror-copper-tone-close.webp",
+    tagline: "Twenty-six hand-cut facets of copper-toned glass, set in solid copper.",
+    leadTime: "Made to order",
+  },
+  {
     slug: "mondrian-mirror",
     name: "The Mondrian Mirror",
     designer: "Copa + Glas Studio",
