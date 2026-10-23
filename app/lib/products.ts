@@ -42,7 +42,7 @@ export const products: ProductData[] = [
     description: `The Rotation mirror is a foundational piece for the studio, exploring the tension between rigid geometry and fragmented light. Comprising twenty-six hand-cut glass facets, each pane is meticulously set within a slender frame of solid, hand-formed copper.
 
 The result is a subtle, shifting perspective, a refractive depth that intensifies as one moves through the space. It is a piece designed not just to reflect an interior, but to articulate the light within it.`,
-    provenance: `Hand-formed in our East London workshop, the Rotation series has been commissioned for architectural environments of note, including the Burberry flagship on Regent Street.`,
+    provenance: `Made to order in our East London workshop, where each facet is cut and each copper joint formed by hand.`,
     material: "Solid copper; hand-cut silvered glass; birch ply backing board",
     dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
     finish: "Copper hand-finished in the studio",
@@ -72,11 +72,13 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
     designer: "Copa + Glas Studio",
     name: "Rotation Mirror in Copper Tone",
     size: "",
-    tagline: "Twenty-six hand-cut facets of copper-toned glass, set in solid copper.",
-    description: `Twenty-six facets of hand cut glass, each one set within a frame of solid copper, itself cut by hand.
+    tagline: "The Rotation in copper tone glass: a warmer, quieter reflection.",
+    description: `The Rotation, made in copper tone glass. Twenty-six facets are cut by hand and set, one by one, within a slender frame of solid copper, itself formed by hand.
 
-Here the glass carries a copper tone, so the light it returns is warmer and quieter, closer to the colour of the metal that holds it.`,
-    provenance: `Hand-formed in our East London workshop, the Rotation series has been commissioned for architectural environments of note, including the Burberry flagship on Regent Street.`,
+The glass is silvered with a copper tone, so the room it returns is warmer and quieter, closer to the colour of the metal that holds it. Where the original Rotation is clear and bright, this one is softer, a reflection with something of late afternoon light in it.
+
+A piece for rooms of timber, plaster, and lamplight, where a mirror is asked to belong rather than to dazzle.`,
+    provenance: `Made to order in our East London workshop, alongside the original Rotation. Each facet is cut and each copper joint formed by hand.`,
     material: "Solid copper; hand-cut copper tone silvered glass; birch ply backing board",
     dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
     finish: "Copper hand-finished in the studio",
@@ -96,7 +98,7 @@ Here the glass carries a copper tone, so the light it returns is warmer and quie
     collectionCategory: { href: "/mirrors", label: "Mirrors" },
     seo: {
       title: "Rotation Mirror in Copper Tone: Round Copper Mirror",
-      description: "Twenty-six hand-cut facets of copper-toned glass set within solid, hand-formed copper — 97cm diameter. Made to order in our East London workshop. £7,000.",
+      description: "The Rotation in copper tone glass — twenty-six hand-cut facets set in solid, hand-formed copper, returning a warmer, quieter light. 97cm diameter. £7,000.",
       ogImage: "/og-rotation-mirror-copper-tone.jpg",
     },
   },
