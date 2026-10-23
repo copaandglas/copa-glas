@@ -74,6 +74,18 @@ const featuredWorks: FeaturedWork[] = [
     width: "w-full sm:w-[52%] lg:w-[28%] xl:w-[22%] lg:max-w-[270px]",
     indent: "lg:ml-auto lg:mr-[14%]",
   },
+  {
+    slug: "rotation-mirror-copper-tone",
+    name: "Rotation Mirror in Copper Tone",
+    dimension: "97cm Ø",
+    price: "£7,000.00",
+    image: "/rotation-mirror-copper-tone.webp",
+    hoverImage: "/rotation-mirror-copper-tone-close.webp",
+    tagline: "The Rotation, in copper tone glass.",
+    aspect: "aspect-[4/5]",
+    width: "w-full sm:w-[60%] lg:w-[32%] xl:w-[27%] lg:max-w-[340px]",
+    indent: "sm:ml-auto lg:mr-[7%]",
+  },
 ];
 
 function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
@@ -273,8 +285,13 @@ export default function HomeContent() {
             transition={{ duration: 1.1, ease: luxuryEase }}
             className="px-5 sm:px-10 lg:px-16 xl:px-20"
           >
-            <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent}`}>
-              <WorkCard work={featuredWorks[0]} index={0} />
+            <div className="flex flex-col lg:flex-row lg:items-start">
+              <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent} shrink-0`}>
+                <WorkCard work={featuredWorks[0]} index={0} />
+              </div>
+              <div className={`${featuredWorks[4].width} ${featuredWorks[4].indent} shrink-0 mt-20 md:mt-28 lg:mt-48`}>
+                <WorkCard work={featuredWorks[4]} index={1} />
+              </div>
             </div>
           </motion.div>
 
@@ -290,7 +307,7 @@ export default function HomeContent() {
               transition={{ duration: 1.1, ease: luxuryEase }}
               className="w-full sm:w-[44%] lg:w-[280px] xl:w-[300px] shrink-0 lg:mt-16"
             >
-              <WorkCard work={featuredWorks[3]} index={3} />
+              <WorkCard work={featuredWorks[3]} index={2} />
             </motion.div>
             <motion.div
               initial={rise(30)}
@@ -299,7 +316,7 @@ export default function HomeContent() {
               transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
               className="mt-14 sm:mt-0 w-full sm:w-[52%] lg:w-[320px] xl:w-[340px] shrink-0 lg:ml-auto lg:mr-[8%]"
             >
-              <WorkCard work={featuredWorks[1]} index={1} />
+              <WorkCard work={featuredWorks[1]} index={3} />
             </motion.div>
           </div>
 
@@ -311,7 +328,7 @@ export default function HomeContent() {
             className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-20 md:mt-28 lg:mt-36"
           >
             <div className={`${featuredWorks[2].width} ${featuredWorks[2].indent}`}>
-              <WorkCard work={featuredWorks[2]} index={2} />
+              <WorkCard work={featuredWorks[2]} index={4} />
             </div>
           </motion.div>
 
