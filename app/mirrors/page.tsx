@@ -41,7 +41,7 @@ const mirrors: Mirror[] = [
     price: "£7,000.00",
     image: "/rotation-mirror-copper-tone.webp",
     hoverImage: "/rotation-mirror-copper-tone-close.webp",
-    tagline: "The Rotation in copper tone glass: a warmer, quieter reflection.",
+    tagline: "The Rotation, in copper tone glass.",
     leadTime: "Made to order",
   },
   {

@@ -72,12 +72,10 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
     designer: "Copa + Glas Studio",
     name: "Rotation Mirror in Copper Tone",
     size: "",
-    tagline: "The Rotation in copper tone glass: a warmer, quieter reflection.",
-    description: `The Rotation, made in copper tone glass. Twenty-six facets are cut by hand and set, one by one, within a slender frame of solid copper, itself formed by hand.
+    tagline: "The Rotation, in copper tone glass.",
+    description: `The Rotation in copper tone glass. Twenty-six facets are cut by hand and set within a frame of solid copper, itself formed by hand.
 
-The glass is silvered with a copper tone, so the room it returns is warmer and quieter, closer to the colour of the metal that holds it. Where the original Rotation is clear and bright, this one is softer, a reflection with something of late afternoon light in it.
-
-A piece for rooms of timber, plaster, and lamplight, where a mirror is asked to belong rather than to dazzle.`,
+The glass is silvered with a copper tint, so reflections take on the warmth of the frame and metal and glass read as one material. The form is identical to the original Rotation; the difference is one of colour.`,
     provenance: `Made to order in our East London workshop, alongside the original Rotation. Each facet is cut and each copper joint formed by hand.`,
     material: "Solid copper; hand-cut copper tone silvered glass; birch ply backing board",
     dimensions: { cm: "97cm Diameter", inches: "38.2in Diameter" },
@@ -98,7 +96,7 @@ A piece for rooms of timber, plaster, and lamplight, where a mirror is asked to 
     collectionCategory: { href: "/mirrors", label: "Mirrors" },
     seo: {
       title: "Rotation Mirror in Copper Tone: Round Copper Mirror",
-      description: "The Rotation in copper tone glass — twenty-six hand-cut facets set in solid, hand-formed copper, returning a warmer, quieter light. 97cm diameter. £7,000.",
+      description: "The Rotation in copper tone glass — twenty-six hand-cut facets set in solid, hand-formed copper, with a warm, copper-tinted reflection. 97cm diameter. £7,000.",
       ogImage: "/og-rotation-mirror-copper-tone.jpg",
     },
   },
