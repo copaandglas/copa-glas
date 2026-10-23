@@ -25,12 +25,12 @@ interface Edition {
 
 const editions: Edition[] = [
   {
-    slug: "frank-lloyd-wright-mirror",
-    name: "The Frank Lloyd Wright Mirror",
+    slug: "prairie-mirror",
+    name: "The Prairie Mirror",
     designer: "Copa + Glas Studio",
     dimension: "31.5 × 91cm",
     price: "Price on request",
-    image: "/frank-lloyd-wright-mirror-main.jpg",
+    image: "/prairie-mirror-main.jpg",
     aspectRatio: "687/1024",
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",

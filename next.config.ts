@@ -59,6 +59,12 @@ const nextConfig: NextConfig = {
       destination: "https://copaandglas.com/:path*",
       permanent: true,
     },
+    {
+      // Renamed piece: keep old links and search results working.
+      source: "/product/frank-lloyd-wright-mirror",
+      destination: "/product/prairie-mirror",
+      permanent: true,
+    },
   ],
   headers: async () => {
     if (isDev) {
