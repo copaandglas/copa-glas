@@ -27,7 +27,7 @@ const categories: CollectionCategory[] = [
     tagline: "Refraction, framed in copper.",
     description:
       "Hand-cut silvered glass held within solid, hand-formed copper, objects designed to articulate the light within a room.",
-    count: "Three pieces",
+    count: "Four pieces",
     image: "/mondrian-mirror.png",
     hoverImage: "/mondrian-mirror-close.png",
   },

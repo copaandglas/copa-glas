@@ -40,7 +40,7 @@ ${pieces}
 ## Pages
 
 - [Collection](${absoluteUrl("/collection")}): Mirrors, lighting, and limited editions.
-- [Mirrors](${absoluteUrl("/mirrors")}): The Rotation, Mondrian, and Fibonacci mirrors.
+- [Mirrors](${absoluteUrl("/mirrors")}): The Rotation (in silvered or copper tone glass), Mondrian, and Fibonacci mirrors.
 - [Lighting](${absoluteUrl("/lighting")}): The Aura Wall Light and sculptural lighting made to order.
 - [Limited Editions](${absoluteUrl("/limited-editions")}): Works limited to ten worldwide, numbered and certificated.
 - [Collaborations](${absoluteUrl("/collaborative")}): Pieces made in partnership with artists and designers.
