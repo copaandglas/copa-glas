@@ -88,6 +88,9 @@ const featuredWorks: FeaturedWork[] = [
   },
 ];
 
+// Phone order: copper tone Rotation, Aura, Mondrian, Rotation, Fibonacci.
+const mobileOrder = [4, 3, 1, 0, 2];
+
 function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
   return (
     <Link
@@ -278,59 +281,76 @@ export default function HomeContent() {
             Selected Works
           </motion.p>
 
-          <motion.div
-            initial={rise(30)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-6% 0px" }}
-            transition={{ duration: 1.1, ease: luxuryEase }}
-            className="px-5 sm:px-10 lg:px-16 xl:px-20"
-          >
-            <div className="flex flex-col lg:flex-row lg:items-start">
-              <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent} shrink-0`}>
-                <WorkCard work={featuredWorks[0]} index={0} />
-              </div>
-              <div className={`${featuredWorks[4].width} ${featuredWorks[4].indent} shrink-0 mt-20 md:mt-28 lg:mt-48`}>
-                <WorkCard work={featuredWorks[4]} index={1} />
-              </div>
-            </div>
-          </motion.div>
+          {/* Phones: a single column in its own order */}
+          <div className="sm:hidden px-5 space-y-20">
+            {mobileOrder.map((i, n) => (
+              <motion.div
+                key={featuredWorks[i].slug}
+                initial={rise(30)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-6% 0px" }}
+                transition={{ duration: 1.1, ease: luxuryEase }}
+              >
+                <WorkCard work={featuredWorks[i]} index={n} />
+              </motion.div>
+            ))}
+          </div>
 
-          <div className="
-            px-5 sm:px-10 lg:px-16 xl:px-20
-            mt-20 md:mt-28 lg:mt-36
-            flex flex-col sm:flex-row sm:items-start sm:gap-12
-          ">
+          <div className="hidden sm:block">
             <motion.div
               initial={rise(30)}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-6% 0px" }}
               transition={{ duration: 1.1, ease: luxuryEase }}
-              className="w-full sm:w-[44%] lg:w-[280px] xl:w-[300px] shrink-0 lg:mt-16"
+              className="px-5 sm:px-10 lg:px-16 xl:px-20"
             >
-              <WorkCard work={featuredWorks[3]} index={2} />
+              <div className="flex flex-col lg:flex-row lg:items-start">
+                <div className={`${featuredWorks[0].width} ${featuredWorks[0].indent} shrink-0`}>
+                  <WorkCard work={featuredWorks[0]} index={0} />
+                </div>
+                <div className={`${featuredWorks[4].width} ${featuredWorks[4].indent} shrink-0 mt-20 md:mt-28 lg:mt-48`}>
+                  <WorkCard work={featuredWorks[4]} index={1} />
+                </div>
+              </div>
             </motion.div>
+
+            <div className="
+              px-5 sm:px-10 lg:px-16 xl:px-20
+              mt-20 md:mt-28 lg:mt-36
+              flex flex-col sm:flex-row sm:items-start sm:gap-12
+            ">
+              <motion.div
+                initial={rise(30)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-6% 0px" }}
+                transition={{ duration: 1.1, ease: luxuryEase }}
+                className="w-full sm:w-[44%] lg:w-[280px] xl:w-[300px] shrink-0 lg:mt-16"
+              >
+                <WorkCard work={featuredWorks[3]} index={2} />
+              </motion.div>
+              <motion.div
+                initial={rise(30)}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-6% 0px" }}
+                transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
+                className="mt-14 sm:mt-0 w-full sm:w-[52%] lg:w-[320px] xl:w-[340px] shrink-0 lg:ml-auto lg:mr-[8%]"
+              >
+                <WorkCard work={featuredWorks[1]} index={3} />
+              </motion.div>
+            </div>
+
             <motion.div
               initial={rise(30)}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-6% 0px" }}
-              transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
-              className="mt-14 sm:mt-0 w-full sm:w-[52%] lg:w-[320px] xl:w-[340px] shrink-0 lg:ml-auto lg:mr-[8%]"
+              transition={{ duration: 1.1, ease: luxuryEase }}
+              className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-20 md:mt-28 lg:mt-36"
             >
-              <WorkCard work={featuredWorks[1]} index={3} />
+              <div className={`${featuredWorks[2].width} ${featuredWorks[2].indent}`}>
+                <WorkCard work={featuredWorks[2]} index={4} />
+              </div>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={rise(30)}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-6% 0px" }}
-            transition={{ duration: 1.1, ease: luxuryEase }}
-            className="px-5 sm:px-10 lg:px-16 xl:px-20 mt-20 md:mt-28 lg:mt-36"
-          >
-            <div className={`${featuredWorks[2].width} ${featuredWorks[2].indent}`}>
-              <WorkCard work={featuredWorks[2]} index={4} />
-            </div>
-          </motion.div>
 
           <motion.div
             initial={rise(8)}
