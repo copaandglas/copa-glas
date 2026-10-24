@@ -212,6 +212,7 @@ Commissioned feeling, architectural scale, and craft detail in a single piece.`,
     images: [
       { src: "/prairie-mirror-wallpaper.webp", alt: "The Prairie Mirror — a tall Prairie School grid of copper, silvered glass and art glass", objectFit: "contain" },
       { src: "/prairie-mirror.png", alt: "The Prairie Mirror, view of the copper grid and coloured art glass panels" },
+      { src: "/prairie-mirror-plate.webp", alt: "Copper provenance plate engraved Copa + Glas, The Prairie Mirror, Edition 1 of 10" },
     ],
     collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
     seo: {
