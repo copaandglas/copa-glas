@@ -62,7 +62,7 @@ The result is a subtle, shifting perspective, a refractive depth that intensifie
     images: [
       { src: "/rotation-mirror.png", alt: "Rotation Mirror — a round mirror of twenty-six hand-cut glass facets set in solid copper" },
       { src: "/rotation-mirror-close-1.png", alt: "Rotation Mirror, detail of the hand-cut glass facets and copper sections" },
-      { src: "/rotation-mirror-close-2.png", alt: "Rotation Mirror, close view of the hand-formed copper frame" },
+      { src: "/rotation-mirror-mantel.webp", alt: "Rotation Mirror resting on a mantelpiece, close view of the solid copper sections and hand-cut glass" },
     ],
     collectionCategory: { href: "/mirrors", label: "Mirrors" },
     seo: {
