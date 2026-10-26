@@ -272,7 +272,7 @@ Each Aura is a bespoke object — scale, finish, and configuration are resolved 
     leadTime: "Made to order",
     price: "Price on application",
     images: [
-      { src: "/aura-wall-light.png", alt: "Aura Wall Light — a copper-framed wall light with a central pane of amber art glass, lit above a console table" },
+      { src: "/aura-wall-light-interior.webp", alt: "Aura Wall Light — a copper-framed wall light with a central pane of amber art glass, lit on a timber-panelled wall above a console table" },
     ],
     collectionCategory: { href: "/lighting", label: "Lighting" },
     seo: {
