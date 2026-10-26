@@ -28,7 +28,7 @@ const lights: Light[] = [
     designer: "Copa + Glas Studio",
     dimension: "Bespoke · made to order",
     price: "Enquire",
-    image: "/aura-wall-light.png",
+    image: "/aura-wall-light-interior.webp",
     tagline:
       "A customisable object — copper and glass configured for the room it will inhabit.",
     leadTime: "Made to order",
