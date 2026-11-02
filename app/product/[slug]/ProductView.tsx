@@ -8,12 +8,12 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import EnquiryDrawer from "@/app/components/EnquiryDrawer";
 import type { ProductData } from "@/app/lib/products";
+import { absoluteUrl } from "@/app/lib/site";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-function ShareMenu({ name }: { name: string }) {
+function ShareMenu({ name, url }: { name: string; url: string }) {
   const [open, setOpen] = useState(false);
-  const url = typeof window !== "undefined" ? window.location.href : "";
   const text = `${name} — Copa + Glas`;
 
   useEffect(() => {
@@ -454,7 +454,7 @@ export default function ProductView({ product }: { product: ProductData }) {
                 Enquire About This Piece
               </motion.button>
 
-              <ShareMenu name={product.name} />
+              <ShareMenu name={product.name} url={absoluteUrl(`/product/${slug}`)} />
             </div>
 
           </motion.div>
