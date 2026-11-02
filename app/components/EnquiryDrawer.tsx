@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { getReferral } from "@/app/lib/referral";
 
 type Timeline = "within-month" | "1-3-months" | "later-year" | "exploring";
 type ContactMethod = "email" | "phone" | "either";
@@ -320,6 +321,7 @@ export default function EnquiryDrawer({
             typeof window !== "undefined"
               ? { url: window.location.href, path: window.location.pathname }
               : null,
+          referral: getReferral(),
           submittedAt: new Date().toISOString(),
         }),
       });

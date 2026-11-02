@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import ReferralMarker from "@/app/components/ReferralMarker";
 import { getProduct } from "@/app/lib/products";
 import ProductView from "@/app/product/[slug]/ProductView";
 
@@ -16,5 +17,10 @@ export default function EstilaPage() {
   const product = getProduct("rotation-mirror-copper-tone");
   if (!product) notFound();
 
-  return <ProductView product={product} />;
+  return (
+    <>
+      <ReferralMarker referral="estila" />
+      <ProductView product={product} />
+    </>
+  );
 }

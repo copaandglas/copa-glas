@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { addToAudience } from "@/app/lib/audience";
+import { resolveReferral } from "@/app/lib/referral";
 
 function splitName(fullName: string): { firstName?: string; lastName?: string } {
   const trimmed = fullName.trim();
@@ -27,6 +28,7 @@ interface EnquiryPayload {
   newsletter?: boolean;
   product?: { name?: string; slug?: string | null; finish?: string | null } | string | null;
   source?: { url?: string; path?: string } | null;
+  referral?: string | null;
   submittedAt?: string;
 }
 
@@ -97,6 +99,7 @@ interface NormalisedEnquiry {
   newsletter: boolean;
   product: { name: string; slug: string | null; finish: string | null } | null;
   source: { url?: string; path?: string } | null;
+  referral: { label: string; subject: string } | null;
   submittedAt: string;
   ip: string | null;
   userAgent: string | null;
@@ -104,6 +107,7 @@ interface NormalisedEnquiry {
 
 function renderPlainText(e: NormalisedEnquiry): string {
   const rows: [string, string | null][] = [
+    ["Source", e.referral?.label ?? null],
     ["Enquiry type", e.enquiryType ? ENQUIRY_TYPE_LABELS[e.enquiryType] ?? e.enquiryType : null],
     ["Name", e.name],
     ["Email", e.email],
@@ -156,6 +160,7 @@ function renderHtml(e: NormalisedEnquiry): string {
       : "";
 
   const rowsHtml = [
+    row("Source", e.referral?.label ?? null),
     row("Enquiry type", e.enquiryType ? ENQUIRY_TYPE_LABELS[e.enquiryType] ?? e.enquiryType : null),
     row("Name", e.name),
     row("Email", e.email),
@@ -302,16 +307,20 @@ export async function POST(request: Request) {
         }
       : null,
     source: body.source ?? null,
+    referral: resolveReferral(body.referral, body.source?.path),
     submittedAt: new Date().toISOString(),
     ip,
     userAgent: request.headers.get("user-agent"),
   };
 
-  const subject = enquiry.product
+  const baseSubject = enquiry.product
     ? enquiry.product.finish
       ? `Enquiry: ${enquiry.product.name} — ${enquiry.product.finish} (${enquiry.name})`
       : `Enquiry: ${enquiry.product.name} (${enquiry.name})`
     : `Studio enquiry from ${enquiry.name}`;
+  const subject = enquiry.referral
+    ? `${baseSubject} — ${enquiry.referral.subject}`
+    : baseSubject;
 
   if (resend) {
     try {

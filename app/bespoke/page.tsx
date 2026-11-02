@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { getReferral } from "@/app/lib/referral";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -124,6 +125,7 @@ export default function BespokePage() {
           source: typeof window !== "undefined"
             ? { url: window.location.href, path: window.location.pathname }
             : null,
+          referral: getReferral(),
           submittedAt: new Date().toISOString(),
         }),
       });
