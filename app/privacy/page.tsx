@@ -132,6 +132,7 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
     title: "Cookies",
     paragraphs: [
       "Our website uses only essential cookies required for the site to function. We do not use tracking, advertising, or analytics cookies. No personal data is collected through cookies.",
+      "If you arrive through a link or QR code from one of our collaborations, such as our display at House of Estila, your browser keeps a temporary note of that collaboration until you close the tab. Should you then send us an enquiry, the note is included so that we know how you found us. It contains no personal data, is not a cookie, and is not used for advertising.",
     ],
   },
   {
@@ -146,7 +147,7 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
     num: "10",
     title: "Changes to This Policy",
     paragraphs: [
-      "We may update this Privacy Policy from time to time. Any changes will be published on this page with an updated date. We encourage you to review this page periodically. This policy was last updated May 2026.",
+      "We may update this Privacy Policy from time to time. Any changes will be published on this page with an updated date. We encourage you to review this page periodically. This policy was last updated November 2026.",
     ],
   },
 ];
@@ -295,7 +296,7 @@ export default function PrivacyPage() {
                   >
                     studio@copaandglas.com
                   </a>
-                  . This policy was last updated May 2026.
+                  . This policy was last updated November 2026.
                 </p>
               </aside>
             </div>
