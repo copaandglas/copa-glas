@@ -27,14 +27,15 @@ const BAR_CLASS = `
   gap-4
 `;
 
-const LOGO_IMG_CLASS = `
-  h-12 md:h-14 lg:h-16 3xl:h-18 w-auto
-  max-w-full object-contain select-none
+const WORDMARK_CLASS = `
+  w-[112px] md:w-[124px] lg:w-[136px] 3xl:w-[148px] h-auto
+  max-w-none select-none
 `;
 
+// Keeps the header bar at the same height on every page.
 const LOGO_LINK_CLASS = `
-  inline-flex items-center min-h-11 -my-2.5 py-2.5
-  shrink-0
+  inline-flex items-center box-content h-12 md:h-14 lg:h-16 3xl:h-18
+  min-h-11 -my-2.5 py-2.5 shrink-0
 `;
 
 const NAV_TEXT_CLASS = `
@@ -86,12 +87,13 @@ export default function Header({ variant = "light" }: HeaderProps) {
       >
         <Link href="/" aria-label="Copa + Glas home" className={LOGO_LINK_CLASS}>
           <Image
-            src="/copa-monogram-white.png"
+            src="/copa-glas-wordmark-white.svg"
             alt="Copa + Glas"
-            width={120}
-            height={120}
+            width={730}
+            height={162}
+            unoptimized
             priority
-            className={`${LOGO_IMG_CLASS} transition-[filter] duration-500 ${isLight ? "" : "invert"}`}
+            className={`${WORDMARK_CLASS} transition-[filter] duration-500 ${isLight ? "" : "invert"}`}
           />
         </Link>
 
@@ -138,11 +140,12 @@ export default function Header({ variant = "light" }: HeaderProps) {
                 className={LOGO_LINK_CLASS}
               >
                 <Image
-                  src="/copa-monogram-white.png"
+                  src="/copa-glas-wordmark-white.svg"
                   alt="Copa + Glas"
-                  width={120}
-                  height={120}
-                  className={LOGO_IMG_CLASS}
+                  width={730}
+                  height={162}
+                  unoptimized
+                  className={WORDMARK_CLASS}
                 />
               </Link>
               <button
