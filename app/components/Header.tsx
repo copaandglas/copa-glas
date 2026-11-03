@@ -28,7 +28,7 @@ const BAR_CLASS = `
 `;
 
 const WORDMARK_CLASS = `
-  w-[112px] md:w-[124px] lg:w-[136px] 3xl:w-[148px] h-auto
+  w-[96px] md:w-[112px] lg:w-[136px] 3xl:w-[148px] h-auto
   max-w-none select-none
 `;
 
