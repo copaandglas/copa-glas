@@ -27,7 +27,7 @@ export interface ProductData {
     sheet: string;
   };
   price: string;
-  /** Listed price in GBP, tax included. Omitted for pieces priced on request. */
+  /** Listed price in GBP. Omitted for pieces priced on request. */
   priceGBP?: number;
   images: ProductImage[];
   /** Where the piece can currently be seen in person. */

@@ -434,7 +434,7 @@ export default function ProductView({ product }: { product: ProductData }) {
                   {product.price}
                 </p>
                 <p className="text-[11px] md:text-xs opacity-62 italic tracking-[0.02em]">
-                  Tax included. Shipping quoted upon enquiry.
+                  Shipping quoted upon enquiry.
                 </p>
               </div>
 

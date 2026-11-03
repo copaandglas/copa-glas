@@ -201,7 +201,6 @@ export function productSchema(product: ProductData) {
           "@type": "UnitPriceSpecification",
           price: product.priceGBP.toFixed(2),
           priceCurrency: "GBP",
-          valueAddedTaxIncluded: true,
         },
         hasMerchantReturnPolicy: {
           "@type": "MerchantReturnPolicy",

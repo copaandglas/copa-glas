@@ -37,7 +37,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     title: "Payment Terms",
     paragraphs: [
       "A deposit of 50% of the total order value is required to confirm any commission and begin production. The remaining balance is due upon completion, prior to dispatch. No piece will leave the studio until payment has been received in full.",
-      "Copa + Glas is VAT registered. All invoices are issued in GBP inclusive of VAT where applicable. Trade partners registered with our trade programme are invoiced ex-VAT with full VAT receipts provided.",
+      "All invoices are issued in GBP. Copa + Glas is not currently registered for VAT, so no VAT is charged.",
       "For large architectural or hospitality commissions, bespoke payment schedules may be agreed in writing prior to the commencement of work.",
     ],
   },
@@ -155,7 +155,7 @@ const TERMS_SECTIONS: TermsSection[] = [
     num: "11",
     title: "Trade & Specification",
     paragraphs: [
-      "Copa + Glas operates a trade programme for interior designers, architects, and hospitality practices. Trade pricing is confirmed on approval and applies to all collection pieces. Trade partners are invoiced ex-VAT with full VAT receipts.",
+      "Copa + Glas operates a trade programme for interior designers, architects, and hospitality practices. Trade pricing is confirmed on approval and applies to all collection pieces.",
       "All other terms, including lead times, payment structure, delivery, damage reporting, and returns, apply equally to trade orders. No exceptions are made to these terms without prior written agreement.",
     ],
     footer: (
@@ -344,7 +344,7 @@ export default function TermsPage() {
                     studio@copaandglas.com
                   </a>
                   . We respond to all enquiries within two working days. These terms were
-                  last updated May 2026.
+                  last updated November 2026.
                 </p>
               </aside>
             </div>

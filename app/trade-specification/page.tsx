@@ -84,8 +84,8 @@ const PROGRAMME_ITEMS = [
   },
   {
     num: "05",
-    title: "VAT invoicing",
-    body: "All trade orders are invoiced ex-VAT with full VAT receipts. Project-specific invoicing and documentation available for larger commissions and hospitality developments.",
+    title: "Project invoicing",
+    body: "Project-specific invoicing and documentation are available for larger commissions and hospitality developments.",
   },
   {
     num: "06",

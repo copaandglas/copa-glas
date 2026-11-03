@@ -64,7 +64,7 @@ export const faqSections: FaqSection[] = [
         question: "What is the price of a Copa + Glas mirror?",
         answer: `The mirrors of the collection are priced from ${gbp(priced[0].priceGBP!)}: ${list(
           priced.map((p) => `${named(p.name)} at ${gbp(p.priceGBP!)}`),
-        )}, inclusive of VAT. Limited editions, the Aura Wall Light, and commissioned works are priced on request. Delivery is quoted individually.`,
+        )}. Limited editions, the Aura Wall Light, and commissioned works are priced on request. Delivery is quoted individually.`,
         link: { href: "/mirrors", label: "The mirrors" },
       },
       {
@@ -154,7 +154,7 @@ export const faqSections: FaqSection[] = [
       {
         question: "Does the studio work with interior designers and architects?",
         answer:
-          "Yes. A small trade programme offers registered interior designers, architects, and hospitality practices preferential terms, a named contact at the studio, bespoke specification support, a full image library, and ex-VAT invoicing. There is no minimum order. Each application is reviewed personally and answered within two working days.",
+          "Yes. A small trade programme offers registered interior designers, architects, and hospitality practices preferential terms, a named contact at the studio, bespoke specification support and a full image library. There is no minimum order. Each application is reviewed personally and answered within two working days.",
         link: { href: "/trade-specification", label: "Trade & Specification" },
       },
     ],
