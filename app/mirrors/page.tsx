@@ -396,7 +396,7 @@ export default function MirrorsPage() {
                 font-normal leading-[1.12] -tracking-[0.005em] mb-5 md:mb-6
               "
             >
-              Commissioned for the space it is made for.
+              Mirrors, by commission.
             </h2>
             <p
               className="

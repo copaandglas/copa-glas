@@ -67,9 +67,9 @@ export default function AboutPage() {
                 mb-8
               "
             >
-              Inspired by
+              A studio
               <br />
-              <em>craftsmanship.</em>
+              <em>of makers.</em>
             </motion.h1>
 
             <motion.div
@@ -97,9 +97,8 @@ export default function AboutPage() {
                 across materials, processes, and brief.
               </p>
               <p>
-                The studio was born of a directional, sustainable, and deeply personal
-                approach to making, working with two materials above all others:
-                copper and glass.
+                The studio was born of a deeply personal approach to making,
+                working with two materials above all others: copper and glass.
               </p>
             </motion.div>
           </div>
@@ -194,7 +193,6 @@ export default function AboutPage() {
               <p>
                 He specialises in reviving techniques that have been overlooked
                 or forgotten, and in bringing them forward without compromise.
-                The studio&apos;s craft vocabulary is built entirely on that lineage.
               </p>
             </div>
           </motion.div>

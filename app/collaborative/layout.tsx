@@ -4,7 +4,7 @@ import { productsInCategory } from "@/app/lib/products";
 import { breadcrumbSchema, itemListSchema, webPageSchema } from "@/app/lib/schema";
 
 const description =
-  "Collaborative works by Copa + Glas — pieces made in partnership with artists and makers who share our material language.";
+  "Collaborative works by Copa + Glas — pieces made in partnership with artists and makers working in copper and glass.";
 
 export const metadata = pageMetadata({
   title: "Artist Collaborations",

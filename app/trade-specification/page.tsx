@@ -318,11 +318,9 @@ export default function TradeSpecificationPage() {
                   mb-10 md:mb-12
                 "
               >
-                For those who
+                For exceptional
                 <br />
-                <em>specify with</em>
-                <br />
-                intention.
+                <em>interiors.</em>
               </motion.h1>
 
               <motion.div

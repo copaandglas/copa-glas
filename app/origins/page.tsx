@@ -75,7 +75,7 @@ const chapters: TimelineChapter[] = [
     eyebrow: "A New Vision",
     title: "Frank Lloyd Wright",
     body:
-      "Frank Lloyd Wright saw something in the Luxfer technique that others had not. He understood the copper-section glazing method as an architectural language in its own right, developing entirely new geometric compositions and introducing art glass as a chromatic element. His Prairie Style windows, most notably at the Cheney House, Oak Park, 1903, remain among the most significant examples of the technique ever realised. What had been structural became sublime.",
+      "Frank Lloyd Wright saw something in the Luxfer technique that others had not. He understood the copper-section glazing method as an architectural language in its own right, developing entirely new geometric compositions and introducing art glass as a chromatic element. His Prairie Style windows, most notably at the Cheney House, Oak Park, 1903, remain among the most significant examples of the technique ever realised.",
     plateLetter: "D",
     plateCaption: "",
     imageSrc: "/flwartglass.webp",
@@ -455,7 +455,7 @@ export default function OriginsPage() {
               </p>
               <p>
                 Every piece is made by hand in our East London studio using
-                slim solid copper-sections first used by Luxfer in 1897.
+                slim, solid copper sections first used by Luxfer in 1897.
                 The tradition is unchanged. The materials are the same.
                 The intention to create something of lasting beauty and
                 significance has never wavered.

@@ -250,8 +250,8 @@ export default function HomeContent() {
                 <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14.5px] xl:text-[15.5px] leading-[2] text-black/52 max-w-[36ch]">
                   Working in copper and hand-cut glass, Copa + Glas makes
                   mirrors and lighting that gather and return the light around
-                  them. Every piece is drawn from a single material language
-                  and made to order in our East London workshop.
+                  them. Every piece is made to order in our East London
+                  workshop.
                 </p>
               </motion.div>
             </div>
@@ -412,7 +412,7 @@ export default function HomeContent() {
                     mb-9 md:mb-11 max-w-[18ch]
                   "
                 >
-                  Commissioned for the <em>space</em> it is made for.
+                  Works, by <em>commission.</em>
                 </h2>
 
                 <p
@@ -424,7 +424,7 @@ export default function HomeContent() {
                 >
                   Every piece can be scaled, finished, or wholly reconceived in
                   copper and hand-cut glass — for a private interior, an
-                  architectural brief, or a singular work. We welcome collectors,
+                  architectural brief, or a single work. We welcome collectors,
                   designers, and architects.
                 </p>
 
@@ -562,7 +562,7 @@ export default function HomeContent() {
                 >
                   Our glazing tradition begins with the Luxfer Prism Company and
                   the copper-section technique later transformed by Frank Lloyd
-                  Wright. We carry that lineage forward by hand — the same
+                  Wright. We carry that lineage forward by hand: the same
                   materials, the same intention, made for the interiors of today.
                 </p>
                 <Link

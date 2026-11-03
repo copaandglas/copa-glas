@@ -43,7 +43,7 @@ export const products: ProductData[] = [
     name: "Rotation Mirror",
     size: "",
     tagline: "Twenty-six hand-cut facets set in solid copper.",
-    description: `The Rotation mirror is a foundational piece for the studio, exploring the tension between rigid geometry and fragmented light. Comprising twenty-six hand-cut glass facets, each pane is meticulously set within a slender frame of solid, hand-formed copper.
+    description: `The Rotation mirror is a foundational piece for the studio, exploring the tension between rigid geometry and fragmented light. It comprises twenty-six hand-cut glass facets, each meticulously set within a slender frame of solid, hand-formed copper.
 
 The result is a subtle, shifting perspective, a refractive depth that intensifies as one moves through the space. It is a piece designed not just to reflect an interior, but to articulate the light within it.`,
     provenance: `Made to order in our East London workshop, where each facet is cut and each copper joint formed by hand.`,
@@ -194,9 +194,7 @@ Each panel catches light differently, so the composition shifts subtly as you mo
     name: "The Prairie Mirror",
     size: "",
     tagline: "An architectural homage, prairie geometries in silvered glass and copper.",
-    description: `A tall vertical mirror in the spirit of the Prairie School art glass windows of Frank Lloyd Wright, a disciplined grid of hand-formed copper holds clear silvered glass alongside panels of coloured and iridescent art glass, with a broad central field for the room to settle into.
-
-Commissioned feeling, architectural scale, and craft detail in a single piece.`,
+    description: `A tall vertical mirror in the spirit of the Prairie School art glass windows of Frank Lloyd Wright, a disciplined grid of hand-formed copper holds clear silvered glass alongside panels of coloured and iridescent art glass, with a broad central field for the room to settle into.`,
     provenance: `Limited to ten pieces worldwide. Each mirror is assembled and finished by hand in our East London workshop.`,
     material: "Solid copper; hand-cut silvered and art glass; birch ply backing board",
     dimensions: { cm: "31.5 × 91cm", inches: "12.4 × 35.8in" },
@@ -259,12 +257,12 @@ Assembled and finished to order in our East London workshop.`,
     designer: "Copa + Glas Studio",
     name: "Aura Wall Light",
     size: "",
-    tagline: "A customisable object — copper and glass configured for the room it will inhabit.",
+    tagline: "Copper and art glass, made to commission.",
     description: `The Aura wall light is a composition of hand-formed copper and hand-finished glass, drawn into the glow of a room. Scale, proportion, glass finish, and colour are shaped to the space it lives in.
 
-The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of vibrant coloured art glass, beautifully harmonious with the brushed copper frame. Each Aura is made once, to the room it belongs in.
+The piece shown was made for a private commission: a solid copper frame with tinted glass, 50 × 65cm. At its centre, a single pane of vibrant coloured art glass, beautifully harmonious with the brushed copper frame.
 
-Each Aura is a bespoke object — scale, finish, and configuration are resolved in conversation with the studio.`,
+Each Aura is made to commission. Scale, finish, and configuration are agreed with the studio.`,
     provenance: `Made to order in our East London workshop, each Aura is assembled and finished by hand before leaving the studio.`,
     material: "Solid copper frame; hand-finished glass",
     dimensions: { cm: "50 × 65cm (piece shown)", inches: "19.7 × 25.6in (piece shown)" },
@@ -287,11 +285,11 @@ Each Aura is a bespoke object — scale, finish, and configuration are resolved 
     name: "Three Geishas",
     size: "",
     tagline: "A collaboration with artist Lucy Williams in copper, Welsh slate, and a limited-edition photographic print.",
-    description: `A collaborative piece, created in partnership with the incredibly talented artist Lucy Williams.
+    description: `A collaborative piece, created in partnership with the artist Lucy Williams.
 
 Lucy uses a unique photographic print process, producing limited-edition works with subtle, nostalgic imagery through naturally occurring bleeds and chemical reactions.
 
-In place of traditional mirror and art glass, we worked with Welsh slate. Lucy has Welsh heritage; her parents were from Wales, and the slate symbolises that connection for her. The result is a beautifully distinctive and characterful piece.`,
+In place of traditional mirror and art glass, we worked with Welsh slate. Lucy has Welsh heritage; her parents were from Wales, and the slate symbolises that connection for her. The result is a distinctive and characterful piece.`,
     provenance: `In collaboration with Lucy Williams. Features a limited-edition photographic print and is assembled and finished by hand in our East London workshop.`,
     material: "Solid copper; Welsh slate; limited-edition photographic print",
     dimensions: { cm: "41 × 45.5cm", inches: "16.1 × 17.9in" },

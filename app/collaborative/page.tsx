@@ -126,7 +126,7 @@ export default function CollaborativePage() {
                 mb-6 text-black/92
               "
             >
-              Selected voices, shared making.
+              Selected artists, shared making.
             </h2>
             <div
               className="

@@ -30,7 +30,7 @@ const lights: Light[] = [
     price: "Enquire",
     image: "/aura-wall-light-interior.webp",
     tagline:
-      "A customisable object — copper and glass configured for the room it will inhabit.",
+      "Copper and art glass, made to commission.",
     leadTime: "Made to order",
   },
 ];
@@ -110,8 +110,8 @@ export default function LightingPage() {
           "
         >
           A small, growing body of sculptural lighting. Each piece is hand-made
-          to order in our East London workshop, where the same material
-          language carried through our mirrors is drawn into the glow of a room.
+          to order in our East London workshop, carrying the copper and glass of
+          our mirrors into the glow of a room.
         </motion.p>
       </div>
 
@@ -349,7 +349,7 @@ export default function LightingPage() {
                 font-normal leading-[1.12] -tracking-[0.005em] mb-5 md:mb-6
               "
             >
-              Lighting, made for the room it lives in.
+              Lighting, by commission.
             </h2>
             <p
               className="

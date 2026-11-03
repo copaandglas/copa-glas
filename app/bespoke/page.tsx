@@ -196,9 +196,9 @@ export default function BespokePage() {
                 mb-10 md:mb-12
               "
             >
-              Commissioned for
+              Commissioned
               <br />
-              <em>where it belongs.</em>
+              <em>works.</em>
             </motion.h1>
 
             <motion.div
@@ -230,8 +230,7 @@ export default function BespokePage() {
                 clients to design and make work that could not exist anywhere
                 else. Each commission is led by Anthony McCarty, our Master
                 Craftsman, whose four decades of architectural glazing
-                experience means no brief is too complex and no scale too
-                ambitious.
+                experience are brought to every commission.
               </p>
               <p>
                 We can work from your specification or develop a design
@@ -498,9 +497,9 @@ export default function BespokePage() {
                 mb-9 text-white/95
               "
             >
-              Four decades held
+              Four decades
               <br />
-              <em>in a pair of hands.</em>
+              <em>in copper and glass.</em>
             </h2>
 
             <div className="w-10 h-px bg-accent/60 mb-9" />
@@ -522,8 +521,7 @@ export default function BespokePage() {
               <p>
                 He leads every Copa + Glas commission from the first sketch
                 through to final installation, working alongside our studio
-                team of skilled craftspeople. His knowledge is not transferable
-                in words. It is visible in the work.
+                team of skilled craftspeople.
               </p>
             </div>
           </motion.div>

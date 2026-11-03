@@ -36,7 +36,7 @@ const categories: CollectionCategory[] = [
     name: "Lighting",
     tagline: "Copper and glass, quietly lit.",
     description:
-      "Sculptural wall lights and fixtures made in the studio, where the same material language is carried into the glow of a room.",
+      "Sculptural wall lights made in the studio, carrying the copper and glass of our mirrors into the glow of a room.",
     count: "One piece",
     image: "/aura-wall-light-interior.webp",
     desktopImage: "/aura-wall-light-interior-off.webp",
@@ -44,9 +44,9 @@ const categories: CollectionCategory[] = [
   {
     slug: "limited-editions",
     name: "Limited Editions",
-    tagline: "Works of singular intention.",
+    tagline: "Editions of ten.",
     description:
-      "Each piece limited to ten worldwide. Made once, never repeated.",
+      "Each work is limited to ten worldwide. Once an edition is complete, it is not remade.",
     count: "Two works · 1 of 10",
     image: "/mirror-thumbnail.png",
   },
@@ -120,8 +120,7 @@ export default function CollectionPage() {
           "
         >
           Mirrors, lighting, and limited editions. Each piece is hand-made to
-          order in our East London workshop, three strands, drawn from a
-          single material language in copper and glass.
+          order in our East London workshop.
         </motion.p>
       </div>
 

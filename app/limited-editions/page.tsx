@@ -112,7 +112,7 @@ export default function LimitedEditionsPage() {
             max-w-3xl mb-5 md:mb-7 lg:mb-8
           "
         >
-          Works of singular intention.
+          Editions of ten.
         </motion.h1>
 
         <motion.p
@@ -125,7 +125,7 @@ export default function LimitedEditionsPage() {
             leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
-          Each piece limited to ten worldwide. Made once, never repeated.
+          Each work is limited to ten worldwide, numbered, signed, and certificated. Once an edition is complete, it is never remade.
         </motion.p>
       </div>
 
@@ -370,7 +370,7 @@ export default function LimitedEditionsPage() {
                 font-normal leading-[1.12] -tracking-[0.005em] mb-5 md:mb-6
               "
             >
-              Numbered, and held by hand.
+              Numbered, and signed by hand.
             </h2>
             <p
               className="
@@ -380,8 +380,8 @@ export default function LimitedEditionsPage() {
               "
             >
               Editions are released quietly, and each piece is numbered and
-              signed from the studio. To enquire about availability within a
-              run, or to be introduced to a forthcoming edition, please write
+              signed in the studio. To enquire about availability within an
+              edition, or to be introduced to a forthcoming work, please write
               to us directly.
             </p>
           </div>
