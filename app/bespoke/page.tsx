@@ -256,8 +256,8 @@ export default function BespokePage() {
               ].map((stat, i) => (
                 <li
                   key={stat.figure}
-                  className={`py-7 md:py-8 first:pt-0 last:pb-0 ${
-                    i === 0 ? "lg:border-t lg:border-black/10 lg:pt-8" : ""
+                  className={`py-7 md:py-8 last:pb-0 ${
+                    i === 0 ? "pt-0 lg:pt-8 lg:border-t lg:border-black/10" : ""
                   }`}
                 >
                   <p
