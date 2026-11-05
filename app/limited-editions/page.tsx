@@ -23,6 +23,13 @@ interface Edition {
   edition: string;
 }
 
+const principles = [
+  { title: "Numbered", text: "Each piece carries its number within the edition, from 1/10 to 10/10, engraved on its copper plate." },
+  { title: "Signed", text: "Signed by Anthony McCarty, Master Craftsman, and recorded in the studio register before it leaves the workshop." },
+  { title: "Certificated", text: "Accompanied by a certificate of authenticity on cotton rag paper, bearing the same number as the plate." },
+  { title: "Never remade", text: "Once complete, an edition is closed. It is not made again in any size, colour, or finish." },
+];
+
 const editions: Edition[] = [
   {
     slug: "prairie-mirror",
@@ -35,7 +42,7 @@ const editions: Edition[] = [
     tagline:
       "An architectural homage, prairie geometries in silvered glass and copper.",
     leadTime: "Made to order",
-    edition: "1 of 10",
+    edition: "Edition of ten",
   },
   {
     slug: "rotation-confetti-mirror",
@@ -47,7 +54,7 @@ const editions: Edition[] = [
     tagline:
       "A celebratory reimagining of the Rotation, scattered, refracted colour.",
     leadTime: "Made to order",
-    edition: "1 of 10",
+    edition: "Edition of ten",
   },
 ];
 
@@ -125,7 +132,7 @@ export default function LimitedEditionsPage() {
             leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
-          Each work is limited to ten worldwide, numbered, signed, and certificated. Once an edition is complete, it is never remade.
+          Each work is made in a single edition of ten, numbered and signed by hand, with a certificate on cotton rag paper and a copper provenance plate. When the tenth piece is placed, the edition is closed and the work is never made again.
         </motion.p>
       </div>
 
@@ -212,9 +219,9 @@ export default function LimitedEditionsPage() {
                     className="
                       absolute top-3 left-3 md:top-4 md:left-4
                       text-[10px] tracking-[0.15em] uppercase
-                      text-white/95 px-2.5 py-1
-                      bg-white/[0.14] backdrop-blur-xl
-                      border border-white/25
+                      text-white px-2.5 py-1
+                      bg-black/[0.32] backdrop-blur-xl
+                      border border-white/20
                     "
                   >
                     {piece.edition}
@@ -342,6 +349,58 @@ export default function LimitedEditionsPage() {
         </div>
       </div>
 
+      {/* ---- The edition ---- */}
+      <section
+        aria-labelledby="edition-heading"
+        className="
+          border-t border-black/[0.06]
+          py-16 md:py-20 lg:py-24
+        "
+      >
+        <div
+          className="
+            max-w-[1400px] 3xl:max-w-[1680px] mx-auto
+            px-[max(1.25rem,env(safe-area-inset-left))]
+            md:px-[max(2.25rem,env(safe-area-inset-left))]
+            lg:px-[max(3.5rem,env(safe-area-inset-left))]
+            3xl:px-[max(5rem,env(safe-area-inset-left))]
+          "
+        >
+          <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3">
+            The edition
+          </p>
+          <h2
+            id="edition-heading"
+            className="
+              font-[family-name:var(--font-newsreader),Georgia,serif]
+              text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] 3xl:text-[2.75rem]
+              font-normal leading-[1.12] -tracking-[0.005em]
+              max-w-2xl mb-10 md:mb-14
+            "
+          >
+            Ten pieces, <em>and no more.</em>
+          </h2>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 lg:gap-x-10 gap-y-8 md:gap-y-10">
+            {principles.map((item) => (
+              <div key={item.title} className="border-t border-black/[0.1] pt-5">
+                <dt className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3">
+                  {item.title}
+                </dt>
+                <dd
+                  className="
+                    m-0
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
+                    text-[15px] md:text-base leading-[1.7] opacity-[0.88]
+                  "
+                >
+                  {item.text}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* ---- Enquiry prompt ---- */}
       <section
         className="
@@ -361,7 +420,7 @@ export default function LimitedEditionsPage() {
         >
           <div className="max-w-xl">
             <p className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3">
-              Acquisition
+              Enquiries
             </p>
             <h2
               className="
@@ -370,7 +429,7 @@ export default function LimitedEditionsPage() {
                 font-normal leading-[1.12] -tracking-[0.005em] mb-5 md:mb-6
               "
             >
-              Numbered, and signed by hand.
+              Acquiring <em>an edition.</em>
             </h2>
             <p
               className="
@@ -379,10 +438,10 @@ export default function LimitedEditionsPage() {
                 leading-[1.75] opacity-[0.88]
               "
             >
-              Editions are released quietly, and each piece is numbered and
-              signed in the studio. To enquire about availability within an
-              edition, or to be introduced to a forthcoming work, please write
-              to us directly.
+              Editions are released quietly, and new works are offered first to
+              collectors who have asked to hear from us. To enquire about a
+              piece within an open edition, or to be introduced to a
+              forthcoming work, please write to us directly.
             </p>
           </div>
 
