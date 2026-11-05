@@ -382,8 +382,8 @@ export default function OriginsPage() {
           >
             <div className="relative w-full aspect-[4/5] bg-muted overflow-hidden">
               <Image
-                src="/rotation-mirror.png"
-                alt="Studio piece, Rotation Mirror"
+                src="/rotation-mirror-copper-tone.webp"
+                alt="Studio piece, Rotation Mirror in Copper Tone"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -398,7 +398,7 @@ export default function OriginsPage() {
                   border border-white/25
                 "
               >
-                STUDIO PIECE · ROTATION MIRROR
+                ROTATION MIRROR IN COPPER TONE
               </div>
             </div>
           </motion.div>
