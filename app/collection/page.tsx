@@ -18,6 +18,8 @@ interface CollectionCategory {
   hoverImage?: string;
   desktopImage?: string;
   objectPosition?: string;
+  href?: string;
+  cta?: string;
 }
 
 const categories: CollectionCategory[] = [
@@ -27,7 +29,7 @@ const categories: CollectionCategory[] = [
     tagline: "Refraction, framed in copper.",
     description:
       "Hand-cut silvered glass held within solid, hand-formed copper, objects designed to articulate the light within a room.",
-    count: "Four pieces",
+    count: "Studio Collection · Four pieces",
     image: "/mondrian-mirror.png",
     hoverImage: "/mondrian-mirror-close.png",
   },
@@ -37,18 +39,29 @@ const categories: CollectionCategory[] = [
     tagline: "Copper and glass, quietly lit.",
     description:
       "Sculptural wall lights made in the studio, carrying the copper and glass of our mirrors into the glow of a room.",
-    count: "One piece",
+    count: "Studio Collection · One piece",
     image: "/aura-wall-light-interior.webp",
     desktopImage: "/aura-wall-light-interior-off.webp",
   },
   {
     slug: "limited-editions",
-    name: "Limited Editions",
+    name: "Editions",
     tagline: "Editions of ten.",
     description:
-      "Each work is limited to ten worldwide. Once an edition is complete, it is not remade.",
-    count: "Two works · 1 of 10",
+      "Each work is made in a single edition of ten, numbered and signed by hand. Once an edition is complete, it is never remade.",
+    count: "Editions of ten · Two works",
     image: "/mirror-thumbnail.png",
+  },
+  {
+    slug: "unique-works",
+    href: "/bespoke",
+    name: "Unique Works",
+    tagline: "Made once, never repeated.",
+    description:
+      "Commissioned by private collectors, designers, and architects. Each piece is drawn for its client and made by hand in the studio.",
+    count: "Unique works · Commissions",
+    image: "/aureole-mirror-commission.png",
+    cta: "Begin a Commission",
   },
 ];
 
@@ -92,7 +105,7 @@ export default function CollectionPage() {
           transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
           className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3 md:mb-4"
         >
-          The Studio Collection
+          Collection
         </motion.p>
 
         <motion.h1
@@ -119,8 +132,9 @@ export default function CollectionPage() {
             leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
-          Mirrors, lighting, and limited editions. Each piece is hand-made to
-          order in our East London workshop.
+          Three kinds of work: the Studio Collection, made to order; editions,
+          each limited to ten; and unique works, made once and never repeated.
+          Every piece is made by hand in our East London workshop.
         </motion.p>
       </div>
 
@@ -137,7 +151,7 @@ export default function CollectionPage() {
       >
         <div
           className="
-            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+            grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4
             gap-x-5 md:gap-x-6 lg:gap-x-8 3xl:gap-x-12
             gap-y-12
           "
@@ -155,17 +169,17 @@ export default function CollectionPage() {
               }}
             >
               <Link
-                href={`/${category.slug}`}
+                href={category.href ?? `/${category.slug}`}
                 className="group flex flex-col h-full text-inherit no-underline"
-                aria-label={`Browse ${category.name}`}
+                aria-label={category.cta ?? `Browse ${category.name}`}
               >
                 <div className="relative w-full aspect-[4/5] shrink-0 overflow-hidden bg-muted">
                   <Image
                     src={category.image}
                     alt={`${category.name}, ${category.tagline}`}
                     fill
-                    priority={i < 3}
-                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                    priority={i < 4}
+                    sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
                     className={`
                       object-cover will-change-[transform,opacity]
                       transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
@@ -179,7 +193,7 @@ export default function CollectionPage() {
                     <Image
                       src={category.desktopImage}
                       alt="" aria-hidden fill
-                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
                       className="
                         hidden sm:block object-cover will-change-[transform,opacity]
                         transition-[transform,opacity] duration-0 ease-[cubic-bezier(0.37,0,0.63,1)]
@@ -195,7 +209,7 @@ export default function CollectionPage() {
                       alt=""
                       aria-hidden
                       fill
-                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
                       className="
                         hidden sm:block object-cover will-change-[transform,opacity]
                         opacity-0
@@ -217,9 +231,9 @@ export default function CollectionPage() {
                     className="
                       absolute bottom-4 left-4 md:bottom-5 md:left-5
                       text-[10px] tracking-[0.15em] uppercase
-                      text-white/95 px-2.5 py-1
-                      bg-white/[0.14] backdrop-blur-xl
-                      border border-white/25
+                      text-white px-2.5 py-1
+                      bg-black/[0.32] backdrop-blur-xl
+                      border border-white/20
                     "
                   >
                     {category.count}
@@ -270,7 +284,7 @@ export default function CollectionPage() {
                       group-hover:border-black/80
                     "
                   >
-                    <span>Browse {category.name}</span>
+                    <span>{category.cta ?? `Browse ${category.name}`}</span>
                     <svg
                       width="14"
                       height="14"

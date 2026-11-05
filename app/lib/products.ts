@@ -212,7 +212,7 @@ Each panel catches light differently, so the composition shifts subtly as you mo
       { src: "/prairie-mirror-full.webp", alt: "The Prairie Mirror against a plain wall, showing the full copper grid with its art glass panels" },
       { src: "/prairie-mirror-plate.webp", alt: "Copper provenance plate engraved Copa + Glas, The Prairie Mirror, Edition 1 of 10" },
     ],
-    collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
+    collectionCategory: { href: "/limited-editions", label: "Editions" },
     seo: {
       title: "The Prairie Mirror: Limited Edition of 10",
       description: "Inspired by the Prairie School windows of Frank Lloyd Wright — a grid of hand-formed copper holding silvered and iridescent art glass. Limited to 10 worldwide.",
@@ -245,7 +245,7 @@ Assembled and finished to order in our East London workshop.`,
       { src: "/mirror-thumbnail.png", alt: "The Rotation Confetti Mirror, detail of an iridescent art glass facet set in copper" },
       { src: "/rotation-confetti-plaque.jpg", alt: "Copper provenance plate engraved Copa + Glas, Rotation Confetti Mirror, Edition 1 of 10" },
     ],
-    collectionCategory: { href: "/limited-editions", label: "Limited Editions" },
+    collectionCategory: { href: "/limited-editions", label: "Editions" },
     seo: {
       title: "The Rotation Confetti Mirror: Limited Edition of 10",
       description: "A celebratory reimagining of the Rotation — twenty-six hand-cut glass facets in refracted colour, set in solid copper. Limited to 10 worldwide. Price on request.",

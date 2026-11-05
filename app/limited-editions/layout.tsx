@@ -23,7 +23,7 @@ export default function LimitedEditionsLayout({ children }: { children: React.Re
           itemListSchema("Copa + Glas Limited Editions", productsInCategory("/limited-editions")),
           breadcrumbSchema([
             { name: "Collection", path: "/collection" },
-            { name: "Limited Editions", path: "/limited-editions" },
+            { name: "Editions", path: "/limited-editions" },
           ]),
         ]}
       />

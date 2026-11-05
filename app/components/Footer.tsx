@@ -129,7 +129,7 @@ export default function Footer() {
             <nav>
               <Link href="/mirrors" className="footer-link">Mirrors</Link>
               <Link href="/lighting" className="footer-link">Lighting</Link>
-              <Link href="/limited-editions" className="footer-link">Limited Editions</Link>
+              <Link href="/limited-editions" className="footer-link">Editions</Link>
             </nav>
           </div>
 

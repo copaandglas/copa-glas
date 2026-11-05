@@ -96,7 +96,7 @@ export default function LimitedEditionsPage() {
             Collection
           </Link>
           <span className="opacity-25 mx-2">/</span>
-          <span className="opacity-90">Limited Editions</span>
+          <span className="opacity-90">Editions</span>
         </motion.nav>
 
         <motion.p
@@ -105,7 +105,7 @@ export default function LimitedEditionsPage() {
           transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
           className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3 md:mb-4"
         >
-          Collection, Limited Editions
+          Editions
         </motion.p>
 
         <motion.h1
