@@ -10,7 +10,7 @@ const anthony = {
   "@type": "Person",
   "@id": ANTHONY_ID,
   name: "Anthony McCarty",
-  jobTitle: "Co-founder and Master Craftsman",
+  jobTitle: "Master Craftsman",
   description:
     "Master craftsman working in architectural copper and glass since 1980. Past commissions include conservation work on Big Ben, the Natural History Museum, and the lightwell at Hotel Café Royal, London.",
   worksFor: { "@id": ORG_ID },
@@ -21,7 +21,7 @@ const bradley = {
   "@type": "Person",
   "@id": BRADLEY_ID,
   name: "Bradley McWhinney",
-  jobTitle: "Co-founder and Creative Director",
+  jobTitle: "Creative Director",
   worksFor: { "@id": ORG_ID },
 };
 

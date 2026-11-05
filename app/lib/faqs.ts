@@ -46,7 +46,7 @@ export const faqSections: FaqSection[] = [
       {
         question: "Who makes the work?",
         answer:
-          "Each piece is made under the direction of Anthony McCarty, our co-founder and Master Craftsman, who has worked in architectural copper and glass since 1980. His past commissions include conservation work on Big Ben, restoration at the Natural History Museum, and more than one thousand handmade copper and glass screens for the lightwell at Hotel Café Royal on Regent Street.",
+          "Each piece is made under the direction of Anthony McCarty, our Master Craftsman, who has worked in architectural copper and glass since 1980. His past commissions include conservation work on Big Ben, restoration at the Natural History Museum, and more than one thousand handmade copper and glass screens for the lightwell at Hotel Café Royal on Regent Street.",
         link: { href: "/archive", label: "The archive" },
       },
       {
