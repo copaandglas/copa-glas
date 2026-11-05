@@ -106,7 +106,7 @@ export default function LimitedEditionsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] 3xl:text-[3.75rem]
             font-normal leading-[1.08] -tracking-[0.005em]
             max-w-3xl mb-5 md:mb-7 lg:mb-8
@@ -120,7 +120,7 @@ export default function LimitedEditionsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-lg 3xl:text-[19px]
             leading-[1.75] opacity-[0.88] max-w-xl
           "
@@ -235,7 +235,7 @@ export default function LimitedEditionsPage() {
                   >
                     <p
                       className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        font-[family-name:var(--font-newsreader),Georgia,serif]
                         text-[13px] md:text-[14px] leading-[1.45]
                         italic text-white/95 max-w-[24ch]
                         [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]
@@ -273,7 +273,7 @@ export default function LimitedEditionsPage() {
                 <div className="pt-4 sm:pt-4 md:pt-5 lg:pt-6">
                   <h2
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[1.375rem] sm:text-[1.25rem] md:text-[1.5rem] lg:text-[1.625rem] 3xl:text-[1.75rem]
                       font-normal leading-[1.2] tracking-[0.01em]
                       mb-2 sm:mb-1.5 md:mb-2
@@ -285,7 +285,7 @@ export default function LimitedEditionsPage() {
                   <p
                     className="
                       sm:hidden
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[15px] leading-[1.6] italic
                       opacity-[0.85] mb-3.5
                       max-w-[36ch]
@@ -306,7 +306,7 @@ export default function LimitedEditionsPage() {
                     </span>
                     <span
                       className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        font-[family-name:var(--font-newsreader),Georgia,serif]
                         text-[14px] sm:text-[13px] md:text-[14px] tabular-nums opacity-80
                       "
                     >
@@ -365,7 +365,7 @@ export default function LimitedEditionsPage() {
             </p>
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] 3xl:text-[2.75rem]
                 font-normal leading-[1.12] -tracking-[0.005em] mb-5 md:mb-6
               "
@@ -374,7 +374,7 @@ export default function LimitedEditionsPage() {
             </h2>
             <p
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.75] opacity-[0.88]
               "

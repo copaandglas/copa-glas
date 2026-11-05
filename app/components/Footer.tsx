@@ -115,7 +115,7 @@ export default function Footer() {
           className="
             text-center text-[9px] sm:text-[10px] md:text-[11px]
             text-white/62 tracking-[0.12em] mb-9 md:mb-11 lg:mb-12
-            font-[family-name:var(--font-playfair),Georgia,serif] italic
+            font-[family-name:var(--font-newsreader),Georgia,serif] italic
             max-w-3xl mx-auto leading-[1.6] px-2
           "
         >

@@ -171,7 +171,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
               aria-label="Site navigation"
               className="
                 flex-1 flex flex-col justify-center items-center
-                gap-3 md:gap-5 font-[family-name:var(--font-playfair),Georgia,serif]
+                gap-3 md:gap-5 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.25rem,5vw,1.5rem)] md:text-[1.75rem] lg:text-4xl
                 px-[max(1rem,env(safe-area-inset-left))] overflow-y-auto
                 pb-[max(1.5rem,env(safe-area-inset-bottom))]

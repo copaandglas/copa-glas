@@ -61,7 +61,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, delay: 0.14, ease }}
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.6rem,6vw,5rem)]
                 leading-[1.03] -tracking-[0.01em] font-normal
                 mb-8
@@ -86,7 +86,7 @@ export default function AboutPage() {
               transition={{ duration: 1.3, delay: 0.28, ease }}
               className="
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.85] text-black/80
               "
@@ -157,7 +157,7 @@ export default function AboutPage() {
           >
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.5rem,2.5vw,2rem)]
                 leading-[1.15] font-normal mb-1
               "
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <div
               className="
                 space-y-4
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base                 leading-[1.85] text-black/78
               "
             >
@@ -206,7 +206,7 @@ export default function AboutPage() {
           >
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.5rem,2.5vw,2rem)]
                 leading-[1.15] font-normal mb-1
               "
@@ -220,7 +220,7 @@ export default function AboutPage() {
             <div
               className="
                 space-y-4
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base                 leading-[1.85] text-black/78
               "
             >
@@ -283,7 +283,7 @@ export default function AboutPage() {
 
             <blockquote
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.5rem,2.8vw,2.1rem)]
                 leading-[1.3] font-normal italic text-black/88
                 mb-8 md:mb-10
@@ -295,7 +295,7 @@ export default function AboutPage() {
             <div
               className="
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[16px]
                 leading-[1.85] text-black/75
               "
@@ -337,7 +337,7 @@ export default function AboutPage() {
             </p>
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.75rem,3.5vw,2.75rem)]
                 leading-[1.15] -tracking-[0.005em] font-normal
                 mb-6 text-black/92
@@ -347,7 +347,7 @@ export default function AboutPage() {
             </h2>
             <p
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] leading-[1.8] text-black/72
               "
             >

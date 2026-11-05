@@ -100,7 +100,7 @@ export default function CollectionPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] 3xl:text-[3.75rem]
             font-normal leading-[1.08] -tracking-[0.005em]
             max-w-3xl mb-5 md:mb-7 lg:mb-8
@@ -114,7 +114,7 @@ export default function CollectionPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-lg 3xl:text-[19px]
             leading-[1.75] opacity-[0.88] max-w-xl
           "
@@ -229,7 +229,7 @@ export default function CollectionPage() {
                 <div className="pt-6 md:pt-7 lg:pt-8 flex flex-col flex-1 min-h-0">
                   <h2
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[1.75rem] md:text-[1.875rem] lg:text-[1.875rem] 3xl:text-[2.125rem]
                       font-normal leading-[1.1] tracking-[0.01em]
                       mb-3 md:mb-4
@@ -240,7 +240,7 @@ export default function CollectionPage() {
 
                   <p
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[15px] md:text-base lg:text-[17px]
                       italic leading-[1.55] opacity-[0.88]
                       mb-3 md:mb-4 max-w-[38ch]
@@ -251,7 +251,7 @@ export default function CollectionPage() {
 
                   <p
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[14px] md:text-[15px] leading-[1.7]
                       opacity-[0.82] max-w-[48ch]
                     "

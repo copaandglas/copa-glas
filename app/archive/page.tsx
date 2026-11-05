@@ -178,7 +178,7 @@ function ImageCard({
         {/* Gradient overlay + caption on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 md:p-5">
           <div className="translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-            <p className="text-white text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] leading-snug italic">
+            <p className="text-white text-[12px] md:text-[13px] font-[family-name:var(--font-newsreader),Georgia,serif] leading-snug italic">
               {captionWithYear}
             </p>
           </div>
@@ -199,7 +199,7 @@ function ImageCard({
         <p className="text-[8px] tracking-[0.18em] uppercase text-black/52 font-medium leading-[2.2]">
           <CategoryLabel category={item.category} />
         </p>
-        <p className="text-[11px] tracking-[0.025em] text-black/75 font-[family-name:var(--font-playfair),Georgia,serif] mt-[2px]">
+        <p className="text-[11px] tracking-[0.025em] text-black/75 font-[family-name:var(--font-newsreader),Georgia,serif] mt-[2px]">
           {captionWithYear}
         </p>
       </div>
@@ -296,7 +296,7 @@ function Lightbox({
             transition={{ duration: 0.3, delay: 0.18 }}
             className="shrink-0 text-center w-full px-4 pointer-events-none"
           >
-            <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-playfair),Georgia,serif] italic">
+            <p className="text-white/80 text-[12px] md:text-[13px] font-[family-name:var(--font-newsreader),Georgia,serif] italic">
               {item.caption}, {item.year}
             </p>
             <p className="text-white/45 text-[7px] tracking-[0.2em] uppercase mt-2">
@@ -399,7 +399,7 @@ export default function ArchivePage() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20 lg:gap-36">
           <motion.h1
             className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[clamp(2.6rem,7.5vw,5.25rem)]
               font-normal leading-[1.04] text-black
             "
@@ -414,7 +414,7 @@ export default function ArchivePage() {
 
           <motion.p
             className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[13px] sm:text-sm leading-[1.85] text-black/65
               max-w-[310px] md:text-right md:pb-0.5
             "
@@ -570,7 +570,7 @@ export default function ArchivePage() {
         <div className="max-w-[460px]">
           <blockquote
             className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[clamp(0.95rem,2vw,1.25rem)]
               leading-[1.7] text-black/80 italic
             "
@@ -591,7 +591,7 @@ export default function ArchivePage() {
           <Link
             href="/collection"
             className="
-              text-[13px] font-[family-name:var(--font-playfair),Georgia,serif]
+              text-[13px] font-[family-name:var(--font-newsreader),Georgia,serif]
               text-black/78 hover:text-black
               underline underline-offset-4 decoration-black/12 hover:decoration-black/45
               transition-all duration-200

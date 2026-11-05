@@ -134,7 +134,7 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
       <div className="pt-4 md:pt-5 flex items-start gap-3.5">
         {index !== undefined && (
           <span className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[10px] italic text-black/22 tabular-nums leading-[1.9] shrink-0
           ">
             {String(index + 1).padStart(2, "0")}
@@ -143,7 +143,7 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
         <div className="flex-1 min-w-0 border-t border-black/[0.09] pt-3.5">
           <div className="flex items-baseline justify-between gap-3">
             <h3 className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[0.95rem] md:text-[1rem]
               font-normal leading-[1.3] tracking-[0.01em] text-black/85
             ">
@@ -151,7 +151,7 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
             </h3>
             {work.price && (
               <span className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[11px] tabular-nums text-black/35 shrink-0
               ">
                 {work.price}
@@ -160,7 +160,7 @@ function WorkCard({ work, index }: { work: FeaturedWork; index?: number }) {
           </div>
           {work.tagline && (
             <p className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[11.5px] leading-[1.65] italic text-black/38 mt-1
             ">
               {work.tagline}
@@ -201,7 +201,7 @@ export default function HomeContent() {
               transition={{ duration: 1.4, ease: luxuryEase }}
               className="
                 lg:w-[55%] xl:w-[57%] shrink-0
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.6rem,7vw,5rem)] lg:text-[clamp(2.6rem,5vw,5rem)] xl:text-[clamp(2.6rem,5.25vw,5rem)]
                 leading-[1.04] -tracking-[0.016em] font-normal
               "
@@ -247,7 +247,7 @@ export default function HomeContent() {
                 transition={{ duration: 1.3, delay: 0.28, ease: luxuryEase }}
                 className="mt-12 w-full"
               >
-                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14.5px] xl:text-[15.5px] leading-[2] text-black/52 max-w-[36ch]">
+                <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[14.5px] xl:text-[15.5px] leading-[2] text-black/52 max-w-[36ch]">
                   Working in copper and hand-cut glass, Copa + Glas makes
                   mirrors and lighting that gather and return the light around
                   them. Every piece is made to order in our East London
@@ -406,7 +406,7 @@ export default function HomeContent() {
                 </p>
                 <h2
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(2rem,4.6vw,3.5rem)]
                     leading-[1.08] -tracking-[0.01em] font-normal
                     mb-9 md:mb-11 max-w-[18ch]
@@ -417,7 +417,7 @@ export default function HomeContent() {
 
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[14.5px] md:text-[15px] lg:text-[16px]
                     leading-[2] text-white/55 max-w-[46ch] mb-10 md:mb-14
                   "
@@ -496,7 +496,7 @@ export default function HomeContent() {
               aria-hidden
               className="
                 hidden lg:block absolute -top-8 right-0 z-0 pointer-events-none select-none
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[12rem] xl:text-[15rem] leading-none italic
                 text-accent/[0.18]
               "
@@ -546,7 +546,7 @@ export default function HomeContent() {
                 </p>
                 <h2
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.75rem,4vw,3rem)]
                     leading-[1.1] -tracking-[0.008em] font-normal mb-7 md:mb-9
                   "
@@ -555,7 +555,7 @@ export default function HomeContent() {
                 </h2>
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[14.5px] md:text-[15px] lg:text-[16px]
                     leading-[2] text-black/52 max-w-[46ch] mb-9 md:mb-11
                   "

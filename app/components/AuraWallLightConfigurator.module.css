@@ -127,7 +127,7 @@
 }
 
 .title {
-  font-family: var(--font-playfair), Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-newsreader), Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-size: 2.6rem;
   letter-spacing: 0.02em;
@@ -136,7 +136,7 @@
 }
 
 .intro {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.65;
   color: #1a1a1a;
@@ -146,7 +146,7 @@
 }
 
 .sectionLabel {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-style: italic;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -163,7 +163,7 @@
 }
 
 .activeColorDesc {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-size: 1.05rem;
   color: #1a1a1a;
   line-height: 1.6;
@@ -325,7 +325,7 @@
 }
 
 .colourNote {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-newsreader), Georgia, serif;
   font-style: italic;
   font-size: 0.8rem;
   line-height: 1.65;

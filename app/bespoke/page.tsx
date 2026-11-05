@@ -64,7 +64,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 /* Light form styling */
 const LABEL    = "block text-[10px] tracking-[0.22em] uppercase font-medium mb-2.5 text-black/70";
 const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
-const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
+const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-newsreader),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
 export default function BespokePage() {
@@ -190,7 +190,7 @@ export default function BespokePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, delay: 0.14, ease }}
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.5rem,6.4vw,5.25rem)]
                 leading-[1.03] -tracking-[0.01em] font-normal
                 mb-10 md:mb-12
@@ -216,7 +216,7 @@ export default function BespokePage() {
               className="
                 max-w-[34rem]
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.85] text-black/80
               "
@@ -262,7 +262,7 @@ export default function BespokePage() {
                 >
                   <p
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[clamp(2rem,3.5vw,2.75rem)]
                       leading-[1] font-normal text-black/90
                       mb-3
@@ -303,7 +303,7 @@ export default function BespokePage() {
           </p>
           <p
             className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90
             "
           >
@@ -348,7 +348,7 @@ export default function BespokePage() {
           <p
             className="
               max-w-xl
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               italic text-[13px] md:text-sm leading-[1.8] text-black/70
               mb-8 md:mb-10
             "
@@ -384,7 +384,7 @@ export default function BespokePage() {
             <span className="text-accent/50 mx-2">·</span>
             Residential
           </p>
-          <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90">
+          <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90">
             Made once, for one space.
           </p>
         </motion.div>
@@ -406,10 +406,10 @@ export default function BespokePage() {
               />
             </div>
             <div className="mt-5">
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
                 Art Mirror, private residence
               </p>
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
                 A bespoke copper-framed mirror shaped around the room and the art already within it.
               </p>
             </div>
@@ -432,10 +432,10 @@ export default function BespokePage() {
               />
             </div>
             <div className="mt-5">
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[1.1rem] font-normal text-black/88 mb-2">
                 Aureole Mirror, private residence
               </p>
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[13px] italic leading-[1.75] text-black/60 max-w-[38ch]">
                 A refined copper edge embracing softly tinted glass — a study in subtle warmth.
               </p>
             </div>
@@ -491,7 +491,7 @@ export default function BespokePage() {
 
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2rem,4.5vw,3.5rem)]
                 leading-[1.08] -tracking-[0.005em] font-normal
                 mb-9 text-white/95
@@ -508,7 +508,7 @@ export default function BespokePage() {
               className="
                 max-w-[34rem]
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.85] text-white/82
               "
@@ -576,7 +576,7 @@ export default function BespokePage() {
 
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2rem,4.5vw,3.5rem)]
                 leading-[1.08] -tracking-[0.005em] font-normal
                 mb-9 text-black/90
@@ -593,7 +593,7 @@ export default function BespokePage() {
               className="
                 max-w-[34rem]
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.85] text-black/80
               "
@@ -665,7 +665,7 @@ export default function BespokePage() {
             >
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.5rem,2vw,1.75rem)]
                   text-accent/80 italic font-normal mb-5
                 "
@@ -675,7 +675,7 @@ export default function BespokePage() {
 
               <h3
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.25rem,2vw,1.5rem)]
                   leading-[1.2] font-normal text-black/90 mb-5
                 "
@@ -687,7 +687,7 @@ export default function BespokePage() {
 
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[14.5px] md:text-[15px]
                   leading-[1.85] text-black/75
                 "
@@ -738,7 +738,7 @@ export default function BespokePage() {
               viewport={{ once: true, margin: "-8% 0px" }}
               transition={{ duration: 1.3, delay: 0.08, ease }}
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.25rem,5vw,3.75rem)]
                 leading-[1.05] -tracking-[0.005em] font-normal
                 mb-8 text-white/95
@@ -756,7 +756,7 @@ export default function BespokePage() {
               transition={{ duration: 1.2, delay: 0.16, ease }}
               className="
                 max-w-[480px] mx-auto
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
                 leading-[1.85] text-white/85
               "
@@ -795,10 +795,10 @@ export default function BespokePage() {
                 className="text-center py-10"
               >
                 <p className="text-[10px] tracking-[0.28em] uppercase text-accent mb-5">Received</p>
-                <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6 text-black/90">
+                <h3 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6 text-black/90">
                   Thank you, {firstName}.
                 </h3>
-                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/80 max-w-[42ch] mx-auto mb-10">
+                <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] md:text-base leading-[1.75] text-black/80 max-w-[42ch] mx-auto mb-10">
                   Your enquiry has reached the studio. We&rsquo;ll be in touch personally, usually within two working days.
                 </p>
                 <button

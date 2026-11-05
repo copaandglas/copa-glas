@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-playfair: var(--font-playfair);
+  --font-newsreader: var(--font-newsreader);
   --font-geist-sans: var(--font-geist-sans);
 
   --color-bg: #ffffff;

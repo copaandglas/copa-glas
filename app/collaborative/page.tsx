@@ -58,7 +58,7 @@ export default function CollaborativePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, delay: 0.14, ease }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[clamp(2.6rem,6vw,5rem)]
             leading-[1.03] -tracking-[0.01em] font-normal
             mb-8 max-w-[18ch]
@@ -83,7 +83,7 @@ export default function CollaborativePage() {
           transition={{ duration: 1.3, delay: 0.28, ease }}
           className="
             max-w-[640px] space-y-5
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-[17px]
             leading-[1.85] text-black/80
           "
@@ -120,7 +120,7 @@ export default function CollaborativePage() {
             </p>
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.75rem,3.5vw,2.75rem)]
                 leading-[1.15] -tracking-[0.005em] font-normal
                 mb-6 text-black/92
@@ -131,7 +131,7 @@ export default function CollaborativePage() {
             <div
               className="
                 space-y-5
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base leading-[1.85] text-black/75
               "
             >
@@ -221,7 +221,7 @@ export default function CollaborativePage() {
             </p>
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(1.75rem,3.5vw,2.75rem)]
                 leading-[1.15] -tracking-[0.005em] font-normal
                 mb-6 text-black/92
@@ -231,7 +231,7 @@ export default function CollaborativePage() {
             </h2>
             <p
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] leading-[1.8] text-black/72
               "
             >

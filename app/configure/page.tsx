@@ -52,7 +52,7 @@ export default function ConfigurePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] 3xl:text-[3.5rem]
             font-normal leading-[1.08] tracking-[0.02em]
             mb-6 md:mb-8 max-w-3xl
@@ -75,7 +75,7 @@ export default function ConfigurePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: luxuryEase }}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-[17px] leading-[1.85] opacity-[0.88]
             max-w-2xl mb-14 md:mb-16 lg:mb-20
           "
@@ -105,10 +105,10 @@ export default function ConfigurePage() {
                 Beta
               </span>
             </div>
-            <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-xl md:text-2xl font-normal mb-2">
+            <h2 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-xl md:text-2xl font-normal mb-2">
               Aura Wall Light
             </h2>
-            <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
+            <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
               A single pane of Luminous art glass at the centre — choose yours, and
               watch the room change around it. Configured entirely for the space it will inhabit.
             </p>

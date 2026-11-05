@@ -82,7 +82,7 @@ export default function AuraWallLightConfigurePage() {
         "
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] opacity-85 max-w-xl">
+          <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] opacity-85 max-w-xl">
             When the glass feels right, send your note to the studio. Anthony will
             follow up personally — to hear about the room, the light you imagine, and
             the making of the piece. If you have a particular colour in mind, let us

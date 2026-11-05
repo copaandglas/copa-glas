@@ -5,7 +5,7 @@ import { faqSections } from "@/app/lib/faqs";
 import { CONTACT } from "@/app/lib/site";
 
 const BODY =
-  "font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.85] text-black/80";
+  "font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] md:text-base leading-[1.85] text-black/80";
 
 const LINK =
   "text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300";
@@ -47,7 +47,7 @@ export default function FaqPage() {
 
               <h1
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(2.5rem,6vw,4.25rem)]
                   leading-[1.03] -tracking-[0.01em] font-normal
                   mb-8 md:mb-10
@@ -87,7 +87,7 @@ export default function FaqPage() {
                         <div key={faq.question}>
                           <h3
                             className="
-                              font-[family-name:var(--font-playfair),Georgia,serif]
+                              font-[family-name:var(--font-newsreader),Georgia,serif]
                               text-[clamp(1.15rem,1.8vw,1.35rem)]
                               leading-[1.25] font-normal text-black/90
                               mb-4

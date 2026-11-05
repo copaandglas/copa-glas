@@ -88,13 +88,13 @@ const LABEL_CLASS =
   "block text-[10px] tracking-[0.18em] uppercase font-medium mb-2.5 text-black/70";
 const LABEL_OPTIONAL_CLASS = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
 const INPUT_CLASS =
-  "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border";
+  "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-newsreader),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border";
 const HELP_CLASS = "text-[11px] leading-[1.5] text-black/45 mt-2";
 const ERROR_INPUT_CLASS = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
 /** Italic Playfair overhangs its box; padding prevents flex/overflow clipping the last glyph. */
 const PRODUCT_NAME_CLASS =
-  "font-[family-name:var(--font-playfair),Georgia,serif] italic pr-[0.2em] overflow-visible";
+  "font-[family-name:var(--font-newsreader),Georgia,serif] italic pr-[0.2em] overflow-visible";
 
 type FieldKey = "name" | "email" | "message";
 type FieldErrors = Partial<Record<FieldKey, string>>;
@@ -428,7 +428,7 @@ export default function EnquiryDrawer({
                 ) : (
                   <h2
                     id="enquiry-drawer-title"
-                    className="font-[family-name:var(--font-playfair),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
+                    className="font-[family-name:var(--font-newsreader),Georgia,serif] italic text-[1.25rem] md:text-[1.375rem] leading-[1.2]"
                   >
                     A note to the studio
                   </h2>
@@ -474,10 +474,10 @@ export default function EnquiryDrawer({
                     <p className="text-[10px] tracking-[0.2em] uppercase text-black/45 mb-4">
                       Received
                     </p>
-                    <h3 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[1.75rem] md:text-[2rem] leading-[1.15] -tracking-[0.005em] mb-6">
+                    <h3 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[1.75rem] md:text-[2rem] leading-[1.15] -tracking-[0.005em] mb-6">
                       Thank you, {firstName}.
                     </h3>
-                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.7] text-black/70 max-w-[38ch] mb-8">
+                    <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] md:text-base leading-[1.7] text-black/70 max-w-[38ch] mb-8">
                       Your note has reached the studio. We&rsquo;ll be in touch
                       within two working days.
                     </p>
@@ -506,7 +506,7 @@ export default function EnquiryDrawer({
                     className="pt-7 md:pt-8"
                     noValidate
                   >
-                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.7] text-black/65 mb-8 max-w-[44ch]">
+                    <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] text-black/65 mb-8 max-w-[44ch]">
                       {isConfigurator
                         ? "Tell us about yourself — and the room this piece might transform."
                         : product
@@ -738,7 +738,7 @@ export default function EnquiryDrawer({
                         <label htmlFor="enq-custom-colour" className={LABEL_CLASS}>
                           Describe your centre pane
                         </label>
-                        <p className="text-[12px] leading-[1.7] text-black/55 mb-3 font-[family-name:var(--font-playfair),Georgia,serif] italic">
+                        <p className="text-[12px] leading-[1.7] text-black/55 mb-3 font-[family-name:var(--font-newsreader),Georgia,serif] italic">
                           Tell us about the colour, texture, or quality of light you have in mind — we work with a much wider range of art glass than shown.
                         </p>
                         <textarea

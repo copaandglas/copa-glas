@@ -56,7 +56,7 @@ const LABEL =
   "block text-[10px] tracking-[0.18em] uppercase font-medium mb-2.5 text-black/70";
 const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
 const INPUT =
-  "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
+  "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-newsreader),Georgia,serif] text-black placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR =
   "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
@@ -312,7 +312,7 @@ export default function TradeSpecificationPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.3, delay: 0.12, ease }}
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(2.5rem,6vw,4.75rem)]
                   leading-[1.03] -tracking-[0.01em] font-normal
                   mb-10 md:mb-12
@@ -337,7 +337,7 @@ export default function TradeSpecificationPage() {
                 transition={{ duration: 1.3, delay: 0.24, ease }}
                 className="
                   max-w-[38rem]
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[15px] md:text-base lg:text-[17px]
                   leading-[1.85] text-black/80
                   mb-12
@@ -423,7 +423,7 @@ export default function TradeSpecificationPage() {
               >
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.5rem,2vw,1.75rem)]
                     text-accent/70 italic font-normal mb-5
                   "
@@ -433,7 +433,7 @@ export default function TradeSpecificationPage() {
 
                 <h3
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.1rem,1.6vw,1.3rem)]
                     leading-[1.25] font-normal text-black/90
                     mb-4
@@ -446,7 +446,7 @@ export default function TradeSpecificationPage() {
 
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[14px] md:text-[15px]
                     leading-[1.85] text-black/75
                   "
@@ -498,7 +498,7 @@ export default function TradeSpecificationPage() {
               </p>
               <h3
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
                   mb-6
@@ -508,7 +508,7 @@ export default function TradeSpecificationPage() {
               </h3>
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[14.5px] md:text-[15px]
                   leading-[1.85] text-black/75
                   mb-8 max-w-[44ch]
@@ -545,7 +545,7 @@ export default function TradeSpecificationPage() {
               </p>
               <h3
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
                   mb-6
@@ -555,7 +555,7 @@ export default function TradeSpecificationPage() {
               </h3>
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[14.5px] md:text-[15px]
                   leading-[1.85] text-black/75
                   mb-8 max-w-[44ch]
@@ -591,7 +591,7 @@ export default function TradeSpecificationPage() {
               </p>
               <h3
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
                   mb-6
@@ -601,7 +601,7 @@ export default function TradeSpecificationPage() {
               </h3>
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[14.5px] md:text-[15px]
                   leading-[1.85] text-black/75
                   mb-8 max-w-[44ch]
@@ -637,7 +637,7 @@ export default function TradeSpecificationPage() {
               </p>
               <h3
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(1.4rem,2.2vw,1.85rem)]
                   leading-[1.2] font-normal text-black/90
                   mb-6
@@ -647,7 +647,7 @@ export default function TradeSpecificationPage() {
               </h3>
               <p
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[14.5px] md:text-[15px]
                   leading-[1.85] text-black/75
                   mb-8 max-w-[44ch]
@@ -706,7 +706,7 @@ export default function TradeSpecificationPage() {
               >
                 <h3
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.25rem,2vw,1.5rem)]
                     leading-[1.2] font-normal text-white/95
                     mb-5
@@ -719,7 +719,7 @@ export default function TradeSpecificationPage() {
 
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[14.5px] md:text-[15px]
                     leading-[1.85] text-white/75
                   "
@@ -767,7 +767,7 @@ export default function TradeSpecificationPage() {
               >
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.5rem,2vw,1.75rem)]
                     text-accent/70 italic font-normal mb-5
                   "
@@ -777,7 +777,7 @@ export default function TradeSpecificationPage() {
 
                 <h3
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(1.1rem,1.6vw,1.3rem)]
                     leading-[1.25] font-normal text-black/90
                     mb-4
@@ -790,7 +790,7 @@ export default function TradeSpecificationPage() {
 
                 <p
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[14px] md:text-[15px]
                     leading-[1.85] text-black/75
                   "
@@ -840,7 +840,7 @@ export default function TradeSpecificationPage() {
               <div>
                 <h2
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(2rem,4vw,3.25rem)]
                     leading-[1.06] -tracking-[0.008em] font-normal
                     text-black/90 mb-8
@@ -851,7 +851,7 @@ export default function TradeSpecificationPage() {
                   <em>not an account.</em>
                 </h2>
 
-                <div className="space-y-5 font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.85] text-black/78">
+                <div className="space-y-5 font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.85] text-black/78">
                   <p>
                     We keep our trade programme deliberately small. The practices we
                     work with become long-term partners, not account numbers — and
@@ -877,7 +877,7 @@ export default function TradeSpecificationPage() {
                     <span className="text-[10px] tracking-[0.2em] uppercase text-black/55 font-medium shrink-0">
                       {row.label}
                     </span>
-                    <span className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14px] text-black/85 text-right">
+                    <span className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[14px] text-black/85 text-right">
                       {row.value}
                     </span>
                   </div>
@@ -908,7 +908,7 @@ export default function TradeSpecificationPage() {
                     </p>
                     <h3
                       className="
-                        font-[family-name:var(--font-playfair),Georgia,serif]
+                        font-[family-name:var(--font-newsreader),Georgia,serif]
                         text-[2rem] md:text-[2.5rem]
                         leading-[1.1] -tracking-[0.005em] font-normal
                         mb-6 text-black/90
@@ -916,7 +916,7 @@ export default function TradeSpecificationPage() {
                     >
                       Thank you, {firstName}.
                     </h3>
-                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] leading-[1.75] text-black/78 max-w-[40ch] mb-10">
+                    <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.75] text-black/78 max-w-[40ch] mb-10">
                       Your application has reached the studio. We&rsquo;ll be in touch
                       personally within two working days.
                     </p>

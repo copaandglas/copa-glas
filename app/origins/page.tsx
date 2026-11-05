@@ -218,7 +218,7 @@ export default function OriginsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, delay: 0.2, ease: luxuryEase }}
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.6rem,6.5vw,5.5rem)]
                 leading-[1.02] -tracking-[0.012em] font-normal
                 mb-8 md:mb-10 lg:mb-12
@@ -244,7 +244,7 @@ export default function OriginsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, delay: 0.42, ease: luxuryEase }}
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-[16px] lg:text-[17px]
                 leading-[1.75] text-white/82 max-w-[48ch]
               "
@@ -413,7 +413,7 @@ export default function OriginsPage() {
             <div className="flex items-baseline flex-wrap gap-x-5 gap-y-2 mb-8 md:mb-10">
               <span
                 className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(3.5rem,8vw,6rem)]
                   leading-none tracking-[-0.01em] font-normal text-accent
                 "
@@ -428,7 +428,7 @@ export default function OriginsPage() {
 
             <h2
               className="
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2rem,5vw,3.25rem)]
                 leading-[1.08] -tracking-[0.005em] font-normal
                 mb-8 md:mb-10
@@ -440,7 +440,7 @@ export default function OriginsPage() {
             <div
               className="
                 space-y-5 md:space-y-6
-                font-[family-name:var(--font-playfair),Georgia,serif]
+                font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px] 3xl:text-[18px]
                 leading-[1.8] opacity-[0.90] max-w-[58ch]
               "
@@ -571,7 +571,7 @@ function ChapterBlock({
         {/* Oversized year */}
         <h3
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[clamp(3.5rem,9vw,7rem)]
             leading-[0.92] -tracking-[0.015em] font-normal
             mb-6 md:mb-8 lg:mb-10
@@ -585,7 +585,7 @@ function ChapterBlock({
         <h2
           id={`chapter-${chapter.id}-title`}
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[clamp(1.5rem,3.2vw,2.125rem)]
             leading-[1.18] -tracking-[0.003em] font-normal italic
             opacity-[0.92]
@@ -599,7 +599,7 @@ function ChapterBlock({
         {/* Body */}
         <p
           className="
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-[17px] 3xl:text-[18px]
             leading-[1.8] opacity-[0.85]
             max-w-[58ch]
@@ -651,7 +651,7 @@ function ImagePlate({
           <span
             className="
               absolute inset-0 flex items-center justify-center
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[clamp(8rem,22vw,14rem)] leading-none
               text-black/[0.06] font-normal italic select-none
             "
@@ -675,7 +675,7 @@ function ImagePlate({
       <span
         className="
           absolute top-5 left-5 md:top-7 md:left-7
-          font-[family-name:var(--font-playfair),Georgia,serif]
+          font-[family-name:var(--font-newsreader),Georgia,serif]
           text-[14px] md:text-[15px] tracking-[0.04em] opacity-70
         "
         aria-hidden

@@ -96,7 +96,7 @@ export default function HomePage() {
         <p
           className="
             text-[15px] sm:text-base lg:text-lg xl:text-xl
-            leading-[1.6] text-white font-[family-name:var(--font-playfair),Georgia,serif]
+            leading-[1.6] text-white font-[family-name:var(--font-newsreader),Georgia,serif]
             mb-5 sm:mb-6 lg:mb-8
           "
         >
@@ -108,7 +108,7 @@ export default function HomePage() {
         <nav
           className="
             flex flex-col gap-2.5 sm:gap-3 lg:gap-3.5 xl:gap-4
-            font-[family-name:var(--font-playfair),Georgia,serif]
+            font-[family-name:var(--font-newsreader),Georgia,serif]
             text-sm sm:text-[15px] lg:text-base xl:text-lg
           "
         >

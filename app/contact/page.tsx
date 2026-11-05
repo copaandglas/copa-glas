@@ -71,7 +71,7 @@ const GRAIN_SVG = "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmln
 /* Field style constants */
 const LABEL    = "block text-[10px] tracking-[0.18em] uppercase font-medium mb-2.5 text-black/70";
 const OPTIONAL = "text-black/30 normal-case tracking-normal ml-2 text-[10px] italic";
-const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-playfair),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
+const INPUT    = "w-full py-3.5 px-4 bg-white border border-black/[0.16] text-[15px] leading-[1.4] font-[family-name:var(--font-newsreader),Georgia,serif] placeholder:text-black/30 focus:border-black focus:shadow-[0_0_0_1px_rgb(0_0_0)] transition-[border-color,box-shadow] duration-200 box-border outline-none";
 const INPUT_ERR = "border-[#8a1f1f]/60 focus:border-[#8a1f1f] focus:shadow-[0_0_0_1px_rgb(138_31_31)]";
 
 /* -------------------------------------------------------------------------- */
@@ -191,7 +191,7 @@ export default function ContactPage() {
                 </div>
                 <h1
                   className="
-                    font-[family-name:var(--font-playfair),Georgia,serif]
+                    font-[family-name:var(--font-newsreader),Georgia,serif]
                     text-[clamp(2.5rem,6vw,4.5rem)]
                     leading-[1.02] -tracking-[0.012em] font-normal
                   "
@@ -207,7 +207,7 @@ export default function ContactPage() {
                   <a
                     href="mailto:studio@copaandglas.com"
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[16px] md:text-[17px] text-inherit no-underline
                       border-b border-black/20 pb-0.5
                       hover:border-black/70 transition-colors duration-500
@@ -221,7 +221,7 @@ export default function ContactPage() {
                   <a
                     href="tel:+442080643753"
                     className="
-                      font-[family-name:var(--font-playfair),Georgia,serif]
+                      font-[family-name:var(--font-newsreader),Georgia,serif]
                       text-[16px] md:text-[17px] text-inherit no-underline
                       border-b border-black/20 pb-0.5
                       hover:border-black/70 transition-colors duration-500
@@ -232,14 +232,14 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-[10px] tracking-[0.28em] uppercase opacity-62 mb-3">Studio</p>
-                  <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[16px] md:text-[17px] opacity-80 leading-[1.6]">
+                  <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[16px] md:text-[17px] opacity-80 leading-[1.6]">
                     East London<br />England
                   </p>
                 </div>
               </div>
 
               {/* Response note */}
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[14px] md:text-[15px] opacity-72 leading-[1.7] italic max-w-[36ch]">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[14px] md:text-[15px] opacity-72 leading-[1.7] italic max-w-[36ch]">
                 We reply to every enquiry personally, typically within two working days.
               </p>
 
@@ -276,10 +276,10 @@ export default function ContactPage() {
                     className="pt-2"
                   >
                     <p className="text-[10px] tracking-[0.28em] uppercase text-accent mb-5">Received</p>
-                    <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6">
+                    <h2 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[2rem] md:text-[2.5rem] leading-[1.1] -tracking-[0.005em] font-normal mb-6">
                       Thank you, {firstName}.
                     </h2>
-                    <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-82 max-w-[42ch] mb-10">
+                    <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] md:text-base leading-[1.75] opacity-82 max-w-[42ch] mb-10">
                       Your note has reached the studio. We&rsquo;ll be in touch personally within two working days.
                     </p>
                     <button

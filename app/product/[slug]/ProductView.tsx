@@ -320,7 +320,7 @@ export default function ProductView({ product }: { product: ProductData }) {
 
             {/* Title */}
             <h1 className="
-              font-[family-name:var(--font-playfair),Georgia,serif]
+              font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[1.75rem] md:text-[2.125rem] lg:text-[2.375rem] 3xl:text-[2.75rem]
               font-normal leading-[1.12] uppercase tracking-[0.02em]
               mb-6 md:mb-7 lg:mb-9 3xl:mb-10
@@ -333,10 +333,10 @@ export default function ProductView({ product }: { product: ProductData }) {
 
             {/* The Narrative */}
             <section className="mb-6 md:mb-7 lg:mb-9 3xl:mb-10 pb-6 md:pb-7 lg:pb-9 3xl:pb-10 border-b border-black/[0.08]">
-              <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
+              <h2 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
                 The Narrative
               </h2>
-              <div className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-[17px] leading-[1.85] opacity-[0.90]">
+              <div className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] lg:text-base 3xl:text-[17px] leading-[1.85] opacity-[0.90]">
                 {product.description.split("\n\n").map((para, i, arr) => (
                   <p
                     key={i}
@@ -350,15 +350,15 @@ export default function ProductView({ product }: { product: ProductData }) {
 
             {/* Provenance & Spec */}
             <section className="mb-6 md:mb-7 lg:mb-9 3xl:mb-10">
-              <h2 className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
+              <h2 className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] lg:text-base 3xl:text-lg italic font-normal mb-3.5 lg:mb-4 3xl:mb-5">
                 Provenance &amp; Specification
               </h2>
-              <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] opacity-[0.90] mb-5 lg:mb-6">
+              <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] opacity-[0.90] mb-5 lg:mb-6">
                 {product.provenance}
               </p>
 
               {product.onView && (
-                <p className="font-[family-name:var(--font-playfair),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] italic opacity-[0.90] mb-5 lg:mb-6">
+                <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] 3xl:text-base leading-[1.8] italic opacity-[0.90] mb-5 lg:mb-6">
                   Currently on view at{" "}
                   <a
                     href={product.onView.url}
@@ -427,7 +427,7 @@ export default function ProductView({ product }: { product: ProductData }) {
             ">
               <div className="mb-6 lg:mb-7 3xl:mb-8">
                 <p className="
-                  font-[family-name:var(--font-playfair),Georgia,serif]
+                  font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[1.875rem] md:text-[2.125rem] lg:text-[2.375rem] 3xl:text-[2.625rem]
                   font-normal leading-[1.1] -tracking-[0.01em] mb-2
                 ">
