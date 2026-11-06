@@ -181,7 +181,6 @@ export default function PrivateListPage() {
                 </h1>
                 <p className={`${SERIF} text-[15px] md:text-base lg:text-[17px] leading-[1.75] opacity-[0.88] max-w-[40ch] text-pretty`}>
                   Members hear of new editions before they are announced anywhere else.
-                  Membership is free, and you may leave at any time.
                 </p>
               </div>
 
