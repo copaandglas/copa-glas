@@ -21,7 +21,7 @@ export function GET() {
 
   const body = `# Copa + Glas
 
-> Copa + Glas is an East London design studio making handcrafted mirrors and lighting in solid copper and hand-cut glass. Founded in 2021 by master craftsman Anthony McCarty and creative director Bradley McWhinney, the studio makes every piece to order, by hand, using a copper-section glazing technique introduced by the Luxfer Prism Company in 1897 and later developed by Frank Lloyd Wright.
+> Copa + Glas is an East London studio making mirrors and lighting in solid copper and hand-cut glass: a studio collection made to order, editions of ten, and unique works made by commission. Founded in 2021 by Anthony McCarty, Master Craftsman, and Bradley McWhinney, Creative Director, the studio makes everything by hand, using a copper-section glazing technique introduced by the Luxfer Prism Company in 1897 and later developed by Frank Lloyd Wright.
 
 Key facts:
 

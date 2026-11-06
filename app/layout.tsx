@@ -22,10 +22,10 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? SITE_URL),
   title: {
-    default: "Copa + Glas — Handcrafted Mirrors & Lighting, East London",
+    default: "Copa + Glas — Mirrors and Lighting in Copper and Glass",
     template: "%s — Copa + Glas",
   },
-  description: "An East London studio making mirrors and lighting in copper and hand-cut glass. Each piece drawn from a century-old craft tradition and made to order.",
+  description: "Mirrors and lighting in copper and hand-cut glass, made by hand in our East London workshop. A studio collection, editions of ten and unique commissions.",
   applicationName: SITE_NAME,
   authors: [{ name: "Copa + Glas Studio", url: SITE_URL }],
   creator: "Copa + Glas Studio",

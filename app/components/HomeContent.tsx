@@ -206,8 +206,8 @@ export default function HomeContent() {
                 leading-[1.04] -tracking-[0.016em] font-normal
               "
             >
-              Hand cut glass.<br />
-              Hand formed copper.<br />
+              Hand-cut glass.<br />
+              Hand-formed copper.<br />
               <em>Made to order.</em>
             </motion.h1>
 
@@ -250,8 +250,8 @@ export default function HomeContent() {
                 <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[14.5px] xl:text-[15.5px] leading-[2] text-black/52 max-w-[36ch]">
                   Working in copper and hand-cut glass, Copa + Glas makes
                   mirrors and lighting that gather and return the light around
-                  them. Every piece is made to order in our East London
-                  workshop.
+                  them. Each work is drawn, cut and assembled in our East
+                  London workshop.
                 </p>
               </motion.div>
             </div>
@@ -422,10 +422,10 @@ export default function HomeContent() {
                     leading-[2] text-white/55 max-w-[46ch] mb-10 md:mb-14
                   "
                 >
-                  Every piece can be scaled, finished, or wholly reconceived in
-                  copper and hand-cut glass — for a private interior, an
-                  architectural brief, or a single work. We welcome collectors,
-                  designers, and architects.
+                  Any work in the collection can be scaled, refinished, or
+                  wholly reconceived. Or we can begin with a blank page: for a
+                  private interior, an architectural brief, or a single work,
+                  made once. We welcome collectors, designers, and architects.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
