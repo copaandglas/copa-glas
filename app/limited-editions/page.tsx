@@ -438,16 +438,16 @@ export default function LimitedEditionsPage() {
                 leading-[1.75] opacity-[0.88]
               "
             >
-              Editions are released quietly, and new works are offered first to
-              collectors on our{" "}
+              Editions are released quietly, and collectors on our{" "}
               <Link
                 href="/private-list"
                 className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
               >
                 private list
-              </Link>
-              . To enquire about a work within an open edition, or to be
-              introduced to a forthcoming work, please write to us directly.
+              </Link>{" "}
+              hear of new works first. To enquire about a work within an open
+              edition, or to be introduced to a forthcoming work, please write
+              to us directly.
             </p>
           </div>
 

@@ -6,7 +6,7 @@ export const metadata = pageMetadata({
   title: "The Private List",
   shareTitle: "The Private List",
   description:
-    "New Copa + Glas editions are offered to the private list before they are announced, each limited to ten. Join for first offer and visits to the East London workshop.",
+    "Members of the Copa + Glas private list hear of new editions before they are announced. Each edition is limited to ten, and members may visit the East London workshop by appointment.",
   path: "/private-list",
 });
 

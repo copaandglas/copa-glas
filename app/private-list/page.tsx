@@ -19,7 +19,7 @@ const INTERESTS: { id: Interest; label: string }[] = [
 ];
 
 const BENEFITS = [
-  { n: "01", title: "First offer", body: "Every new edition, before it is announced publicly. Each is limited to ten." },
+  { n: "01", title: "First sight", body: "Every new edition, before it is announced publicly. Each is limited to ten." },
   { n: "02", title: "The studio", body: "Visits to our East London workshop, by appointment." },
   { n: "03", title: "Notes from the studio", body: "Occasional letters on new work and commissions, sent only when there is something to show." },
 ];
@@ -156,7 +156,7 @@ export default function PrivateListPage() {
           </motion.nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 md:gap-16 lg:gap-x-20 lg:gap-y-12 items-start">
-            {/* Left: the offer */}
+            {/* Left: the introduction */}
             <motion.div
               initial={anim(16)}
               animate={{ opacity: 1, y: 0 }}
@@ -180,8 +180,8 @@ export default function PrivateListPage() {
                   <em className="italic">new work.</em>
                 </h1>
                 <p className={`${SERIF} text-[15px] md:text-base lg:text-[17px] leading-[1.75] opacity-[0.88] max-w-[40ch] text-pretty`}>
-                  New editions are offered to the private list before they are announced anywhere
-                  else. Membership is free, and you may leave at any time.
+                  Members hear of new editions before they are announced anywhere else.
+                  Membership is free, and you may leave at any time.
                 </p>
               </div>
 

@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="max-w-full md:max-w-[400px]">
             <p className="footer-heading mb-2">The Private List</p>
             <p className="text-[12px] leading-[1.6] text-white/55 mb-4">
-              First offer on new editions.{" "}
+              First sight of new editions.{" "}
               <Link href="/private-list" className="text-white/75 underline underline-offset-[3px] decoration-white/25 hover:decoration-white/60 transition-colors duration-300">
                 About the list
               </Link>
