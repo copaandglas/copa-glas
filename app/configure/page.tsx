@@ -109,7 +109,7 @@ export default function ConfigurePage() {
               Aura Wall Light
             </h2>
             <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
-              A single pane of Luminous art glass at the centre — choose yours, and
+              A single pane of luminous art glass at the centre — choose yours, and
               watch the room change around it. Configured entirely for the space it will inhabit.
             </p>
             <p className="text-[10px] tracking-[0.12em] uppercase opacity-45 mb-4">

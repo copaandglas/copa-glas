@@ -68,7 +68,7 @@ export default function AuraWallLightConfigurator({
             <h1 className={styles.title}>Aura Wall Light</h1>
 
             <p className={styles.intro}>
-              Hand-formed copper around a single pane of Luminous art glass, made
+              Hand-formed copper around a single pane of luminous art glass, made
               to change the quality of light in a room.
             </p>
 
