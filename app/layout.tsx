@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "Copa + Glas — Mirrors and Lighting in Copper and Glass",
     template: "%s — Copa + Glas",
   },
-  description: "Mirrors and lighting in copper and hand-cut glass, made by hand in our East London workshop. A studio collection, editions of ten and unique commissions.",
+  description: "Mirrors and lighting in copper and hand-cut glass, made by hand in our East London workshop. A studio collection, editions of ten and bespoke commissions.",
   applicationName: SITE_NAME,
   authors: [{ name: "Copa + Glas Studio", url: SITE_URL }],
   creator: "Copa + Glas Studio",

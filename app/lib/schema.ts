@@ -36,7 +36,7 @@ export function organizationSchema() {
     logo: absoluteUrl("/copa-monogram-black.png"),
     image: absoluteUrl("/og-image.jpg"),
     description:
-      "Copa + Glas is an East London studio making mirrors and lighting in solid copper and hand-cut glass: a studio collection made to order, editions of ten, and unique works made by commission. Everything is made by hand, using a copper-section glazing technique first developed by the Luxfer Prism Company in 1897.",
+      "Copa + Glas is an East London studio making mirrors and lighting in solid copper and hand-cut glass: a studio collection made to order, editions of ten, and bespoke commissions. Everything is made by hand, using a copper-section glazing technique first developed by the Luxfer Prism Company in 1897.",
     slogan: "Hand-cut glass. Hand-formed copper. Made to order.",
     foundingDate: "2021",
     founder: [anthony, bradley],

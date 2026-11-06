@@ -424,8 +424,8 @@ export default function HomeContent() {
                 >
                   Any work in the collection can be scaled, refinished, or
                   wholly reconceived. Or we can begin with a blank page: for a
-                  private interior, an architectural brief, or a single work,
-                  made once. We welcome collectors, designers, and architects.
+                  private interior, an architectural brief, or a single work.
+                  We welcome collectors, designers, and architects.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">

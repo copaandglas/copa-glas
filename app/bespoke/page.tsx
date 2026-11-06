@@ -182,7 +182,7 @@ export default function BespokePage() {
               transition={{ duration: 1.1, delay: 0.06, ease }}
               className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-6"
             >
-              Unique works
+              Bespoke
             </motion.p>
 
             <motion.h1

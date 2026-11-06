@@ -4,7 +4,7 @@ import { products } from "@/app/lib/products";
 import { breadcrumbSchema, itemListSchema, webPageSchema } from "@/app/lib/schema";
 
 const description =
-  "The Copa + Glas collection: the Studio Collection of mirrors and lighting, editions of ten, and unique works, made once and never repeated. Each piece made by hand in our East London workshop.";
+  "Copa + Glas mirrors and lighting in three forms: the Studio Collection, made to order; editions of ten; and bespoke works, designed for a single client.";
 
 export const metadata = pageMetadata({
   title: "Collection: Copper & Glass Mirrors and Lighting",

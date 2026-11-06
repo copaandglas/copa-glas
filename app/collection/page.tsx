@@ -29,19 +29,9 @@ const categories: CollectionCategory[] = [
     tagline: "Refraction, framed in copper.",
     description:
       "Hand-cut silvered glass held within solid, hand-formed copper, objects designed to articulate the light within a room.",
-    count: "Studio Collection · Four pieces",
+    count: "Studio Collection · Four works",
     image: "/mondrian-mirror.png",
     hoverImage: "/mondrian-mirror-close.png",
-  },
-  {
-    slug: "lighting",
-    name: "Lighting",
-    tagline: "Copper and glass, quietly lit.",
-    description:
-      "Sculptural wall lights made in the studio, carrying the copper and glass of our mirrors into the glow of a room.",
-    count: "Studio Collection · One piece",
-    image: "/aura-wall-light-interior.webp",
-    desktopImage: "/aura-wall-light-interior-off.webp",
   },
   {
     slug: "limited-editions",
@@ -55,13 +45,23 @@ const categories: CollectionCategory[] = [
   {
     slug: "unique-works",
     href: "/bespoke",
-    name: "Unique Works",
-    tagline: "Made once, never repeated.",
+    name: "Bespoke",
+    tagline: "By commission.",
     description:
-      "Commissioned by private collectors, designers, and architects. Each piece is drawn for its client and made by hand in the studio.",
-    count: "Unique works · Commissions",
+      "For private collectors, designers, and architects. Each is drawn for its client and made by hand in the studio.",
+    count: "Bespoke · Commissions",
     image: "/aureole-mirror-commission.png",
     cta: "Begin a Commission",
+  },
+  {
+    slug: "lighting",
+    name: "Lighting",
+    tagline: "Copper and glass, quietly lit.",
+    description:
+      "Sculptural wall lights made in the studio, carrying the copper and glass of our mirrors into the glow of a room.",
+    count: "Studio Collection · One work",
+    image: "/aura-wall-light-interior.webp",
+    desktopImage: "/aura-wall-light-interior-off.webp",
   },
 ];
 
@@ -132,9 +132,10 @@ export default function CollectionPage() {
             leading-[1.75] opacity-[0.88] max-w-xl
           "
         >
-          Three kinds of work: the Studio Collection, made to order; editions,
-          each limited to ten; and unique works, made once and never repeated.
-          Every piece is made by hand in our East London workshop.
+          Our mirrors and lighting take three forms: the Studio Collection,
+          made to order; editions, each limited to ten; and bespoke works,
+          designed for a single client. Everything is made by hand in our East
+          London workshop.
         </motion.p>
       </div>
 
