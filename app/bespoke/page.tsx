@@ -229,14 +229,14 @@ export default function BespokePage() {
                 We work with interior designers, architects, and private
                 clients to design and make work that could not exist anywhere
                 else. Each commission is led by Anthony McCarty, our Master
-                Craftsman, whose four decades of architectural glazing
-                experience are brought to every commission.
+                Craftsman, who brings four decades of architectural glazing
+                experience to every project.
               </p>
               <p>
-                We can work from your specification or develop a design
-                entirely from our studio. Detailed drawings and material
-                samples are available at every stage. Every commission is
-                made by hand in our East London workshop.
+                We can begin from your specification or develop a design
+                entirely in the studio. Detailed drawings and material
+                samples are provided throughout. Everything is made by hand
+                in our East London workshop.
               </p>
             </motion.div>
           </div>
