@@ -439,9 +439,15 @@ export default function LimitedEditionsPage() {
               "
             >
               Editions are released quietly, and new works are offered first to
-              collectors who have asked to hear from us. To enquire about a
-              piece within an open edition, or to be introduced to a
-              forthcoming work, please write to us directly.
+              collectors on our{" "}
+              <Link
+                href="/private-list"
+                className="text-inherit underline underline-offset-[3px] decoration-black/25 hover:decoration-black/60 transition-colors duration-300"
+              >
+                private list
+              </Link>
+              . To enquire about a work within an open edition, or to be
+              introduced to a forthcoming work, please write to us directly.
             </p>
           </div>
 

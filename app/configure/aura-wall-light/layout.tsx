@@ -21,7 +21,7 @@ export default function AuraWallLightLayout({
       <link
         rel="preload"
         as="image"
-        href="/corella-orange.png"
+        href="/corella-orange.jpg"
         fetchPriority="high"
       />
       {children}

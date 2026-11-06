@@ -46,7 +46,13 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="mb-10 md:mb-14 lg:mb-[4.5rem] pb-10 md:pb-14 lg:pb-[4.5rem] border-b border-white/[0.08]">
           <div className="max-w-full md:max-w-[400px]">
-            <p className="footer-heading mb-3">Stay Informed</p>
+            <p className="footer-heading mb-2">The Private List</p>
+            <p className="text-[12px] leading-[1.6] text-white/55 mb-4">
+              First offer on new editions.{" "}
+              <Link href="/private-list" className="text-white/75 underline underline-offset-[3px] decoration-white/25 hover:decoration-white/60 transition-colors duration-300">
+                About the list
+              </Link>
+            </p>
             <form
               onSubmit={handleSubscribe}
               className="flex flex-col md:flex-row gap-2.5 md:gap-0 w-full md:w-[360px] max-w-full"
@@ -64,7 +70,7 @@ export default function Footer() {
                   }
                 }}
                 placeholder="Your email address"
-                aria-label="Email address for newsletter"
+                aria-label="Email address for the private list"
                 aria-invalid={status === "error"}
                 className={`
                   dark-input flex-1 min-w-0 w-full md:w-auto
@@ -88,10 +94,10 @@ export default function Footer() {
                 "
               >
                 {status === "sent"
-                  ? "Subscribed"
+                  ? "Joined"
                   : status === "sending"
-                    ? "Subscribing…"
-                    : "Subscribe"}
+                    ? "Joining…"
+                    : "Join"}
               </button>
             </form>
             {(status === "sent" || status === "error") && (
@@ -104,7 +110,7 @@ export default function Footer() {
                 `}
               >
                 {status === "sent"
-                  ? "Thank you. You'll hear from us occasionally."
+                  ? "Thank you. You are on the private list."
                   : errorMessage}
               </p>
             )}

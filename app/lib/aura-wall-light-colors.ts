@@ -90,7 +90,7 @@ export function auraEnquiryProduct(config: AuraConfiguration) {
     finish: color.name,
     finishSwatch: color.hex,
     finishImage: color.image,
-    image: config.illuminated ? "/aura-wall-light.png" : "/aura-wall-light-off.png",
+    image: config.illuminated ? "/aura-wall-light-interior.webp" : "/aura-wall-light-interior-off.webp",
     price: "Price on application",
   };
 }

@@ -68,8 +68,8 @@ export default function AuraWallLightConfigurator({
             <h1 className={styles.title}>Aura Wall Light</h1>
 
             <p className={styles.intro}>
-              Hand-formed copper and a single pane of Luminous art glass — made
-              once, to change the quality of light in a room.
+              Hand-formed copper around a single pane of Luminous art glass, made
+              to change the quality of light in a room.
             </p>
 
             <p className={styles.sectionLabel}>The Narrative</p>
@@ -237,7 +237,7 @@ function SconceSvg({
   return (
     <svg
       className={className}
-      viewBox="0 0 100 150"
+      viewBox="0 0 100 166"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
@@ -256,7 +256,7 @@ function SconceSvg({
           <stop offset="100%" stopColor={glow(0)} />
         </linearGradient>
         <clipPath id="aura-pane-clip">
-          <rect x="48" y="32" width="6" height="86" />
+          <rect x="29.3" y="23.4" width="41.4" height="113.9" />
         </clipPath>
         <linearGradient id="aura-copperFrame" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#b87352" />
@@ -264,10 +264,10 @@ function SconceSvg({
           <stop offset="100%" stopColor="#8f4d2d" />
         </linearGradient>
         <linearGradient id="aura-silveredGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#d5d5d5" />
-          <stop offset="25%" stopColor="#f5f5f5" />
-          <stop offset="80%" stopColor="#cccccc" />
-          <stop offset="100%" stopColor="#a8a8a8" />
+          <stop offset="0%" stopColor="#d8c7bd" />
+          <stop offset="25%" stopColor="#f2e8e2" />
+          <stop offset="80%" stopColor="#cfbbb0" />
+          <stop offset="100%" stopColor="#ae9383" />
         </linearGradient>
         <linearGradient id="aura-paneGloss" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.5)" />
@@ -276,17 +276,17 @@ function SconceSvg({
           <stop offset="100%" stopColor="rgba(0,0,0,0.15)" />
         </linearGradient>
         <linearGradient id="aura-tubeGloss" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0.2)" />
-          <stop offset="35%" stopColor="rgba(255,255,255,0.2)" />
-          <stop offset="50%" stopColor="rgba(255,255,255,0.6)" />
-          <stop offset="65%" stopColor="rgba(255,255,255,0.2)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.2)" />
+          <stop offset="0%" stopColor="rgba(0,0,0,0.12)" />
+          <stop offset="30%" stopColor="rgba(255,255,255,0.06)" />
+          <stop offset="50%" stopColor="rgba(255,255,255,0.16)" />
+          <stop offset="70%" stopColor="rgba(255,255,255,0.06)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0.12)" />
         </linearGradient>
         <linearGradient id="aura-innerShadowX" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0.6)" />
-          <stop offset="20%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="80%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.6)" />
+          <stop offset="0%" stopColor="rgba(0,0,0,0.45)" />
+          <stop offset="7%" stopColor="rgba(0,0,0,0)" />
+          <stop offset="93%" stopColor="rgba(0,0,0,0)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0.45)" />
         </linearGradient>
         <linearGradient id="aura-innerShadowY" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="rgba(0,0,0,0.8)" />
@@ -297,40 +297,41 @@ function SconceSvg({
       </defs>
 
       <rect
-        x="42"
-        y="26"
-        width="18"
-        height="98"
+        x="25"
+        y="19"
+        width="50"
+        height="123"
         className={styles.tubeGlow}
         filter="url(#aura-ambient-glow)"
       />
-      <rect x="0" y="0" width="100" height="150" fill="url(#aura-copperFrame)" />
-      <rect x="2" y="2" width="44" height="116" fill="url(#aura-silveredGlass)" />
-      <rect x="2" y="2" width="44" height="116" fill="url(#aura-paneGloss)" />
-      <rect x="2" y="120" width="52" height="28" fill="url(#aura-silveredGlass)" />
-      <rect x="2" y="120" width="52" height="28" fill="url(#aura-paneGloss)" />
-      <rect x="48" y="2" width="50" height="28" fill="url(#aura-silveredGlass)" />
-      <rect x="48" y="2" width="50" height="28" fill="url(#aura-paneGloss)" />
-      <rect x="56" y="32" width="42" height="116" fill="url(#aura-silveredGlass)" />
-      <rect x="56" y="32" width="42" height="116" fill="url(#aura-paneGloss)" />
+      <rect x="0" y="0" width="100" height="166" fill="url(#aura-copperFrame)" />
+      {/* Mirror panes around the centre glass, as on the photographed Aura */}
+      <rect x="2.5" y="2.5" width="68.2" height="19.7" fill="url(#aura-silveredGlass)" />
+      <rect x="2.5" y="2.5" width="68.2" height="19.7" fill="url(#aura-paneGloss)" />
+      <rect x="71.9" y="2.5" width="25.6" height="134.8" fill="url(#aura-silveredGlass)" />
+      <rect x="71.9" y="2.5" width="25.6" height="134.8" fill="url(#aura-paneGloss)" />
+      <rect x="2.5" y="23.4" width="25.6" height="140.1" fill="url(#aura-silveredGlass)" />
+      <rect x="2.5" y="23.4" width="25.6" height="140.1" fill="url(#aura-paneGloss)" />
+      <rect x="29.3" y="138.5" width="68.2" height="25" fill="url(#aura-silveredGlass)" />
+      <rect x="29.3" y="138.5" width="68.2" height="25" fill="url(#aura-paneGloss)" />
 
       {/*
         Light spill — rendered above the frame so the lit tube appears to
         cast its colour onto the surrounding silvered glass and copper.
       */}
       <rect
-        x="30"
-        y="14"
-        width="42"
-        height="122"
+        x="17"
+        y="11"
+        width="66"
+        height="139"
         className={styles.litHaloWide}
         filter="url(#aura-bloom-wide)"
       />
       <rect
-        x="42"
-        y="26"
-        width="18"
-        height="98"
+        x="25"
+        y="19"
+        width="50"
+        height="123"
         className={styles.litHaloCore}
         filter="url(#aura-ambient-glow)"
       />
@@ -340,19 +341,19 @@ function SconceSvg({
         <>
           <image
             href={encodedImage}
-            x="48"
-            y="32"
-            width="6"
-            height="86"
+            x="29.3"
+            y="23.4"
+            width="41.4"
+            height="113.9"
             preserveAspectRatio="xMidYMid slice"
             clipPath="url(#aura-pane-clip)"
             className={styles.centralGlassImage}
           />
           <rect
-            x="48"
-            y="32"
-            width="6"
-            height="86"
+            x="29.3"
+            y="23.4"
+            width="41.4"
+            height="113.9"
             fill={paneColor}
             fillOpacity="0.28"
             clipPath="url(#aura-pane-clip)"
@@ -360,7 +361,7 @@ function SconceSvg({
           />
         </>
       ) : (
-        <rect x="48" y="32" width="6" height="86" className={styles.centralGlass} />
+        <rect x="29.3" y="23.4" width="41.4" height="113.9" className={styles.centralGlass} />
       )}
 
       {/*
@@ -369,36 +370,36 @@ function SconceSvg({
         which ignores CSS filter: brightness() on inner SVG elements.
       */}
       <rect
-        x="48"
-        y="32"
-        width="6"
-        height="86"
+        x="29.3"
+        y="23.4"
+        width="41.4"
+        height="113.9"
         fill="url(#aura-litCore)"
         clipPath="url(#aura-pane-clip)"
         className={styles.lightGlow}
       />
 
       <rect
-        x="48"
-        y="32"
-        width="6"
-        height="86"
+        x="29.3"
+        y="23.4"
+        width="41.4"
+        height="113.9"
         fill="url(#aura-tubeGloss)"
         className={styles.tubeShadow}
       />
       <rect
-        x="48"
-        y="32"
-        width="6"
-        height="86"
+        x="29.3"
+        y="23.4"
+        width="41.4"
+        height="113.9"
         fill="url(#aura-innerShadowX)"
         className={styles.sunkenShadow}
       />
       <rect
-        x="48"
-        y="32"
-        width="6"
-        height="86"
+        x="29.3"
+        y="23.4"
+        width="41.4"
+        height="113.9"
         fill="url(#aura-innerShadowY)"
         className={styles.sunkenShadow}
       />

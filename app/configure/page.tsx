@@ -94,7 +94,7 @@ export default function ConfigurePage() {
           <Link href="/configure/aura-wall-light" className="group block no-underline text-inherit">
             <div className="relative aspect-[4/5] bg-muted overflow-hidden mb-5">
               <Image
-                src="/aura-wall-light.png"
+                src="/aura-wall-light-interior.webp"
                 alt="Aura Wall Light"
                 fill
                 priority

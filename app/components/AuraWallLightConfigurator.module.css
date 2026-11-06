@@ -89,8 +89,9 @@
   opacity: 0.45;
 }
 
+/* Kept light so the glass texture still shows through the glow, as in the photographs. */
 .root.isOn .lightGlow {
-  opacity: 0.85;
+  opacity: 0.4;
 }
 
 .root.isOn .litHaloWide {
