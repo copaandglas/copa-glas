@@ -7,7 +7,7 @@ export const metadata = pageMetadata({
   title: "Frequently Asked Questions",
   shareTitle: "Questions",
   description:
-    "Notes for collectors and clients of Copa + Glas — prices, dimensions, limited editions, commissions, delivery, and the care of copper and glass.",
+    "Notes for collectors and clients of Copa + Glas — prices, dimensions, editions, commissions, delivery, and the care of copper and glass.",
   path: "/faq",
 });
 

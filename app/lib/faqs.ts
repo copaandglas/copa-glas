@@ -35,24 +35,24 @@ export const faqSections: FaqSection[] = [
       {
         question: "What is Copa + Glas?",
         answer:
-          "Copa + Glas is an East London design studio making mirrors and lighting by hand in solid copper and hand-cut glass. It was founded in 2021 by master craftsman Anthony McCarty and creative director Bradley McWhinney. Nothing is made in advance; each piece is made for the client who commissions it.",
+          "Copa + Glas is an East London studio making mirrors and lighting by hand in solid copper and hand-cut glass. It was founded in 2021 by Anthony McCarty, Master Craftsman, and Bradley McWhinney, Creative Director. The work takes three forms: the Studio Collection, made to order; editions, each limited to ten; and bespoke works, designed for a single client.",
         link: { href: "/about", label: "About the studio" },
       },
       {
-        question: "Where are Copa + Glas pieces made?",
+        question: "Where is the work made?",
         answer:
-          "Every piece is made by hand in our East London workshop. Nothing is produced in volume or held in stock.",
+          "Everything is made by hand in our East London workshop, to order. Nothing is produced in volume or held in stock.",
       },
       {
         question: "Who makes the work?",
         answer:
-          "Each piece is made under the direction of Anthony McCarty, our Master Craftsman, who has worked in architectural copper and glass since 1980. His past commissions include conservation work on Big Ben, restoration at the Natural History Museum, and more than one thousand handmade copper and glass screens for the lightwell at Hotel Café Royal on Regent Street.",
+          "Each work is made by, or under the direction of, Anthony McCarty, our Master Craftsman, who has worked in architectural copper and glass since 1980. His past commissions include conservation work on Big Ben, restoration at the Natural History Museum, and more than one thousand handmade copper and glass screens for the lightwell at Hotel Café Royal on Regent Street.",
         link: { href: "/archive", label: "The archive" },
       },
       {
         question: "What is the technique behind the work?",
         answer:
-          "Each piece is composed of hand-cut glass panes held within a framework of slim, solid copper sections. The method was introduced by the Luxfer Prism Company in 1897 and later developed by Frank Lloyd Wright in his Prairie Style art glass windows. Copa + Glas carries the same technique forward in hand-cut and ground mirrored glass.",
+          "Each work is composed of hand-cut glass panes held within a framework of slim, solid copper sections. The method was introduced by the Luxfer Prism Company in 1897 and later developed by Frank Lloyd Wright in his Prairie Style art glass windows. Copa + Glas carries the same technique forward in hand-cut and ground mirrored glass.",
         link: { href: "/origins", label: "Origins" },
       },
     ],
@@ -62,9 +62,9 @@ export const faqSections: FaqSection[] = [
     faqs: [
       {
         question: "What is the price of a Copa + Glas mirror?",
-        answer: `The mirrors of the collection are priced from ${gbp(priced[0].priceGBP!)}: ${list(
+        answer: `The mirrors of the Studio Collection are priced from ${gbp(priced[0].priceGBP!)}: ${list(
           priced.map((p) => `${named(p.name)} at ${gbp(p.priceGBP!)}`),
-        )}. Limited editions, the Aura Wall Light, and commissioned works are priced on request. Delivery is quoted individually.`,
+        )}. Editions, the Aura Wall Light, and bespoke works are priced on request. Delivery is quoted individually.`,
         link: { href: "/mirrors", label: "The mirrors" },
       },
       {
@@ -75,19 +75,19 @@ export const faqSections: FaqSection[] = [
             .map((p) => `${named(p.name)} is ${p.dimensions.cm.replace("cm Diameter", "cm in diameter")}`),
         ).replace(/^t/, "T")}. Each is ${mirrors[0].spec!.depthCm}cm deep and weighs between ${Math.min(
           ...mirrors.map((p) => p.spec!.weightKg),
-        )} and ${Math.max(...mirrors.map((p) => p.spec!.weightKg))}kg, with a birch ply backing board. Any piece may be rescaled or reconfigured as a commission.`,
+        )} and ${Math.max(...mirrors.map((p) => p.spec!.weightKg))}kg, with a birch ply backing board. Any of them may be rescaled or reconfigured as a commission.`,
       },
       {
-        question: "How are the limited editions produced and authenticated?",
-        answer: `Each edition is limited to ten works worldwide. Every work is individually numbered, signed by our Master Craftsman, and accompanied by a certificate of authenticity on cotton rag paper and a copper provenance plate fixed to the backing board. Once an edition is complete it is not remade. The present editions are ${list(
+        question: "How are the editions made and authenticated?",
+        answer: `Each edition is limited to ten works worldwide. Every work is individually numbered, signed by our Master Craftsman, and accompanied by a certificate of authenticity on cotton rag paper and a copper provenance plate fixed to the backing board, and recorded in the studio register. Once an edition is complete it is not remade. The present editions are ${list(
           editions.map((p) => named(p.name)),
         )}.`,
-        link: { href: "/limited-editions", label: "The limited editions" },
+        link: { href: "/limited-editions", label: "Editions" },
       },
       {
-        question: "Is each piece unique?",
+        question: "Is each work unique?",
         answer:
-          "In its detail, yes. The glass is cut and ground by hand and the copper formed by hand, so each piece carries slight variation in tone and surface. Where iridescent or art glass is used, every panel is unique, and no two works are identical in colour or in the way they hold light. We regard this as a mark of authenticity.",
+          "In its detail, yes. The glass is cut and ground by hand and the copper formed by hand, so each work carries slight variation in tone and surface. Where iridescent or art glass is used, every panel is unique, and no two works are identical in colour or in the way they hold light. We regard this as a mark of authenticity.",
       },
     ],
   },
@@ -95,19 +95,19 @@ export const faqSections: FaqSection[] = [
     title: "Commissioning",
     faqs: [
       {
-        question: "How is a piece acquired?",
-        answer: `Every acquisition begins with a conversation. Enquiries may be made from the page of any piece, through the contact page, or by writing to ${CONTACT.email}; each receives a personal reply, typically within two working days. A deposit of 50% confirms the commission and the making begins. The balance is due on completion, before the piece leaves the studio.`,
+        question: "How is a work acquired?",
+        answer: `Every acquisition begins with a conversation. Enquiries may be made from the page of any work, through the contact page, or by writing to ${CONTACT.email}; each receives a personal reply, typically within two working days. A deposit of 50% confirms the order and the making begins. The balance is due on completion, before the work leaves the studio.`,
         link: { href: "/contact", label: "Contact the studio" },
       },
       {
-        question: "How long does a piece take to make?",
+        question: "How long does a work take to make?",
         answer:
-          "Pieces from the collection take six to eight weeks from confirmation and receipt of deposit. Bespoke commissions, architectural projects, and limited editions may take longer; a lead time is confirmed at the outset.",
+          "Works from the Studio Collection take six to eight weeks from confirmation and receipt of deposit. Bespoke commissions, architectural projects, and editions may take longer; a lead time is confirmed at the outset.",
       },
       {
         question: "Does the studio undertake bespoke commissions?",
         answer:
-          "Yes. Any piece may be scaled, finished, or wholly reconceived in copper and hand-cut glass. A commission begins with a conversation about the space and its light; material samples and drawings are then prepared for approval, and the work is made by hand in our East London workshop. We work with private clients, interior designers, and architects.",
+          "Yes. Any work in the collection may be scaled, refinished, or wholly reconceived, or a new design drawn from a blank page. A commission begins with a conversation about the space and its light; material samples and drawings are then prepared for approval, and the work is made by hand in our East London workshop. We work with private clients, interior designers, and architects.",
         link: { href: "/bespoke", label: "Bespoke" },
       },
     ],
@@ -116,9 +116,9 @@ export const faqSections: FaqSection[] = [
     title: "Delivery & Installation",
     faqs: [
       {
-        question: "How are pieces delivered and installed?",
+        question: "How is a work delivered and installed?",
         answer:
-          "Within the United Kingdom, every piece is delivered and installed by our own specialist team, on a date arranged directly with you, Monday to Friday.",
+          "Within the United Kingdom, every work is delivered and installed by our own specialist team, on a date arranged directly with you, Monday to Friday.",
       },
       {
         question: "Does the studio deliver internationally?",
@@ -126,9 +126,9 @@ export const faqSections: FaqSection[] = [
           "Yes. Works are dispatched from East London in protective packaging, with specialist handling to the address you specify. Installation arrangements vary by country and are confirmed at the point of enquiry. Local import duties and taxes are not included in listed prices and rest with the client.",
       },
       {
-        question: "Can a piece be returned?",
+        question: "Can a work be returned?",
         answer:
-          "As each piece is made for the client who commissions it, we are unable to accept the return of a work that is no longer wanted. Should a piece arrive damaged or prove defective, it will be repaired or replaced at no cost, provided we are told within 48 hours of delivery.",
+          "As every work is made to order, we are unable to accept the return of a work that is no longer wanted. Should a work arrive damaged or prove defective, it will be repaired or replaced at no cost, provided we are told within 48 hours of delivery.",
         link: { href: "/terms", label: "Terms of sale" },
       },
     ],
@@ -137,12 +137,12 @@ export const faqSections: FaqSection[] = [
     title: "Care",
     faqs: [
       {
-        question: "Is a piece suitable for a bathroom, or for outdoors?",
+        question: "Is a work suitable for a bathroom, or for outdoors?",
         answer:
           "No. The work is made for dry interiors only. It should not be placed outdoors, in bathrooms or wet rooms, or against a damp wall: humidity and condensation will in time damage the copper, the glass backing, and the silvering.",
       },
       {
-        question: "How should a piece be cared for?",
+        question: "How should a work be cared for?",
         answer:
           "With a dry cloth, and nothing else. Chemical cleaners, glass sprays, liquids, and metal polishes should never be used. Copper is a living material and will develop its own patina over time; we consider this part of the character of the work.",
       },

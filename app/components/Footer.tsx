@@ -119,7 +119,7 @@ export default function Footer() {
             max-w-3xl mx-auto leading-[1.6] px-2
           "
         >
-          Each piece made to order in our East London workshop.
+          Made by hand, to order, in our East London workshop.
         </p>
 
         {/* Navigation columns */}

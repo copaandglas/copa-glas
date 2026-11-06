@@ -59,8 +59,8 @@ export default function FaqPage() {
               <div className="w-10 h-px bg-black/15 mb-8" />
 
               <p className={`max-w-[32rem] ${BODY}`}>
-                A few notes for collectors, designers, and those commissioning
-                a piece for the first time: how the work is made, how it is
+                A few notes for collectors, designers, and those acquiring a
+                work for the first time: how the work is made, how it is
                 acquired, and how it is cared for. For anything further, write
                 to the studio at{" "}
                 <a href={`mailto:${CONTACT.email}`} className={LINK}>
