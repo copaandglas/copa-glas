@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Make Your Own",
   description:
-    "Commission Copa + Glas pieces made once, for the rooms they belong in. Begin with the Aura wall light — art glass at the heart of hand-formed copper.",
+    "Choose the glass for your Copa + Glas work, made to order by hand in our East London workshop. Begin with the Aura Wall Light: art glass held in hand-formed copper.",
   robots: { index: false, follow: false },
 };
 

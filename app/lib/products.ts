@@ -274,8 +274,8 @@ Each Aura is made to commission. Scale, finish, and configuration are agreed wit
     ],
     collectionCategory: { href: "/lighting", label: "Lighting" },
     seo: {
-      title: "Aura Wall Light: Bespoke Copper & Glass Sconce",
-      description: "A bespoke copper and glass wall light made to your commission — scale, finish, and configuration resolved in conversation with the studio.",
+      title: "Aura Wall Light in Copper and Art Glass",
+      description: "A wall light in hand-formed copper and art glass, made to order in our East London workshop. Scale, finish, and glass are agreed with the studio.",
       ogImage: "/og-aura-wall-light.jpg",
     },
   },

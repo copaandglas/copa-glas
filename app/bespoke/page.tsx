@@ -385,7 +385,7 @@ export default function BespokePage() {
             Residential
           </p>
           <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[clamp(1.5rem,2.8vw,2.25rem)] leading-[1.2] font-normal text-black/90">
-            Made once, for one space.
+            Shaped by the room.
           </p>
         </motion.div>
 
@@ -605,13 +605,13 @@ export default function BespokePage() {
                 know exactly what they want after a single exchange.
               </p>
               <p>
-                The Aura sconce was developed for a private client who wanted
-                something that had never existed before, a wall light in copper
+                The Aura Wall Light was developed for a private client who
+                wanted something that did not yet exist: a wall light in copper
                 and glass that changed the quality of light in a room rather
                 than simply adding to it. That is the kind of brief we welcome.
               </p>
               <p className="italic text-black/85">
-                Every private commission is different. Every piece is made once.
+                The Aura has since joined the Studio Collection.
               </p>
             </div>
           </motion.div>

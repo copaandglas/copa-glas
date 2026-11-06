@@ -531,7 +531,7 @@ export default function TradeSpecificationPage() {
               </div>
             </motion.div>
 
-            {/* Case 2: Aura Sconce */}
+            {/* Case 2: Aura Wall Light */}
             <motion.div
               initial={from(22)}
               whileInView={{ opacity: 1, y: 0 }}
@@ -551,7 +551,7 @@ export default function TradeSpecificationPage() {
                   mb-6
                 "
               >
-                Aura Sconce, private client
+                Aura Wall Light, private client
               </h3>
               <p
                 className="
@@ -563,13 +563,14 @@ export default function TradeSpecificationPage() {
               >
                 Developed for a private client who wanted a wall light that did not
                 yet exist — a copper and glass sconce that changed the quality of
-                light in a room rather than simply adding to it. Made once, for one
-                space.
+                light in a room rather than simply adding to it. It has since joined
+                the Studio Collection, and can be specified in a choice of art
+                glass.
               </p>
               <div className="relative w-full aspect-[3/2] overflow-hidden bg-muted">
                 <Image
                   src="/aura-green-client.png"
-                  alt="Aura Sconce — Copa + Glas private commission"
+                  alt="Aura Wall Light — Copa + Glas private commission"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

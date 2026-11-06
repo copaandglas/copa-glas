@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Aura Wall Light — Make Your Own",
   description:
-    "Choose your glass finish for the Aura wall light — hand-formed copper and a single pane of Luminous art glass, made once for the room it belongs in.",
+    "Choose the glass for your Aura Wall Light: a single pane of Luminous art glass held in hand-formed copper, made to order in our East London workshop.",
   robots: { index: false, follow: false },
 };
 
