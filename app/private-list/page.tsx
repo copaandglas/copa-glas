@@ -20,8 +20,7 @@ const INTERESTS: { id: Interest; label: string }[] = [
 
 const BENEFITS = [
   { n: "01", title: "First sight", body: "Every new edition, before it is announced publicly. Each is limited to ten." },
-  { n: "02", title: "The studio", body: "Visits to our East London workshop, by appointment." },
-  { n: "03", title: "Notes from the studio", body: "Occasional letters on new work and commissions, sent only when there is something to show." },
+  { n: "02", title: "Notes from the studio", body: "Occasional letters on new work and commissions, sent only when there is something to show." },
 ];
 
 interface FormState {
