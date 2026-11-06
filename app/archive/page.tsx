@@ -99,8 +99,8 @@ const row3Items: ArchiveItem[] = [
   {
     id: "founders",
     src: "/founders.png",
-    alt: "The founders in the East London workshop",
-    caption: "The Founders",
+    alt: "Bradley McWhinney and Anthony McCarty in the East London workshop",
+    caption: "Bradley McWhinney and Anthony McCarty",
     category: "Workshop",
     year: "2024",
   },

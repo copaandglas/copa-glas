@@ -112,7 +112,7 @@ export default function AboutPage() {
           >
             <Image
               src="/founders.png"
-              alt="Bradley McWhinney and Anthony McCarty, Copa + Glas founders"
+              alt="Bradley McWhinney and Anthony McCarty in the East London workshop"
               width={746}
               height={1024}
               priority
