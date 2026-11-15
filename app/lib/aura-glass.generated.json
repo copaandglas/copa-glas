@@ -1,0 +1,22 @@
+{
+  "amber": {
+    "lit": "#eb760b",
+    "glow": "#f5a325",
+    "unlit": "#4b1e04"
+  },
+  "emerald": {
+    "lit": "#7fac3a",
+    "glow": "#a4ca5a",
+    "unlit": "#2a3512"
+  },
+  "champagne": {
+    "lit": "#efc31d",
+    "glow": "#f7db50",
+    "unlit": "#774b03"
+  },
+  "red": {
+    "lit": "#a91210",
+    "glow": "#cd2918",
+    "unlit": "#2a0405"
+  }
+}

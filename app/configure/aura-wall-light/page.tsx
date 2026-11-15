@@ -83,10 +83,10 @@ export default function AuraWallLightConfigurePage() {
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] opacity-85 max-w-xl">
-            When the glass feels right, send your note to the studio. Anthony will
-            follow up personally — to hear about the room, the light you imagine, and
-            the making of the piece. If you have a particular colour in mind, let us
-            know and we can explore.
+            When the glass feels right, send a note to the studio. Anthony will
+            reply personally, to hear about the room and the light you have in
+            mind. If you are thinking of a particular colour, tell us and we will
+            look into it.
           </p>
           <motion.button
             type="button"
@@ -99,7 +99,7 @@ export default function AuraWallLightConfigurePage() {
             whileHover={{ backgroundColor: "#1a1a1a" }}
             whileTap={{ scale: 0.995 }}
           >
-            Enquire — {config.colorName} at the heart
+            Enquire about {config.colorName}
           </motion.button>
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function AuraWallLightConfigurePage() {
             text-[11px] tracking-[0.18em] uppercase font-medium
           "
         >
-          Enquire About This Piece
+          Enquire about this light
         </button>
       </div>
 

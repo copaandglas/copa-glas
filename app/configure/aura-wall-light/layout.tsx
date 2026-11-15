@@ -15,13 +15,13 @@ export default function AuraWallLightLayout({
   return (
     <>
       {/*
-        Preload the default glass swatch (Corella Orange) so it is ready
-        the moment the configurator mounts, with no visible loading delay.
+        Preload the default glass (Corella Orange, lit) so the light is
+        drawn the moment the configurator mounts.
       */}
       <link
         rel="preload"
         as="image"
-        href="/corella-orange.jpg"
+        href="/aura-glass/amber-on.webp"
         fetchPriority="high"
       />
       {children}

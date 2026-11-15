@@ -1,14 +1,19 @@
 .root {
-  --active-pane-color: #c45b12;
+  --glow: #f5a325;
   --copper-accent: #b87352;
   --border-color: #e5e5e5;
   --text-secondary: #666666;
+  /* The wall the light hangs on. It dims a little when the light is on,
+     so the glow reads as light and not as a tint. */
+  --wall: #efebe6;
+  --wall-lit: #d5cdc4;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
 .container {
   display: flex;
-  gap: 80px;
+  gap: 72px;
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
@@ -16,98 +21,149 @@
 
 .visualizerPane {
   flex: 1;
+  width: 100%;
+  background: var(--wall);
+  transition: background-color 0.7s var(--ease);
+}
+
+.root.isOn .visualizerPane {
+  background: var(--wall-lit);
+}
+
+/* Keeps the light in view while the choices beside it are read. */
+.stage {
+  position: sticky;
+  top: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: min(760px, calc(100vh - 8rem));
+  min-height: 520px;
+  padding: 0 32px;
+  overflow: hidden;
+}
+
+.fixture {
+  position: relative;
   width: 100%;
+  max-width: 264px;
 }
 
-.sconceSvg {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
-  transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.tubeGlow,
-.centralGlass,
-.centralGlassImage,
-.centralGlassTint,
-.lightGlow,
-.litHaloWide,
-.litHaloCore,
-.tubeShadow,
-.sunkenShadow {
-  will-change: opacity, fill, filter;
-  transition:
-    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.lightGlow {
+/* Light thrown up and down the wall, as in the photographs of the Aura.
+   Light adds to a surface, so the wash is the glass colour carried towards
+   white, over a wall that has dimmed a little. */
+.fixture::before,
+.fixture::after {
+  content: "";
+  position: absolute;
+  left: -36%;
+  right: -36%;
+  height: 46%;
   opacity: 0;
+  pointer-events: none;
+  --wash: color-mix(in srgb, var(--glow) 36%, white);
+  transition: opacity 0.7s var(--ease);
 }
 
-.litHaloWide,
-.litHaloCore {
-  fill: var(--active-pane-color);
-  opacity: 0;
+.fixture::before {
+  bottom: calc(100% - 4px);
+  background: radial-gradient(ellipse 50% 100% at 50% 100%, var(--glow) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse 50% 100% at 50% 100%,
+    var(--wash) 0%,
+    color-mix(in srgb, var(--wash) 62%, transparent) 32%,
+    transparent 72%
+  );
 }
 
-.tubeGlow {
-  fill: var(--active-pane-color);
-  opacity: 0;
+.fixture::after {
+  top: calc(100% - 4px);
+  background: radial-gradient(ellipse 50% 100% at 50% 0%, var(--glow) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse 50% 100% at 50% 0%,
+    var(--wash) 0%,
+    color-mix(in srgb, var(--wash) 62%, transparent) 32%,
+    transparent 72%
+  );
 }
 
-.centralGlass {
-  fill: var(--active-pane-color);
+.root.isOn .fixture::before {
+  opacity: 1;
 }
 
-.centralGlassImage {
-  /* real glass texture */
-}
-
-.centralGlassTint {
-  /* colour overlay at 0.28 opacity set inline */
-}
-
-.root.isOn .tubeGlow {
+.root.isOn .fixture::after {
   opacity: 0.8;
 }
 
-.root.isOn .centralGlass {
-  filter: brightness(1.3) saturate(1.2);
+.sconceSvg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 28px rgba(60, 40, 28, 0.2));
 }
 
-.root.isOn .centralGlassImage {
-  filter: brightness(1.35) saturate(1.25);
+.paneImage,
+.mirrorSpill,
+.paneSheen,
+.paneEdge {
+  transition: opacity 0.7s var(--ease), fill 0.7s var(--ease);
 }
 
-.root.isOn .centralGlassTint {
-  opacity: 0.45;
+.paneImage {
+  opacity: 0;
 }
 
-/* Kept light so the glass texture still shows through the glow, as in the photographs. */
-.root.isOn .lightGlow {
+.paneImage.paneShown {
+  opacity: 1;
+}
+
+.paneImage.paneLit.paneShown {
+  opacity: 0;
+}
+
+.root.isOn .paneImage.paneLit.paneShown {
+  opacity: 1;
+}
+
+/* Light adds to the mirror; it never darkens it. */
+.mirrorSpill {
+  fill: var(--glow);
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.root.isOn .mirrorSpill {
   opacity: 0.4;
 }
 
-.root.isOn .litHaloWide {
-  opacity: 0.18;
+/* Unlit, the glass keeps its depth: a light sheen, and only a thin shadow from the copper. */
+.paneSheen {
+  opacity: 0.45;
 }
 
-.root.isOn .litHaloCore {
-  opacity: 0.38;
+.paneEdge {
+  opacity: 0.45;
 }
 
-.root.isOn .tubeShadow {
-  opacity: 0.08;
+.root.isOn .paneSheen {
+  opacity: 0;
 }
 
-.root.isOn .sunkenShadow {
+.root.isOn .paneEdge {
   opacity: 0.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualizerPane,
+  .fixture::before,
+  .fixture::after,
+  .paneImage,
+  .mirrorSpill,
+  .paneSheen,
+  .paneEdge {
+    transition: none;
+  }
 }
 
 .controlsPane {
@@ -116,6 +172,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  padding: 24px 0;
 }
 
 .collectionName {
@@ -151,7 +208,7 @@
   font-style: italic;
   font-size: 1.2rem;
   color: #1a1a1a;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .activeColorName {
@@ -159,8 +216,9 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.75rem;
+  font-weight: 400;
   color: var(--copper-accent);
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
 .activeColorDesc {
@@ -168,21 +226,16 @@
   font-size: 1.05rem;
   color: #1a1a1a;
   line-height: 1.6;
-  margin-bottom: 30px;
-  min-height: 50px;
+  margin-bottom: 26px;
+  min-height: 3.2em;
+  max-width: 40ch;
 }
 
 .swatchGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
   margin-bottom: 30px;
-}
-
-@media (max-width: 380px) {
-  .swatchGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .swatchWrapper {
@@ -200,36 +253,61 @@
 }
 
 .swatch {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
   border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  outline: 1px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 0.3s ease;
 }
 
 .swatchImage {
   object-fit: cover;
-  border-radius: 2px;
 }
 
-.swatchWrapperActive .swatch {
-  border: 1px solid var(--copper-accent);
+.swatchCustom {
+  background: #f5f3ef;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
+}
+
+.swatchPlus {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.swatchWrapper:hover .swatch {
+  outline-color: rgba(184, 115, 82, 0.45);
+}
+
+.swatchWrapperActive .swatch,
+.swatchWrapperActive:hover .swatch {
+  outline-color: var(--copper-accent);
+}
+
+.swatchWrapper:focus-visible {
+  outline: none;
 }
 
 .swatchWrapper:focus-visible .swatch {
-  outline: 1px solid var(--copper-accent);
-  outline-offset: 4px;
+  outline: 2px solid #1a1a1a;
 }
 
 .swatchLabel {
-  margin-top: 10px;
+  margin-top: 11px;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.58rem;
+  line-height: 1.45;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   color: var(--text-secondary);
   text-align: center;
   transition: color 0.3s ease;
@@ -247,6 +325,7 @@
 }
 
 .toggleLabel {
+  -webkit-tap-highlight-color: transparent;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -355,23 +434,21 @@
   background: #1a1a1a;
 }
 
-/* Tablet (portrait iPads, 768–1024): keep the elegant side-by-side
-   layout but tighten spacing so it fits without feeling cramped, and
-   pin the visualiser so the lit piece stays in view while reading. */
+/* Tablet (portrait iPads, 768-1024): side by side, with tighter spacing. */
 @media (min-width: 768px) and (max-width: 1024px) {
   .container {
     gap: 40px;
-    align-items: flex-start;
   }
 
-  .visualizerPane {
-    position: sticky;
+  .stage {
     top: max(6.5rem, calc(env(safe-area-inset-top) + 5.5rem));
-    align-self: flex-start;
+    height: min(640px, calc(100vh - 8rem));
+    min-height: 440px;
+    padding: 0 24px;
   }
 
-  .sconceSvg {
-    max-width: 280px;
+  .fixture {
+    max-width: 208px;
   }
 
   .title {
@@ -388,7 +465,7 @@
   }
 
   .swatchGrid {
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 24px;
   }
 
@@ -397,14 +474,13 @@
   }
 }
 
-/* Hide in-page enquire on phones — fixed bar handles CTA */
+/* Phones: the light stays fixed above, the choices scroll beneath it.
+   The fixed bar at the foot of the page carries the enquiry button. */
 @media (max-width: 767px) {
   .enquireBtn {
     display: none;
   }
-}
 
-@media (max-width: 767px) {
   .mobileShell {
     display: flex;
     flex-direction: column;
@@ -424,28 +500,39 @@
   }
 
   .visualizerPane {
-    flex: 0 0 45%;
-    height: 45%;
+    flex: 0 0 44%;
+    height: 44%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid var(--border-color);
-    padding: 20px;
     z-index: 1;
+    overflow: hidden;
+  }
+
+  .stage {
+    position: static;
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .fixture {
+    height: 62%;
+    width: auto;
+    max-width: none;
+    aspect-ratio: 100 / 166;
   }
 
   .sconceSvg {
+    width: 100%;
     height: 100%;
-    max-height: 100%;
-    width: auto;
-    max-width: 100%;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 10px 16px rgba(60, 40, 28, 0.18));
   }
 
   .controlsPane {
     flex: 1 1 auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 30px 24px calc(40px + env(safe-area-inset-bottom));
+    padding: 28px 24px calc(40px + env(safe-area-inset-bottom));
     justify-content: flex-start;
     min-height: 0;
   }
@@ -454,13 +541,9 @@
     padding-bottom: calc(8.5rem + env(safe-area-inset-bottom));
   }
 
-  :global(.configure-embedded) .mobileShell {
-    height: calc(100dvh - max(4.5rem, calc(env(safe-area-inset-top) + 3.75rem)));
-  }
-
   .title {
     font-size: 2.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 
   .activeColorDesc {
@@ -470,6 +553,11 @@
   }
 
   .swatchGrid {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .swatchLabel {
+    font-size: 0.52rem;
+    letter-spacing: 0.07em;
   }
 }

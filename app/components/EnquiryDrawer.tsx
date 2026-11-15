@@ -508,7 +508,7 @@ export default function EnquiryDrawer({
                   >
                     <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] text-black/65 mb-8 max-w-[44ch]">
                       {isConfigurator
-                        ? "Tell us about yourself — and the room this piece might transform."
+                        ? "Tell us a little about yourself and the room you have in mind."
                         : product
                           ? "Tell us a little about yourself and the space you have in mind."
                           : "A few details so we can respond thoughtfully."}
@@ -617,7 +617,7 @@ export default function EnquiryDrawer({
                           </>
                         ) : (
                           <>
-                            <span className={LABEL_CLASS}>Piece</span>
+                            <span className={LABEL_CLASS}>Work</span>
                             <div className="
                               flex items-center gap-3 overflow-visible
                               px-4 py-3 border border-black/[0.08] bg-faint
@@ -641,7 +641,7 @@ export default function EnquiryDrawer({
                     {product && isConfigurator && (
                       <Field>
                         <label htmlFor="enq-units" className={LABEL_CLASS}>
-                          Number of pieces
+                          Number of lights
                           <span className={LABEL_OPTIONAL_CLASS}>optional</span>
                         </label>
                         <input
@@ -651,7 +651,7 @@ export default function EnquiryDrawer({
                           inputMode="numeric"
                           value={form.units}
                           onChange={(e) => update("units", e.target.value)}
-                          placeholder="One piece — or several throughout the project"
+                          placeholder="One, or several throughout the project"
                           className={INPUT_CLASS}
                         />
                       </Field>

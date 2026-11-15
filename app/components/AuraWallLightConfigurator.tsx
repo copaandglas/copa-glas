@@ -19,15 +19,21 @@ interface AuraWallLightConfiguratorProps {
   className?: string;
 }
 
+/** The glasses that can be shown in the drawing; a custom glass has no picture. */
+const GLASSES = AURA_COLOR_OPTIONS.filter((option) => option.pane);
+
 export default function AuraWallLightConfigurator({
   onConfigurationChange,
   onEnquire,
   className = "",
 }: AuraWallLightConfiguratorProps) {
   const [activeColorId, setActiveColorId] = useState(DEFAULT_AURA_COLOR_ID);
-  const [illuminated, setIlluminated] = useState(false);
+  // The drawing keeps the last real glass on show while a custom one is discussed.
+  const [shownGlassId, setShownGlassId] = useState(DEFAULT_AURA_COLOR_ID);
+  const [illuminated, setIlluminated] = useState(true);
 
   const activeColor = auraColorById(activeColorId);
+  const shownGlass = auraColorById(shownGlassId);
 
   const emitChange = useCallback(
     (color: AuraColorOption, isOn: boolean) => {
@@ -51,16 +57,16 @@ export default function AuraWallLightConfigurator({
   return (
     <div
       className={rootClass}
-      style={{ ["--active-pane-color" as string]: activeColor.hex }}
+      style={{ ["--glow" as string]: shownGlass.glow ?? shownGlass.hex }}
     >
       <div className={styles.mobileShell}>
         <div className={styles.container} id="aura-configurator">
           <div className={styles.visualizerPane} aria-hidden="true">
-            <SconceSvg
-              className={styles.sconceSvg}
-              paneImage={activeColor.image}
-              paneColor={activeColor.hex}
-            />
+            <div className={styles.stage}>
+              <div className={styles.fixture}>
+                <SconceSvg className={styles.sconceSvg} shownGlassId={shownGlass.id} />
+              </div>
+            </div>
           </div>
 
           <div className={styles.controlsPane}>
@@ -72,18 +78,16 @@ export default function AuraWallLightConfigurator({
               to change the quality of light in a room.
             </p>
 
-            <p className={styles.sectionLabel}>The Narrative</p>
-            <p className={styles.activeColorDesc}>{activeColor.desc}</p>
-
-            <p className={styles.sectionLabel}>The heart of the piece</p>
+            <p className={styles.sectionLabel}>The glass</p>
             <h2 className={styles.activeColorName}>
               {activeColor.id === "custom" ? "Your colour, to be discussed" : activeColor.name}
             </h2>
+            <p className={styles.activeColorDesc}>{activeColor.desc}</p>
 
             <div
               className={styles.swatchGrid}
               role="group"
-              aria-label="Choose your glass finish"
+              aria-label="Choose your glass"
             >
               {AURA_COLOR_OPTIONS.map((option) => {
                 const isActive = option.id === activeColorId;
@@ -103,36 +107,25 @@ export default function AuraWallLightConfigurator({
                           colorName: option.name,
                           illuminated,
                         });
+                      } else {
+                        setShownGlassId(option.id);
                       }
                     }}
                   >
-                    <div
-                      className={styles.swatch}
-                      style={
-                        isCustom
-                          ? { background: "#f5f3ef", border: "1.5px dashed rgba(0,0,0,0.2)" }
-                          : option.image
-                            ? undefined
-                            : { background: `linear-gradient(135deg, ${option.hex} 0%, #000 150%)` }
-                      }
-                    >
+                    <span className={`${styles.swatch} ${isCustom ? styles.swatchCustom : ""}`}>
                       {isCustom ? (
-                        <span style={{
-                          position: "absolute", inset: 0,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          fontSize: "1.25rem", color: "rgba(0,0,0,0.35)", lineHeight: 1,
-                        }}>+</span>
+                        <span className={styles.swatchPlus}>+</span>
                       ) : option.image ? (
                         <Image
                           src={option.image}
-                          alt={option.name}
+                          alt=""
                           fill
                           priority={option.id === DEFAULT_AURA_COLOR_ID}
-                          sizes="(max-width: 850px) 80px, 120px"
+                          sizes="(max-width: 767px) 20vw, 96px"
                           className={styles.swatchImage}
                         />
                       ) : null}
-                    </div>
+                    </span>
                     <span className={styles.swatchLabel}>{option.shortName}</span>
                   </button>
                 );
@@ -140,9 +133,9 @@ export default function AuraWallLightConfigurator({
             </div>
 
             <div className={styles.toggleWrapper}>
-              <span id="aura-light-label" className={styles.toggleLabel}>
-                Light the piece
-              </span>
+              <label htmlFor="aura-light-toggle" id="aura-light-label" className={styles.toggleLabel}>
+                Light the glass
+              </label>
               <div className={styles.switch}>
                 <input
                   type="checkbox"
@@ -163,7 +156,7 @@ export default function AuraWallLightConfigurator({
                 <span className={styles.specValue}>Solid brushed copper</span>
               </div>
               <div className={styles.specRow}>
-                <span className={styles.specLabel}>Outer Panes</span>
+                <span className={styles.specLabel}>Outer panes</span>
                 <span className={styles.specValue}>Silvered glass</span>
               </div>
               <div className={styles.specRow}>
@@ -173,14 +166,15 @@ export default function AuraWallLightConfigurator({
                 </span>
               </div>
               <div className={styles.specRow}>
-                <span className={styles.specLabel}>Piece size</span>
-                <span className={styles.specValue}>Bespoke to order</span>
-              </div>
-              <div className={styles.specRow}>
-                <span className={styles.specLabel}>Glass centre</span>
-                <span className={styles.specValue}>Bespoke to order</span>
+                <span className={styles.specLabel}>Size</span>
+                <span className={styles.specValue}>Agreed with the studio</span>
               </div>
             </div>
+
+            <p className={styles.colourNote}>
+              Colour on a screen is a guide. Art glass varies from sheet to sheet,
+              and material samples are prepared for approval before anything is made.
+            </p>
 
             {onEnquire && (
               <button
@@ -194,7 +188,7 @@ export default function AuraWallLightConfigurator({
                 }
                 className={styles.enquireBtn}
               >
-                Enquire About This Piece
+                Enquire about this light
               </button>
             )}
           </div>
@@ -204,36 +198,18 @@ export default function AuraWallLightConfigurator({
   );
 }
 
-function hexToRgb(hex: string): [number, number, number] {
-  const h = hex.replace("#", "");
-  const full = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
-  const n = parseInt(full, 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-}
+/** The centre pane in the drawing. */
+const PANE = { x: 29.3, y: 23.4, width: 41.4, height: 113.9 };
 
-/** Lighten toward white by `amt` (0–1), keeping the hue — a luminous version. */
-function lighten(hex: string, amt: number): [number, number, number] {
-  const [r, g, b] = hexToRgb(hex);
-  return [
-    Math.round(r + (255 - r) * amt),
-    Math.round(g + (255 - g) * amt),
-    Math.round(b + (255 - b) * amt),
-  ];
-}
+/** The four mirror panes around it, as on the photographed Aura. */
+const MIRRORS = [
+  { x: 2.5, y: 2.5, width: 68.2, height: 19.7 },
+  { x: 71.9, y: 2.5, width: 25.6, height: 134.8 },
+  { x: 2.5, y: 23.4, width: 25.6, height: 140.1 },
+  { x: 29.3, y: 138.5, width: 68.2, height: 25 },
+];
 
-function SconceSvg({
-  className,
-  paneImage,
-  paneColor,
-}: {
-  className?: string;
-  paneImage?: string;
-  paneColor: string;
-}) {
-  const encodedImage = paneImage ?? null;
-  const [gr, gg, gb] = lighten(paneColor, 0.12);
-  const glow = (a: number) => `rgba(${gr}, ${gg}, ${gb}, ${a})`;
-
+function SconceSvg({ className, shownGlassId }: { className?: string; shownGlassId: string }) {
   return (
     <svg
       className={className}
@@ -242,167 +218,107 @@ function SconceSvg({
       aria-hidden
     >
       <defs>
-        <filter id="aura-ambient-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="6" result="blur" />
+        <filter id="aura-spill-blur" x="-60%" y="-30%" width="220%" height="160%">
+          <feGaussianBlur stdDeviation="5" />
         </filter>
-        <filter id="aura-bloom-wide" x="-150%" y="-150%" width="400%" height="400%">
-          <feGaussianBlur stdDeviation="9" />
-        </filter>
-        <linearGradient id="aura-litCore" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor={glow(0)} />
-          <stop offset="12%" stopColor={glow(0.85)} />
-          <stop offset="50%" stopColor={glow(1)} />
-          <stop offset="88%" stopColor={glow(0.85)} />
-          <stop offset="100%" stopColor={glow(0)} />
-        </linearGradient>
         <clipPath id="aura-pane-clip">
-          <rect x="29.3" y="23.4" width="41.4" height="113.9" />
+          <rect {...PANE} />
+        </clipPath>
+        <clipPath id="aura-mirror-clip">
+          {MIRRORS.map((m) => (
+            <rect key={`${m.x}-${m.y}`} {...m} />
+          ))}
         </clipPath>
         <linearGradient id="aura-copperFrame" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#b87352" />
-          <stop offset="50%" stopColor="#d49b78" />
-          <stop offset="100%" stopColor="#8f4d2d" />
+          <stop offset="0%" stopColor="#b67452" />
+          <stop offset="48%" stopColor="#d39c7c" />
+          <stop offset="100%" stopColor="#8d4e30" />
         </linearGradient>
-        <linearGradient id="aura-silveredGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#d8c7bd" />
-          <stop offset="25%" stopColor="#f2e8e2" />
-          <stop offset="80%" stopColor="#cfbbb0" />
-          <stop offset="100%" stopColor="#ae9383" />
+        {/*
+          Copper-rose mirror, measured from the photographs of the Aura. One
+          reflection runs across all four panes, so they read as flat mirror.
+        */}
+        <linearGradient id="aura-mirror" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="166">
+          <stop offset="0%" stopColor="#b28979" />
+          <stop offset="30%" stopColor="#c8a596" />
+          <stop offset="52%" stopColor="#ad8272" />
+          <stop offset="100%" stopColor="#8e6252" />
         </linearGradient>
-        <linearGradient id="aura-paneGloss" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.5)" />
-          <stop offset="15%" stopColor="rgba(255,255,255,0)" />
-          <stop offset="85%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.15)" />
+        <linearGradient id="aura-mirrorSheen" gradientUnits="userSpaceOnUse" x1="0" y1="166" x2="100" y2="0">
+          <stop offset="0%" stopColor="rgba(40,16,8,0.1)" />
+          <stop offset="55%" stopColor="rgba(255,244,236,0)" />
+          <stop offset="100%" stopColor="rgba(255,244,236,0.14)" />
         </linearGradient>
-        <linearGradient id="aura-tubeGloss" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0.12)" />
-          <stop offset="30%" stopColor="rgba(255,255,255,0.06)" />
-          <stop offset="50%" stopColor="rgba(255,255,255,0.16)" />
-          <stop offset="70%" stopColor="rgba(255,255,255,0.06)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.12)" />
+        <linearGradient id="aura-paneEdgeX" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="rgba(20,6,0,0.5)" />
+          <stop offset="6%" stopColor="rgba(20,6,0,0)" />
+          <stop offset="94%" stopColor="rgba(20,6,0,0)" />
+          <stop offset="100%" stopColor="rgba(20,6,0,0.5)" />
         </linearGradient>
-        <linearGradient id="aura-innerShadowX" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0.45)" />
-          <stop offset="7%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="93%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.45)" />
+        <linearGradient id="aura-paneEdgeY" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="rgba(20,6,0,0.6)" />
+          <stop offset="3.5%" stopColor="rgba(20,6,0,0)" />
+          <stop offset="97%" stopColor="rgba(20,6,0,0)" />
+          <stop offset="100%" stopColor="rgba(20,6,0,0.45)" />
         </linearGradient>
-        <linearGradient id="aura-innerShadowY" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0.8)" />
-          <stop offset="5%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="95%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.8)" />
+        <linearGradient id="aura-paneSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.16)" />
+          <stop offset="30%" stopColor="rgba(255,255,255,0.03)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
         </linearGradient>
       </defs>
 
-      <rect
-        x="25"
-        y="19"
-        width="50"
-        height="123"
-        className={styles.tubeGlow}
-        filter="url(#aura-ambient-glow)"
-      />
       <rect x="0" y="0" width="100" height="166" fill="url(#aura-copperFrame)" />
-      {/* Mirror panes around the centre glass, as on the photographed Aura */}
-      <rect x="2.5" y="2.5" width="68.2" height="19.7" fill="url(#aura-silveredGlass)" />
-      <rect x="2.5" y="2.5" width="68.2" height="19.7" fill="url(#aura-paneGloss)" />
-      <rect x="71.9" y="2.5" width="25.6" height="134.8" fill="url(#aura-silveredGlass)" />
-      <rect x="71.9" y="2.5" width="25.6" height="134.8" fill="url(#aura-paneGloss)" />
-      <rect x="2.5" y="23.4" width="25.6" height="140.1" fill="url(#aura-silveredGlass)" />
-      <rect x="2.5" y="23.4" width="25.6" height="140.1" fill="url(#aura-paneGloss)" />
-      <rect x="29.3" y="138.5" width="68.2" height="25" fill="url(#aura-silveredGlass)" />
-      <rect x="29.3" y="138.5" width="68.2" height="25" fill="url(#aura-paneGloss)" />
+
+      {MIRRORS.map((m) => (
+        <g key={`${m.x}-${m.y}`}>
+          <rect {...m} fill="url(#aura-mirror)" />
+          <rect {...m} fill="url(#aura-mirrorSheen)" />
+        </g>
+      ))}
+
+      {/* The lit glass colours the mirror beside it. Kept inside the mirror panes. */}
+      <g clipPath="url(#aura-mirror-clip)">
+        <rect
+          x={PANE.x - 5}
+          y={PANE.y - 5}
+          width={PANE.width + 10}
+          height={PANE.height + 10}
+          className={styles.mirrorSpill}
+          filter="url(#aura-spill-blur)"
+        />
+      </g>
 
       {/*
-        Light spill — rendered above the frame so the lit tube appears to
-        cast its colour onto the surrounding silvered glass and copper.
+        Every glass is drawn unlit and lit, and shown by opacity alone. Opacity
+        behaves the same in every browser; CSS filters on SVG do not in Safari.
       */}
-      <rect
-        x="17"
-        y="11"
-        width="66"
-        height="139"
-        className={styles.litHaloWide}
-        filter="url(#aura-bloom-wide)"
-      />
-      <rect
-        x="25"
-        y="19"
-        width="50"
-        height="123"
-        className={styles.litHaloCore}
-        filter="url(#aura-ambient-glow)"
-      />
+      <g clipPath="url(#aura-pane-clip)">
+        {GLASSES.map((glass) => {
+          const shown = glass.id === shownGlassId;
+          return (
+            <g key={glass.id}>
+              <image
+                href={glass.pane!.off}
+                {...PANE}
+                preserveAspectRatio="xMidYMid slice"
+                className={`${styles.paneImage} ${shown ? styles.paneShown : ""}`}
+              />
+              <image
+                href={glass.pane!.on}
+                {...PANE}
+                preserveAspectRatio="xMidYMid slice"
+                className={`${styles.paneImage} ${styles.paneLit} ${shown ? styles.paneShown : ""}`}
+              />
+            </g>
+          );
+        })}
+      </g>
 
-      {/* Centre glass pane — photo texture + colour tint overlay */}
-      {encodedImage ? (
-        <>
-          <image
-            href={encodedImage}
-            x="29.3"
-            y="23.4"
-            width="41.4"
-            height="113.9"
-            preserveAspectRatio="xMidYMid slice"
-            clipPath="url(#aura-pane-clip)"
-            className={styles.centralGlassImage}
-          />
-          <rect
-            x="29.3"
-            y="23.4"
-            width="41.4"
-            height="113.9"
-            fill={paneColor}
-            fillOpacity="0.28"
-            clipPath="url(#aura-pane-clip)"
-            className={styles.centralGlassTint}
-          />
-        </>
-      ) : (
-        <rect x="29.3" y="23.4" width="41.4" height="113.9" className={styles.centralGlass} />
-      )}
-
-      {/*
-        Bright emitting core — a warm gradient (hot centre, soft ends) driven
-        by opacity so it lights up reliably on WebKit (iPad / iOS Safari),
-        which ignores CSS filter: brightness() on inner SVG elements.
-      */}
-      <rect
-        x="29.3"
-        y="23.4"
-        width="41.4"
-        height="113.9"
-        fill="url(#aura-litCore)"
-        clipPath="url(#aura-pane-clip)"
-        className={styles.lightGlow}
-      />
-
-      <rect
-        x="29.3"
-        y="23.4"
-        width="41.4"
-        height="113.9"
-        fill="url(#aura-tubeGloss)"
-        className={styles.tubeShadow}
-      />
-      <rect
-        x="29.3"
-        y="23.4"
-        width="41.4"
-        height="113.9"
-        fill="url(#aura-innerShadowX)"
-        className={styles.sunkenShadow}
-      />
-      <rect
-        x="29.3"
-        y="23.4"
-        width="41.4"
-        height="113.9"
-        fill="url(#aura-innerShadowY)"
-        className={styles.sunkenShadow}
-      />
+      {/* The glass sits a little behind the copper, and takes a faint sheen unlit. */}
+      <rect {...PANE} fill="url(#aura-paneSheen)" className={styles.paneSheen} />
+      <rect {...PANE} fill="url(#aura-paneEdgeX)" className={styles.paneEdge} />
+      <rect {...PANE} fill="url(#aura-paneEdgeY)" className={styles.paneEdge} />
     </svg>
   );
 }

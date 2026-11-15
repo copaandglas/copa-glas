@@ -67,7 +67,7 @@ export default function ConfigurePage() {
           transition={{ duration: 0.5, delay: 0.08, ease: luxuryEase }}
           className="text-[10px] tracking-[0.18em] uppercase text-black/45 mb-6 md:mb-8"
         >
-          Studio beta — not part of the main collection
+          Studio beta. Not part of the main collection.
         </motion.p>
 
         <motion.p
@@ -80,9 +80,9 @@ export default function ConfigurePage() {
             max-w-2xl mb-14 md:mb-16 lg:mb-20
           "
         >
-          Each piece holds glass and copper shaped by hand in East London. Choose the
-          glass finish that belongs in your room, lift the light, and send your
-          note when the piece feels like yours.
+          Each work is copper and glass, shaped by hand in East London. Choose
+          the glass for your room, see it lit and unlit, and send a note to the
+          studio when it feels right.
         </motion.p>
 
         <motion.article
@@ -109,14 +109,14 @@ export default function ConfigurePage() {
               Aura Wall Light
             </h2>
             <p className="font-[family-name:var(--font-newsreader),Georgia,serif] text-[15px] leading-[1.7] opacity-80 mb-3">
-              A single pane of luminous art glass at the centre — choose yours, and
-              watch the room change around it. Configured entirely for the space it will inhabit.
+              A single pane of luminous art glass, held in hand-formed copper.
+              Choose the glass, and see it lit and unlit.
             </p>
             <p className="text-[10px] tracking-[0.12em] uppercase opacity-45 mb-4">
               Bespoke · made to order
             </p>
             <span className="text-[10px] tracking-[0.15em] uppercase border-b border-black/25 pb-0.5 group-hover:border-black/80 transition-[border-color]">
-              Step inside
+              Choose your glass
             </span>
           </Link>
         </motion.article>
