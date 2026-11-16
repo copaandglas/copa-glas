@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@copaandglas",
   },
+  // Proves ownership to Bing Webmaster Tools. Removing it ends the verification.
+  verification: {
+    other: { "msvalidate.01": "530A90DB205D40479550D6421CF98002" },
+  },
   robots: {
     index: true,
     follow: true,
