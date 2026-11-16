@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { getReferral } from "@/app/lib/referral";
+import { riseStyle } from "@/app/lib/motion";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -277,12 +278,10 @@ export default function TradeSpecificationPage() {
         <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
 
           {/* Breadcrumb */}
-          <motion.nav
-            initial={from(8)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease }}
+          <nav
+            style={riseStyle(8, 1.1)}
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-14 md:mb-20 lg:mb-24"
+            className="rise flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-14 md:mb-20 lg:mb-24"
           >
             <Link
               href="/"
@@ -292,26 +291,22 @@ export default function TradeSpecificationPage() {
             </Link>
             <span className="opacity-25 mx-2">/</span>
             <span className="opacity-90">Trade &amp; Specification</span>
-          </motion.nav>
+          </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
 
             {/* Left: eyebrow + headline + body + CTA */}
             <div className="lg:col-span-7">
-              <motion.p
-                initial={from(8)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.1, delay: 0.05, ease }}
-                className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-7"
+              <p
+                style={riseStyle(8, 1.1, 0.05)}
+                className="rise text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-7"
               >
                 Trade &amp; Specification
-              </motion.p>
+              </p>
 
-              <motion.h1
-                initial={from(20)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.3, delay: 0.12, ease }}
-                className="
+              <h1
+                style={riseStyle(20, 1.3, 0.12)}
+                className="rise
                   font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[clamp(2.5rem,6vw,4.75rem)]
                   leading-[1.03] -tracking-[0.01em] font-normal
@@ -321,21 +316,16 @@ export default function TradeSpecificationPage() {
                 For exceptional
                 <br />
                 <em>interiors.</em>
-              </motion.h1>
+              </h1>
 
-              <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3, ease }}
-                style={{ originX: 0 }}
-                className="w-10 h-px bg-accent/40 mb-10"
+              <div
+                style={riseStyle(0, 1, 0.3)}
+                className="rise-line w-10 h-px bg-accent/40 mb-10"
               />
 
-              <motion.p
-                initial={from(14)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.3, delay: 0.24, ease }}
-                className="
+              <p
+                style={riseStyle(14, 1.3, 0.24)}
+                className="rise
                   max-w-[38rem]
                   font-[family-name:var(--font-newsreader),Georgia,serif]
                   text-[15px] md:text-base lg:text-[17px]
@@ -348,12 +338,10 @@ export default function TradeSpecificationPage() {
                 support, and bespoke specification capability for projects of any
                 scale — from a single residential commission to a full architectural
                 installation.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={from(10)}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.36, ease }}
+              <div className="rise"
+                style={riseStyle(10, 1.2, 0.36)}
               >
                 <a
                   href="#register"
@@ -382,7 +370,7 @@ export default function TradeSpecificationPage() {
                     />
                   </svg>
                 </a>
-              </motion.div>
+              </div>
             </div>
 
           </div>

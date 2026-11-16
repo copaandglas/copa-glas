@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-
-const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { riseStyle } from "@/app/lib/motion";
 
 export default function ConfigurePage() {
   return (
@@ -24,34 +22,28 @@ export default function ConfigurePage() {
           max-w-[1400px] 3xl:max-w-[1680px] mx-auto
         "
       >
-        <motion.nav
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: luxuryEase }}
+        <nav
+          style={riseStyle(8, 0.5)}
           aria-label="Breadcrumb"
-          className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.12em] uppercase mb-6 md:mb-8"
+          className="rise flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.12em] uppercase mb-6 md:mb-8"
         >
           <Link href="/" className="text-inherit no-underline opacity-50 hover:opacity-90 transition-opacity">
             Home
           </Link>
           <span className="opacity-25 mx-2">/</span>
           <span className="opacity-90">Make Your Own</span>
-        </motion.nav>
+        </nav>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: luxuryEase }}
-          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase mb-4 md:mb-5 opacity-75"
+        <p
+          style={riseStyle(12, 0.55)}
+          className="rise text-[10px] md:text-[11px] tracking-[0.15em] uppercase mb-4 md:mb-5"
         >
           Copa + Glas Studio
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
-          className="
+        <h1
+          style={riseStyle(16, 0.6, 0.05)}
+          className="rise
             font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] 3xl:text-[3.5rem]
             font-normal leading-[1.08] tracking-[0.02em]
@@ -59,37 +51,31 @@ export default function ConfigurePage() {
           "
         >
           Make Your Own
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.08, ease: luxuryEase }}
-          className="text-[10px] tracking-[0.18em] uppercase text-black/45 mb-6 md:mb-8"
+        <p
+          style={riseStyle(8, 0.5, 0.08)}
+          className="rise text-[10px] tracking-[0.18em] uppercase text-black/45 mb-6 md:mb-8"
         >
           Studio beta. Not part of the main collection.
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: luxuryEase }}
-          className="
+        <p
+          style={riseStyle(16, 0.6, 0.1)}
+          className="rise
             font-[family-name:var(--font-newsreader),Georgia,serif]
-            text-[15px] md:text-base lg:text-[17px] leading-[1.85] opacity-[0.88]
+            text-[15px] md:text-base lg:text-[17px] leading-[1.85]
             max-w-2xl mb-14 md:mb-16 lg:mb-20
           "
         >
           Each work is copper and glass, shaped by hand in East London. Choose
           the glass for your room, see it lit and unlit, and send a note to the
           studio when it feels right.
-        </motion.p>
+        </p>
 
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.12, ease: luxuryEase }}
-          className="max-w-md"
+        <article
+          style={riseStyle(20, 0.55, 0.12)}
+          className="rise max-w-md"
         >
           <Link href="/configure/aura-wall-light" className="group block no-underline text-inherit">
             <div className="relative aspect-[4/5] bg-muted overflow-hidden mb-5">
@@ -119,7 +105,7 @@ export default function ConfigurePage() {
               Choose your glass
             </span>
           </Link>
-        </motion.article>
+        </article>
       </div>
 
       <Footer />

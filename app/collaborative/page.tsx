@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { riseStyle } from "@/app/lib/motion";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -27,12 +28,10 @@ export default function CollaborativePage() {
           max-w-[1440px] mx-auto
         "
       >
-        <motion.nav
-          initial={from(8)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease }}
+        <nav
+          style={riseStyle(8, 1.1)}
           aria-label="Breadcrumb"
-          className="flex items-center gap-y-1.5 text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
+          className="rise flex items-center gap-y-1.5 text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
         >
           <Link
             href="/"
@@ -42,22 +41,18 @@ export default function CollaborativePage() {
           </Link>
           <span className="opacity-20 mx-2">/</span>
           <span className="opacity-85">Collaborations</span>
-        </motion.nav>
+        </nav>
 
-        <motion.p
-          initial={from(8)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.06, ease }}
-          className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
+        <p
+          style={riseStyle(8, 1.1, 0.06)}
+          className="rise text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
         >
           Collaborations
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={from(18)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.14, ease }}
-          className="
+        <h1
+          style={riseStyle(18, 1.3, 0.14)}
+          className="rise
             font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[clamp(2.6rem,6vw,5rem)]
             leading-[1.03] -tracking-[0.01em] font-normal
@@ -67,21 +62,16 @@ export default function CollaborativePage() {
           Made in
           <br />
           <em>partnership.</em>
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.36, ease }}
-          style={{ originX: 0 }}
-          className="w-10 h-px bg-black/15 mb-8"
+        <div
+          style={riseStyle(0, 1, 0.36)}
+          className="rise-line w-10 h-px bg-black/15 mb-8"
         />
 
-        <motion.div
-          initial={from(14)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.3, delay: 0.28, ease }}
-          className="
+        <div
+          style={riseStyle(14, 1.3, 0.28)}
+          className="rise
             max-w-[640px] space-y-5
             font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-[17px]
@@ -97,7 +87,7 @@ export default function CollaborativePage() {
             dialogue: a shared brief, a shared standard, and a piece that could
             only exist because of who made it together.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Artists & designers */}

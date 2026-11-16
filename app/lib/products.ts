@@ -302,7 +302,7 @@ In place of traditional mirror and art glass, we worked with Welsh slate. Lucy h
     collectionCategory: { href: "/collaborative", label: "Collaborations" },
     seo: {
       title: "Three Geishas, a Collaboration with Lucy Williams",
-      description: "A collaborative piece with artist Lucy Williams — solid copper, Welsh slate, and a limited-edition photographic print. Made to order.",
+      description: "A collaborative work with artist Lucy Williams — solid copper, Welsh slate, and a limited-edition photographic print. Made to order.",
       ogImage: "/og-three-geishas.jpg",
     },
   },

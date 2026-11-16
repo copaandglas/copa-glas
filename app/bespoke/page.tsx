@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { getReferral } from "@/app/lib/referral";
+import { riseStyle } from "@/app/lib/motion";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -156,12 +157,10 @@ export default function BespokePage() {
         "
       >
         {/* Breadcrumb */}
-        <motion.nav
-          initial={from(8)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease }}
+        <nav
+          style={riseStyle(8, 1.1)}
           aria-label="Breadcrumb"
-          className="flex items-center text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
+          className="rise flex items-center text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
         >
           <Link
             href="/"
@@ -171,25 +170,21 @@ export default function BespokePage() {
           </Link>
           <span className="opacity-20 mx-2">/</span>
           <span className="opacity-85">Bespoke</span>
-        </motion.nav>
+        </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_38%] gap-12 lg:gap-20 xl:gap-28 items-start">
           {/* Left: eyebrow + headline + body */}
           <div>
-            <motion.p
-              initial={from(8)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.06, ease }}
-              className="text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-6"
+            <p
+              style={riseStyle(8, 1.1, 0.06)}
+              className="rise text-[9px] tracking-[0.28em] uppercase text-black/62 font-medium mb-6"
             >
               Bespoke
-            </motion.p>
+            </p>
 
-            <motion.h1
-              initial={from(20)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.14, ease }}
-              className="
+            <h1
+              style={riseStyle(20, 1.3, 0.14)}
+              className="rise
                 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.5rem,6.4vw,5.25rem)]
                 leading-[1.03] -tracking-[0.01em] font-normal
@@ -199,21 +194,16 @@ export default function BespokePage() {
               Commissioned
               <br />
               <em>works.</em>
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.34, ease }}
-              style={{ originX: 0 }}
-              className="w-10 h-px bg-accent/40 mb-10"
+            <div
+              style={riseStyle(0, 1, 0.34)}
+              className="rise-line w-10 h-px bg-accent/40 mb-10"
             />
 
-            <motion.div
-              initial={from(14)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.28, ease }}
-              className="
+            <div
+              style={riseStyle(14, 1.3, 0.28)}
+              className="rise
                 max-w-[34rem]
                 space-y-5
                 font-[family-name:var(--font-newsreader),Georgia,serif]
@@ -238,15 +228,13 @@ export default function BespokePage() {
                 samples are provided throughout. Everything is made by hand
                 in our East London workshop.
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: 3 stats */}
-          <motion.aside
-            initial={from(20)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.3, delay: 0.36, ease }}
-            className="lg:pt-2"
+          <aside
+            style={riseStyle(20, 1.3, 0.36)}
+            className="rise lg:pt-2"
           >
             <ul className="flex flex-col divide-y divide-black/10">
               {[
@@ -276,7 +264,7 @@ export default function BespokePage() {
                 </li>
               ))}
             </ul>
-          </motion.aside>
+          </aside>
         </div>
       </section>
 

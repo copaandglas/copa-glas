@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { getReferral } from "@/app/lib/referral";
+import { riseStyle } from "@/app/lib/motion";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -86,8 +87,6 @@ export default function ContactPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
-  const anim = (y: number) =>
-    prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y };
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -164,24 +163,22 @@ export default function ContactPage() {
         <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
 
           {/* Breadcrumb */}
-          <motion.nav
-            initial={anim(8)} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: luxuryEase }}
+          <nav
+            style={riseStyle(8, 1.1)}
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-12 md:mb-16 lg:mb-24"
+            className="rise flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-12 md:mb-16 lg:mb-24"
           >
             <Link href="/" className="text-inherit no-underline opacity-50 hover:opacity-90 transition-opacity duration-500">Home</Link>
             <span className="opacity-25 mx-2">/</span>
             <span className="opacity-90">Contact</span>
-          </motion.nav>
+          </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
 
             {/* ===== LEFT ===== */}
-            <motion.div
-              initial={anim(16)} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.08, ease: luxuryEase }}
-              className="lg:col-span-5 flex flex-col gap-10 md:gap-12"
+            <div
+              style={riseStyle(16, 1.3, 0.08)}
+              className="rise lg:col-span-5 flex flex-col gap-10 md:gap-12"
             >
               {/* Heading */}
               <div>
@@ -249,6 +246,7 @@ export default function ContactPage() {
                   src="/workshop-tools.webp"
                   alt="Copa + Glas studio workshop tools"
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover"
                 />
@@ -259,13 +257,12 @@ export default function ContactPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
               </div>
-            </motion.div>
+            </div>
 
             {/* ===== RIGHT — FORM ===== */}
-            <motion.div
-              initial={anim(20)} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.18, ease: luxuryEase }}
-              className="lg:col-span-6 lg:col-start-7"
+            <div
+              style={riseStyle(20, 1.3, 0.18)}
+              className="rise lg:col-span-6 lg:col-start-7"
             >
               <AnimatePresence mode="wait">
                 {submitState === "sent" ? (
@@ -517,7 +514,7 @@ export default function ContactPage() {
                   </motion.form>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

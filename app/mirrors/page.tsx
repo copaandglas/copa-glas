@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-
-const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { riseStyle } from "@/app/lib/motion";
 
 interface Mirror {
   slug: string;
@@ -87,12 +85,10 @@ export default function MirrorsPage() {
           max-w-[1400px] 3xl:max-w-[1680px] mx-auto
         "
       >
-        <motion.nav
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: luxuryEase }}
+        <nav
+          style={riseStyle(8, 0.5)}
           aria-label="Breadcrumb"
-          className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.12em] uppercase mb-6 md:mb-8"
+          className="rise flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.12em] uppercase mb-6 md:mb-8"
         >
           <Link
             href="/"
@@ -109,22 +105,18 @@ export default function MirrorsPage() {
           </Link>
           <span className="opacity-25 mx-2">/</span>
           <span className="opacity-90">Mirrors</span>
-        </motion.nav>
+        </nav>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05, ease: luxuryEase }}
-          className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase opacity-75 mb-3 md:mb-4"
+        <p
+          style={riseStyle(12, 0.6, 0.05)}
+          className="rise text-[10px] md:text-[11px] tracking-[0.15em] uppercase mb-3 md:mb-4"
         >
           Collection, Mirrors
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: luxuryEase }}
-          className="
+        <h1
+          style={riseStyle(16, 0.7, 0.1)}
+          className="rise
             font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] 3xl:text-[3.75rem]
             font-normal leading-[1.08] -tracking-[0.005em]
@@ -132,23 +124,21 @@ export default function MirrorsPage() {
           "
         >
           Refraction, framed in copper.
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.18, ease: luxuryEase }}
-          className="
+        <p
+          style={riseStyle(16, 0.7, 0.18)}
+          className="rise
             font-[family-name:var(--font-newsreader),Georgia,serif]
             text-[15px] md:text-base lg:text-lg 3xl:text-[19px]
-            leading-[1.75] opacity-[0.88] max-w-xl
+            leading-[1.75] max-w-xl
           "
         >
           A studio-led collection of mirrors in hand-cut silvered glass and
           solid, hand-formed copper. Each piece is made to order in our East
           London workshop, an object designed not only to reflect a space, but
           to articulate the light within it.
-        </motion.p>
+        </p>
       </div>
 
       {/* ---- Grid ---- */}
@@ -170,15 +160,9 @@ export default function MirrorsPage() {
           "
         >
           {mirrors.map((mirror, i) => (
-            <motion.div
+            <div className="rise"
               key={mirror.slug}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.55,
-                delay: Math.min(i * 0.05, 0.3),
-                ease: luxuryEase,
-              }}
+              style={riseStyle(24, 0.55, Math.min(i * 0.05, 0.3))}
             >
               <Link
                 href={`/product/${mirror.slug}`}
@@ -363,7 +347,7 @@ export default function MirrorsPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

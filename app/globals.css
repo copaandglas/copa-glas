@@ -131,6 +131,29 @@ p, a, h1, h2, h3, h4, h5, h6, li {
   animation: page-fade 0.22s ease-out;
 }
 
+/* ---- Entrance of headings and introductions ----
+   Timed per element by riseStyle() in app/lib/motion.ts. Like the page fade,
+   it starts a hair above zero so the content counts as painted from the
+   first frame. Once finished, the element returns to its own styles. */
+@keyframes rise {
+  from { opacity: 0.01; transform: translate3d(0, var(--rise-y, 12px), 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rise-line {
+  from { opacity: 0.01; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+.rise {
+  animation: rise var(--rise-d, 0.7s) cubic-bezier(0.16, 1, 0.3, 1) var(--rise-delay, 0s) backwards;
+}
+.rise-line {
+  transform-origin: left center;
+  animation: rise-line var(--rise-d, 1s) cubic-bezier(0.16, 1, 0.3, 1) var(--rise-delay, 0s) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise { --rise-y: 0px !important; }
+}
+
 /* ---- Image shimmer while loading ---- */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }

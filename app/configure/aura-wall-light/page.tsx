@@ -14,8 +14,7 @@ import {
   auraEnquiryProduct,
   defaultAuraConfiguration,
 } from "@/app/lib/aura-wall-light-colors";
-
-const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { riseStyle } from "@/app/lib/motion";
 
 export default function AuraWallLightConfigurePage() {
   const [config, setConfig] = useState<AuraConfiguration>(defaultAuraConfiguration);
@@ -41,12 +40,10 @@ export default function AuraWallLightConfigurePage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header variant="dark" />
 
-      <motion.nav
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: luxuryEase }}
+      <nav
+        style={riseStyle(8, 0.5)}
         aria-label="Breadcrumb"
-        className="
+        className="rise
           hidden md:flex flex-wrap items-center gap-y-1.5
           text-[10px] md:text-[11px] tracking-[0.12em] uppercase
           pt-28 md:pt-32 px-[max(2.25rem,env(safe-area-inset-left))]
@@ -63,7 +60,7 @@ export default function AuraWallLightConfigurePage() {
         </Link>
         <span className="opacity-25 mx-2">/</span>
         <span className="opacity-90">Aura Wall Light</span>
-      </motion.nav>
+      </nav>
 
       <main className="flex-1 min-h-0 pt-[max(4.5rem,calc(env(safe-area-inset-top)+3.75rem))] md:pt-0 md:py-8 lg:py-12 md:px-[max(2.25rem,env(safe-area-inset-left))] lg:px-[max(3.5rem,env(safe-area-inset-left))]">
         <AuraWallLightConfigurator

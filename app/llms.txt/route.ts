@@ -43,7 +43,7 @@ ${pieces}
 - [Mirrors](${absoluteUrl("/mirrors")}): The Rotation (in silvered or copper tone glass), Mondrian, and Fibonacci mirrors.
 - [Lighting](${absoluteUrl("/lighting")}): The Aura Wall Light and sculptural lighting made to order.
 - [Limited Editions](${absoluteUrl("/limited-editions")}): Works limited to ten worldwide, numbered and certificated.
-- [Collaborations](${absoluteUrl("/collaborative")}): Pieces made in partnership with artists and designers.
+- [Collaborations](${absoluteUrl("/collaborative")}): Works made in partnership with artists and designers.
 - [Bespoke](${absoluteUrl("/bespoke")}): How to commission a bespoke mirror, light, or architectural installation.
 - [Trade & Specification](${absoluteUrl("/trade-specification")}): The trade programme for interior designers, architects, and hospitality practices.
 - [Origins](${absoluteUrl("/origins")}): The history of the technique, from the Luxfer Prism Company (1897) to Frank Lloyd Wright.

@@ -4,7 +4,7 @@ import { productsInCategory } from "@/app/lib/products";
 import { breadcrumbSchema, itemListSchema, webPageSchema } from "@/app/lib/schema";
 
 const description =
-  "Handcrafted copper and glass wall lights by Copa + Glas Studio — sculptural lighting made to order in East London.";
+  "Wall lights in hand-formed copper and art glass by Copa + Glas Studio. Sculptural lighting, made to order in East London.";
 
 export const metadata = pageMetadata({
   title: "Handmade Copper & Glass Wall Lights",

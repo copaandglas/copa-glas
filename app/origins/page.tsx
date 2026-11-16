@@ -13,6 +13,7 @@ import {
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import AutoplayVideo from "@/app/components/AutoplayVideo";
+import { riseStyle } from "@/app/lib/motion";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -181,12 +182,10 @@ export default function OriginsPage() {
             "
           >
             {/* Breadcrumb */}
-            <motion.nav
-              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: luxuryEase }}
+            <nav
+              style={riseStyle(8, 1.1)}
               aria-label="Breadcrumb"
-              className="
+              className="rise
                 flex flex-wrap items-center gap-y-1.5
                 text-[10px] md:text-[11px] tracking-[0.18em] uppercase
                 text-white/55 mb-14 md:mb-20 lg:mb-24
@@ -200,24 +199,20 @@ export default function OriginsPage() {
               </Link>
               <span className="mx-2 text-white/25">/</span>
               <span className="text-white/90">Origins</span>
-            </motion.nav>
+            </nav>
 
             {/* Eyebrow */}
-            <motion.p
-              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.1, ease: luxuryEase }}
-              className="text-[9px] tracking-[0.24em] uppercase text-white/62 font-medium mb-5 md:mb-6"
+            <p
+              style={riseStyle(8, 1.1, 0.1)}
+              className="rise text-[9px] tracking-[0.24em] uppercase text-white/62 font-medium mb-5 md:mb-6"
             >
               1897 — Present
-            </motion.p>
+            </p>
 
             {/* Headline */}
-            <motion.h1
-              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.2, ease: luxuryEase }}
-              className="
+            <h1
+              style={riseStyle(18, 1.3, 0.2)}
+              className="rise
                 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.6rem,6.5vw,5.5rem)]
                 leading-[1.02] -tracking-[0.012em] font-normal
@@ -227,23 +222,18 @@ export default function OriginsPage() {
               A lineage over{" "}
               <em className="italic">a century</em>
               <br />in the making.
-            </motion.h1>
+            </h1>
 
             {/* Thin copper rule */}
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1.1, delay: 0.38, ease: luxuryEase }}
-              style={{ originX: 0 }}
-              className="w-10 h-px bg-white/25 mb-8 md:mb-10"
+            <div
+              style={riseStyle(0, 1.1, 0.38)}
+              className="rise-line w-10 h-px bg-white/25 mb-8 md:mb-10"
             />
 
             {/* Intro paragraph */}
-            <motion.p
-              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.42, ease: luxuryEase }}
-              className="
+            <p
+              style={riseStyle(14, 1.3, 0.42)}
+              className="rise
                 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-[16px] lg:text-[17px]
                 leading-[1.75] text-white/82 max-w-[48ch]
@@ -254,15 +244,13 @@ export default function OriginsPage() {
               company that changed how buildings related to light — a
               technique later transformed by one of architecture&apos;s great
               visionaries.
-            </motion.p>
+            </p>
           </div>
 
           {/* Right: archival image — desktop only */}
-          <motion.div
-            className="hidden lg:block flex-1 relative overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.8, delay: 0.3, ease: luxuryEase }}
+          <div
+            className="rise hidden lg:block flex-1 relative overflow-hidden"
+            style={riseStyle(0, 1.8, 0.3)}
           >
             <AutoplayVideo
               aria-label="Copper and glass craft work in the Copa + Glas studio"
@@ -277,7 +265,7 @@ export default function OriginsPage() {
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-dark to-transparent" />
             {/* Bottom edge */}
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark to-transparent" />
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}

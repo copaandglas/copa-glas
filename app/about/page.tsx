@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import AutoplayVideo from "@/app/components/AutoplayVideo";
+import { riseStyle } from "@/app/lib/motion";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -28,39 +29,33 @@ export default function AboutPage() {
         "
       >
         {/* Breadcrumb */}
-        <motion.nav
-          initial={from(8)}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease }}
+        <nav
+          style={riseStyle(8, 1.1)}
           aria-label="Breadcrumb"
-          className="flex items-center gap-y-1.5 text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
+          className="rise flex items-center gap-y-1.5 text-[10px] tracking-[0.18em] uppercase mb-14 md:mb-20"
         >
           <Link href="/" className="opacity-45 hover:opacity-90 transition-opacity duration-400 no-underline text-inherit">
             Home
           </Link>
           <span className="opacity-20 mx-2">/</span>
           <span className="opacity-85">About</span>
-        </motion.nav>
+        </nav>
 
         {/* Two-column: text left, founders image right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_45%] gap-12 lg:gap-16 xl:gap-20 items-start">
 
           {/* Left: headline + copy */}
           <div>
-            <motion.p
-              initial={from(8)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.06, ease }}
-              className="text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
+            <p
+              style={riseStyle(8, 1.1, 0.06)}
+              className="rise text-[9px] tracking-[0.24em] uppercase text-black/60 font-medium mb-6"
             >
               The Studio
-            </motion.p>
+            </p>
 
-            <motion.h1
-              initial={from(18)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.14, ease }}
-              className="
+            <h1
+              style={riseStyle(18, 1.3, 0.14)}
+              className="rise
                 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[clamp(2.6rem,6vw,5rem)]
                 leading-[1.03] -tracking-[0.01em] font-normal
@@ -70,21 +65,16 @@ export default function AboutPage() {
               A studio
               <br />
               <em>of makers.</em>
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.36, ease }}
-              style={{ originX: 0 }}
-              className="w-10 h-px bg-black/15 mb-8"
+            <div
+              style={riseStyle(0, 1, 0.36)}
+              className="rise-line w-10 h-px bg-black/15 mb-8"
             />
 
-            <motion.div
-              initial={from(14)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.28, ease }}
-              className="
+            <div
+              style={riseStyle(14, 1.3, 0.28)}
+              className="rise
                 space-y-5
                 font-[family-name:var(--font-newsreader),Georgia,serif]
                 text-[15px] md:text-base lg:text-[17px]
@@ -100,15 +90,13 @@ export default function AboutPage() {
                 The studio was born of a deeply personal approach to making,
                 working with two materials above all others: copper and glass.
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: founders image */}
-          <motion.div
-            initial={from(20)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.18, ease }}
-            className="lg:sticky lg:top-28"
+          <div
+            style={riseStyle(20, 1.4, 0.18)}
+            className="rise lg:sticky lg:top-28"
           >
             <Image
               src="/founders.png"
@@ -123,7 +111,7 @@ export default function AboutPage() {
               <span>Bradley McWhinney</span>
               <span>Anthony McCarty</span>
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

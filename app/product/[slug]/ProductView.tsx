@@ -9,6 +9,7 @@ import Footer from "@/app/components/Footer";
 import EnquiryDrawer from "@/app/components/EnquiryDrawer";
 import type { ProductData } from "@/app/lib/products";
 import { absoluteUrl } from "@/app/lib/site";
+import { riseStyle } from "@/app/lib/motion";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -134,11 +135,9 @@ export default function ProductView({ product }: { product: ProductData }) {
           items-start w-full box-border
         ">
           {/* ---- LEFT: Images ---- */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: luxuryEase }}
-            className="
+          <div
+            style={riseStyle(24, 0.7, 0.1)}
+            className="rise
               w-full md:w-[48%] lg:w-1/2 3xl:w-1/2
               md:flex-none relative md:sticky md:top-6 self-start
             "
@@ -290,14 +289,12 @@ export default function ProductView({ product }: { product: ProductData }) {
             </div>
 
             <div className="md:hidden h-6" />
-          </motion.div>
+          </div>
 
           {/* ---- RIGHT: Details ---- */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: luxuryEase }}
-            className="flex-1 min-w-0 max-w-full md:max-w-[540px] 3xl:max-w-[640px]"
+          <div
+            style={riseStyle(24, 0.7, 0.2)}
+            className="rise flex-1 min-w-0 max-w-full md:max-w-[540px] 3xl:max-w-[640px]"
           >
             {/* Breadcrumb */}
             <nav
@@ -457,7 +454,7 @@ export default function ProductView({ product }: { product: ProductData }) {
               <ShareMenu name={product.name} url={absoluteUrl(`/product/${slug}`)} />
             </div>
 
-          </motion.div>
+          </div>
         </main>
       </div>
 

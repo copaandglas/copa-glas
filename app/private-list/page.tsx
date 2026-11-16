@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { getReferral } from "@/app/lib/referral";
+import { riseStyle } from "@/app/lib/motion";
 
 const luxuryEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -69,7 +70,6 @@ export default function PrivateListPage() {
     }
   }, [state, prefersReducedMotion]);
 
-  const anim = (y: number) => (prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y });
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -140,27 +140,23 @@ export default function PrivateListPage() {
         "
       >
         <div className="max-w-[1400px] 3xl:max-w-[1680px] mx-auto">
-          <motion.nav
-            initial={anim(8)}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: luxuryEase }}
+          <nav
+            style={riseStyle(8, 1.1)}
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-12 md:mb-16 lg:mb-24"
+            className="rise flex flex-wrap items-center gap-y-1.5 text-[10px] md:text-[11px] tracking-[0.18em] uppercase mb-12 md:mb-16 lg:mb-24"
           >
             <Link href="/" className="text-inherit no-underline opacity-50 hover:opacity-90 transition-opacity duration-500">
               Home
             </Link>
             <span className="opacity-25 mx-2">/</span>
             <span className="opacity-90">Private list</span>
-          </motion.nav>
+          </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 md:gap-16 lg:gap-x-20 lg:gap-y-12 items-start">
             {/* Left: the introduction */}
-            <motion.div
-              initial={anim(16)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.08, ease: luxuryEase }}
-              className="lg:col-span-5 lg:row-start-1"
+            <div
+              style={riseStyle(16, 1.3, 0.08)}
+              className="rise lg:col-span-5 lg:row-start-1"
             >
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -183,15 +179,13 @@ export default function PrivateListPage() {
                 </p>
               </div>
 
-            </motion.div>
+            </div>
 
             {/* Right: the form */}
-            <motion.div
+            <div
               ref={formColumnRef}
-              initial={anim(20)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.18, ease: luxuryEase }}
-              className="scroll-mt-28 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-28"
+              style={riseStyle(20, 1.3, 0.18)}
+              className="rise scroll-mt-28 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-28"
             >
               <AnimatePresence mode="wait">
                 {state === "sent" ? (
@@ -367,14 +361,12 @@ export default function PrivateListPage() {
                   </motion.form>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             {/* What membership means */}
-            <motion.div
-              initial={anim(16)}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3, delay: 0.24, ease: luxuryEase }}
-              className="lg:col-span-5 lg:row-start-2 flex flex-col gap-10 md:gap-12"
+            <div
+              style={riseStyle(16, 1.3, 0.24)}
+              className="rise lg:col-span-5 lg:row-start-2 flex flex-col gap-10 md:gap-12"
             >
               <ol className="list-none m-0 p-0 border-t border-black/10">
                 {BENEFITS.map((b) => (
@@ -404,7 +396,7 @@ export default function PrivateListPage() {
                   The Prairie Mirror · Edition 1 of 10
                 </figcaption>
               </figure>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

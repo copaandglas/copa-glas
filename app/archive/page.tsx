@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { riseStyle } from "@/app/lib/motion";
 
 /* ─── Types ─── */
 interface ArchiveItem {
@@ -397,36 +398,32 @@ export default function ArchivePage() {
         </nav>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20 lg:gap-36">
-          <motion.h1
-            className="
+          <h1
+            className="rise
               font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[clamp(2.6rem,7.5vw,5.25rem)]
               font-normal leading-[1.04] text-black
             "
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            style={riseStyle(22, 0.9)}
           >
             Four decades
             <br />
             <em>of making.</em>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="
+          <p
+            className="rise
               font-[family-name:var(--font-newsreader),Georgia,serif]
               text-[13px] sm:text-sm leading-[1.85] text-black/65
               max-w-[310px] md:text-right md:pb-0.5
             "
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
+            style={riseStyle(16, 0.9, 0.18)}
           >
             A visual record of the studio. Workshop processes,
             historical commissions, and the craft language that has
             shaped our practice since the beginning — led by master
             craftsman Anthony McCarty.
-          </motion.p>
+          </p>
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import { pageMetadata } from "@/app/lib/metadata";
 import { breadcrumbSchema, serviceSchema } from "@/app/lib/schema";
 
 const description =
-  "Commission a bespoke mirror or lighting piece with Copa + Glas. Every piece can be scaled, finished, or wholly reconceived in copper and hand-cut glass.";
+  "Commission a bespoke mirror or light from Copa + Glas. Every work can be scaled, finished, or wholly reconceived in copper and hand-cut glass.";
 
 export const metadata = pageMetadata({
   title: "Bespoke Mirrors & Lighting Commissions",

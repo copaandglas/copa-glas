@@ -51,7 +51,7 @@ export function organizationSchema() {
     areaServed: "Worldwide",
     sameAs: [CONTACT.instagram],
     knowsAbout: [
-      "Handcrafted mirrors",
+      "Handmade mirrors",
       "Copper and glass lighting",
       "Bespoke mirror commissions",
       "Architectural glazing",
