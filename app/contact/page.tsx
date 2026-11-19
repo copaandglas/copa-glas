@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import PencilFrame from "@/app/components/PencilFrame";
 import { getReferral } from "@/app/lib/referral";
 import { riseStyle } from "@/app/lib/motion";
 
@@ -240,7 +241,8 @@ export default function ContactPage() {
                 We reply to every enquiry personally, typically within two working days.
               </p>
 
-              {/* Workshop image */}
+              {/* Workshop image, in a drawn frame */}
+              <PencilFrame>
               <div className="relative w-full aspect-[1/1] overflow-hidden bg-muted">
                 <Image
                   src="/workshop-tools.webp"
@@ -257,6 +259,7 @@ export default function ContactPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
               </div>
+              </PencilFrame>
             </div>
 
             {/* ===== RIGHT — FORM ===== */}
